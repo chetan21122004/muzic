@@ -4,31 +4,31 @@ import Footer from "@/components/Footer";
 
 const centers = [
   {
-    name: "Artium Academy – Pune (Kothrud)",
-    address: "2nd Floor, Sahil Complex, Paud Road, Kothrud, Pune – 411038",
+    name: "Muziclub – Baner, Pune",
+    address: "2nd Floor, Sahil Complex, Baner Road, Baner, Pune – 411045",
     phone: "+91 98765 43210",
-    email: "pune@artiumacademy.com",
+    email: "baner@muziclub.com",
     hours: "Mon – Sat: 9 AM – 9 PM",
   },
   {
-    name: "Artium Academy – Mumbai (Andheri)",
-    address: "301, Creative Hub, Andheri West, Mumbai – 400058",
+    name: "Muziclub – Pimple Saudagar, Pune",
+    address: "301, Creative Hub, Pimple Saudagar, Pune – 411027",
     phone: "+91 98765 43211",
-    email: "mumbai@artiumacademy.com",
+    email: "pimplesaudagar@muziclub.com",
     hours: "Mon – Sat: 10 AM – 8 PM",
   },
   {
-    name: "Artium Academy – Bangalore (Koramangala)",
-    address: "4th Floor, Harmony Towers, 80 Feet Road, Koramangala, Bangalore – 560034",
+    name: "Muziclub – Hinjawadi, Pune",
+    address: "4th Floor, Harmony Towers, Hinjawadi Phase 1, Pune – 411057",
     phone: "+91 98765 43212",
-    email: "bangalore@artiumacademy.com",
+    email: "hinjawadi@muziclub.com",
     hours: "Mon – Sat: 9 AM – 9 PM",
   },
   {
-    name: "Artium Academy – Delhi (Hauz Khas)",
-    address: "B-12, Hauz Khas Village, New Delhi – 110016",
-    phone: "+91 98765 43213",
-    email: "delhi@artiumacademy.com",
+    name: "Muziclub – Croydon, UK",
+    address: "Croydon, London, United Kingdom",
+    phone: "+44 20 1234 5678",
+    email: "uk@muziclub.com",
     hours: "Mon – Sat: 10 AM – 8 PM",
   },
 ];
@@ -45,7 +45,7 @@ const Center = () => {
             Our <span className="text-primary">Centers</span>
           </h1>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Visit us at our learning centers across India. Experience world-class music education in a vibrant, creative environment.
+            Visit us at our learning centers. Experience world-class music education in a vibrant, creative environment.
           </p>
         </div>
       </section>

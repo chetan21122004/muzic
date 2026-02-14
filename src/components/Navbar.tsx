@@ -35,7 +35,7 @@ const Navbar = () => {
           <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
             <Music className="w-4 h-4 text-primary-foreground" />
           </div>
-          <span className="text-lg font-bold text-foreground">Artium<span className="text-primary"> Academy</span></span>
+          <span className="text-lg font-bold text-foreground">Muzi<span className="text-primary">club</span></span>
         </Link>
 
         <div className="hidden lg:flex items-center gap-6">

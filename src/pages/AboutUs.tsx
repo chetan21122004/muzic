@@ -1,4 +1,4 @@
-import { Award, Users, BookOpen, Star, Target, Heart } from "lucide-react";
+import { Award, Users, BookOpen, Star, Target, Heart, MapPin } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import teacher1 from "@/assets/teacher1.jpg";
@@ -7,16 +7,16 @@ import teacher3 from "@/assets/teacher3.jpg";
 import teacher4 from "@/assets/teacher4.jpg";
 
 const stats = [
-  { value: "10+", label: "Years of Excellence" },
+  { value: "13+", label: "Years of Excellence" },
   { value: "5000+", label: "Students Trained" },
   { value: "50+", label: "Expert Teachers" },
   { value: "20+", label: "Music Courses" },
 ];
 
 const values = [
-  { icon: Target, title: "Our Mission", desc: "To make world-class music education accessible to everyone, regardless of age or background." },
-  { icon: Star, title: "Our Vision", desc: "To be the leading online music academy nurturing the next generation of global musicians." },
-  { icon: Heart, title: "Our Values", desc: "Passion, discipline, creativity, and commitment to every student's unique musical journey." },
+  { icon: Target, title: "Our Mission", desc: "To make world-class music education accessible to everyone, regardless of age or background. Making music a part of your life." },
+  { icon: Star, title: "Our Vision", desc: "To be the leading online music academy nurturing the next generation of global musicians through innovative and adaptive methods." },
+  { icon: Heart, title: "Our Values", desc: "Passion, discipline, creativity, and commitment to every student's unique musical journey. Our motto — Live Music." },
 ];
 
 const team = [
@@ -24,6 +24,12 @@ const team = [
   { img: teacher2, name: "Conrad Bhengra", role: "Guitar Faculty" },
   { img: teacher3, name: "Kenny Khandka", role: "Piano Faculty" },
   { img: teacher4, name: "Tanmay Mathew", role: "Vocals Faculty" },
+];
+
+const reviews = [
+  { location: "Muziclub, Baner, Pune", rating: "4.8", count: "345" },
+  { location: "Muziclub, Pimple Saudagar, Pune", rating: "4.8", count: "183" },
+  { location: "Muziclub, Hinjawadi, Pune", rating: "4.7", count: "95" },
 ];
 
 const AboutUs = () => {
@@ -35,10 +41,10 @@ const AboutUs = () => {
       <section className="bg-card py-20 border-b border-border">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            About <span className="text-primary">Artium Academy</span>
+            About <span className="text-primary">Muziclub</span>
           </h1>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            India's leading online music academy offering certified courses in vocals, guitar, keyboard, drums, and more — taught by industry professionals.
+            Learn and Live Music — India's leading music academy offering certified courses in vocals, guitar, keyboard, drums, and more.
           </p>
         </div>
       </section>
@@ -77,16 +83,46 @@ const AboutUs = () => {
         <div className="max-w-3xl mx-auto text-center space-y-4">
           <h2 className="text-3xl font-bold text-foreground">Our Story</h2>
           <p className="text-muted-foreground leading-relaxed">
-            Artium Academy was founded with a simple belief — every person has music within them. What started as a small music school in Pune has grown into one of India's most trusted online music academies. With certified courses aligned to international standards (Trinity, ABRSM, RSL), we've empowered thousands of students to learn, practice, and perform on global stages.
+            Muziclub is a platform driven by people who live music and have a passion to develop the same with whoever they touch. Muziclub academy is founded on quality and structured music education. Our model has the right balance of discipline and flexibility that is needed to learn music.
           </p>
           <p className="text-muted-foreground leading-relaxed">
-            Our faculty comprises industry veterans, concert performers, and dedicated educators who bring decades of experience to every lesson. Whether you're a complete beginner or an advanced musician, our structured curriculum and 1-on-1 live classes ensure personalized attention at every step.
+            Our classes are designed to provide personalized focus, practice facilities, and fulfilling engagement with passionate teachers. Learning without performing does not go far — so we provide an opportunity to all students to perform every week in Sunday Jam. Our teaching methods are continuously improving so that we can provide the best experience and results for students.
+          </p>
+          <p className="text-muted-foreground leading-relaxed">
+            Muziclub is all about living music — making music a part of your life. We are committed to providing best-in-class music education and services around the world through our innovative and adaptive methods. Our motto 'Live Music' drives all service offerings including music classes at academy centres or online, arranging music shows and workshops, corporate seminars, or simply chilling out over a nice groove at jam sessions.
+          </p>
+          <p className="text-muted-foreground leading-relaxed">
+            We are based at Pune, India with presence in Croydon, UK for effective coordination of online music classes in London and the rest of UK.
           </p>
         </div>
       </section>
 
-      {/* Team */}
+      {/* Google Reviews */}
       <section className="bg-card py-14 border-y border-border">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-foreground text-center mb-10">Google Reviews</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            {reviews.map((r) => (
+              <div key={r.location} className="bg-background border border-border rounded-xl p-6 text-center space-y-2">
+                <div className="flex items-center justify-center gap-1">
+                  <MapPin className="w-4 h-4 text-primary" />
+                  <h4 className="text-foreground font-semibold text-sm">{r.location}</h4>
+                </div>
+                <div className="text-3xl font-bold text-primary">{r.rating}</div>
+                <p className="text-xs text-muted-foreground">Based on {r.count} reviews</p>
+                <div className="flex justify-center gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <span key={i} className="text-primary text-sm">★</span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Team */}
+      <section className="py-14">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-foreground text-center mb-10">Meet Our Faculty</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">

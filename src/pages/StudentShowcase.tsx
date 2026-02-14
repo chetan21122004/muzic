@@ -22,7 +22,7 @@ const StudentShowcase = () => {
             Student <span className="text-primary">Showcase</span>
           </h1>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Watch our talented students perform, cover iconic tracks, and showcase their musical journey at Artium Academy.
+            Watch our talented students perform, cover iconic tracks, and showcase their musical journey at Muziclub.
           </p>
         </div>
       </section>

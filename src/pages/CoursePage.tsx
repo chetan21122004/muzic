@@ -101,7 +101,7 @@ const CoursePage = () => {
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-12">
-            How Online {course.name} Classes Work At Artium
+            How Online {course.name} Classes Work At Muziclub
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             {[
@@ -156,7 +156,7 @@ const CoursePage = () => {
       <section className="py-16 bg-surface-light">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-bold text-surface-light-foreground text-center mb-10">
-            More Courses on Artium
+            More Courses on Muziclub
           </h2>
           <div className="flex flex-wrap justify-center gap-3">
             {[...relatedCourses, ...otherCourses].slice(0, 8).map((c) => (
