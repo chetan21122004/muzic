@@ -17,10 +17,10 @@ const Footer = () => {
               <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
                 <Music className="w-4 h-4 text-primary-foreground" />
               </div>
-              <span className="font-bold text-foreground">Artium</span>
+              <span className="font-bold text-foreground">Muziclub</span>
             </div>
             <p className="text-xs text-muted-foreground mb-4">
-              Best online music academy for beginners, all classes of age.
+              Learn and Live Music. Best online music academy for all ages.
             </p>
             <div className="flex gap-3">
               {[Facebook, Instagram, Twitter, Youtube, Linkedin].map((Icon, i) => (
@@ -44,7 +44,7 @@ const Footer = () => {
           ))}
         </div>
         <div className="border-t border-border pt-6 text-center">
-          <p className="text-xs text-muted-foreground">© 2025 Artium Academy. All rights reserved.</p>
+          <p className="text-xs text-muted-foreground">© 2026 Muziclub – Learn and Live Music. All rights reserved.</p>
         </div>
       </div>
     </footer>

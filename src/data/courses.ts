@@ -53,8 +53,8 @@ export const allCourses: Course[] = courseCategories.flatMap((cat) =>
     slug: c.slug,
     name: c.name,
     category: cat.title,
-    shortDescription: `Learn ${c.name} online from the best teachers. 1-on-1 live classes, flexible scheduling, and certification.`,
-    heroDescription: `Master ${c.name} with personalized online classes from India's top music academy. Whether you're a beginner or advanced student, our expert teachers will guide you through a structured curriculum designed for real progress.`,
+    shortDescription: `Learn ${c.name} online from the best teachers at Muziclub. 1-on-1 live classes, flexible scheduling, and certification.`,
+    heroDescription: `Master ${c.name} with personalized online classes from Muziclub. Whether you're a beginner or advanced student, our expert teachers will guide you through a structured curriculum designed for real progress.`,
     features: [
       { icon: "🎓", title: "Expert Teachers", description: "Learn from highly qualified and experienced teachers who are passionate about music education." },
       { icon: "🎭", title: "From Student to Performer", description: "Our curriculum is designed to transform you from a student to a confident performer on stage." },

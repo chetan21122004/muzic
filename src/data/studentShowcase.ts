@@ -9,67 +9,67 @@ export const showcaseItems: ShowcaseItem[] = [
   {
     title: "Malay Kale – Drums Student",
     category: "Drums",
-    description: "Malay Kale has been learning drums at Artium since 2019 from Akarsh Singh sir. This 11 year old also has performed No One Knows – Drums Cover.",
+    description: "Malay Kale has been learning drums at Muziclub since 2019 from Akarsh Singh sir. This 11 year old also has performed No One Knows – Drums Cover.",
     slug: "malay-kale-drums-1",
   },
   {
     title: "Arushi Deshpande – Guitar Student",
     category: "Guitar",
-    description: "Arushi Deshpande has been learning guitars at Artium since 2020 from Conrad Bhengra sir. This 16 year old covers James Arthur and many more.",
+    description: "Arushi Deshpande has been learning guitars at Muziclub since 2020 from Conrad Bhengra sir. This 16 year old covers James Arthur and many more.",
     slug: "arushi-deshpande-guitar",
   },
   {
     title: "Nirav Chakrabarti – Guitar Student",
     category: "Guitar",
-    description: "Nirav Chakrabarti has been learning guitars at Artium since 2016 and has been learning from Conrad Bhengra sir for the longest time. Master Of Puppets cover.",
+    description: "Nirav Chakrabarti has been learning guitars at Muziclub since 2016 and has been learning from Conrad Bhengra sir for the longest time. Master Of Puppets cover.",
     slug: "nirav-chakrabarti-guitar",
   },
   {
     title: "Malay Kale – Drums Student",
     category: "Drums",
-    description: "Malay Kale has been learning drums at Artium since 2019 from Akarsh Singh sir. This 11 year old also has showcased incredible talent.",
+    description: "Malay Kale has been learning drums at Muziclub since 2019 from Akarsh Singh sir. This 11 year old also has showcased incredible talent.",
     slug: "malay-kale-drums-2",
   },
   {
     title: "Charan Raavi – Keyboard Student",
     category: "Keyboard",
-    description: "Charan Raavi has been learning keyboard at Artium for almost a year now. He has learnt for 2 modules with great dedication.",
+    description: "Charan Raavi has been learning keyboard at Muziclub for almost a year now. He has learnt for 2 modules with great dedication.",
     slug: "charan-raavi-keyboard",
   },
   {
     title: "Varun Raavi – Keyboard Student",
     category: "Keyboard",
-    description: "Varun Raavi has been learning keyboard at Artium for almost a year now. He has learnt for 2 modules and shows remarkable progress.",
+    description: "Varun Raavi has been learning keyboard at Muziclub for almost a year now. He has learnt for 2 modules and shows remarkable progress.",
     slug: "varun-raavi-keyboard",
   },
   {
     title: "Saurabh Patwardhan – Guitar Student",
     category: "Guitar",
-    description: "Though Saurabh has taken advanced level guitar lessons at Artium for a very short while, he is as much part of the community as anyone.",
+    description: "Though Saurabh has taken advanced level guitar lessons at Muziclub for a very short while, he is as much part of the community as anyone.",
     slug: "saurabh-patwardhan-guitar",
   },
   {
     title: "Preetish Pratihari – Guitar Student",
     category: "Guitar",
-    description: "Preetish has been learning Guitar with Artium on and off for more than 7 years and since 3 years under expert guidance.",
+    description: "Preetish has been learning Guitar with Muziclub on and off for more than 7 years and since 3 years under expert guidance.",
     slug: "preetish-pratihari-guitar",
   },
   {
     title: "Veera Mahajan – Guitar Student",
     category: "Guitar",
-    description: "Veera has been taking Guitar classes with Artium since 2015 under the guidance of Conrad Bhengra sir.",
+    description: "Veera has been taking Guitar classes with Muziclub since 2015 under the guidance of Conrad Bhengra sir.",
     slug: "veera-mahajan-guitar",
   },
   {
     title: "Nikhil Pallavalli – Piano Student",
     category: "Piano",
-    description: "Nikhil has been learning Piano with Artium for more than 2 years under the guidance of Kenny Khandka sir.",
+    description: "Nikhil has been learning Piano with Muziclub for more than 2 years under the guidance of Kenny Khandka sir.",
     slug: "nikhil-pallavalli-piano",
   },
   {
     title: "Akshit Dhall – Jukebox",
     category: "Vocals",
-    description: "Akshit Dhall is student of Western Vocal at Artium with Tanmay Mathew sir. He is an independent singer-songwriter from the academy.",
+    description: "Akshit Dhall is student of Western Vocal at Muziclub with Tanmay Mathew sir. He is an independent singer-songwriter from the academy.",
     slug: "akshit-dhall-jukebox",
   },
   {
@@ -123,7 +123,7 @@ export const showcaseItems: ShowcaseItem[] = [
   {
     title: "Tere Mere Saath – ZeroGravity, Lucky Ali Cover",
     category: "Band Performance",
-    description: "Tere Mere Saath performed by Artium students. Vocals – Milan Karmakar, Guitars and accompaniment by the student band.",
+    description: "Tere Mere Saath performed by Muziclub students. Vocals – Milan Karmakar, Guitars and accompaniment by the student band.",
     slug: "tere-mere-saath-zerogravity",
   },
   {
@@ -135,7 +135,7 @@ export const showcaseItems: ShowcaseItem[] = [
   {
     title: "Nawazishein Karam, Coke Studio Cover",
     category: "Band Performance",
-    description: "Nawazishein Karam performed by Artium students and faculty artist on occasion of our 9th Annual day.",
+    description: "Nawazishein Karam performed by Muziclub students and faculty artist on occasion of our 9th Annual day.",
     slug: "nawazishein-karam",
   },
   {
@@ -183,7 +183,7 @@ export const showcaseItems: ShowcaseItem[] = [
   {
     title: "Arya Pathak – Piano Recital",
     category: "Piano",
-    description: "Arya Pathak our Keyboard and Guitar student performing Keyboard recital on our 8th Annual day at CRCC Pune.",
+    description: "Arya Pathak, our Keyboard and Guitar student, performing Keyboard recital on our 8th Annual day at CRCC Pune.",
     slug: "arya-pathak-piano",
   },
 ];

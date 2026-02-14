@@ -14,7 +14,7 @@ const AdvantageSection = () => {
     <section className="bg-surface-light py-16">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center text-surface-light-foreground mb-12">
-          Artium Advantage
+          Muziclub Advantage
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
           {advantages.map((item, i) => (
