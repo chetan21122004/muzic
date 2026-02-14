@@ -6,12 +6,10 @@ import { courseCategories } from "@/data/courses";
 
 const navItems = [
   { label: "Courses", hasDropdown: true },
-  { label: "Plans", href: "#" },
-  { label: "Superstar", href: "#" },
-  { label: "Latest Courses", href: "#" },
+  { label: "Student Showcase", href: "/student-showcase" },
+  { label: "About Us", href: "/about" },
+  { label: "Center", href: "/center" },
   { label: "Blog", href: "#" },
-  { label: "Art of Music", href: "#" },
-  { label: "More", href: "#" },
 ];
 
 const Navbar = () => {
@@ -78,9 +76,9 @@ const Navbar = () => {
                 )}
               </div>
             ) : (
-              <a key={item.label} href={item.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              <Link key={item.label} to={item.href || "#"} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                 {item.label}
-              </a>
+              </Link>
             )
           )}
         </div>
@@ -129,9 +127,9 @@ const Navbar = () => {
                 )}
               </div>
             ) : (
-              <a key={item.label} href={item.href} className="block py-2 text-sm text-muted-foreground hover:text-foreground">
+              <Link key={item.label} to={item.href || "#"} onClick={() => setMobileOpen(false)} className="block py-2 text-sm text-muted-foreground hover:text-foreground">
                 {item.label}
-              </a>
+              </Link>
             )
           )}
         </div>
