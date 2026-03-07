@@ -1,10 +1,10 @@
-import { Music, Facebook, Instagram, Twitter, Youtube, Linkedin } from "lucide-react";
+import { Music, Linkedin } from "lucide-react";
 
 const footerLinks = {
-  "About": ["About Us", "Careers", "Press", "Blog"],
-  "Music": ["Courses", "Live Classes", "Certifications", "Teachers"],
-  "Support": ["Help Center", "Contact Us", "FAQs", "Feedback"],
-  "Legal": ["Privacy Policy", "Terms of Service", "Refund Policy"],
+  "About": ["About Muziclub", "Our Story", "Careers", "Blog"],
+  "Courses": ["Guitar", "Piano / Keyboard", "Bollywood Vocals", "Indian Classical Vocals", "Western Vocals", "Drums"],
+  "Resources": ["Student Showcase", "Colourful Chords", "Guru Gyan", "Sunday Jam"],
+  "Support": ["Contact Us", "FAQs", "Get In Touch"],
 };
 
 const Footer = () => {
@@ -17,17 +17,18 @@ const Footer = () => {
               <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
                 <Music className="w-4 h-4 text-primary-foreground" />
               </div>
-              <span className="font-bold text-foreground">Muziclub</span>
+              <span className="font-bold text-foreground">Muzi<span className="text-primary">club</span></span>
             </div>
+            <p className="text-xs text-muted-foreground mb-2">
+              Learn and Live Music.
+            </p>
             <p className="text-xs text-muted-foreground mb-4">
-              Learn and Live Music. Best online music academy for all ages.
+              Online Music Classes and Academy Classes in Guitar, Keyboard, Vocals, and more from Qualified Teachers.
             </p>
             <div className="flex gap-3">
-              {[Facebook, Instagram, Twitter, Youtube, Linkedin].map((Icon, i) => (
-                <a key={i} href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                  <Icon className="w-4 h-4" />
-                </a>
-              ))}
+              <a href="https://www.linkedin.com/company/muziclub" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                <Linkedin className="w-4 h-4" />
+              </a>
             </div>
           </div>
           {Object.entries(footerLinks).map(([title, links]) => (
@@ -43,8 +44,13 @@ const Footer = () => {
             </div>
           ))}
         </div>
-        <div className="border-t border-border pt-6 text-center">
+        <div className="border-t border-border pt-6 flex flex-col sm:flex-row items-center justify-between gap-2">
           <p className="text-xs text-muted-foreground">© 2026 Muziclub – Learn and Live Music. All rights reserved.</p>
+          <div className="flex gap-4">
+            <a href="#" className="text-xs text-muted-foreground hover:text-foreground">Privacy Policy</a>
+            <a href="#" className="text-xs text-muted-foreground hover:text-foreground">Terms of Service</a>
+            <a href="#" className="text-xs text-muted-foreground hover:text-foreground">Refund Policy</a>
+          </div>
         </div>
       </div>
     </footer>

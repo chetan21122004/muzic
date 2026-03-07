@@ -1,32 +1,45 @@
-import course1 from "@/assets/course1.jpg";
-import course2 from "@/assets/course2.jpg";
-import course3 from "@/assets/course3.jpg";
-import course4 from "@/assets/course4.jpg";
+import { Link } from "react-router-dom";
+import bollywoodCourse from "@/assets/bollywood-course.webp";
+import indianVocals from "@/assets/indian-vocals.webp";
+import heroPiano from "@/assets/hero-piano.jpg";
+import heroGuitar from "@/assets/hero-guitar.jpg";
+import heroDrums from "@/assets/hero-drums.jpg";
+import singingCourse from "@/assets/singing-course.jpg";
 
 const courses = [
-  { img: course1, title: "Hindi Film Music", desc: "Sing all your favorite Bollywood songs while learning professional vocal techniques", teacher: "Multiple Teachers" },
-  { img: course2, title: "Tamil Film Music", desc: "Learn to sing Tamil film songs and popular compositions offering melody and rhythm", teacher: "Multiple Teachers" },
-  { img: course3, title: "Karaoke & Stage Skills", desc: "Build confidence, learn vocal music and stage performance skills for any audience", teacher: "Multiple Teachers" },
-  { img: course4, title: "Carnatic Classical", desc: "Explore the rich tradition of South Indian classical music with structured lessons", teacher: "Multiple Teachers" },
+  { img: heroGuitar, title: "Guitar", desc: "Acoustic & electric guitar classes — from Bollywood strumming to Rock & Pop. Certification with RSL & Trinity available.", slug: "guitar-acoustic" },
+  { img: heroPiano, title: "Piano / Keyboard", desc: "From Western Classical music to Pop songs. Our expert teachers help students get international certifications.", slug: "piano" },
+  { img: bollywoodCourse, title: "Bollywood Vocals", desc: "Sing all your favourite Hindi film songs while developing professional vocal technique and stage confidence.", slug: "popular-film-music-hindi" },
+  { img: indianVocals, title: "Indian Classical Vocals", desc: "Master Hindustani and Carnatic classical traditions with qualified and experienced music gurus.", slug: "hindustani-classical-vocal" },
+  { img: heroDrums, title: "Drums", desc: "Learn rhythm and groove from qualified drum instructors. Perform live at our weekly Sunday Jam sessions.", slug: "tabla" },
+  { img: singingCourse, title: "Western Vocals", desc: "Explore Western classical singing, pop, and stage performance skills for any audience.", slug: "western-vocal" },
 ];
 
 const CoursesSection = () => {
   return (
     <section className="bg-background py-16">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-foreground mb-10">Our Online Music Courses</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="flex items-end justify-between mb-10">
+          <div>
+            <h2 className="text-3xl font-bold text-foreground">Our Music Courses</h2>
+            <p className="text-muted-foreground text-sm mt-1">Online & academy classes for all ages — beginners to advanced</p>
+          </div>
+          <Link to="/courses/guitar-acoustic" className="text-sm text-primary font-semibold hover:underline hidden sm:block">
+            View all courses →
+          </Link>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {courses.map((course, i) => (
-            <div key={i} className="bg-card rounded-xl overflow-hidden border border-border hover:border-primary/50 transition-colors group">
+            <Link key={i} to={`/courses/${course.slug}`} className="bg-card rounded-xl overflow-hidden border border-border hover:border-primary/60 transition-colors group block">
               <div className="relative h-48 overflow-hidden">
                 <img src={course.img} alt={course.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
               </div>
               <div className="p-4 space-y-2">
                 <h3 className="font-semibold text-foreground">{course.title}</h3>
                 <p className="text-xs text-muted-foreground line-clamp-2">{course.desc}</p>
-                <p className="text-xs text-primary">{course.teacher}</p>
+                <p className="text-xs text-primary font-medium">Enrol now →</p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

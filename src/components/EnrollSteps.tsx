@@ -1,19 +1,22 @@
 import { UserPlus, CalendarCheck, Video, GraduationCap } from "lucide-react";
 
 const steps = [
-  { icon: UserPlus, step: "STEP 1", title: "Sign up and select your preferred music course from our collection" },
-  { icon: CalendarCheck, step: "STEP 2", title: "Book a free trial lesson and get a taste of your chosen course" },
-  { icon: Video, step: "STEP 3", title: "Join 1-on-1 live sessions and start your structured music training" },
-  { icon: GraduationCap, step: "STEP 4", title: "Practice, perform, and get certified with graded levels" },
+  { icon: UserPlus, step: "STEP 1", title: "Enquire online or visit any of our 3 Pune centres — Baner, Pimple Saudagar, or Hinjawadi" },
+  { icon: CalendarCheck, step: "STEP 2", title: "Book a free trial class and meet your teacher — no commitment needed" },
+  { icon: Video, step: "STEP 3", title: "Start 1-on-1 classes online or at the academy on a schedule that suits you" },
+  { icon: GraduationCap, step: "STEP 4", title: "Practice daily, perform at Sunday Jams, and earn internationally recognised certifications" },
 ];
 
 const EnrollSteps = () => {
   return (
     <section className="bg-surface-light py-16">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center text-surface-light-foreground mb-12">
-          How to Enroll in Online Music Lessons?
-        </h2>
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-surface-light-foreground">
+            How It Works
+          </h2>
+          <p className="text-muted-foreground text-sm mt-2">Getting started with Muziclub is simple — just 4 steps</p>
+        </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((s, i) => (
             <div key={i} className="bg-background rounded-xl p-6 text-center space-y-4 border border-border">

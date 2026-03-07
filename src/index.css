@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
 
 @layer base {
   :root {
@@ -15,7 +15,7 @@
     --popover: 240 10% 14%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 330 85% 55%;
+    --primary: 356 91% 47%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 240 10% 18%;
@@ -24,7 +24,7 @@
     --muted: 240 8% 20%;
     --muted-foreground: 240 5% 65%;
 
-    --accent: 330 85% 55%;
+    --accent: 356 91% 47%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -32,22 +32,22 @@
 
     --border: 240 8% 22%;
     --input: 240 8% 22%;
-    --ring: 330 85% 55%;
+    --ring: 356 91% 47%;
 
     --radius: 0.75rem;
 
     --sidebar-background: 240 10% 8%;
     --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 330 85% 55%;
+    --sidebar-primary: 356 91% 47%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 240 10% 14%;
     --sidebar-accent-foreground: 0 0% 98%;
     --sidebar-border: 240 8% 18%;
-    --sidebar-ring: 330 85% 55%;
+    --sidebar-ring: 356 91% 47%;
 
-    --surface-light: 240 10% 96%;
-    --surface-light-foreground: 240 10% 10%;
-    --step-bg: 330 85% 55%;
+    --surface-light: 0 0% 97%;
+    --surface-light-foreground: 220 15% 12%;
+    --step-bg: 356 91% 47%;
   }
 }
 

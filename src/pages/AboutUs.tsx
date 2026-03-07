@@ -1,16 +1,12 @@
-import { Award, Users, BookOpen, Star, Target, Heart, MapPin } from "lucide-react";
+import { Star, Target, Heart, MapPin } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import teacher1 from "@/assets/teacher1.jpg";
-import teacher2 from "@/assets/teacher2.jpg";
-import teacher3 from "@/assets/teacher3.jpg";
-import teacher4 from "@/assets/teacher4.jpg";
 
 const stats = [
   { value: "13+", label: "Years of Excellence" },
-  { value: "5000+", label: "Students Trained" },
-  { value: "50+", label: "Expert Teachers" },
-  { value: "20+", label: "Music Courses" },
+  { value: "14,000+", label: "Students Taught" },
+  { value: "30+", label: "Faculty Artists" },
+  { value: "3", label: "Academy Centres in Pune" },
 ];
 
 const values = [
@@ -20,10 +16,12 @@ const values = [
 ];
 
 const team = [
-  { img: teacher1, name: "Akarsh Singh", role: "Drums Faculty" },
-  { img: teacher2, name: "Conrad Bhengra", role: "Guitar Faculty" },
-  { img: teacher3, name: "Kenny Khandka", role: "Piano Faculty" },
-  { img: teacher4, name: "Tanmay Mathew", role: "Vocals Faculty" },
+  { img: "/instructor/Subham Chand Sahu_Drums.webp", name: "Subham Chand Sahu", role: "Drums Faculty" },
+  { img: "/instructor/Harsh-Bagle-guitar.webp", name: "Harsh Bagle", role: "Guitar Faculty" },
+  { img: "/instructor/jeet_Goswami-piano.webp", name: "Jeet Goswami", role: "Piano Faculty" },
+  { img: "/instructor/Kshitij_Kumar_Choudhary-Western-Vocals.webp", name: "Kshitij Kumar Choudhary", role: "Western Vocals Faculty" },
+  { img: "/instructor/Neelima-Hindustani_Vocals.webp", name: "Neelima", role: "Hindustani Vocals Faculty" },
+  { img: "/instructor/Neha-Sinha-indian_vocals.webp", name: "Neha Sinha", role: "Indian Vocals Faculty" },
 ];
 
 const reviews = [
@@ -125,7 +123,7 @@ const AboutUs = () => {
       <section className="py-14">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-foreground text-center mb-10">Meet Our Faculty</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
             {team.map((t) => (
               <div key={t.name} className="text-center space-y-3">
                 <img src={t.img} alt={t.name} className="w-28 h-28 rounded-full object-cover mx-auto border-2 border-primary/30" />

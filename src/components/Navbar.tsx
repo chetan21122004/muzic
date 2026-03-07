@@ -1,4 +1,4 @@
-import { Music, ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -8,8 +8,9 @@ const navItems = [
   { label: "Courses", hasDropdown: true },
   { label: "Student Showcase", href: "/student-showcase" },
   { label: "About Us", href: "/about" },
-  { label: "Center", href: "/center" },
-  { label: "Blog", href: "#" },
+  { label: "Centre", href: "/center" },
+  { label: "Blog", href: "/blog" },
+  { label: "Get In Touch", href: "/contact" },
 ];
 
 const Navbar = () => {
@@ -32,9 +33,7 @@ const Navbar = () => {
     <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
       <div className="container mx-auto flex items-center justify-between py-3 px-4">
         <Link to="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-            <Music className="w-4 h-4 text-primary-foreground" />
-          </div>
+          <img src="/logo.png" alt="Muziclub Logo" className="h-8 w-auto" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
           <span className="text-lg font-bold text-foreground">Muzi<span className="text-primary">club</span></span>
         </Link>
 
@@ -55,7 +54,7 @@ const Navbar = () => {
                     <div className="grid grid-cols-4 gap-8">
                       {courseCategories.map((cat) => (
                         <div key={cat.title}>
-                          <h4 className="font-bold text-foreground mb-3 text-sm">{cat.title}</h4>
+                          <h4 className="font-bold text-primary mb-3 text-sm uppercase tracking-wide">{cat.title}</h4>
                           <ul className="space-y-2">
                             {cat.courses.map((course) => (
                               <li key={course.slug}>
@@ -85,9 +84,8 @@ const Navbar = () => {
 
         <div className="flex items-center gap-3">
           <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 text-xs font-semibold px-4">
-            Free 1-on-1 Class
+            Book Free Trial
           </Button>
-          <a href="#" className="hidden sm:inline text-sm text-muted-foreground hover:text-foreground">Login</a>
           <button className="lg:hidden text-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -110,7 +108,7 @@ const Navbar = () => {
                   <div className="pl-4 pb-2 space-y-3">
                     {courseCategories.map((cat) => (
                       <div key={cat.title}>
-                        <h4 className="font-bold text-foreground text-xs mb-1">{cat.title}</h4>
+                        <h4 className="font-bold text-primary text-xs mb-1 uppercase tracking-wide">{cat.title}</h4>
                         {cat.courses.map((course) => (
                           <Link
                             key={course.slug}
