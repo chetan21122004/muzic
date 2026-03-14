@@ -1,19 +1,6 @@
-import { Star, Target, Heart, MapPin } from "lucide-react";
+import { MapPin } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-
-const stats = [
-  { value: "13+", label: "Years of Excellence" },
-  { value: "14,000+", label: "Students Taught" },
-  { value: "30+", label: "Faculty Artists" },
-  { value: "3", label: "Academy Centres in Pune" },
-];
-
-const values = [
-  { icon: Target, title: "Our Mission", desc: "To make world-class music education accessible to everyone, regardless of age or background. Making music a part of your life." },
-  { icon: Star, title: "Our Vision", desc: "To be the leading online music academy nurturing the next generation of global musicians through innovative and adaptive methods." },
-  { icon: Heart, title: "Our Values", desc: "Passion, discipline, creativity, and commitment to every student's unique musical journey. Our motto — Live Music." },
-];
 
 const team = [
   { img: "/instructor/Subham Chand Sahu_Drums.webp", name: "Subham Chand Sahu", role: "Drums Faculty" },
@@ -22,12 +9,6 @@ const team = [
   { img: "/instructor/Kshitij_Kumar_Choudhary-Western-Vocals.webp", name: "Kshitij Kumar Choudhary", role: "Western Vocals Faculty" },
   { img: "/instructor/Neelima-Hindustani_Vocals.webp", name: "Neelima", role: "Hindustani Vocals Faculty" },
   { img: "/instructor/Neha-Sinha-indian_vocals.webp", name: "Neha Sinha", role: "Indian Vocals Faculty" },
-];
-
-const reviews = [
-  { location: "Muziclub, Baner, Pune", rating: "4.8", count: "345" },
-  { location: "Muziclub, Pimple Saudagar, Pune", rating: "4.8", count: "183" },
-  { location: "Muziclub, Hinjawadi, Pune", rating: "4.7", count: "95" },
 ];
 
 const AboutUs = () => {
@@ -42,37 +23,8 @@ const AboutUs = () => {
             About <span className="text-primary">Muziclub</span>
           </h1>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Learn and Live Music — India's leading music academy offering certified courses in vocals, guitar, keyboard, drums, and more.
+            Learn and Live Music — India's leading music academy offering certified classes in vocals, guitar, keyboard, drums, and more.
           </p>
-        </div>
-      </section>
-
-      {/* Stats */}
-      <section className="container mx-auto px-4 py-14">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {stats.map((s) => (
-            <div key={s.label} className="bg-card border border-border rounded-xl p-6 text-center">
-              <div className="text-3xl font-bold text-primary mb-1">{s.value}</div>
-              <div className="text-sm text-muted-foreground">{s.label}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Mission / Vision / Values */}
-      <section className="bg-card py-14 border-y border-border">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8">
-            {values.map((v) => (
-              <div key={v.title} className="text-center space-y-3">
-                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
-                  <v.icon className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="text-lg font-bold text-foreground">{v.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{v.desc}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -95,40 +47,20 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* Google Reviews */}
+      {/* Team */}
       <section className="bg-card py-14 border-y border-border">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-foreground text-center mb-10">Google Reviews</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {reviews.map((r) => (
-              <div key={r.location} className="bg-background border border-border rounded-xl p-6 text-center space-y-2">
-                <div className="flex items-center justify-center gap-1">
-                  <MapPin className="w-4 h-4 text-primary" />
-                  <h4 className="text-foreground font-semibold text-sm">{r.location}</h4>
-                </div>
-                <div className="text-3xl font-bold text-primary">{r.rating}</div>
-                <p className="text-xs text-muted-foreground">Based on {r.count} reviews</p>
-                <div className="flex justify-center gap-0.5">
-                  {[...Array(5)].map((_, i) => (
-                    <span key={i} className="text-primary text-sm">★</span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Team */}
-      <section className="py-14">
-        <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-foreground text-center mb-10">Meet Our Faculty</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-8">
             {team.map((t) => (
-              <div key={t.name} className="text-center space-y-3">
-                <img src={t.img} alt={t.name} className="w-28 h-28 rounded-full object-cover mx-auto border-2 border-primary/30" />
-                <h4 className="text-foreground font-semibold text-sm">{t.name}</h4>
-                <p className="text-muted-foreground text-xs">{t.role}</p>
+              <div key={t.name} className="flex items-center gap-4 bg-secondary p-4 rounded-2xl hover:bg-secondary/80 transition-colors border border-border/50 hover:border-border">
+                <div className="w-20 h-20 rounded-full overflow-hidden shrink-0 bg-background">
+                  <img src={t.img} alt={t.name} className="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <h4 className="text-foreground font-semibold text-base">{t.name}</h4>
+                  <p className="text-primary text-sm font-medium">{t.role}</p>
+                </div>
               </div>
             ))}
           </div>

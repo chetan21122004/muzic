@@ -84,16 +84,37 @@ const CoursePage = () => {
               </span>
             ))}
           </div>
-          <div className="max-w-2xl mx-auto bg-background rounded-xl p-8 border border-border">
-            <h3 className="text-lg font-semibold text-foreground mb-4">What You'll Learn</h3>
-            <ul className="space-y-3 text-muted-foreground text-sm">
-              <li className="flex items-start gap-2"><ChevronRight className="w-4 h-4 text-primary mt-0.5 shrink-0" /> Fundamentals and theory tailored to your level</li>
-              <li className="flex items-start gap-2"><ChevronRight className="w-4 h-4 text-primary mt-0.5 shrink-0" /> Technique building with expert guidance</li>
-              <li className="flex items-start gap-2"><ChevronRight className="w-4 h-4 text-primary mt-0.5 shrink-0" /> Performance practice and stage confidence</li>
-              <li className="flex items-start gap-2"><ChevronRight className="w-4 h-4 text-primary mt-0.5 shrink-0" /> Preparation for international grading exams</li>
-              <li className="flex items-start gap-2"><ChevronRight className="w-4 h-4 text-primary mt-0.5 shrink-0" /> Personalized feedback and progress tracking</li>
-            </ul>
-          </div>
+          {course.curriculum ? (
+            <div className="max-w-4xl mx-auto mt-12">
+              <h3 className="text-xl font-bold text-center mb-8 text-primary">Detailed Curriculum Breakdown</h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                {course.curriculum.map((curr, idx) => (
+                  <div key={idx} className="bg-background rounded-xl p-6 border border-border h-full shadow-sm hover:border-primary/50 transition-colors">
+                    <h4 className="text-lg font-bold text-foreground mb-4 pb-3 border-b border-border">{curr.level}</h4>
+                    <ul className="space-y-3 text-muted-foreground text-sm">
+                      {curr.topics.map((topic, tIdx) => (
+                        <li key={tIdx} className="flex items-start gap-2">
+                          <ChevronRight className="w-4 h-4 text-primary mt-0.5 shrink-0" /> 
+                          <span className="leading-relaxed">{topic}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <div className="max-w-2xl mx-auto bg-background rounded-xl p-8 border border-border mt-10">
+              <h3 className="text-lg font-semibold text-foreground mb-4">What You'll Learn</h3>
+              <ul className="space-y-3 text-muted-foreground text-sm">
+                <li className="flex items-start gap-2"><ChevronRight className="w-4 h-4 text-primary mt-0.5 shrink-0" /> Fundamentals and theory tailored to your level</li>
+                <li className="flex items-start gap-2"><ChevronRight className="w-4 h-4 text-primary mt-0.5 shrink-0" /> Technique building with expert guidance</li>
+                <li className="flex items-start gap-2"><ChevronRight className="w-4 h-4 text-primary mt-0.5 shrink-0" /> Performance practice and stage confidence</li>
+                <li className="flex items-start gap-2"><ChevronRight className="w-4 h-4 text-primary mt-0.5 shrink-0" /> Preparation for international grading exams</li>
+                <li className="flex items-start gap-2"><ChevronRight className="w-4 h-4 text-primary mt-0.5 shrink-0" /> Personalized feedback and progress tracking</li>
+              </ul>
+            </div>
+          )}
         </div>
       </section>
 

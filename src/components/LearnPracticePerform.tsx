@@ -1,5 +1,6 @@
-import serviceOnline from "@/assets/service-online-classes-new.jpg";
+import { Play } from "lucide-react";
 import achievePerformance from "/achieve-performance.png";
+import achieveChoir from "/achieve-choir.png";
 
 const LearnPracticePerform = () => {
   return (
@@ -27,12 +28,25 @@ const LearnPracticePerform = () => {
               ))}
             </ul>
           </div>
-          <div className="flex-1">
+          <div className="flex-1 grid grid-cols-2 gap-4">
             <img
-              src={serviceOnline}
+              src={achievePerformance}
               alt="Muziclub online classes"
-              className="rounded-2xl w-full object-cover aspect-video shadow-xl"
+              className="rounded-2xl w-full object-cover shadow-xl col-span-2 h-64"
             />
+            <img
+              src={achieveChoir}
+              alt="Muziclub choir performance"
+              className="rounded-2xl w-full h-full object-cover shadow-xl"
+            />
+            <div className="relative rounded-2xl overflow-hidden shadow-xl bg-secondary h-40">
+              <img src="/achieve-karaoke.png" alt="Muziclub karaoke" className="w-full h-full object-cover mix-blend-overlay opacity-80" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                 <div className="w-12 h-12 rounded-full bg-primary/90 flex items-center justify-center cursor-pointer hover:scale-110 transition-transform">
+                  <Play className="w-5 h-5 text-primary-foreground ml-0.5" />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

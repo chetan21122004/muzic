@@ -1,10 +1,10 @@
 import { Play } from "lucide-react";
 
 const instructors = [
-  { name: "Conrad Bhengra", instrument: "Guitar", img: "/instructor/instructor-1.jpg" },
-  { name: "Kenny Khandka", instrument: "Piano / Keyboard", img: "/instructor/instructor-2.jpg" },
-  { name: "Akarsh Singh", instrument: "Drums", img: "/instructor/instructor-3.jpg" },
-  { name: "Tanmay Mathew", instrument: "Western Vocals", img: "/instructor/instructor-4.jpg" },
+  { name: "Harsh Bagle", instrument: "Guitar", img: "/instructor/Harsh-Bagle-guitar.webp" },
+  { name: "Jeet Goswami", instrument: "Piano / Keyboard", img: "/instructor/jeet_Goswami-piano.webp" },
+  { name: "Subham Chand Sahu", instrument: "Drums", img: "/instructor/Subham Chand Sahu_Drums.webp" },
+  { name: "Kshitij Kumar Choudhary", instrument: "Western Vocals", img: "/instructor/Kshitij_Kumar_Choudhary-Western-Vocals.webp" },
 ];
 
 const LiveSessions = () => {

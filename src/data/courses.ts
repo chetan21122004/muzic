@@ -1,3 +1,5 @@
+import { curriculumData, CurriculumLevel } from "./curriculumData";
+
 export interface Course {
   slug: string;
   name: string;
@@ -6,6 +8,7 @@ export interface Course {
   heroDescription: string;
   features: { icon: string; title: string; description: string }[];
   levels: string[];
+  curriculum?: CurriculumLevel[];
   faqItems: { question: string; answer: string }[];
 }
 
@@ -60,21 +63,22 @@ export const allCourses: Course[] = courseCategories
       slug: c.slug,
       name: c.name,
       category: cat.title,
-      shortDescription: `Learn ${c.name} online from the best teachers at Muziclub. 1-on-1 live classes, flexible scheduling, and certification.`,
-      heroDescription: `Master ${c.name} with personalized online and academy classes from Muziclub. Whether you're a beginner or advanced student, our expert teachers will guide you through a structured curriculum designed for real progress. Perform live at our Sunday Jam sessions and earn internationally recognised certifications.`,
+      shortDescription: `Learn ${c.name} at Muziclub. Hobby and Grade classes available online and in-person, tailored for all ages and skill levels.`,
+      heroDescription: `Learn ${c.name} with personalized online and academy classes from Muziclub. We provide professional guidance whether music is taken as a hobby or as a career option. For group classes, the number of participants is strictly limited to 3 to maintain session effectiveness. Track your progress across Beginner, Intermediate, and Advanced levels.`,
       features: [
-        { icon: "🎓", title: "Expert Teachers", description: "Learn from highly qualified and experienced teachers who are passionate about music education." },
-        { icon: "🎭", title: "From Student to Performer", description: "Our curriculum is designed to transform you from a student to a confident performer on stage." },
-        { icon: "⭐", title: "Graded Certification For All", description: "Get internationally recognized certifications from Trinity, ABRSM, RSL, and G.M.V. Mandal." },
+        { icon: "🎸", title: "Hobby Classes", description: "Customized based on your individual preferences, aimed towards enabling skills to play specific songs or music styles." },
+        { icon: "⭐", title: "Grade Classes & Certification", description: "Follow the structured learning content of international exams like Trinity or Rockschool." },
+        { icon: "🎭", title: "Sunday Jam Performances", description: "Learning without performing does not go far. We provide an opportunity to all students to perform every week at Sunday Jam." },
       ],
-      levels: ["Preparatory", "Intermediate", "First Exam", "Advanced"],
+      levels: ["Beginner", "Intermediate", "Advanced"],
+      curriculum: curriculumData[c.slug],
       faqItems: [
-        { question: `What is the duration of the ${c.name} course?`, answer: "The course duration depends on the level you choose. Each level typically takes 3-6 months to complete with regular practice." },
-        { question: "Do I need any prior experience?", answer: "No! We have courses for absolute beginners as well as advanced students. Our teachers will assess your level and customize the curriculum accordingly." },
-        { question: "What do I need to get started?", answer: "For online classes: a stable internet connection, a device with a camera and microphone, and enthusiasm to learn! For academy classes: just show up to any of our 3 Pune centres." },
-        { question: "How are the classes conducted?", answer: "Classes are conducted live 1-on-1 via video call for online students, or in person at our Baner, Pimple Saudagar, or Hinjawadi centres in Pune." },
-        { question: "Can I reschedule my classes?", answer: "Yes, we offer flexible scheduling. You can reschedule classes with prior notice to your teacher." },
-        { question: "Is there a free trial available?", answer: "Yes! We offer a free trial class so you can experience our teaching methodology before enrolling." },
+        { question: `What is the duration of the ${c.name} course?`, answer: "The course duration depends on the level you choose. Classes follow content structured as Beginner, Intermediate and Advanced levels based on Muziclub's collective experience." },
+        { question: "How large are group classes?", answer: "For group classes, the number of participants is strictly limited to 3 to maintain session effectiveness and give you personalized focus." },
+        { question: "Do you offer Grade examinations?", answer: "Yes! Grade Classes follow the level structure from internationally recognized boards like Trinity, ABRSM, and Rockschool (RSL)." },
+        { question: "Are classes customized to my taste?", answer: "Absolutely. Our Hobby Classes are customized based on individual preferences to help you play the music you love." },
+        { question: "Can I perform live as a student?", answer: "Yes! Our motto 'live music' drives us. We arrange regular Sunday Jams where all students have the opportunity to perform live on stage." },
+        { question: "How are the classes conducted?", answer: "Classes are available 1-on-1 via video call, or at our physical academy centres (Baner, Pimple Saudagar, Hinjawadi)." },
       ],
     }))
   );

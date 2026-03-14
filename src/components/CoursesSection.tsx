@@ -7,12 +7,12 @@ import heroDrums from "@/assets/hero-drums.jpg";
 import singingCourse from "@/assets/singing-course.jpg";
 
 const courses = [
-  { img: heroGuitar, title: "Guitar", desc: "Acoustic & electric guitar classes — from Bollywood strumming to Rock & Pop. Certification with RSL & Trinity available.", slug: "guitar-acoustic" },
-  { img: heroPiano, title: "Piano / Keyboard", desc: "From Western Classical music to Pop songs. Our expert teachers help students get international certifications.", slug: "piano" },
-  { img: bollywoodCourse, title: "Bollywood Vocals", desc: "Sing all your favourite Hindi film songs while developing professional vocal technique and stage confidence.", slug: "popular-film-music-hindi" },
+  { img: "/homepage_banners/instrument.png", title: "Guitar", desc: "Acoustic & electric guitar classes — from Bollywood strumming to Rock & Pop. Certification with RSL & Trinity available.", slug: "guitar-acoustic" },
+  { img: "/homepage_banners/banner_3.png", title: "Piano / Keyboard", desc: "From Western Classical music to Pop songs. Our expert teachers help students get international certifications.", slug: "piano" },
+  { img: "/homepage_banners/singing.png", title: "Bollywood Vocals", desc: "Sing all your favourite Hindi film songs while developing professional vocal technique and stage confidence.", slug: "popular-film-music-hindi" },
   { img: indianVocals, title: "Indian Classical Vocals", desc: "Master Hindustani and Carnatic classical traditions with qualified and experienced music gurus.", slug: "hindustani-classical-vocal" },
-  { img: heroDrums, title: "Drums", desc: "Learn rhythm and groove from qualified drum instructors. Perform live at our weekly Sunday Jam sessions.", slug: "tabla" },
-  { img: singingCourse, title: "Western Vocals", desc: "Explore Western classical singing, pop, and stage performance skills for any audience.", slug: "western-vocal" },
+  { img: "/homepage_banners/banner_4.png", title: "Drums", desc: "Learn rhythm and groove from qualified drum instructors. Perform live at our weekly Sunday Jam sessions.", slug: "tabla" },
+  { img: "/homepage_banners/banner_1.png", title: "Western Vocals", desc: "Explore Western classical singing, pop, and stage performance skills for any audience.", slug: "western-vocal" },
 ];
 
 const CoursesSection = () => {

@@ -1,8 +1,6 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import AdvantageSection from "@/components/AdvantageSection";
 import CoursesSection from "@/components/CoursesSection";
-import EnrollSteps from "@/components/EnrollSteps";
 import LearnPracticePerform from "@/components/LearnPracticePerform";
 import LiveSessions from "@/components/LiveSessions";
 import StarSingers from "@/components/StarSingers";
@@ -15,9 +13,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <HeroSection />
-      <AdvantageSection />
       <CoursesSection />
-      <EnrollSteps />
       <LearnPracticePerform />
       <LiveSessions />
       <StarSingers />

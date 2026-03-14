@@ -30,12 +30,22 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
-      <div className="container mx-auto flex items-center justify-between py-3 px-4">
-        <Link to="/" className="flex items-center gap-2">
-          <img src="/logo.png" alt="Muziclub Logo" className="h-8 w-auto" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
-          <span className="text-lg font-bold text-foreground">Muzi<span className="text-primary">club</span></span>
-        </Link>
+    <div className="flex flex-col">
+      <div className="hidden md:flex bg-zinc-900 text-zinc-300 py-2 px-4 text-xs justify-between items-center">
+        <div className="container mx-auto flex items-center gap-3">
+          <span className="bg-primary text-white px-2 py-0.5 rounded font-bold uppercase text-[10px]">Latest</span>
+          <a href="#" className="hover:text-white transition-colors truncate">
+            Malay Kale – Drums Student / #studentshowcase – No One Knows – Drums Cover
+          </a>
+        </div>
+      </div>
+    
+      <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
+        <div className="container mx-auto flex items-center justify-between py-3 px-4">
+          <Link to="/" className="flex items-center gap-2">
+            <img src="/logo.png" alt="Muziclub Logo" className="h-8 w-auto" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+            <span className="text-lg font-bold text-foreground">Muzi<span className="text-primary">club</span></span>
+          </Link>
 
         <div className="hidden lg:flex items-center gap-6">
           {navItems.map((item) =>
@@ -133,6 +143,7 @@ const Navbar = () => {
         </div>
       )}
     </nav>
+    </div>
   );
 };
 
