@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useState } from "react";
 
 const courses = [
   {
@@ -6,89 +8,97 @@ const courses = [
     title: "Guitar",
     desc: "Acoustic & electric guitar classes — from Bollywood strumming to Rock & Pop. RSL & Trinity certifications available.",
     slug: "guitar-acoustic",
-    tag: "🎸",
   },
   {
     img: "/homepage_banners/banner_3.png",
     title: "Piano / Keyboard",
     desc: "From Western Classical to Pop songs. Expert teachers guide you to international certifications.",
     slug: "piano",
-    tag: "🎹",
   },
   {
     img: "/homepage_banners/singing.png",
     title: "Bollywood Vocals",
     desc: "Sing your favourite Hindi film songs while developing professional vocal technique and stage confidence.",
     slug: "popular-film-music-hindi",
-    tag: "🎤",
   },
   {
     img: "/instructor/Neelima-Hindustani_Vocals.webp",
     title: "Indian Classical Vocals",
     desc: "Master Hindustani and Carnatic classical traditions with qualified and experienced music gurus.",
     slug: "hindustani-classical-vocal",
-    tag: "🪗",
   },
   {
     img: "/homepage_banners/banner_4.png",
     title: "Drums",
     desc: "Learn rhythm and groove from qualified drum instructors. Perform live at our weekly Sunday Jam sessions.",
     slug: "drums",
-    tag: "🥁",
   },
   {
     img: "/homepage_banners/banner_1.png",
     title: "Western Vocals",
     desc: "Explore Western classical singing, pop, and stage performance skills for any audience.",
     slug: "western-vocal",
-    tag: "🎵",
   },
 ];
 
 const CoursesSection = () => {
+  const [startIdx, setStartIdx] = useState(0);
+  const visible = 4;
+  const canPrev = startIdx > 0;
+  const canNext = startIdx + visible < courses.length;
+
   return (
-    <section className="bg-white py-20">
+    <section className="py-16" style={{ background: "#1a1a2e" }}>
       <div className="container mx-auto px-4">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12">
-          <div>
-            <p className="text-primary text-xs font-bold uppercase tracking-widest mb-2">What We Teach</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">Our Music Courses</h2>
-            <p className="text-gray-400 text-sm mt-2">Online & academy classes for all ages — beginners to advanced</p>
+        <div className="flex items-center justify-between mb-10">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-white">
+            Our Online Music Courses
+          </h2>
+          <div className="flex gap-2">
+            <button
+              onClick={() => canPrev && setStartIdx(startIdx - 1)}
+              className={`w-10 h-10 rounded-full border flex items-center justify-center transition-colors ${canPrev ? "border-white/30 text-white hover:bg-white/10" : "border-white/10 text-white/20 cursor-default"}`}
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <button
+              onClick={() => canNext && setStartIdx(startIdx + 1)}
+              className={`w-10 h-10 rounded-full border flex items-center justify-center transition-colors ${canNext ? "border-white/30 text-white hover:bg-white/10" : "border-white/10 text-white/20 cursor-default"}`}
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
           </div>
-          <Link
-            to="/online-programs"
-            className="text-sm font-semibold text-primary hover:underline mt-4 sm:mt-0 shrink-0"
-          >
-            View all courses →
-          </Link>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {courses.map((course, i) => (
-            <Link
-              key={i}
-              to={`/courses/${course.slug}`}
-              className="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 block"
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {courses.slice(startIdx, startIdx + visible).map((course, i) => (
+            <div
+              key={course.slug}
+              className="rounded-2xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 flex flex-col"
             >
-              <div className="relative h-52 overflow-hidden bg-gray-100">
+              <div className="h-48 overflow-hidden">
                 <img
                   src={course.img}
                   alt={course.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover"
                   onError={(e) => {
                     (e.target as HTMLImageElement).src = "/homepage_banners/banner_1.png";
                   }}
                 />
-                <div className="absolute top-3 left-3 w-9 h-9 rounded-xl bg-white/90 backdrop-blur flex items-center justify-center text-lg shadow-sm">
-                  {course.tag}
-                </div>
               </div>
-              <div className="p-5">
-                <h3 className="font-bold text-gray-900 text-base mb-1">{course.title}</h3>
-                <p className="text-xs text-gray-400 leading-relaxed line-clamp-2">{course.desc}</p>
-                <p className="text-xs text-primary font-semibold mt-3 group-hover:underline">Enrol now →</p>
+              <div className="p-5 flex flex-col flex-1">
+                <h3 className="font-bold text-white text-lg mb-2">{course.title}</h3>
+                <p className="text-white/50 text-sm leading-relaxed flex-1 mb-4">
+                  {course.desc}
+                </p>
+                <Link
+                  to={`/courses/${course.slug}`}
+                  className="inline-flex items-center justify-center px-5 py-2.5 rounded-full border border-white/20 text-white text-sm font-semibold hover:bg-white/10 transition-colors self-start"
+                >
+                  Explore Course & Fees
+                </Link>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </div>

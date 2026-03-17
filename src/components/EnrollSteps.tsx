@@ -1,32 +1,57 @@
-import { UserPlus, CalendarCheck, Video, GraduationCap } from "lucide-react";
+import { Ticket, Music, MonitorPlay, Mic } from "lucide-react";
 
 const steps = [
-  { icon: UserPlus, step: "STEP 1", title: "Enquire online or visit any of our 3 Pune centres — Baner, Pimple Saudagar, or Hinjawadi" },
-  { icon: CalendarCheck, step: "STEP 2", title: "Book a free trial class and meet your teacher — no commitment needed" },
-  { icon: Video, step: "STEP 3", title: "Start 1-on-1 classes online or at the academy on a schedule that suits you" },
-  { icon: GraduationCap, step: "STEP 4", title: "Practice daily, perform at Sunday Jams, and earn internationally recognised certifications" },
+  {
+    icon: Ticket,
+    step: "STEP 1",
+    title: "Book A Free Trial: Select your favourite course and book a free trial class at your convenient time",
+  },
+  {
+    icon: Music,
+    step: "STEP 2",
+    title: "Try before you buy: Get personalised guidance from our Academic Expert in the free trial class",
+  },
+  {
+    icon: MonitorPlay,
+    step: "STEP 3",
+    title: "Pay and Enrol: Begin your 1:1 live and customised learning sessions with Muziclub Certified Teachers",
+  },
+  {
+    icon: Mic,
+    step: "STEP 4",
+    title: "Learn, Practice and Perform: Get Exclusive Access to Live Masterclasses, Sunday Jams and Digital Learning Tools",
+  },
 ];
 
 const EnrollSteps = () => {
   return (
-    <section className="bg-surface-light py-16">
+    <section className="bg-[#f0f0f4] py-16">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-surface-light-foreground">
-            How It Works
-          </h2>
-          <p className="text-muted-foreground text-sm mt-2">Getting started with Muziclub is simple — just 4 steps</p>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-12">
+          How to Enrol in Online Music Lessons?
+        </h2>
+        <div className="flex flex-col sm:flex-row items-start justify-between gap-4">
           {steps.map((s, i) => (
-            <div key={i} className="bg-background rounded-xl p-6 text-center space-y-4 border border-border">
-              <span className="inline-block bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full">
-                {s.step}
-              </span>
-              <div className="w-14 h-14 mx-auto rounded-full bg-primary/10 flex items-center justify-center">
-                <s.icon className="w-6 h-6 text-primary" />
+            <div key={i} className="flex items-start gap-4 flex-1">
+              {/* Card */}
+              <div className="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100 flex-1">
+                <span className="text-primary font-extrabold text-sm tracking-wide">
+                  {s.step}
+                </span>
+                <div className="w-16 h-16 mx-auto mt-4 mb-4 rounded-full bg-primary flex items-center justify-center">
+                  <s.icon className="w-7 h-7 text-primary-foreground" />
+                </div>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {s.title}
+                </p>
               </div>
-              <p className="text-sm text-muted-foreground">{s.title}</p>
+              {/* Connector dashes */}
+              {i < steps.length - 1 && (
+                <div className="hidden sm:flex items-center self-center gap-1 px-1 pt-8">
+                  <span className="w-1.5 h-1.5 rounded-full bg-gray-300" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-gray-300" />
+                </div>
+              )}
             </div>
           ))}
         </div>
