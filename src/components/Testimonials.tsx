@@ -1,116 +1,93 @@
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useState } from "react";
+
 const testimonials = [
   {
     name: "Sneha M.",
     location: "Maharashtra",
-    instrument: "Guitar Student",
-    text: "I'm truly grateful for all of my learning at Muziclub — it has built my confidence immensely. I've been performing on stage much more confidently now.",
+    img: "/instructor/Neelima-Hindustani_Vocals.webp",
+    text: "Music learning at Muziclub is superb and exponential. The team is very friendly and knowledgeable. I've built so much confidence performing on stage.",
   },
   {
     name: "Rahul K.",
     location: "Pune",
-    instrument: "Keyboard Student",
+    img: "/instructor/Harsh-Bagle-guitar.webp",
     text: "My learning at Muziclub taught me so much about the importance of practice. It was a truly enriching experience with the most knowledgeable teachers.",
   },
   {
     name: "Aryan P.",
     location: "Maharashtra",
-    instrument: "Drums Student",
-    text: "Very well structured curriculum. The certified music teachers at Muziclub are so patient and experienced. I recommend it to everyone.",
+    img: "/instructor/Subham Chand Sahu_Drums.webp",
+    text: "Muziclub is the best place for beginners who don't have a music background. Passion, hard work, and online classes — it's a complete package.",
   },
   {
     name: "Priya S.",
     location: "Pune",
-    instrument: "Western Vocals",
-    text: "What started as a hobby has now become a passion. A very holistic learning experience. Muziclub changed how I see music completely.",
+    img: "/instructor/jeet_Goswami-piano.webp",
+    text: "My lessons at Muziclub are something I look forward to. They are pitched at my personal needs and the teacher genuinely cares about my progress.",
   },
   {
     name: "Vikram D.",
     location: "Maharashtra",
-    instrument: "Guitar Student",
+    img: "/homepage_banners/banner_1.png",
     text: "The Sunday Jam sessions are the highlight of my week. Getting to perform live every week is something I never expected from a music school. Absolutely love it.",
   },
 ];
 
 const Testimonials = () => {
+  const [startIdx, setStartIdx] = useState(0);
+  const visible = 4;
+  const canPrev = startIdx > 0;
+  const canNext = startIdx + visible < testimonials.length;
+
   return (
-    <section className="bg-white py-20">
+    <section className="bg-white py-16">
       <div className="container mx-auto px-4">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <p className="text-primary text-xs font-bold uppercase tracking-widest mb-2">
-            Student Voices
-          </p>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">
-            Muziclub Student Testimonials
+        <div className="flex items-center justify-between mb-10">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-foreground">
+            Muziclub's Student Testimonials
           </h2>
+          <div className="flex gap-2">
+            <button
+              onClick={() => canPrev && setStartIdx(startIdx - 1)}
+              className={`w-10 h-10 rounded-full border flex items-center justify-center transition-colors ${canPrev ? "border-gray-300 text-foreground hover:bg-gray-100" : "border-gray-200 text-gray-300 cursor-default"}`}
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <button
+              onClick={() => canNext && setStartIdx(startIdx + 1)}
+              className={`w-10 h-10 rounded-full border flex items-center justify-center transition-colors ${canNext ? "border-gray-300 text-foreground hover:bg-gray-100" : "border-gray-200 text-gray-300 cursor-default"}`}
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
         </div>
 
-        {/* Cards row — horizontally scrollable like Artium */}
-        <div className="flex gap-5 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-none">
-          {testimonials.map((t, i) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {testimonials.slice(startIdx, startIdx + visible).map((t, i) => (
             <div
               key={i}
-              className="snap-start shrink-0 w-[280px] sm:w-[300px] bg-white rounded-2xl border border-gray-100 p-6 hover:shadow-lg transition-shadow duration-300"
+              className="bg-white rounded-2xl border border-gray-100 p-6 text-center shadow-sm hover:shadow-md transition-shadow"
             >
-              {/* Avatar + name */}
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-extrabold text-sm shrink-0">
-                  {t.name.charAt(0)}
-                </div>
-                <div>
-                  <p className="text-sm font-bold text-gray-900">{t.name}</p>
-                  <p className="text-xs text-gray-400">{t.location}</p>
-                </div>
+              {/* Large circular avatar */}
+              <div className="w-24 h-24 mx-auto rounded-full overflow-hidden bg-gray-100 mb-4">
+                <img
+                  src={t.img}
+                  alt={t.name}
+                  className="w-full h-full object-cover"
+                  onError={(e) => { (e.target as HTMLImageElement).src = "/homepage_banners/banner_1.png"; }}
+                />
               </div>
-
-              {/* Stars */}
-              <div className="flex gap-0.5 mb-3">
-                {[...Array(5)].map((_, j) => (
-                  <span key={j} className="text-primary text-sm">★</span>
-                ))}
-              </div>
-
-              {/* Text */}
-              <p className="text-sm text-gray-500 leading-relaxed line-clamp-4">
+              <h3 className="font-extrabold text-foreground text-lg">{t.name}</h3>
+              <p className="text-muted-foreground text-sm mt-0.5 mb-4">{t.location}</p>
+              <p className="text-muted-foreground text-sm leading-relaxed line-clamp-4">
                 {t.text}
               </p>
-
-              {/* Read more + instrument tag */}
-              <div className="mt-4 flex items-center justify-between">
-                <span className="text-[11px] text-primary font-semibold cursor-pointer hover:underline">
-                  read more
-                </span>
-                <span className="text-[10px] bg-primary/10 text-primary font-bold px-2 py-0.5 rounded-full">
-                  {t.instrument}
-                </span>
-              </div>
+              <button className="text-primary font-semibold text-sm mt-4 hover:underline">
+                read more
+              </button>
             </div>
           ))}
-        </div>
-
-        {/* Google rating bar */}
-        <div className="mt-12 bg-gray-50 rounded-2xl p-6 border border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div>
-            <p className="text-primary text-xs font-bold uppercase tracking-widest mb-1">Verified Reviews</p>
-            <h3 className="text-xl font-extrabold text-gray-900">Highly Rated on Google</h3>
-          </div>
-          <div className="flex gap-8 flex-wrap justify-center">
-            <div className="text-center">
-              <div className="text-2xl font-extrabold text-gray-900">4.8 ⭐</div>
-              <div className="text-xs text-gray-500 mt-1">Baner, Pune</div>
-              <div className="text-[10px] text-gray-400">(345+ reviews)</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-extrabold text-gray-900">4.8 ⭐</div>
-              <div className="text-xs text-gray-500 mt-1">Pimple Saudagar</div>
-              <div className="text-[10px] text-gray-400">(183+ reviews)</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-extrabold text-gray-900">4.7 ⭐</div>
-              <div className="text-xs text-gray-500 mt-1">Hinjawadi</div>
-              <div className="text-[10px] text-gray-400">(95+ reviews)</div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

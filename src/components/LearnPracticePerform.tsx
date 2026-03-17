@@ -1,72 +1,64 @@
-import { Check } from "lucide-react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
-const pillars = [
-  { label: "Personalized 1-on-1 Focus", detail: "Classes designed at your pace and goals in mind" },
-  { label: "Practice Facilities", detail: "Dedicated practice rooms at all 3 Pune academy centres" },
-  { label: "Perform Every Week", detail: "Sunday Jam sessions — live stage experience for every student" },
-  { label: "Online or In-Person", detail: "Flexible formats — video call or walk in to any Pune centre" },
+const phrases = [
+  { keyword: "LEARN", text: "music from the best teachers with personalized 1-on-1 classes tailored to your goals" },
+  { keyword: "PRACTICE", text: "music anytime with personal teachers and practice rooms to perfect your skill" },
+  { keyword: "PERFORM", text: "like a pro in front of a huge audience. Muziclub showcase is waiting for you!" },
 ];
 
 const LearnPracticePerform = () => {
+  const [activeIdx, setActiveIdx] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveIdx((prev) => (prev + 1) % phrases.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const current = phrases[activeIdx];
+
   return (
-    <section className="bg-[#f7f7f9] py-20">
+    <section className="py-20" style={{ background: "#1e1e2e" }}>
       <div className="container mx-auto px-4">
-        <div className="flex flex-col lg:flex-row items-center gap-16">
-          {/* Left: Image */}
-          <div className="flex-1 w-full">
-            <div className="relative">
-              <img
-                src="/homepage_banners/banner_3.png"
-                alt="Muziclub online classes"
-                className="rounded-3xl w-full object-cover aspect-[4/3] shadow-xl"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = "/homepage_banners/banner_1.png";
-                }}
-              />
-              {/* Floating badge */}
-              <div className="absolute -bottom-5 -right-5 bg-white rounded-2xl shadow-lg p-4 border border-gray-100 flex items-center gap-3">
-                <div className="text-2xl">🏆</div>
-                <div>
-                  <p className="text-xs font-bold text-gray-800">RSL · Trinity · ABRSM</p>
-                  <p className="text-[10px] text-gray-400">International Certifications</p>
-                </div>
+        <div className="mb-8">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-2">
+            Music: Learn, Practice, Perform
+          </h2>
+          <p className="text-white/40 text-sm">
+            It is ongoing. It is wholesome. One is incomplete without the other.
+          </p>
+        </div>
+
+        <div className="flex flex-col lg:flex-row items-center gap-12 mt-10">
+          {/* Left: Rotating circle badge */}
+          <div className="relative w-48 h-48 shrink-0">
+            {/* Outer rotating text ring */}
+            <svg className="w-full h-full animate-[spin_20s_linear_infinite]" viewBox="0 0 200 200">
+              <defs>
+                <path id="circlePath" d="M 100,100 m -75,0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" />
+              </defs>
+              <text className="fill-white/30 text-[13px] font-bold uppercase tracking-[0.3em]">
+                <textPath href="#circlePath">
+                  ◆ LEARN ◆ PRACTICE ◆ PERFORM ◆ LEARN ◆ PRACTICE ◆ PERFORM
+                </textPath>
+              </text>
+            </svg>
+            {/* Center logo */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-20 h-20 rounded-full bg-white/10 border border-white/20 flex items-center justify-center">
+                <span className="text-2xl font-extrabold text-white">M<span className="text-primary">c</span></span>
               </div>
             </div>
           </div>
 
-          {/* Right: Text */}
-          <div className="flex-1 space-y-6">
-            <div>
-              <p className="text-primary text-xs font-bold uppercase tracking-widest mb-3">Our Philosophy</p>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">
-                Learn, Practice<br />&amp; <span className="text-primary">Perform</span>
-              </h2>
-            </div>
-            <p className="text-gray-500 leading-relaxed">
-              Muziclub is all about <strong className="text-gray-900">living music</strong> — making music a part of your life. Our model has the right balance of discipline and flexibility needed to learn music.
+          {/* Right: Cycling phrase */}
+          <div className="flex items-start gap-4">
+            <span className="text-primary text-3xl mt-1">▶</span>
+            <p className="text-xl md:text-2xl lg:text-3xl text-white font-bold leading-snug max-w-xl">
+              <span className="text-primary">{current.keyword}</span>{" "}
+              {current.text}
             </p>
-
-            <ul className="space-y-4">
-              {pillars.map((item, i) => (
-                <li key={i} className="flex gap-3 items-start">
-                  <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
-                    <Check className="w-3.5 h-3.5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-bold text-gray-800">{item.label}</p>
-                    <p className="text-xs text-gray-400 mt-0.5">{item.detail}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-
-            <Link
-              to="/online-programs"
-              className="inline-flex items-center gap-2 bg-primary text-white font-semibold px-6 py-3 rounded-full hover:bg-primary/90 transition-colors text-sm shadow-lg shadow-primary/20"
-            >
-              Explore All Courses →
-            </Link>
           </div>
         </div>
       </div>
