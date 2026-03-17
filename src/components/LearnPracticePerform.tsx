@@ -1,52 +1,72 @@
-import { Play } from "lucide-react";
-import achievePerformance from "/achieve-performance.png";
-import achieveChoir from "/achieve-choir.png";
+import { Check } from "lucide-react";
+import { Link } from "react-router-dom";
+
+const pillars = [
+  { label: "Personalized 1-on-1 Focus", detail: "Classes designed at your pace and goals in mind" },
+  { label: "Practice Facilities", detail: "Dedicated practice rooms at all 3 Pune academy centres" },
+  { label: "Perform Every Week", detail: "Sunday Jam sessions — live stage experience for every student" },
+  { label: "Online or In-Person", detail: "Flexible formats — video call or walk in to any Pune centre" },
+];
 
 const LearnPracticePerform = () => {
   return (
-    <section className="bg-card py-16">
+    <section className="bg-[#f7f7f9] py-20">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col lg:flex-row items-center gap-12">
+        <div className="flex flex-col lg:flex-row items-center gap-16">
+          {/* Left: Image */}
+          <div className="flex-1 w-full">
+            <div className="relative">
+              <img
+                src="/homepage_banners/banner_3.png"
+                alt="Muziclub online classes"
+                className="rounded-3xl w-full object-cover aspect-[4/3] shadow-xl"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = "/homepage_banners/banner_1.png";
+                }}
+              />
+              {/* Floating badge */}
+              <div className="absolute -bottom-5 -right-5 bg-white rounded-2xl shadow-lg p-4 border border-gray-100 flex items-center gap-3">
+                <div className="text-2xl">🏆</div>
+                <div>
+                  <p className="text-xs font-bold text-gray-800">RSL · Trinity · ABRSM</p>
+                  <p className="text-[10px] text-gray-400">International Certifications</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right: Text */}
           <div className="flex-1 space-y-6">
-            <h2 className="text-3xl font-bold text-foreground">Learn, Practice &amp; Perform</h2>
-            <p className="text-muted-foreground">
-              Muziclub is all about <span className="text-primary font-semibold">living music</span> — making music a part of your life. Our model has the right balance of discipline and flexibility that is needed to learn music.
+            <div>
+              <p className="text-primary text-xs font-bold uppercase tracking-widest mb-3">Our Philosophy</p>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">
+                Learn, Practice<br />&amp; <span className="text-primary">Perform</span>
+              </h2>
+            </div>
+            <p className="text-gray-500 leading-relaxed">
+              Muziclub is all about <strong className="text-gray-900">living music</strong> — making music a part of your life. Our model has the right balance of discipline and flexibility needed to learn music.
             </p>
+
             <ul className="space-y-4">
-              {[
-                { label: "Personalized Focus", detail: "1-on-1 classes designed with your pace and goals in mind" },
-                { label: "Practice Facilities", detail: "Dedicated practice rooms at all 3 Pune academy centres" },
-                { label: "Perform Every Week", detail: "Sunday Jam sessions give every student a live stage experience" },
-              ].map((item, i) => (
+              {pillars.map((item, i) => (
                 <li key={i} className="flex gap-3 items-start">
-                  <span className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
+                  <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+                    <Check className="w-3.5 h-3.5 text-primary" />
+                  </div>
                   <div>
-                    <p className="text-sm font-semibold text-foreground">{item.label}</p>
-                    <p className="text-xs text-muted-foreground">{item.detail}</p>
+                    <p className="text-sm font-bold text-gray-800">{item.label}</p>
+                    <p className="text-xs text-gray-400 mt-0.5">{item.detail}</p>
                   </div>
                 </li>
               ))}
             </ul>
-          </div>
-          <div className="flex-1 grid grid-cols-2 gap-4">
-            <img
-              src={achievePerformance}
-              alt="Muziclub online classes"
-              className="rounded-2xl w-full object-cover shadow-xl col-span-2 h-64"
-            />
-            <img
-              src={achieveChoir}
-              alt="Muziclub choir performance"
-              className="rounded-2xl w-full h-full object-cover shadow-xl"
-            />
-            <div className="relative rounded-2xl overflow-hidden shadow-xl bg-secondary h-40">
-              <img src="/achieve-karaoke.png" alt="Muziclub karaoke" className="w-full h-full object-cover mix-blend-overlay opacity-80" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                 <div className="w-12 h-12 rounded-full bg-primary/90 flex items-center justify-center cursor-pointer hover:scale-110 transition-transform">
-                  <Play className="w-5 h-5 text-primary-foreground ml-0.5" />
-                </div>
-              </div>
-            </div>
+
+            <Link
+              to="/online-programs"
+              className="inline-flex items-center gap-2 bg-primary text-white font-semibold px-6 py-3 rounded-full hover:bg-primary/90 transition-colors text-sm shadow-lg shadow-primary/20"
+            >
+              Explore All Courses →
+            </Link>
           </div>
         </div>
       </div>

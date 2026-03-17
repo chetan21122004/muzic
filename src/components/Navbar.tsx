@@ -5,18 +5,19 @@ import { Link } from "react-router-dom";
 import { courseCategories } from "@/data/courses";
 
 const navItems = [
-  { label: "Courses", hasDropdown: true },
+  { label: "Online Programs", href: "/online-programs" },
+  { label: "Music Lessons", hasDropdown: true },
+  { label: "Our Centres", href: "/center" },
+  { label: "Store", href: "/store" },
   { label: "Student Showcase", href: "/student-showcase" },
   { label: "About Us", href: "/about" },
-  { label: "Centre", href: "/center" },
-  { label: "Blog", href: "/blog" },
-  { label: "Get In Touch", href: "/contact" },
 ];
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [coursesOpen, setCoursesOpen] = useState(false);
-  const [mobilCoursesOpen, setMobileCoursesOpen] = useState(false);
+  const [mobileCoursesOpen, setMobileCoursesOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -29,120 +30,172 @@ const Navbar = () => {
     return () => document.removeEventListener("mousedown", handleClick);
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className="flex flex-col">
-      <div className="hidden md:flex bg-zinc-900 text-zinc-300 py-2 px-4 text-xs justify-between items-center">
-        <div className="container mx-auto flex items-center gap-3">
-          <span className="bg-primary text-white px-2 py-0.5 rounded font-bold uppercase text-[10px]">Latest</span>
-          <a href="#" className="hover:text-white transition-colors truncate">
-            Malay Kale – Drums Student / #studentshowcase – No One Knows – Drums Cover
-          </a>
+      {/* Announcement bar */}
+      <div className="bg-primary text-primary-foreground py-2 px-4 text-xs text-center overflow-hidden">
+        <div className="ticker-animate">
+          <span className="mx-8">🎵 Ukulele – 1 Month Crash Course! Enrol Now</span>
+          <span className="mx-8">🥁 Sunday Jam every week — perform live with fellow students!</span>
+          <span className="mx-8">🎸 International certifications: Trinity · ABRSM · RSL available</span>
+          <span className="mx-8">🎵 Ukulele – 1 Month Crash Course! Enrol Now</span>
+          <span className="mx-8">🥁 Sunday Jam every week — perform live with fellow students!</span>
+          <span className="mx-8">🎸 International certifications: Trinity · ABRSM · RSL available</span>
         </div>
       </div>
-    
-      <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
+
+      <nav className={`sticky top-0 z-50 bg-white dark:bg-gray-900 transition-shadow duration-200 ${scrolled ? "shadow-md" : "border-b border-gray-100 dark:border-gray-800"}`}>
         <div className="container mx-auto flex items-center justify-between py-3 px-4">
-          <Link to="/" className="flex items-center gap-2">
-            <img src="/logo.png" alt="Muziclub Logo" className="h-8 w-auto" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
-            <span className="text-lg font-bold text-foreground">Muzi<span className="text-primary">club</span></span>
+          {/* Logo */}
+          <Link to="/" className="flex items-center gap-2.5 shrink-0">
+            <img
+              src="/logo.png"
+              alt="Muziclub"
+              className="h-9 w-auto"
+              onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
+            />
+            <span className="text-xl font-bold text-gray-900 dark:text-white">
+              Muzi<span className="text-primary">club</span>
+            </span>
           </Link>
 
-        <div className="hidden lg:flex items-center gap-6">
-          {navItems.map((item) =>
-            item.hasDropdown ? (
-              <div key={item.label} ref={dropdownRef} className="relative">
-                <button
-                  onClick={() => setCoursesOpen(!coursesOpen)}
-                  className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
+          {/* Desktop Nav */}
+          <div className="hidden lg:flex items-center gap-1">
+            {navItems.map((item) =>
+              item.hasDropdown ? (
+                <div key={item.label} ref={dropdownRef} className="relative">
+                  <button
+                    onClick={() => setCoursesOpen(!coursesOpen)}
+                    className="flex items-center gap-1 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors px-3 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800"
+                  >
+                    {item.label}
+                    <ChevronDown className={`w-3.5 h-3.5 transition-transform ${coursesOpen ? "rotate-180" : ""}`} />
+                  </button>
+
+                  {coursesOpen && (
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl shadow-xl p-6 z-50 min-w-[660px]">
+                      <div className="grid grid-cols-4 gap-6">
+                        {courseCategories.map((cat) => (
+                          <div key={cat.title}>
+                            <h4 className="font-bold text-primary mb-3 text-xs uppercase tracking-widest">{cat.title}</h4>
+                            <ul className="space-y-1.5">
+                              {cat.courses.map((course) => (
+                                <li key={course.slug}>
+                                  <Link
+                                    to={`/courses/${course.slug}`}
+                                    onClick={() => setCoursesOpen(false)}
+                                    className="text-sm text-gray-500 dark:text-gray-400 hover:text-primary transition-colors block py-0.5"
+                                  >
+                                    {course.name}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <Link
+                  key={item.label}
+                  to={item.href || "#"}
+                  className="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors px-3 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800"
                 >
                   {item.label}
-                  <ChevronDown className={`w-3.5 h-3.5 transition-transform ${coursesOpen ? "rotate-180" : ""}`} />
-                </button>
+                </Link>
+              )
+            )}
+          </div>
 
-                {coursesOpen && (
-                  <div className="absolute top-full left-0 mt-3 bg-popover border border-border rounded-xl shadow-2xl p-8 z-50 min-w-[700px]">
-                    <div className="grid grid-cols-4 gap-8">
+          {/* Right CTAs */}
+          <div className="flex items-center gap-2">
+            <Link
+              to="/teach-with-us"
+              className="hidden lg:block text-sm font-medium text-gray-300 hover:text-primary transition-colors"
+            >
+              Teach With Us
+            </Link>
+
+            <Button
+              size="sm"
+              className="bg-primary text-white hover:bg-primary/90 font-semibold px-5 rounded-full text-sm shadow-sm"
+              asChild
+            >
+              <Link to="/contact">Book Free Trial</Link>
+            </Button>
+            <button
+              className="lg:hidden text-gray-300 p-1"
+              onClick={() => setMobileOpen(!mobileOpen)}
+            >
+              {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        {mobileOpen && (
+          <div className="lg:hidden border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 px-4 pb-4">
+            {navItems.map((item) =>
+              item.hasDropdown ? (
+                <div key={item.label}>
+                  <button
+                    onClick={() => setMobileCoursesOpen(!mobileCoursesOpen)}
+                    className="flex items-center justify-between w-full py-3 text-sm font-medium text-gray-700 dark:text-gray-300 border-b border-gray-50 dark:border-gray-800"
+                  >
+                    {item.label}
+                    <ChevronDown className={`w-3.5 h-3.5 transition-transform ${mobileCoursesOpen ? "rotate-180" : ""}`} />
+                  </button>
+                  {mobileCoursesOpen && (
+                    <div className="pl-3 pb-2 space-y-3 mt-2">
                       {courseCategories.map((cat) => (
                         <div key={cat.title}>
-                          <h4 className="font-bold text-primary mb-3 text-sm uppercase tracking-wide">{cat.title}</h4>
-                          <ul className="space-y-2">
-                            {cat.courses.map((course) => (
-                              <li key={course.slug}>
-                                <Link
-                                  to={`/courses/${course.slug}`}
-                                  onClick={() => setCoursesOpen(false)}
-                                  className="text-sm text-muted-foreground hover:text-primary transition-colors block"
-                                >
-                                  {course.name}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
+                          <h4 className="font-bold text-primary text-xs mb-1 uppercase tracking-wide">{cat.title}</h4>
+                          {cat.courses.map((course) => (
+                            <Link
+                              key={course.slug}
+                              to={`/courses/${course.slug}`}
+                              onClick={() => { setMobileOpen(false); setMobileCoursesOpen(false); }}
+                              className="block py-1 text-sm text-gray-500 dark:text-gray-400 hover:text-primary"
+                            >
+                              {course.name}
+                            </Link>
+                          ))}
                         </div>
                       ))}
                     </div>
-                  </div>
-                )}
-              </div>
-            ) : (
-              <Link key={item.label} to={item.href || "#"} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                {item.label}
-              </Link>
-            )
-          )}
-        </div>
-
-        <div className="flex items-center gap-3">
-          <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 text-xs font-semibold px-4">
-            Book Free Trial
-          </Button>
-          <button className="lg:hidden text-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
-            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
-        </div>
-      </div>
-
-      {mobileOpen && (
-        <div className="lg:hidden border-t border-border bg-background px-4 pb-4">
-          {navItems.map((item) =>
-            item.hasDropdown ? (
-              <div key={item.label}>
-                <button
-                  onClick={() => setMobileCoursesOpen(!mobilCoursesOpen)}
-                  className="flex items-center justify-between w-full py-2 text-sm text-muted-foreground hover:text-foreground"
+                  )}
+                </div>
+              ) : (
+                <Link
+                  key={item.label}
+                  to={item.href || "#"}
+                  onClick={() => setMobileOpen(false)}
+                  className="block py-3 text-sm font-medium text-gray-700 dark:text-gray-300 border-b border-gray-50 dark:border-gray-800"
                 >
                   {item.label}
-                  <ChevronDown className={`w-3.5 h-3.5 transition-transform ${mobilCoursesOpen ? "rotate-180" : ""}`} />
-                </button>
-                {mobilCoursesOpen && (
-                  <div className="pl-4 pb-2 space-y-3">
-                    {courseCategories.map((cat) => (
-                      <div key={cat.title}>
-                        <h4 className="font-bold text-primary text-xs mb-1 uppercase tracking-wide">{cat.title}</h4>
-                        {cat.courses.map((course) => (
-                          <Link
-                            key={course.slug}
-                            to={`/courses/${course.slug}`}
-                            onClick={() => { setMobileOpen(false); setMobileCoursesOpen(false); }}
-                            className="block py-1 text-sm text-muted-foreground hover:text-primary"
-                          >
-                            {course.name}
-                          </Link>
-                        ))}
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ) : (
-              <Link key={item.label} to={item.href || "#"} onClick={() => setMobileOpen(false)} className="block py-2 text-sm text-muted-foreground hover:text-foreground">
-                {item.label}
+                </Link>
+              )
+            )}
+            <div className="pt-3 flex items-center justify-between">
+              <Link
+                to="/teach-with-us"
+                onClick={() => setMobileOpen(false)}
+                className="text-sm font-medium text-gray-300"
+              >
+                Teach With Us
               </Link>
-            )
-          )}
-        </div>
-      )}
-    </nav>
+            </div>
+          </div>
+        )}
+      </nav>
     </div>
   );
 };

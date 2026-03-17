@@ -1,32 +1,33 @@
 import { Award, Users, BookOpen, Monitor, Trophy, MapPin } from "lucide-react";
 
 const advantages = [
-  { icon: Award, title: "13+ Years of Excellence", sub: "Teaching music since our inception, with over 14,000+ students taught." },
-  { icon: Users, title: "Highly Rated 4.8 ⭐ on Google", sub: "Based on reviews across Baner, Pimple Saudagar, and Hinjawadi centres." },
-  { icon: BookOpen, title: "Guru Gyan & Colourful Chords", sub: "Exclusive resources, tutorials, and masterclasses to elevate your learning." },
-  { icon: Monitor, title: "Academy & Online Classes", sub: "1-on-1 or small group classes strictly limited to 3 students." },
-  { icon: Trophy, title: "Sunday Jam & Offbeat", sub: "Weekly performances and a vibrant community of musicians." },
-  { icon: MapPin, title: "3 Centres in Pune + Online UK", sub: "Learn from anywhere across the globe." },
+  { icon: "🎓", title: "13+ Years of Excellence", sub: "Teaching music since our inception" },
+  { icon: "⭐", title: "Rated 4.8 on Google", sub: "Across Baner, Pimple Saudagar & Hinjawadi" },
+  { icon: "🎵", title: "Guru Gyan & Colourful Chords", sub: "Exclusive resources and masterclasses" },
+  { icon: "💻", title: "1-on-1 Online & Academy", sub: "Group classes capped at 3 students" },
+  { icon: "🥁", title: "Sunday Jam — Every Week", sub: "Live performances for all students" },
+  { icon: "📍", title: "3 Centres + Online UK", sub: "Baner · Pimple Saudagar · Hinjawadi" },
 ];
 
 const AdvantageSection = () => {
   return (
-    <section className="bg-surface-light py-16">
+    <section className="bg-[#f7f7f9] py-16 border-y border-gray-100">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-surface-light-foreground">
-            The Muziclub Advantage
+        <div className="text-center mb-10">
+          <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900">
+            The <span className="text-primary">Muziclub</span> Advantage
           </h2>
-          <p className="text-muted-foreground mt-2 text-sm">Why 14,000+ students choose to learn and live music with us</p>
+          <p className="text-gray-400 mt-2 text-sm">Why 14,000+ students choose to learn music with us</p>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {advantages.map((item, i) => (
-            <div key={i} className="flex flex-col items-center text-center gap-3">
-              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                <item.icon className="w-7 h-7 text-primary" />
-              </div>
-              <p className="text-sm font-semibold text-surface-light-foreground max-w-[200px]">{item.title}</p>
-              <p className="text-xs text-muted-foreground max-w-[180px]">{item.sub}</p>
+            <div
+              key={i}
+              className="bg-white rounded-2xl p-5 text-center border border-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
+            >
+              <div className="text-3xl mb-3">{item.icon}</div>
+              <p className="text-sm font-bold text-gray-800 leading-snug">{item.title}</p>
+              <p className="text-xs text-gray-400 mt-1 leading-relaxed">{item.sub}</p>
             </div>
           ))}
         </div>

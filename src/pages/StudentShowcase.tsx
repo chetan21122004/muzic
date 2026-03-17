@@ -1,82 +1,114 @@
-import { useState } from "react";
-import { Play, Music } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { showcaseItems, showcaseCategories } from "@/data/studentShowcase";
+import { Link } from "react-router-dom";
+
+const showcases = [
+  {
+    name: "Malay Kale",
+    instrument: "Drums",
+    tag: "🥁",
+    img: "/instructor/Subham Chand Sahu_Drums.webp",
+    cover: "No One Knows – Queens of the Stone Age Cover",
+    date: "October 2022",
+    href: "https://muziclub.com/student-showcase/",
+  },
+  {
+    name: "Arushi Deshpande",
+    instrument: "Guitar",
+    tag: "🎸",
+    img: "/instructor/Harsh-Bagle-guitar.webp",
+    cover: "James Arthur covers & originals",
+    date: "September 2022",
+    href: "https://muziclub.com/student-showcase/",
+  },
+  {
+    name: "Nirav Chakrabarti",
+    instrument: "Guitar",
+    tag: "🎸",
+    img: "/homepage_banners/instrument.png",
+    cover: "Master Of Puppets – Metallica Cover",
+    date: "August 2022",
+    href: "https://muziclub.com/student-showcase/",
+  },
+  {
+    name: "Charan Raavi & Varun Raavi",
+    instrument: "Keyboard",
+    tag: "🎹",
+    img: "/homepage_banners/banner_3.png",
+    cover: "Learning keyboard for almost a year",
+    date: "June 2022",
+    href: "https://muziclub.com/student-showcase/",
+  },
+];
 
 const StudentShowcase = () => {
-  const [activeCategory, setActiveCategory] = useState("All");
-
-  const filtered = activeCategory === "All"
-    ? showcaseItems
-    : showcaseItems.filter((item) => item.category === activeCategory);
-
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white">
       <Navbar />
 
       {/* Hero */}
-      <section className="bg-card py-16 border-b border-border">
+      <section className="bg-[#f7f7f9] py-16 border-b border-gray-100">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <p className="text-primary text-xs font-bold uppercase tracking-widest mb-3">Talent &amp; Performances</p>
+          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
             Student <span className="text-primary">Showcase</span>
           </h1>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Watch our talented students perform, cover iconic tracks, and showcase their musical journey at Muziclub.
+          <p className="text-gray-400 max-w-xl mx-auto text-base">
+            Our students don't just learn music — they perform it. Watch and celebrate their journey at our Sunday Jams and beyond.
           </p>
         </div>
       </section>
 
-      {/* Filters */}
-      <section className="container mx-auto px-4 py-8">
-        <div className="flex flex-wrap gap-2 mb-10">
-          {showcaseCategories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                activeCategory === cat
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-secondary text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
-        {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filtered.map((item, i) => (
-            <div
-              key={item.slug + i}
-              className="bg-card border border-border rounded-xl overflow-hidden group hover:border-primary/50 transition-colors"
-            >
-              <div className="relative aspect-video bg-secondary flex items-center justify-center">
-                <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
-                <Music className="w-10 h-10 text-muted-foreground/30" />
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                  <div className="w-14 h-14 rounded-full bg-primary/90 flex items-center justify-center">
-                    <Play className="w-6 h-6 text-primary-foreground ml-0.5" />
+      {/* Showcase Grid */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {showcases.map((s, i) => (
+              <a
+                key={i}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group bg-white border border-gray-100 rounded-2xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 block"
+              >
+                <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
+                  <img
+                    src={s.img}
+                    alt={s.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = "/homepage_banners/banner_1.png";
+                    }}
+                  />
+                  <div className="absolute top-3 left-3 bg-white/90 backdrop-blur rounded-xl px-2 py-1 text-base font-bold shadow-sm">
+                    {s.tag}
                   </div>
                 </div>
-                <span className="absolute top-3 left-3 bg-primary/90 text-primary-foreground text-[10px] font-bold px-2 py-0.5 rounded-full">
-                  {item.category}
-                </span>
-              </div>
-              <div className="p-5 space-y-2">
-                <h3 className="text-foreground font-semibold text-sm leading-snug">
-                  {item.title}
-                </h3>
-                <p className="text-muted-foreground text-xs leading-relaxed line-clamp-3">
-                  {item.description}
-                </p>
-                <button className="text-primary text-xs font-semibold hover:underline">
-                  READ MORE
-                </button>
-              </div>
-            </div>
-          ))}
+                <div className="p-5">
+                  <p className="font-extrabold text-gray-900 text-sm">{s.name}</p>
+                  <p className="text-xs text-primary font-semibold mt-0.5">{s.instrument}</p>
+                  <p className="text-xs text-gray-400 mt-2 leading-relaxed">{s.cover}</p>
+                  <p className="text-[10px] text-gray-300 mt-2">{s.date}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-[#f7f7f9] py-14 border-t border-gray-100">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-2xl font-extrabold text-gray-900 mb-3">Want to be featured here?</h2>
+          <p className="text-gray-400 text-sm mb-6">
+            Join Muziclub, perform at our Sunday Jam sessions, and you could be our next featured showcase student!
+          </p>
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-2 bg-primary text-white font-bold px-8 py-3.5 rounded-full hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
+          >
+            Book a Free Trial Class
+          </Link>
         </div>
       </section>
 
