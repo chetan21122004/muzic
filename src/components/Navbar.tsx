@@ -51,18 +51,16 @@ const Navbar = () => {
       </div>
 
       <nav className={`bg-white dark:bg-gray-900 transition-shadow duration-200 ${scrolled ? "shadow-md" : "border-b border-gray-100 dark:border-gray-800"}`}>
-        <div className="container mx-auto flex items-center justify-between py-3 px-4">
+        <div className="container mx-auto flex items-center justify-between py-1 px-4">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5 shrink-0">
             <img
               src="/logo.png"
               alt="Muziclub"
-              className="h-9 w-auto"
+              className="h-24 w-auto"
               onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
             />
-            <span className="text-xl font-bold text-gray-900 dark:text-white">
-              Muzi<span className="text-primary">club</span>
-            </span>
+
           </Link>
 
           {/* Desktop Nav */}
