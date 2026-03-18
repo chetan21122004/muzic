@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 import { courseCategories } from "@/data/courses";
 
 const navItems = [
-  { label: "Online Programs", href: "/online-programs" },
-  { label: "Music Lessons", hasDropdown: true },
+  { label: "Courses", hasDropdown: true },
   { label: "Our Centres", href: "/center" },
   { label: "Store", href: "/store" },
   { label: "Student Showcase", href: "/student-showcase" },
+  { label: "Offline Classes", href: "/offline-class" },
   { label: "About Us", href: "/about" },
 ];
 
@@ -37,7 +37,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="flex flex-col">
+    <div className="sticky top-0 z-50 flex flex-col">
       {/* Announcement bar */}
       <div className="bg-primary text-primary-foreground py-2 px-4 text-xs text-center overflow-hidden">
         <div className="ticker-animate">
@@ -50,7 +50,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      <nav className={`sticky top-0 z-50 bg-white dark:bg-gray-900 transition-shadow duration-200 ${scrolled ? "shadow-md" : "border-b border-gray-100 dark:border-gray-800"}`}>
+      <nav className={`bg-white dark:bg-gray-900 transition-shadow duration-200 ${scrolled ? "shadow-md" : "border-b border-gray-100 dark:border-gray-800"}`}>
         <div className="container mx-auto flex items-center justify-between py-3 px-4">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5 shrink-0">

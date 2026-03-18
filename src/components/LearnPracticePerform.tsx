@@ -40,15 +40,17 @@ const LearnPracticePerform = () => {
               </defs>
               <text className="fill-white/30 text-[13px] font-bold uppercase tracking-[0.3em]">
                 <textPath href="#circlePath">
-                  ◆ LEARN ◆ PRACTICE ◆ PERFORM ◆ LEARN ◆ PRACTICE ◆ PERFORM
+                  ◆ LEARN ◆ PRACTICE ◆ PERFORM ◆  ACHIEVE
                 </textPath>
               </text>
             </svg>
             {/* Center logo */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-20 h-20 rounded-full bg-white/10 border border-white/20 flex items-center justify-center">
-                <span className="text-2xl font-extrabold text-white">M<span className="text-primary">c</span></span>
-              </div>
+              <img
+                src="/logo.png"
+                alt="Muziclub logo"
+                className="w-20 h-20 rounded-full object-contain drop-shadow-lg"
+              />
             </div>
           </div>
 
