@@ -15,6 +15,7 @@ import Pricing from "./pages/Pricing";
 import TeachWithUs from "./pages/TeachWithUs";
 import Store from "./pages/Store";
 import Center from "./pages/Center";
+import OfflineClass from "./pages/OfflineClass";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
