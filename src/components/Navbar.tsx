@@ -1,13 +1,12 @@
-import { ChevronDown, Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ChevronDown, Menu, X, Sparkles } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { courseCategories } from "@/data/courses";
 
 const navItems = [
   { label: "Courses", hasDropdown: true },
   { label: "Our Centres", href: "/center" },
-  { label: "Store", href: "/store" },
+  { label: "Store", href: "/store", badge: "NEW" },
   { label: "Student Showcase", href: "/student-showcase" },
   { label: "Offline Classes", href: "/offline-class" },
   { label: "About Us", href: "/about" },
@@ -19,6 +18,7 @@ const Navbar = () => {
   const [mobileCoursesOpen, setMobileCoursesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
 
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
@@ -37,59 +37,77 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="relative w-full z-50">
-      {/* Announcement bar */}
-      <div className="bg-primary text-primary-foreground py-2 px-4 text-xs text-center overflow-hidden">
-        <div className="ticker-animate">
-          <span className="mx-8">🎵 Ukulele – 1 Month Crash Course! Enrol Now</span>
-          <span className="mx-8">🥁 Sunday Jam every week — perform live with fellow students!</span>
-          <span className="mx-8">🎸 International certifications: Trinity · ABRSM · RSL available</span>
-          <span className="mx-8">🎵 Ukulele – 1 Month Crash Course! Enrol Now</span>
-          <span className="mx-8">🥁 Sunday Jam every week — perform live with fellow students!</span>
-          <span className="mx-8">🎸 International certifications: Trinity · ABRSM · RSL available</span>
+    <>
+      {/* ── Announcement Ticker (Gradient) ── */}
+      <div className="bg-gradient-to-r from-primary via-purple-600 to-primary text-white py-2.5 px-4 text-xs tracking-wide text-center overflow-hidden font-medium relative">
+        <div className="absolute inset-0 bg-black/10"></div>
+        <div className="ticker-animate relative z-10">
+          <span className="mx-8 font-semibold">🎵 Ukulele – 1 Month Crash Course! Enrol Now</span>
+          <span className="mx-8 font-semibold">🥁 Sunday Jam every week — perform live!</span>
+          <span className="mx-8 font-semibold text-white/90">🎸 International certifications: Trinity · ABRSM · RSL</span>
+          <span className="mx-8 font-semibold">🎵 Ukulele – 1 Month Crash Course! Enrol Now</span>
+          <span className="mx-8 font-semibold">🥁 Sunday Jam every week — perform live!</span>
+          <span className="mx-8 font-semibold text-white/90">🎸 International certifications: Trinity · ABRSM · RSL</span>
         </div>
       </div>
 
-      <nav className={`sticky top-0 w-full bg-white dark:bg-gray-900 transition-shadow duration-200 ${scrolled ? "shadow-md z-[60]" : "border-b border-gray-100 dark:border-gray-800 z-[60]"}`}>
-        <div className="container mx-auto flex items-center justify-between py-1 px-4">
+      {/* ── Main Navbar ── */}
+      <nav 
+        className={`sticky top-0 w-full transition-all duration-300 z-[60] ${
+          scrolled 
+            ? "bg-[#0a0a0f]/80 backdrop-blur-xl border-b border-white/5 shadow-2xl py-2 pl-4 pr-1" 
+            : "bg-[#0a0a0f] border-b border-white/5 py-3 pl-4 pr-1"
+        }`}
+      >
+        <div className="container mx-auto flex items-center justify-between px-2">
+          
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2.5 shrink-0">
+          <Link to="/" className="flex items-center gap-2.5 shrink-0 transition-transform hover:scale-[1.02] duration-300">
             <img
               src="/logo.png"
-              alt="Muziclub"
-              className="h-24 w-auto"
+              alt="Muziclub Logo"
+              className="h-24 w-auto object-contain drop-shadow-lg"
               onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
             />
-
           </Link>
 
-          {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-1">
-            {navItems.map((item) =>
-              item.hasDropdown ? (
+          {/* Desktop Nav Links */}
+          <div className="hidden xl:flex items-center gap-2">
+            {navItems.map((item) => {
+              const isActive = location.pathname === item.href;
+
+              return item.hasDropdown ? (
                 <div key={item.label} ref={dropdownRef} className="relative">
                   <button
                     onClick={() => setCoursesOpen(!coursesOpen)}
-                    className="flex items-center gap-1 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors px-3 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800"
+                    className={`flex items-center gap-1.5 text-sm font-semibold transition-all px-4 py-2 rounded-full ${
+                      coursesOpen 
+                        ? "bg-primary/10 text-primary border border-primary/20" 
+                        : "text-white/70 hover:text-white hover:bg-white/5 border border-transparent"
+                    }`}
                   >
                     {item.label}
-                    <ChevronDown className={`w-3.5 h-3.5 transition-transform ${coursesOpen ? "rotate-180" : ""}`} />
+                    <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${coursesOpen ? "rotate-180 text-primary" : "text-white/40"}`} />
                   </button>
 
+                  {/* Mega Menu Dropdown */}
                   {coursesOpen && (
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl shadow-xl p-6 z-50 min-w-[660px]">
-                      <div className="grid grid-cols-4 gap-6">
+                    <div className="absolute top-[calc(100%+12px)] left-1/2 -translate-x-1/2 bg-[#111117]/95 backdrop-blur-2xl border border-white/10 rounded-3xl shadow-[0_0_50px_rgba(0,0,0,0.5)] p-8 z-50 min-w-[700px] animate-in fade-in slide-in-from-top-4 duration-300">
+                      <div className="grid grid-cols-4 gap-8">
                         {courseCategories.map((cat) => (
                           <div key={cat.title}>
-                            <h4 className="font-bold text-primary mb-3 text-xs uppercase tracking-widest">{cat.title}</h4>
-                            <ul className="space-y-1.5">
+                            <h4 className="flex items-center gap-2 font-black text-white mb-4 text-xs uppercase tracking-[0.15em] border-b border-white/10 pb-2">
+                              {cat.title}
+                            </h4>
+                            <ul className="space-y-2.5">
                               {cat.courses.map((course) => (
                                 <li key={course.slug}>
                                   <Link
                                     to={`/courses/${course.slug}`}
                                     onClick={() => setCoursesOpen(false)}
-                                    className="text-sm text-gray-500 dark:text-gray-400 hover:text-primary transition-colors block py-0.5"
+                                    className="text-sm font-medium text-white/50 hover:text-primary transition-colors flex items-center group relative w-full"
                                   >
+                                    <span className="w-0 h-px bg-primary transition-all duration-300 group-hover:w-3 mr-0 group-hover:mr-2"></span>
                                     {course.name}
                                   </Link>
                                 </li>
@@ -98,6 +116,12 @@ const Navbar = () => {
                           </div>
                         ))}
                       </div>
+                      <div className="mt-8 pt-4 border-t border-white/5 flex items-center justify-between">
+                        <p className="text-xs text-white/30 font-medium">Over 30+ certified courses available.</p>
+                        <Link to="/courses" onClick={()=>setCoursesOpen(false)} className="text-xs font-bold text-primary hover:text-primary/80 flex items-center gap-1 uppercase tracking-wider">
+                          View All Courses &rarr;
+                        </Link>
+                      </div>
                     </div>
                   )}
                 </div>
@@ -105,32 +129,42 @@ const Navbar = () => {
                 <Link
                   key={item.label}
                   to={item.href || "#"}
-                  className="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors px-3 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800"
+                  className={`relative text-sm font-semibold transition-all px-4 py-2 rounded-full flex items-center gap-2 group ${
+                    isActive
+                      ? "text-white bg-white/10"
+                      : "text-white/70 hover:text-white hover:bg-white/5"
+                  }`}
                 >
                   {item.label}
+                  {item.badge && (
+                    <span className="bg-primary/20 border border-primary/30 text-primary text-[9px] font-black uppercase px-2 py-0.5 rounded-full tracking-widest flex items-center gap-1 shadow-[0_0_10px_rgba(168,85,247,0.3)]">
+                      <Sparkles className="w-2 h-2" />
+                      {item.badge}
+                    </span>
+                  )}
                 </Link>
               )
-            )}
+            })}
           </div>
 
-          {/* Right CTAs */}
-          <div className="flex items-center gap-2">
+          {/* Right CTAs Desktop + Mobile Menu Toggle */}
+          <div className="flex items-center gap-3">
             <Link
               to="/teach-with-us"
-              className="hidden lg:block text-sm font-medium text-gray-300 hover:text-primary transition-colors"
+              className="hidden xl:block text-sm font-bold text-white/50 hover:text-primary transition-colors px-3"
             >
               Teach With Us
             </Link>
 
-            <Button
-              size="sm"
-              className="bg-primary text-white hover:bg-primary/90 font-semibold px-5 rounded-full text-sm shadow-sm"
-              asChild
+            <Link 
+              to="/contact"
+              className="hidden sm:inline-flex items-center justify-center bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-primary text-white font-extrabold px-6 py-2.5 rounded-full text-sm shadow-xl shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all duration-300"
             >
-              <Link to="/contact">Book Free Trial</Link>
-            </Button>
+              Book Free Trial
+            </Link>
+
             <button
-              className="lg:hidden text-gray-300 p-1"
+              className="xl:hidden text-white bg-white/5 hover:bg-white/10 border border-white/10 p-2 rounded-full transition-colors"
               onClick={() => setMobileOpen(!mobileOpen)}
             >
               {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -138,63 +172,81 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* ── Mobile Menu Overlay ── */}
         {mobileOpen && (
-          <div className="lg:hidden border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 px-4 pb-4">
-            {navItems.map((item) =>
-              item.hasDropdown ? (
-                <div key={item.label}>
-                  <button
-                    onClick={() => setMobileCoursesOpen(!mobileCoursesOpen)}
-                    className="flex items-center justify-between w-full py-3 text-sm font-medium text-gray-700 dark:text-gray-300 border-b border-gray-50 dark:border-gray-800"
+          <div className="xl:hidden absolute top-full left-0 w-full bg-[#0a0a0f] border-b border-white/10 shadow-2xl animate-in slide-in-from-top-4 duration-300">
+            <div className="px-6 py-4 space-y-1 max-h-[80vh] overflow-y-auto">
+              {navItems.map((item) =>
+                item.hasDropdown ? (
+                  <div key={item.label} className="py-2">
+                    <button
+                      onClick={() => setMobileCoursesOpen(!mobileCoursesOpen)}
+                      className="flex items-center justify-between w-full py-3 text-base font-bold text-white border-b border-white/5"
+                    >
+                      {item.label}
+                      <ChevronDown className={`w-4 h-4 transition-transform ${mobileCoursesOpen ? "rotate-180 text-primary" : "text-white/40"}`} />
+                    </button>
+                    {mobileCoursesOpen && (
+                      <div className="pl-4 pb-4 space-y-6 mt-4 border-l border-white/10 ml-2">
+                        {courseCategories.map((cat) => (
+                          <div key={cat.title}>
+                            <h4 className="font-extrabold text-primary text-[10px] mb-3 uppercase tracking-widest">{cat.title}</h4>
+                            <ul className="space-y-3">
+                              {cat.courses.map((course) => (
+                                <li key={course.slug}>
+                                  <Link
+                                    to={`/courses/${course.slug}`}
+                                    onClick={() => { setMobileOpen(false); setMobileCoursesOpen(false); }}
+                                    className="text-sm font-medium text-white/60 hover:text-white flex items-center gap-2"
+                                  >
+                                    <span className="w-1.5 h-1.5 rounded-full bg-white/20"></span>
+                                    {course.name}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <Link
+                    key={item.label}
+                    to={item.href || "#"}
+                    onClick={() => setMobileOpen(false)}
+                    className="flex justify-between items-center py-4 text-base font-bold text-white border-b border-white/5"
                   >
                     {item.label}
-                    <ChevronDown className={`w-3.5 h-3.5 transition-transform ${mobileCoursesOpen ? "rotate-180" : ""}`} />
-                  </button>
-                  {mobileCoursesOpen && (
-                    <div className="pl-3 pb-2 space-y-3 mt-2">
-                      {courseCategories.map((cat) => (
-                        <div key={cat.title}>
-                          <h4 className="font-bold text-primary text-xs mb-1 uppercase tracking-wide">{cat.title}</h4>
-                          {cat.courses.map((course) => (
-                            <Link
-                              key={course.slug}
-                              to={`/courses/${course.slug}`}
-                              onClick={() => { setMobileOpen(false); setMobileCoursesOpen(false); }}
-                              className="block py-1 text-sm text-gray-500 dark:text-gray-400 hover:text-primary"
-                            >
-                              {course.name}
-                            </Link>
-                          ))}
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ) : (
+                    {item.badge && (
+                      <span className="bg-primary/20 text-primary text-[9px] font-black uppercase px-2 py-0.5 rounded-full tracking-widest">
+                        {item.badge}
+                      </span>
+                    )}
+                  </Link>
+                )
+              )}
+              <div className="pt-6 pb-4">
                 <Link
-                  key={item.label}
-                  to={item.href || "#"}
+                  to="/teach-with-us"
                   onClick={() => setMobileOpen(false)}
-                  className="block py-3 text-sm font-medium text-gray-700 dark:text-gray-300 border-b border-gray-50 dark:border-gray-800"
+                  className="block w-full text-center py-3 text-sm font-bold text-white/50 border border-white/10 rounded-xl mb-4"
                 >
-                  {item.label}
+                  Careers / Teach With Us
                 </Link>
-              )
-            )}
-            <div className="pt-3 flex items-center justify-between">
-              <Link
-                to="/teach-with-us"
-                onClick={() => setMobileOpen(false)}
-                className="text-sm font-medium text-gray-300"
-              >
-                Teach With Us
-              </Link>
+                <Link
+                  to="/contact"
+                  onClick={() => setMobileOpen(false)}
+                  className="block w-full text-center py-3.5 text-sm font-extrabold text-white bg-gradient-to-r from-primary to-purple-600 rounded-xl shadow-lg shadow-primary/20"
+                >
+                  Book Your Free Trial Now
+                </Link>
+              </div>
             </div>
           </div>
         )}
       </nav>
-    </div>
+    </>
   );
 };
 
