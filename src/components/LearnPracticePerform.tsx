@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Music } from "lucide-react";
 
 const phrases = [
   { keyword: "LEARN", text: "music from the best teachers with personalized 1-on-1 classes tailored to your goals" },
@@ -46,11 +47,9 @@ const LearnPracticePerform = () => {
             </svg>
             {/* Center logo */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <img
-                src="/logo.png"
-                alt="Muziclub logo"
-                className="w-20 h-20 rounded-full object-contain drop-shadow-lg"
-              />
+              <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center">
+                <Music className="w-10 h-10 text-primary drop-shadow-lg" />
+              </div>
             </div>
           </div>
 

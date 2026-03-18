@@ -3,9 +3,15 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import { showcaseStudents, showcaseCategories, ShowcaseCategory } from "@/data/studentShowcase";
-import { X, ExternalLink, Music, User, Calendar, Award } from "lucide-react";
+import { X, Music, User, Calendar, Award, Play } from "lucide-react";
 
-// ── Instrument emoji map ───────────────────────────────────────────────────
+// ── Helpers ────────────────────────────────────────────────────────────────
+const ytThumb = (id: string) =>
+  `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
+
+const ytEmbed = (id: string) =>
+  `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
+
 const instrumentEmoji: Record<string, string> = {
   Drums: "🥁",
   Guitar: "🎸",
@@ -18,30 +24,38 @@ const instrumentEmoji: Record<string, string> = {
   "Piano & Guitar": "🎹",
   Band: "🎶",
 };
+const getEmoji = (i: string) => instrumentEmoji[i] ?? "🎵";
 
-const getEmoji = (instrument: string) =>
-  instrumentEmoji[instrument] ?? "🎵";
-
-// ── Category colour accent ─────────────────────────────────────────────────
 const categoryColour: Record<string, string> = {
-  Guitar: "text-orange-500",
-  Drums: "text-red-500",
-  Keyboard: "text-blue-500",
-  Piano: "text-purple-500",
-  Vocals: "text-pink-500",
-  "Band Performance": "text-green-500",
-  "Faculty Band": "text-yellow-500",
+  Guitar: "text-orange-400",
+  Drums: "text-red-400",
+  Keyboard: "text-blue-400",
+  Piano: "text-purple-400",
+  Vocals: "text-pink-400",
+  "Band Performance": "text-green-400",
+  "Faculty Band": "text-yellow-400",
 };
 
-// ── StudentShowcase page ──────────────────────────────────────────────────
+// ── Component ──────────────────────────────────────────────────────────────
 const StudentShowcase = () => {
   const [activeCategory, setActiveCategory] = useState<ShowcaseCategory>("All");
   const [selected, setSelected] = useState<(typeof showcaseStudents)[0] | null>(null);
+  const [videoPlaying, setVideoPlaying] = useState(false);
 
   const filtered =
     activeCategory === "All"
       ? showcaseStudents
       : showcaseStudents.filter((s) => s.category === activeCategory);
+
+  const openModal = (student: (typeof showcaseStudents)[0]) => {
+    setSelected(student);
+    setVideoPlaying(false);
+  };
+
+  const closeModal = () => {
+    setSelected(null);
+    setVideoPlaying(false);
+  };
 
   return (
     <div className="min-h-screen bg-[#0f0f1a]">
@@ -49,7 +63,6 @@ const StudentShowcase = () => {
 
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
       <section className="relative py-20 overflow-hidden">
-        {/* background glow */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-primary/20 blur-[120px] rounded-full" />
         </div>
@@ -58,19 +71,18 @@ const StudentShowcase = () => {
             🎶 Talent & Performances
           </span>
           <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-5 leading-tight">
-            Student{" "}
-            <span className="text-primary">Showcase</span>
+            Student <span className="text-primary">Showcase</span>
           </h1>
           <p className="text-white/50 max-w-2xl mx-auto text-lg leading-relaxed">
-            Our students don't just learn music — they live it. Watch and celebrate their journey
-            through Sunday Jams, live performances, and personal cover videos.
+            Our students don't just learn music — they live it. Watch real performances from
+            Sunday Jams, live events, and personal cover videos recorded at Muziclub.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-2 text-sm text-white/40">
             <span className="bg-white/5 border border-white/10 rounded-full px-3 py-1">
-              🎓 {showcaseStudents.filter(s => s.category !== "Band Performance" && s.category !== "Faculty Band").length} Students Featured
+              🎓 {showcaseStudents.filter(s => !["Band Performance","Faculty Band"].includes(s.category)).length} Students Featured
             </span>
             <span className="bg-white/5 border border-white/10 rounded-full px-3 py-1">
-              🎸 {showcaseStudents.filter(s => s.category === "Guitar").length} Guitarists
+              ▶ {showcaseStudents.filter(s => s.youtubeId).length} Videos Available
             </span>
             <span className="bg-white/5 border border-white/10 rounded-full px-3 py-1">
               🎶 {showcaseStudents.filter(s => s.category === "Band Performance").length} Band Performances
@@ -107,57 +119,66 @@ const StudentShowcase = () => {
             {filtered.map((student) => (
               <button
                 key={student.id}
-                onClick={() => setSelected(student)}
+                onClick={() => openModal(student)}
                 className="group bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-primary/40 hover:bg-white/[0.07] hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 text-left"
               >
-                {/* card image area */}
-                <div className="relative h-44 bg-gradient-to-br from-white/5 to-white/10 flex items-center justify-center overflow-hidden">
-                  {/* decorative glow */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <span className="text-7xl filter drop-shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    {getEmoji(student.instrument)}
-                  </span>
+                {/* ── Thumbnail / Emoji area ── */}
+                <div className="relative aspect-video overflow-hidden bg-black">
+                  {student.youtubeId ? (
+                    <>
+                      <img
+                        src={ytThumb(student.youtubeId)}
+                        alt={student.name}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                      {/* dark overlay */}
+                      <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-300" />
+                      {/* play button */}
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-12 h-12 rounded-full bg-primary/90 flex items-center justify-center shadow-lg shadow-primary/50 group-hover:scale-110 transition-transform duration-200">
+                          <Play className="w-5 h-5 text-white fill-white ml-0.5" />
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    <div className="w-full h-full bg-gradient-to-br from-white/5 to-white/10 flex items-center justify-center">
+                      <span className="text-7xl filter drop-shadow-lg group-hover:scale-110 transition-transform duration-300">
+                        {getEmoji(student.instrument)}
+                      </span>
+                    </div>
+                  )}
+
                   {/* category badge */}
-                  <span
-                    className={`absolute top-3 left-3 text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full bg-black/40 backdrop-blur border border-white/10 ${
-                      categoryColour[student.category] ?? "text-white"
-                    }`}
-                  >
+                  <span className={`absolute top-2 left-2 text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full bg-black/60 backdrop-blur border border-white/10 ${categoryColour[student.category] ?? "text-white"}`}>
                     {student.category}
                   </span>
-                  {/* age badge */}
+                  {/* age */}
                   {student.age && (
-                    <span className="absolute top-3 right-3 text-[10px] font-bold px-2 py-0.5 rounded-full bg-black/40 backdrop-blur border border-white/10 text-white/60">
+                    <span className="absolute top-2 right-2 text-[10px] font-bold px-2 py-0.5 rounded-full bg-black/60 backdrop-blur border border-white/10 text-white/70">
                       Age {student.age}
                     </span>
                   )}
                 </div>
 
-                {/* card body */}
+                {/* ── Card body ── */}
                 <div className="p-4">
                   <p className="font-extrabold text-white text-sm leading-snug">{student.name}</p>
                   <p className={`text-xs font-semibold mt-0.5 ${categoryColour[student.category] ?? "text-primary"}`}>
                     {student.instrument}
                   </p>
                   {student.teacher && (
-                    <p className="text-[11px] text-white/40 mt-1">
-                      👨‍🏫 {student.teacher}
-                    </p>
+                    <p className="text-[11px] text-white/40 mt-1 truncate">👨‍🏫 {student.teacher}</p>
                   )}
                   <p className="text-xs text-white/50 mt-2 leading-relaxed line-clamp-2">
                     {student.tagline}
                   </p>
-
                   {student.song && (
-                    <div className="mt-3 flex items-center gap-1.5 text-[10px] text-white/30">
+                    <div className="mt-2 flex items-center gap-1.5 text-[10px] text-white/30">
                       <Music className="w-3 h-3 shrink-0" />
                       <span className="truncate">{student.song}</span>
                     </div>
                   )}
-
-                  <div className="mt-3 text-[11px] text-primary font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                    View Profile →
-                  </div>
                 </div>
               </button>
             ))}
@@ -193,31 +214,71 @@ const StudentShowcase = () => {
       {/* ── Detail Modal ─────────────────────────────────────────────────── */}
       {selected && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
-          onClick={(e) => { if (e.target === e.currentTarget) setSelected(null); }}
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+          onClick={(e) => { if (e.target === e.currentTarget) closeModal(); }}
         >
-          <div className="relative bg-[#1a1a2e] border border-white/10 rounded-3xl w-full max-w-lg max-h-[90vh] overflow-y-auto shadow-2xl">
+          <div className="relative bg-[#1a1a2e] border border-white/10 rounded-3xl w-full max-w-lg max-h-[92vh] overflow-y-auto shadow-2xl">
+
             {/* close */}
             <button
-              onClick={() => setSelected(null)}
-              className="absolute top-4 right-4 z-10 bg-white/10 hover:bg-white/20 rounded-full p-1.5 transition-colors"
+              onClick={closeModal}
+              className="absolute top-4 right-4 z-20 bg-white/10 hover:bg-white/20 rounded-full p-1.5 transition-colors"
             >
               <X className="w-4 h-4 text-white" />
             </button>
 
-            {/* modal header */}
-            <div className="relative h-40 bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center rounded-t-3xl overflow-hidden">
-              <span className="text-8xl filter drop-shadow-2xl">{getEmoji(selected.instrument)}</span>
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a2e] to-transparent" />
+            {/* ── Video / Thumbnail area ── */}
+            <div className="relative w-full aspect-video rounded-t-3xl overflow-hidden bg-black">
+              {selected.youtubeId ? (
+                videoPlaying ? (
+                  <iframe
+                    className="w-full h-full"
+                    src={ytEmbed(selected.youtubeId)}
+                    title={selected.name}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                ) : (
+                  <>
+                    <img
+                      src={ytThumb(selected.youtubeId)}
+                      alt={selected.name}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/40" />
+                    {/* big play button */}
+                    <button
+                      onClick={() => setVideoPlaying(true)}
+                      className="absolute inset-0 flex flex-col items-center justify-center gap-3 group"
+                    >
+                      <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center shadow-xl shadow-primary/50 group-hover:scale-110 transition-transform duration-200">
+                        <Play className="w-7 h-7 text-white fill-white ml-1" />
+                      </div>
+                      <span className="text-white/80 text-sm font-semibold bg-black/40 backdrop-blur px-3 py-1 rounded-full">
+                        Watch Performance
+                      </span>
+                    </button>
+                  </>
+                )
+              ) : (
+                <div className="w-full h-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+                  <span className="text-8xl">{getEmoji(selected.instrument)}</span>
+                </div>
+              )}
+              {/* gradient fade into card body */}
+              {!videoPlaying && (
+                <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#1a1a2e] to-transparent pointer-events-none" />
+              )}
             </div>
 
-            <div className="px-6 pb-8 -mt-4 relative z-10">
+            {/* ── Modal body ── */}
+            <div className="px-6 pb-8 pt-4">
               {/* name + instrument */}
               <span className={`text-xs font-bold uppercase tracking-widest ${categoryColour[selected.category] ?? "text-primary"}`}>
                 {selected.category}
               </span>
               <h2 className="text-2xl font-extrabold text-white mt-1">{selected.name}</h2>
-              <p className="text-white/50 text-sm mt-0.5">{selected.instrument}</p>
+              <p className="text-white/50 text-sm">{selected.instrument}</p>
 
               {/* meta chips */}
               <div className="flex flex-wrap gap-2 mt-4">
@@ -238,7 +299,8 @@ const StudentShowcase = () => {
                 )}
                 {selected.song && (
                   <span className="flex items-center gap-1 text-[11px] bg-primary/10 border border-primary/20 rounded-full px-3 py-1 text-primary">
-                    <Music className="w-3 h-3" /> {selected.song}
+                    <Music className="w-3 h-3" />
+                    {selected.song}
                     {selected.originalArtist && ` — ${selected.originalArtist}`}
                   </span>
                 )}
@@ -265,17 +327,17 @@ const StudentShowcase = () => {
                 </div>
               )}
 
-              {/* social links */}
+              {/* social links – no redirects to old site */}
               <div className="mt-6 flex flex-wrap gap-3">
-                <a
-                  href={selected.sourceUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-primary text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
-                >
-                  <ExternalLink className="w-4 h-4" />
-                  Watch Performance
-                </a>
+                {selected.youtubeId && !videoPlaying && (
+                  <button
+                    onClick={() => setVideoPlaying(true)}
+                    className="inline-flex items-center gap-2 bg-primary text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
+                  >
+                    <Play className="w-4 h-4 fill-white" />
+                    Play Video
+                  </button>
+                )}
                 {selected.youtubeChannel && (
                   <a
                     href={selected.youtubeChannel}
@@ -283,7 +345,7 @@ const StudentShowcase = () => {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 bg-white/10 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-white/20 transition-colors"
                   >
-                    ▶ YouTube
+                    ▶ YouTube Channel
                   </a>
                 )}
                 {selected.instagram && (

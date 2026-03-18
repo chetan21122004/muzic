@@ -37,7 +37,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="sticky top-0 z-50 flex flex-col">
+    <div className="relative w-full z-50">
       {/* Announcement bar */}
       <div className="bg-primary text-primary-foreground py-2 px-4 text-xs text-center overflow-hidden">
         <div className="ticker-animate">
@@ -50,7 +50,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      <nav className={`bg-white dark:bg-gray-900 transition-shadow duration-200 ${scrolled ? "shadow-md" : "border-b border-gray-100 dark:border-gray-800"}`}>
+      <nav className={`sticky top-0 w-full bg-white dark:bg-gray-900 transition-shadow duration-200 ${scrolled ? "shadow-md z-[60]" : "border-b border-gray-100 dark:border-gray-800 z-[60]"}`}>
         <div className="container mx-auto flex items-center justify-between py-1 px-4">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5 shrink-0">
