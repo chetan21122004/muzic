@@ -15,6 +15,7 @@ import Pricing from "./pages/Pricing";
 import TeachWithUs from "./pages/TeachWithUs";
 import Store from "./pages/Store";
 import Center from "./pages/Center";
+import OfflineClass from "./pages/OfflineClass";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -38,6 +39,7 @@ const App = () => (
           <Route path="/teach-with-us" element={<TeachWithUs />} />
           <Route path="/store" element={<Store />} />
           <Route path="/center" element={<Center />} />
+          <Route path="/offline-class" element={<OfflineClass />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
