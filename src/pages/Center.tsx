@@ -7,53 +7,57 @@ const centres = [
   {
     name: "Baner",
     badge: "🏢 Head Office",
-    address: "Office 11 & 12, Aditi Commerce, Baner Road, Pune – 411069",
+    address: "Office 11 & 12, Aditi Commerce, Baner Road, Opp. Hillview Residency, Pune – 411045",
     landmark: "Above Bikaner Sweets",
-    phone: "+91 9156303400",
-    email: "enquiries@muziclub.com",
-    hours: "Mon – Sat: 9 AM – 9 PM",
+    phone: "+91 91563 03400",
+    altPhone: null as string | null,
+    email: "info@muziclub.com",
+    hours: "Daily: 10 AM – 8 PM",
     rating: "4.8",
-    reviews: "345+",
-    mapUrl: "https://maps.google.com/?q=Aditi+Commerce+Baner+Road+Pune+411069",
+    reviews: "360+",
+    mapUrl: "https://maps.google.com/?q=Muziclub+Baner+Aditi+Commerce+Baner+Road+Pune",
     img: "/homepage_banners/banner_1.png",
   },
   {
     name: "Pimple Saudagar",
     badge: "🎵 Academy",
-    address: "2nd Floor, Radhika Avenue, Near Jagtap Dairy, Opp. McDonalds, Pune – 411027",
-    landmark: "Opposite McDonald's, near Jagtap Dairy",
-    phone: "+91 9156303400",
-    email: "enquiries@muziclub.com",
-    hours: "Mon – Sat: 10 AM – 8 PM",
-    rating: "4.8",
-    reviews: "183+",
-    mapUrl: "https://maps.google.com/?q=Radhika+Avenue+Pimple+Saudagar+Pune",
+    address: "2nd Floor, Radhika Avenue, Circle, Wakad–Nasik Road, near Jagtap Dairy, beside Savitribai Phule Park, Pune – 411057",
+    landmark: "Near Jagtap Dairy · beside Savitribai Phule Park",
+    phone: "+91 75070 02008",
+    altPhone: "+91 77699 87599",
+    email: "ps@muziclub.com",
+    hours: "Daily: 11 AM – 8 PM",
+    rating: "4.9",
+    reviews: "544+",
+    mapUrl: "https://maps.google.com/?q=Muziclub+Pimple+Saudagar+Radhika+Avenue+Pune",
     img: "/homepage_banners/banner_3.png",
   },
   {
-    name: "Hinjawadi",
+    name: "Wakad / Hinjawadi",
     badge: "🎵 Academy",
-    address: "Spirea, S. 91/4, Bhumkar Das Gugre Rd, Wakad, Maharashtra – 411033",
-    landmark: "Near Wakad",
-    phone: "+91 9156303400",
-    email: "enquiries@muziclub.com",
-    hours: "Mon – Sat: 9 AM – 9 PM",
-    rating: "4.7",
-    reviews: "95+",
-    mapUrl: "https://maps.google.com/?q=Spirea+Bhumkar+Das+Gugre+Rd+Wakad+Maharashtra",
+    address: "Spirea, S. 91/4, Bhumkar Das Gugre Rd, near Silver Spoon, Bhumkar Nagar, Wakad, Pune – 411033",
+    landmark: "Near Silver Spoon, Bhumkar Nagar",
+    phone: "+91 80805 87033",
+    altPhone: "+91 75078 10055",
+    email: "wakad@muziclub.com",
+    hours: "Daily: 11 AM – 8 PM",
+    rating: "4.9",
+    reviews: "430+",
+    mapUrl: "https://maps.google.com/?q=Muziclub+Wakad+Spirea+Bhumkar+Das+Gugre+Rd+Pune",
     img: "/homepage_banners/banner_4.png",
   },
   {
     name: "Croydon, UK",
     badge: "🇬🇧 UK Centre",
-    address: "Croydon, London, United Kingdom",
-    landmark: "UK Online Coordination Centre",
-    phone: "+44 7768928645",
-    email: "online@muziclub.com",
+    address: "Croydon, London, United Kingdom – CR0 5RR",
+    landmark: "South London — UK Coordination Centre",
+    phone: "+44 7424 233 605",
+    altPhone: "+44 203 769 0013",
+    email: "uk@muziclub.com",
     hours: "Mon – Sat: 10 AM – 8 PM (IST online)",
-    rating: null,
-    reviews: null,
-    mapUrl: "https://maps.google.com/?q=Croydon+London+UK",
+    rating: null as string | null,
+    reviews: null as string | null,
+    mapUrl: "https://maps.google.com/?q=Croydon+London+CR0+5RR+UK",
     img: "/homepage_banners/singing.png",
   },
 ];
@@ -150,9 +154,14 @@ const Center = () => {
                         {c.landmark && <p className="text-xs text-primary/70 mt-0.5">{c.landmark}</p>}
                       </div>
                     </div>
-                    <div className="flex items-center gap-3">
-                      <Phone className="w-4 h-4 text-primary shrink-0" />
-                      <a href={`tel:${c.phone}`} className="text-sm text-gray-600 hover:text-primary transition-colors">{c.phone}</a>
+                    <div className="flex items-start gap-3">
+                      <Phone className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                      <div className="flex flex-col gap-0.5">
+                        <a href={`tel:${c.phone}`} className="text-sm text-gray-600 hover:text-primary transition-colors">{c.phone}</a>
+                        {c.altPhone && (
+                          <a href={`tel:${c.altPhone}`} className="text-sm text-gray-600 hover:text-primary transition-colors">{c.altPhone}</a>
+                        )}
+                      </div>
                     </div>
                     <div className="flex items-center gap-3">
                       <Mail className="w-4 h-4 text-primary shrink-0" />
