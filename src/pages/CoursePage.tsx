@@ -34,7 +34,7 @@ const CoursePage = () => {
       <Navbar />
 
       {/* ═══ 1. HERO ═══ */}
-      <section className="relative overflow-hidden" style={{ background: "#1a1a2e" }}>
+      <section className="relative overflow-hidden" style={{ background: "#111116" }}>
         <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center min-h-[420px]">
           <div className="relative z-10 py-16 lg:py-24 lg:w-1/2">
             <h1 className="text-3xl md:text-5xl font-extrabold text-white leading-tight mb-4">
