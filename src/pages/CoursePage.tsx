@@ -198,7 +198,7 @@ const CoursePage = () => {
       </section>
 
       {/* ═══ 4. HOW IT WORKS — 3 steps with dividers ═══ */}
-      <section className="py-16" style={{ background: "#1a1a2e" }}>
+      <section className="py-16" style={{ background: "#111116" }}>
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-4xl font-extrabold text-white text-center mb-14">
             How Online {course.name} Classes Work At Muziclub
