@@ -4,11 +4,11 @@ import { Instagram, Facebook, Youtube, Linkedin, Mail, ArrowRight, MapPin, Phone
 const footerLinks = {
   about: [
     { name: "About Muziclub", href: "/about" },
-    { name: "Academic Board", href: "/about" },
+    { name: "Academies", href: "/center" },
     { name: "Muziclub Store", href: "/store" },
     { name: "Blogs", href: "/blog" },
+    { name: "Showcase", href: "/student-showcase" },
     { name: "Careers", href: "/teach-with-us" },
-    { name: "Student Showcase", href: "/student-showcase" },
   ],
   music: [
     { name: "Bollywood / Hindi Film", slug: "popular-film-music-hindi" },
@@ -53,20 +53,73 @@ const Footer = () => {
 
           {/* Brand Info */}
           <div className="col-span-2 md:col-span-3 lg:col-span-2">
-            <div className="flex items-center">
+            <div className="flex items-center mb-6">
               <img src="/logo.png" alt="Muziclub Logo" className="h-14 w-auto object-contain drop-shadow-lg" />
             </div>
             <p className="text-sm text-white/50 leading-relaxed mb-8 max-w-sm">
               Muziclub is a platform driven by people who live music. With a perfect balance of discipline and flexibility, our classes are designed to provide personalized focus, premier practice facilities, and fulfilling engagement with passionate teachers.
             </p>
-            <div className="space-y-4">
-              <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-primary shrink-0" />
-                <p className="text-xs text-white/50">Baner • Hinjawadi • Pimple Saudagar<br />Pune, India & Croydon, UK</p>
+            <div className="space-y-8">
+              
+              {/* Pune Centres */}
+              <div>
+                <h4 className="text-white font-bold text-xs uppercase tracking-[0.1em] mb-4">Pune Academies</h4>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <MapPin className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                    <p className="text-xs text-white/50 leading-relaxed">
+                      <strong className="text-white/80">Baner (HQ):</strong> Office 11 & 12, Aditi Commerce, Baner Road, 411069
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <MapPin className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                    <p className="text-xs text-white/50 leading-relaxed">
+                      <strong className="text-white/80">Pimple Saudagar:</strong> 2nd Floor, Radhika Avenue, Near Jagtap Dairy, Opp. McDonalds, 411027
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <MapPin className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                    <p className="text-xs text-white/50 leading-relaxed">
+                      <strong className="text-white/80">Hinjewadi:</strong> Spirea, S. 91/4, Bhumkar Das Gugre Rd, Wakad, 411033
+                    </p>
+                  </div>
+                </div>
               </div>
-              <div className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-primary shrink-0" />
-                <p className="text-xs text-white/50">+91 8010 333 999</p>
+
+              {/* UK Centre */}
+              <div>
+                <h4 className="text-white font-bold text-xs uppercase tracking-[0.1em] mb-4">UK Coordination</h4>
+                <div className="flex items-start gap-3">
+                  <MapPin className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                  <p className="text-xs text-white/50 leading-relaxed">
+                    <strong className="text-white/80">Croydon:</strong> Croydon, London, United Kingdom
+                  </p>
+                </div>
+              </div>
+
+              {/* Contact */}
+              <div className="pt-2">
+                <h4 className="text-white font-bold text-xs uppercase tracking-[0.1em] mb-4">Direct Contact</h4>
+                <div className="space-y-3">
+                  <a href="tel:+919156303400" className="flex items-center gap-3 w-fit group">
+                    <div className="w-7 h-7 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-colors">
+                      <Phone className="w-3.5 h-3.5 text-primary group-hover:text-white transition-colors" />
+                    </div>
+                    <span className="text-xs font-semibold text-white/60 group-hover:text-white transition-colors">+91 9156 303 400 (India)</span>
+                  </a>
+                  <a href="tel:+447768928645" className="flex items-center gap-3 w-fit group">
+                    <div className="w-7 h-7 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-colors">
+                      <Phone className="w-3.5 h-3.5 text-primary group-hover:text-white transition-colors" />
+                    </div>
+                    <span className="text-xs font-semibold text-white/60 group-hover:text-white transition-colors">+44 7768 928 645 (UK)</span>
+                  </a>
+                  <a href="mailto:info@muziclub.com" className="flex items-center gap-3 w-fit group">
+                    <div className="w-7 h-7 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-colors">
+                      <Mail className="w-3.5 h-3.5 text-primary group-hover:text-white transition-colors" />
+                    </div>
+                    <span className="text-xs font-semibold text-white/60 group-hover:text-white transition-colors">info@muziclub.com</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>

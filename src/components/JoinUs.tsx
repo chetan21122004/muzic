@@ -24,11 +24,11 @@ const JoinUs = () => {
         {/* Right: Video thumbnail */}
         <div className="flex-1 relative min-h-[280px] lg:min-h-[320px]">
           <img
-            src="/homepage_banners/banner_4.png"
+            src="/new_imgs/Copy of DSC00677 (1).webp"
             alt="Teach with Muziclub"
             className="w-full h-full object-cover"
             onError={(e) => {
-              (e.target as HTMLImageElement).src = "/homepage_banners/banner_1.png";
+              (e.target as HTMLImageElement).src = "/new_imgs/Copy of DSC00403.webp";
             }}
           />
           {/* Diagonal overlay lines */}

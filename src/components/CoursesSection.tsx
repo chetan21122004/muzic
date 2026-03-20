@@ -4,19 +4,19 @@ import { useState } from "react";
 
 const courses = [
   {
-    img: "/homepage_banners/instrument.png",
+    img: "/new_imgs/Copy of DSC00711 (1).webp",
     title: "Guitar",
     desc: "Acoustic & electric guitar classes — from Bollywood strumming to Rock & Pop. RSL & Trinity certifications available.",
     slug: "guitar-acoustic",
   },
   {
-    img: "/homepage_banners/banner_3.png",
+    img: "/new_imgs/DSC00762 (1).webp",
     title: "Piano / Keyboard",
     desc: "From Western Classical to Pop songs. Expert teachers guide you to international certifications.",
     slug: "piano",
   },
   {
-    img: "/homepage_banners/singing.png",
+    img: "/new_imgs/DSC01210 (1).webp",
     title: "Bollywood Vocals",
     desc: "Sing your favourite Hindi film songs while developing professional vocal technique and stage confidence.",
     slug: "popular-film-music-hindi",
@@ -28,13 +28,13 @@ const courses = [
     slug: "hindustani-classical-vocal",
   },
   {
-    img: "/homepage_banners/banner_4.png",
+    img: "/new_imgs/Copy of DSC00504.webp",
     title: "Drums",
     desc: "Learn rhythm and groove from qualified drum instructors. Perform live at our weekly Sunday Jam sessions.",
     slug: "drums",
   },
   {
-    img: "/homepage_banners/banner_1.png",
+    img: "/new_imgs/Copy of DSC00456 (1).webp",
     title: "Western Vocals",
     desc: "Explore Western classical singing, pop, and stage performance skills for any audience.",
     slug: "western-vocal",
@@ -82,7 +82,7 @@ const CoursesSection = () => {
                   alt={course.title}
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                   onError={(e) => {
-                    (e.target as HTMLImageElement).src = "/homepage_banners/banner_1.png";
+                    (e.target as HTMLImageElement).src = "/new_imgs/Copy of DSC00403.webp";
                   }}
                 />
               </div>

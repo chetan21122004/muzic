@@ -5,10 +5,9 @@ import { courseCategories } from "@/data/courses";
 
 const navItems = [
   { label: "Courses", hasDropdown: true },
-  { label: "Our Centres", href: "/center" },
+  { label: "Academies", href: "/center" },
   { label: "Store", href: "/store", badge: "NEW" },
-  { label: "Student Showcase", href: "/student-showcase" },
-  { label: "Offline Classes", href: "/offline-class" },
+  { label: "Showcase", href: "/student-showcase" },
   { label: "About Us", href: "/about" },
 ];
 

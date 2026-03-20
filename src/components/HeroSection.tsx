@@ -11,7 +11,7 @@ const slides = [
     cta2: { label: "Know More", to: "/online-programs" },
     photos: [
       "/instructor/Harsh-Bagle-guitar.webp",
-      "/homepage_banners/banner_1.png",
+      "/new_imgs/Copy of DSC00298 (1).webp",
       "/instructor/jeet_Goswami-piano.webp",
       "/instructor/Subham Chand Sahu_Drums.webp",
       "/instructor/Kshitij_Kumar_Choudhary-Western-Vocals.webp",
@@ -25,12 +25,12 @@ const slides = [
     cta1: { label: "Book a Free Trial", to: "/contact" },
     cta2: { label: "Know More", to: "/online-programs" },
     photos: [
-      "/homepage_banners/banner_3.png",
+      "/new_imgs/Copy of DSC00403.webp",
       "/instructor/Kshitij_Kumar_Choudhary-Western-Vocals.webp",
       "/instructor/Neelima-Hindustani_Vocals.webp",
-      "/homepage_banners/banner_4.png",
+      "/new_imgs/Copy of DSC00456 (1).webp",
       "/instructor/Harsh-Bagle-guitar.webp",
-      "/homepage_banners/banner_1.png",
+      "/new_imgs/Copy of DSC00504.webp",
     ],
   },
   {
@@ -40,11 +40,11 @@ const slides = [
     cta1: { label: "Book a Free Trial", to: "/contact" },
     cta2: { label: "Know More", to: "/student-showcase" },
     photos: [
-      "/homepage_banners/singing.png",
+      "/new_imgs/Copy of DSC00590.webp",
       "/instructor/Harsh-Bagle-guitar.webp",
-      "/homepage_banners/banner_1.png",
+      "/new_imgs/Copy of DSC00642 (2).webp",
       "/instructor/Subham Chand Sahu_Drums.webp",
-      "/homepage_banners/banner_3.png",
+      "/new_imgs/Copy of DSC00677 (1).webp",
       "/instructor/jeet_Goswami-piano.webp",
     ],
   },
@@ -85,9 +85,28 @@ const HeroSection = () => {
             <h1 className="text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold text-white leading-[1.15] mb-5">
               {slide.title}
             </h1>
-            <p className="text-white/60 text-sm leading-relaxed mb-8 max-w-md">
+            <p className="text-white/60 text-sm leading-relaxed mb-6 max-w-md">
               ● {slide.desc}
             </p>
+            
+            {/* Professional Stats Strip */}
+            <div className="flex items-center gap-6 mb-8">
+              <div>
+                <p className="text-white font-extrabold text-lg md:text-xl leading-none">10k+</p>
+                <p className="text-white/40 text-[9px] uppercase tracking-widest font-bold mt-1.5">Students</p>
+              </div>
+              <div className="w-px h-6 bg-white/10" />
+              <div>
+                <p className="text-white font-extrabold text-lg md:text-xl leading-none">50+</p>
+                <p className="text-white/40 text-[9px] uppercase tracking-widest font-bold mt-1.5">Expert Tutors</p>
+              </div>
+              <div className="w-px h-6 bg-white/10" />
+              <div>
+                <p className="text-white font-extrabold text-lg md:text-xl leading-none">14+</p>
+                <p className="text-white/40 text-[9px] uppercase tracking-widest font-bold mt-1.5">Years Exp.</p>
+              </div>
+            </div>
+
             <div className="flex flex-wrap gap-3">
               <Link
                 to={slide.cta1.to}
