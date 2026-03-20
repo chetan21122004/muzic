@@ -46,8 +46,8 @@ const steps = [
 ];
 
 const glowColors: Record<string, string> = {
-  red:     "shadow-red-500/25",
-  rose:    "shadow-rose-600/25",
+  red: "shadow-red-500/25",
+  rose: "shadow-rose-600/25",
   crimson: "shadow-red-800/25",
 };
 
@@ -106,13 +106,12 @@ const EnrollSteps = () => {
                   whileTap={{ scale: 0.97 }}
                 >
                   <motion.div
-                    className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${
-                      isActive
+                    className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${isActive
                         ? `bg-gradient-to-br ${s.color} shadow-xl ${glowColors[s.glow]}`
                         : isPast
-                        ? "bg-primary/20 border-2 border-primary/40"
-                        : "bg-white/5 border-2 border-white/10"
-                    }`}
+                          ? "bg-primary/20 border-2 border-primary/40"
+                          : "bg-white/5 border-2 border-white/10"
+                      }`}
                     animate={isActive ? { boxShadow: ["0 0 20px rgba(139,92,246,0.3)", "0 0 40px rgba(139,92,246,0.1)", "0 0 20px rgba(139,92,246,0.3)"] } : {}}
                     transition={isActive ? { duration: 2, repeat: Infinity } : {}}
                   >

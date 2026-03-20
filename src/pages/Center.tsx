@@ -1,4 +1,4 @@
-import { MapPin, Phone, Clock, Mail } from "lucide-react";
+import { MapPin, Phone, Clock, Mail, ArrowRight, Star, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -6,7 +6,8 @@ import Footer from "@/components/Footer";
 const centres = [
   {
     name: "Baner",
-    badge: "🏢 Head Office",
+    tagline: "Head Office & Flagship Academy",
+    badge: "HEAD OFFICE",
     address: "Office 11 & 12, Aditi Commerce, Baner Road, Opp. Hillview Residency, Pune – 411045",
     landmark: "Above Bikaner Sweets",
     phone: "+91 91563 03400",
@@ -16,13 +17,15 @@ const centres = [
     rating: "4.8",
     reviews: "360+",
     mapUrl: "https://maps.google.com/?q=Muziclub+Baner+Aditi+Commerce+Baner+Road+Pune",
-    img: "/homepage_banners/banner_1.png",
+    img: "/new_imgs/Copy of DSC00403.webp",
+    accent: "from-primary to-rose-700",
   },
   {
     name: "Pimple Saudagar",
-    badge: "🎵 Academy",
-    address: "2nd Floor, Radhika Avenue, Circle, Wakad–Nasik Road, near Jagtap Dairy, beside Savitribai Phule Park, Pune – 411057",
-    landmark: "Near Jagtap Dairy · beside Savitribai Phule Park",
+    tagline: "Music Academy",
+    badge: "ACADEMY",
+    address: "2nd Floor, Radhika Avenue, near Jagtap Dairy, beside Savitribai Phule Park, Pune – 411057",
+    landmark: "Opposite McDonald's",
     phone: "+91 75070 02008",
     altPhone: "+91 77699 87599",
     email: "ps@muziclub.com",
@@ -30,11 +33,13 @@ const centres = [
     rating: "4.9",
     reviews: "544+",
     mapUrl: "https://maps.google.com/?q=Muziclub+Pimple+Saudagar+Radhika+Avenue+Pune",
-    img: "/homepage_banners/banner_3.png",
+    img: "/new_imgs/Copy of DSC00590.webp",
+    accent: "from-rose-700 to-red-900",
   },
   {
     name: "Wakad / Hinjawadi",
-    badge: "🎵 Academy",
+    tagline: "Music Academy",
+    badge: "ACADEMY",
     address: "Spirea, S. 91/4, Bhumkar Das Gugre Rd, near Silver Spoon, Bhumkar Nagar, Wakad, Pune – 411033",
     landmark: "Near Silver Spoon, Bhumkar Nagar",
     phone: "+91 80805 87033",
@@ -44,13 +49,15 @@ const centres = [
     rating: "4.9",
     reviews: "430+",
     mapUrl: "https://maps.google.com/?q=Muziclub+Wakad+Spirea+Bhumkar+Das+Gugre+Rd+Pune",
-    img: "/homepage_banners/banner_4.png",
+    img: "/new_imgs/Copy of DSC00677 (1).webp",
+    accent: "from-red-800 to-rose-900",
   },
   {
     name: "Croydon, UK",
-    badge: "🇬🇧 UK Centre",
+    tagline: "UK Coordination Centre",
+    badge: "UK CENTRE",
     address: "Croydon, London, United Kingdom – CR0 5RR",
-    landmark: "South London — UK Coordination Centre",
+    landmark: "South London — Online Coordination & UK Classes",
     phone: "+44 7424 233 605",
     altPhone: "+44 203 769 0013",
     email: "uk@muziclub.com",
@@ -58,17 +65,25 @@ const centres = [
     rating: null as string | null,
     reviews: null as string | null,
     mapUrl: "https://maps.google.com/?q=Croydon+London+CR0+5RR+UK",
-    img: "/homepage_banners/singing.png",
+    img: "/new_imgs/Copy of DSC00711 (1).webp",
+    accent: "from-slate-700 to-slate-900",
   },
 ];
 
 const facilities = [
-  { emoji: "🎸", title: "Practice Rooms", desc: "Dedicated soundproofed practice rooms at every Pune centre" },
-  { emoji: "🥁", title: "Drum Kits", desc: "Full acoustic and electronic drum kits available for practice sessions" },
-  { emoji: "🎹", title: "Keyboards & Pianos", desc: "Professional-grade keyboards and upright pianos" },
-  { emoji: "🎤", title: "Vocal Studio", desc: "Dedicated vocal rooms with proper acoustic treatment" },
-  { emoji: "🎵", title: "Sunday Jam Stage", desc: "Live stage with PA system for weekly Sunday Jam performances" },
-  { emoji: "☕", title: "Lounge Area", desc: "Comfortable waiting area for parents and students" },
+  { icon: "🎸", title: "Practice Rooms", desc: "Dedicated soundproofed practice rooms at every Pune centre" },
+  { icon: "🥁", title: "Drum Kits", desc: "Full acoustic and electronic drum kits for all practice sessions" },
+  { icon: "🎹", title: "Keyboards & Pianos", desc: "Professional-grade keyboards and upright pianos" },
+  { icon: "🎤", title: "Vocal Studio", desc: "Dedicated vocal rooms with proper acoustic treatment" },
+  { icon: "🎵", title: "Sunday Jam Stage", desc: "Live stage with PA system for weekly Sunday Jam performances" },
+  { icon: "☕", title: "Lounge Area", desc: "Comfortable waiting area for parents and students" },
+];
+
+const stats = [
+  { value: "3", label: "Pune Centres" },
+  { value: "1,300+", label: "Google Reviews" },
+  { value: "4.9★", label: "Avg Rating" },
+  { value: "14+", label: "Years of Excellence" },
 ];
 
 const Center = () => {
@@ -76,92 +91,155 @@ const Center = () => {
     <div className="min-h-screen" style={{ background: "#0a0a0d" }}>
       <Navbar />
 
-      {/* Hero */}
-      <section className="py-16 border-b border-white/5" style={{ background: "#111116" }}>
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-primary text-xs font-bold uppercase tracking-widest mb-3">Visit Us</p>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
-            Our Music <span className="text-primary">Centres</span>
+      {/* ── Hero ── */}
+      <section className="relative overflow-hidden py-24 border-b border-white/5" style={{ background: "#0a0a0d" }}>
+        {/* Organic glow blob */}
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle, hsl(356 91% 47% / 0.09) 0%, transparent 70%)" }}
+        />
+        {/* Topo rings */}
+        <svg className="absolute inset-0 w-full h-full opacity-[0.06] pointer-events-none" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice">
+          {[0,1,2,3,4].map(i => (
+            <ellipse key={i} cx="600" cy="200" rx={220 + i*100} ry={80 + i*40} fill="none" stroke="hsl(356 91% 47%)" strokeWidth="1" strokeOpacity={0.7 - i*0.12} />
+          ))}
+        </svg>
+
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <span className="inline-block bg-primary/10 border border-primary/20 text-primary text-[10px] font-extrabold uppercase tracking-[0.25em] px-4 py-1.5 rounded-full mb-6">
+            Our Locations
+          </span>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-5 leading-[1.08]">
+            Where Music<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-rose-400 to-primary">
+              Comes Alive
+            </span>
           </h1>
-          <p className="text-white/50 max-w-2xl mx-auto text-base leading-relaxed">
-            3 academy centres across Pune and an online coordination centre in Croydon, UK — find your nearest Muziclub location.
+          <p className="text-white/50 max-w-xl mx-auto text-base leading-relaxed mb-12">
+            Three world-class music academies in Pune and a coordination centre in London — find your nearest Muziclub.
           </p>
+
+          {/* Stats strip */}
+          <div className="inline-flex items-center gap-0 rounded-2xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm overflow-hidden">
+            {stats.map((s, i) => (
+              <div key={s.label} className={`px-7 py-4 text-center ${i < stats.length - 1 ? "border-r border-white/[0.07]" : ""}`}>
+                <p className="text-2xl font-extrabold text-white leading-none">{s.value}</p>
+                <p className="text-[10px] text-white/35 uppercase tracking-widest font-bold mt-1.5">{s.label}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Online banner */}
-      <section className="py-8 border-b border-white/5">
+      {/* ── Online Banner ── */}
+      <section className="py-6 border-b border-white/5" style={{ background: "#111116" }}>
         <div className="container mx-auto px-4">
-          <div className="bg-primary/5 border border-primary/15 rounded-2xl p-5 flex flex-col sm:flex-row items-center gap-4 max-w-3xl mx-auto">
-            <div className="text-3xl">💻</div>
-            <div className="text-center sm:text-left">
-              <p className="font-bold text-white text-sm">Can't visit in person? Learn Online!</p>
-              <p className="text-xs text-white/40 mt-0.5">All courses are available as 1-on-1 online classes — including for students in the UK, USA, and worldwide.</p>
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 max-w-4xl mx-auto">
+            <div className="flex items-center gap-4">
+              <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-lg shrink-0">
+                💻
+              </div>
+              <div>
+                <p className="font-bold text-white text-sm">Can't visit in person? Learn Online!</p>
+                <p className="text-xs text-white/40 mt-0.5">All courses available as live 1-on-1 online classes — UK, USA & worldwide.</p>
+              </div>
             </div>
-            <Link to="/online-programs" className="shrink-0 bg-primary text-white text-xs font-bold px-5 py-2.5 rounded-full hover:bg-primary/90 transition-colors">
-              Explore Online Classes →
+            <Link to="/online-programs" className="shrink-0 inline-flex items-center gap-2 bg-primary text-white text-xs font-bold px-5 py-2.5 rounded-full hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20">
+              Explore Online Classes <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Centres Grid */}
-      <section className="py-16">
+      {/* ── Centres Grid ── */}
+      <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-extrabold text-white">Find a Centre Near You</h2>
+          <div className="text-center mb-14">
+            <p className="text-primary text-[10px] font-extrabold uppercase tracking-[0.22em] mb-3">Find Us</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-white">Our Academies</h2>
             <p className="text-white/40 text-sm mt-2">Walk in for a free trial class — no appointment needed</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {centres.map((c) => (
-              <div key={c.name} className="border border-white/[0.06] rounded-3xl overflow-hidden hover:shadow-xl transition-all duration-300 group" style={{ background: "#111116" }}>
-                <div className="relative h-44 overflow-hidden bg-black">
-                  <img src={c.img} alt={`Muziclub ${c.name}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onError={(e) => { (e.target as HTMLImageElement).src = "/homepage_banners/banner_1.png"; }} />
-                  <div className="absolute inset-0 bg-black/30" />
-                  <div className="absolute top-4 left-4 bg-black/60 backdrop-blur rounded-xl px-3 py-1 text-xs font-bold text-white">
+              <div
+                key={c.name}
+                className="group relative rounded-3xl overflow-hidden border border-white/[0.07] hover:border-primary/25 hover:shadow-[0_0_50px_hsl(356_91%_47%_/_0.10)] transition-all duration-500"
+                style={{ background: "#111116" }}
+              >
+                {/* Image */}
+                <div className="relative h-52 overflow-hidden">
+                  <img
+                    src={c.img}
+                    alt={`Muziclub ${c.name}`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    onError={(e) => { (e.target as HTMLImageElement).src = "/new_imgs/Copy of DSC00403.webp"; }}
+                  />
+                  {/* Dark scrim */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#111116] via-black/20 to-transparent" />
+                  {/* Badge */}
+                  <div className={`absolute top-4 left-4 bg-gradient-to-r ${c.accent} text-white text-[9px] font-extrabold uppercase tracking-[0.18em] px-3 py-1.5 rounded-full shadow-lg`}>
                     {c.badge}
                   </div>
+                  {/* Rating */}
                   {c.rating && (
-                    <div className="absolute bottom-4 right-4 bg-black/60 backdrop-blur rounded-xl px-3 py-1.5 flex items-center gap-1.5">
-                      <span className="text-primary font-extrabold text-sm">{c.rating} ⭐</span>
-                      <span className="text-white/40 text-[10px]">({c.reviews} reviews)</span>
+                    <div className="absolute top-4 right-4 flex items-center gap-1.5 bg-black/60 backdrop-blur-sm border border-white/10 rounded-xl px-3 py-1.5">
+                      <Star className="w-3 h-3 text-primary fill-primary" />
+                      <span className="text-white font-extrabold text-sm">{c.rating}</span>
+                      <span className="text-white/40 text-[10px]">({c.reviews})</span>
                     </div>
                   )}
                 </div>
 
-                <div className="p-6 space-y-4">
-                  <h3 className="text-xl font-extrabold text-white">Muziclub — {c.name}</h3>
-                  <div className="space-y-2.5">
+                {/* Content */}
+                <div className="p-6">
+                  <div className="mb-4">
+                    <p className="text-primary text-[10px] font-bold uppercase tracking-widest mb-1">{c.tagline}</p>
+                    <h3 className="text-xl font-extrabold text-white">Muziclub — {c.name}</h3>
+                  </div>
+
+                  <div className="space-y-3 mb-6">
                     <div className="flex items-start gap-3">
                       <MapPin className="w-4 h-4 text-primary mt-0.5 shrink-0" />
                       <div>
-                        <p className="text-sm text-white/50">{c.address}</p>
-                        {c.landmark && <p className="text-xs text-primary/70 mt-0.5">{c.landmark}</p>}
+                        <p className="text-sm text-white/55 leading-relaxed">{c.address}</p>
+                        {c.landmark && <p className="text-xs text-primary/70 mt-0.5 font-medium">{c.landmark}</p>}
                       </div>
                     </div>
-                    <div className="flex items-start gap-3">
-                      <Phone className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                      <div className="flex flex-col gap-0.5">
-                        <a href={`tel:${c.phone}`} className="text-sm text-white/50 hover:text-primary transition-colors">{c.phone}</a>
-                        {c.altPhone && <a href={`tel:${c.altPhone}`} className="text-sm text-white/50 hover:text-primary transition-colors">{c.altPhone}</a>}
+
+                    <div className="flex items-center gap-3">
+                      <Phone className="w-4 h-4 text-primary shrink-0" />
+                      <div className="flex flex-wrap gap-x-4 gap-y-0.5">
+                        <a href={`tel:${c.phone}`} className="text-sm text-white/55 hover:text-primary transition-colors">{c.phone}</a>
+                        {c.altPhone && <a href={`tel:${c.altPhone}`} className="text-sm text-white/55 hover:text-primary transition-colors">{c.altPhone}</a>}
                       </div>
                     </div>
+
                     <div className="flex items-center gap-3">
                       <Mail className="w-4 h-4 text-primary shrink-0" />
-                      <a href={`mailto:${c.email}`} className="text-sm text-white/50 hover:text-primary transition-colors">{c.email}</a>
+                      <a href={`mailto:${c.email}`} className="text-sm text-white/55 hover:text-primary transition-colors">{c.email}</a>
                     </div>
+
                     <div className="flex items-center gap-3">
                       <Clock className="w-4 h-4 text-primary shrink-0" />
-                      <span className="text-sm text-white/50">{c.hours}</span>
+                      <span className="text-sm text-white/55">{c.hours}</span>
                     </div>
                   </div>
-                  <div className="flex gap-3 pt-2">
-                    <a href={c.mapUrl} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 bg-white/5 border border-white/10 text-white/70 text-xs font-bold py-2.5 rounded-full hover:border-primary hover:text-primary transition-colors">
-                      <MapPin className="w-3.5 h-3.5" /> Open in Maps
+
+                  <div className="flex gap-3">
+                    <a
+                      href={c.mapUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 flex items-center justify-center gap-2 border border-white/10 text-white/60 text-xs font-bold py-2.5 rounded-full hover:border-primary/50 hover:text-primary transition-all"
+                    >
+                      <ExternalLink className="w-3.5 h-3.5" /> Open in Maps
                     </a>
-                    <Link to="/contact" className="flex-1 flex items-center justify-center gap-2 bg-primary text-white text-xs font-bold py-2.5 rounded-full hover:bg-primary/90 transition-colors shadow-sm shadow-primary/20">
-                      Book Trial Class
+                    <Link
+                      to="/contact"
+                      className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-rose-600 text-white text-xs font-bold py-2.5 rounded-full hover:from-rose-600 hover:to-primary transition-all shadow-lg shadow-primary/20"
+                    >
+                      Book Free Trial
                     </Link>
                   </div>
                 </div>
@@ -171,37 +249,58 @@ const Center = () => {
         </div>
       </section>
 
-      {/* Facilities */}
-      <section className="py-16 border-y border-white/5" style={{ background: "#111116" }}>
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <p className="text-primary text-xs font-bold uppercase tracking-widest mb-2">What's Inside</p>
-            <h2 className="text-3xl font-extrabold text-white">World-Class Facilities</h2>
-            <p className="text-white/40 text-sm mt-2">Everything you need to learn, practise, and perform</p>
+      {/* ── Facilities ── */}
+      <section className="py-20 border-y border-white/5 relative overflow-hidden" style={{ background: "#111116" }}>
+        {/* Subtle glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, hsl(356 91% 47% / 0.05) 0%, transparent 70%)" }} />
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-14">
+            <p className="text-primary text-[10px] font-extrabold uppercase tracking-[0.22em] mb-3">What's Inside</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-white">World-Class Facilities</h2>
+            <p className="text-white/40 text-sm mt-2">Everything you need to learn, practise, and perform at the highest level</p>
           </div>
+
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
             {facilities.map((f, i) => (
-              <div key={i} className="rounded-2xl p-5 border border-white/[0.06] text-center hover:border-white/10 hover:-translate-y-0.5 transition-all duration-200" style={{ background: "rgba(255,255,255,0.03)" }}>
-                <div className="text-3xl mb-3">{f.emoji}</div>
-                <p className="text-sm font-bold text-white leading-snug">{f.title}</p>
-                <p className="text-xs text-white/40 mt-1 leading-relaxed">{f.desc}</p>
+              <div
+                key={i}
+                className="group rounded-2xl p-5 border border-white/[0.06] text-center hover:border-primary/25 hover:bg-primary/[0.04] hover:-translate-y-1 hover:shadow-[0_0_25px_hsl(356_91%_47%_/_0.10)] transition-all duration-300"
+                style={{ background: "rgba(255,255,255,0.025)" }}
+              >
+                <div className="text-3xl mb-3 group-hover:scale-110 transition-transform duration-300">{f.icon}</div>
+                <p className="text-sm font-bold text-white leading-snug mb-1.5">{f.title}</p>
+                <p className="text-[11px] text-white/35 leading-relaxed">{f.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-14">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-2xl font-extrabold text-white mb-3">Ready to Walk In?</h2>
-          <p className="text-white/40 text-sm mb-6">Book your free trial and visit our nearest centre — or start online from anywhere.</p>
+      {/* ── CTA ── */}
+      <section className="py-20 relative overflow-hidden">
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(ellipse, hsl(356 91% 47% / 0.08) 0%, transparent 65%)" }}
+        />
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <p className="text-primary text-[10px] font-extrabold uppercase tracking-[0.22em] mb-4">Get Started</p>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-3">Ready to Walk In?</h2>
+          <p className="text-white/40 text-sm mb-8 max-w-md mx-auto">
+            Book a free trial and visit our nearest centre. Our doors are open — your music journey begins today.
+          </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link to="/contact" className="inline-flex items-center justify-center gap-2 bg-primary text-white font-bold px-8 py-3.5 rounded-full hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20">
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-rose-600 text-white font-bold px-8 py-3.5 rounded-full hover:from-rose-600 hover:to-primary transition-all shadow-xl shadow-primary/25"
+            >
               Book Free Trial Class
             </Link>
-            <Link to="/online-programs" className="inline-flex items-center justify-center gap-2 border-2 border-white/10 text-white/70 font-semibold px-8 py-3.5 rounded-full hover:border-primary hover:text-primary transition-colors">
-              Explore Online Courses →
+            <Link
+              to="/online-programs"
+              className="inline-flex items-center justify-center gap-2 border border-white/10 text-white/70 font-semibold px-8 py-3.5 rounded-full hover:border-primary/50 hover:text-primary transition-colors"
+            >
+              Explore Online Courses <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>

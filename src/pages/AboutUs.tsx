@@ -109,17 +109,6 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-14 border-t border-white/5" style={{ background: "#111116" }}>
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-2xl font-extrabold text-white mb-3">Ready to Start?</h2>
-          <p className="text-white/40 text-sm mb-6">Book a free 1-on-1 trial class with our expert teachers today.</p>
-          <a href="/contact" className="inline-flex items-center gap-2 bg-primary text-white font-bold px-8 py-3.5 rounded-full hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
-            Book Free Trial Class
-          </a>
-        </div>
-      </section>
-
       <Footer />
     </div>
   );

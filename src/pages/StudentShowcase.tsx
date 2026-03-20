@@ -149,22 +149,6 @@ const StudentShowcase = () => {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16 border-t border-white/5">
-        <div className="container mx-auto px-4 text-center">
-          <div className="max-w-xl mx-auto border border-white/[0.06] rounded-3xl p-10" style={{ background: "rgba(255,255,255,0.03)" }}>
-            <span className="text-4xl block mb-4">🌟</span>
-            <h2 className="text-2xl font-extrabold text-white mb-3">Want to be featured here?</h2>
-            <p className="text-white/40 text-sm mb-7 leading-relaxed">
-              Join Muziclub, perform at our Sunday Jam sessions, and you could be our next featured showcase student!
-            </p>
-            <Link to="/contact" className="inline-flex items-center gap-2 bg-primary text-white font-bold px-8 py-3.5 rounded-full hover:bg-primary/90 transition-colors shadow-lg shadow-primary/30">
-              Book a Free Trial Class
-            </Link>
-          </div>
-        </div>
-      </section>
-
       <Footer />
 
       {/* Detail Modal */}

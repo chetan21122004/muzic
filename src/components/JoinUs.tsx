@@ -34,11 +34,7 @@ const JoinUs = () => {
           {/* Diagonal overlay lines */}
           <div className="absolute inset-0 bg-black/20" />
           {/* Play button */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-16 h-16 rounded-full border-2 border-white/80 flex items-center justify-center bg-black/30 backdrop-blur-sm hover:scale-110 transition-transform cursor-pointer">
-              <Play className="w-7 h-7 text-white ml-1" fill="white" />
-            </div>
-          </div>
+
         </div>
       </div>
     </section>

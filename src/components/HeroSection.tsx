@@ -88,7 +88,7 @@ const HeroSection = () => {
             <p className="text-white/60 text-sm leading-relaxed mb-6 max-w-md">
               ● {slide.desc}
             </p>
-            
+
             {/* Professional Stats Strip */}
             <div className="flex items-center gap-6 mb-8">
               <div>

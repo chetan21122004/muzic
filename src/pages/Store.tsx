@@ -254,20 +254,6 @@ const Store = () => {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-[#f7f7f9] py-14 border-t border-gray-100">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-2xl font-extrabold text-gray-900 mb-3">Looking for something specific?</h2>
-          <p className="text-gray-400 text-sm mb-6">Contact our team — our teachers are happy to recommend the right gear for your course level.</p>
-          <Link
-            to="/contact"
-            className="inline-flex items-center gap-2 bg-primary text-white font-bold px-8 py-3.5 rounded-full hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
-          >
-            Get Gear Recommendations
-          </Link>
-        </div>
-      </section>
-
       <Footer />
     </div>
   );
