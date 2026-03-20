@@ -224,7 +224,7 @@ const CoursePage = () => {
       </section>
 
       {/* ═══ 5. STILL UNSURE CTA ═══ */}
-      <section className="relative overflow-hidden" style={{ background: "linear-gradient(135deg, #2d1b69 0%, #1a1a2e 100%)" }}>
+      <section className="relative overflow-hidden" style={{ background: "linear-gradient(135deg, #111116 0%, #0a0a0d 100%)" }}>
         <div className="container mx-auto px-4 py-14 flex flex-col lg:flex-row items-center gap-8">
           <div className="flex-1">
             <h2 className="text-2xl md:text-3xl font-extrabold text-white mb-3">
