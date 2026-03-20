@@ -34,7 +34,7 @@ const CoursePage = () => {
       <Navbar />
 
       {/* ═══ 1. HERO ═══ */}
-      <section className="relative overflow-hidden" style={{ background: "#1a1a2e" }}>
+      <section className="relative overflow-hidden" style={{ background: "#111116" }}>
         <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center min-h-[420px]">
           <div className="relative z-10 py-16 lg:py-24 lg:w-1/2">
             <h1 className="text-3xl md:text-5xl font-extrabold text-white leading-tight mb-4">
@@ -58,7 +58,7 @@ const CoursePage = () => {
               onError={(e) => { (e.target as HTMLImageElement).src = "/homepage_banners/banner_1.png"; }}
             />
             {/* Gradient overlay blending into left */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#1a1a2e] via-[#1a1a2e]/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#111116] via-[#111116]/40 to-transparent" />
           </div>
         </div>
         {/* Decorative circles */}
@@ -198,7 +198,7 @@ const CoursePage = () => {
       </section>
 
       {/* ═══ 4. HOW IT WORKS — 3 steps with dividers ═══ */}
-      <section className="py-16" style={{ background: "#1a1a2e" }}>
+      <section className="py-16" style={{ background: "#111116" }}>
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-4xl font-extrabold text-white text-center mb-14">
             How Online {course.name} Classes Work At Muziclub
@@ -224,7 +224,7 @@ const CoursePage = () => {
       </section>
 
       {/* ═══ 5. STILL UNSURE CTA ═══ */}
-      <section className="relative overflow-hidden" style={{ background: "linear-gradient(135deg, #2d1b69 0%, #1a1a2e 100%)" }}>
+      <section className="relative overflow-hidden" style={{ background: "linear-gradient(135deg, #111116 0%, #0a0a0d 100%)" }}>
         <div className="container mx-auto px-4 py-14 flex flex-col lg:flex-row items-center gap-8">
           <div className="flex-1">
             <h2 className="text-2xl md:text-3xl font-extrabold text-white mb-3">
@@ -292,7 +292,7 @@ const CoursePage = () => {
       )}
 
       {/* ═══ 7. FEATURES — Left text + Right image (dark bg) ═══ */}
-      <section className="py-16" style={{ background: "#1a1a2e" }}>
+      <section className="py-16" style={{ background: "#111116" }}>
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             {/* Left: Feature list */}
@@ -345,7 +345,7 @@ const CoursePage = () => {
       </section>
 
       {/* ═══ 8. MORE COURSES — Dark carousel ═══ */}
-      <section className="py-16" style={{ background: "#111127" }}>
+      <section className="py-16" style={{ background: "#0a0a0d" }}>
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-extrabold text-white text-center mb-10">
             More courses on Muziclub

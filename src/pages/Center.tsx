@@ -1,4 +1,4 @@
-import { MapPin, Phone, Clock, Mail, ExternalLink } from "lucide-react";
+import { MapPin, Phone, Clock, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -73,35 +73,32 @@ const facilities = [
 
 const Center = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen" style={{ background: "#0a0a0d" }}>
       <Navbar />
 
       {/* Hero */}
-      <section className="bg-[#f7f7f9] py-16 border-b border-gray-100">
+      <section className="py-16 border-b border-white/5" style={{ background: "#111116" }}>
         <div className="container mx-auto px-4 text-center">
           <p className="text-primary text-xs font-bold uppercase tracking-widest mb-3">Visit Us</p>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
             Our Music <span className="text-primary">Centres</span>
           </h1>
-          <p className="text-gray-400 max-w-2xl mx-auto text-base leading-relaxed">
+          <p className="text-white/50 max-w-2xl mx-auto text-base leading-relaxed">
             3 academy centres across Pune and an online coordination centre in Croydon, UK — find your nearest Muziclub location.
           </p>
         </div>
       </section>
 
       {/* Online banner */}
-      <section className="py-8 border-b border-gray-100">
+      <section className="py-8 border-b border-white/5">
         <div className="container mx-auto px-4">
           <div className="bg-primary/5 border border-primary/15 rounded-2xl p-5 flex flex-col sm:flex-row items-center gap-4 max-w-3xl mx-auto">
             <div className="text-3xl">💻</div>
             <div className="text-center sm:text-left">
-              <p className="font-bold text-gray-900 text-sm">Can't visit in person? Learn Online!</p>
-              <p className="text-xs text-gray-400 mt-0.5">All courses are available as 1-on-1 online classes — including for students in the UK, USA, and worldwide.</p>
+              <p className="font-bold text-white text-sm">Can't visit in person? Learn Online!</p>
+              <p className="text-xs text-white/40 mt-0.5">All courses are available as 1-on-1 online classes — including for students in the UK, USA, and worldwide.</p>
             </div>
-            <Link
-              to="/online-programs"
-              className="shrink-0 bg-primary text-white text-xs font-bold px-5 py-2.5 rounded-full hover:bg-primary/90 transition-colors"
-            >
+            <Link to="/online-programs" className="shrink-0 bg-primary text-white text-xs font-bold px-5 py-2.5 rounded-full hover:bg-primary/90 transition-colors">
               Explore Online Classes →
             </Link>
           </div>
@@ -112,81 +109,58 @@ const Center = () => {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-extrabold text-gray-900">Find a Centre Near You</h2>
-            <p className="text-gray-400 text-sm mt-2">Walk in for a free trial class — no appointment needed</p>
+            <h2 className="text-3xl font-extrabold text-white">Find a Centre Near You</h2>
+            <p className="text-white/40 text-sm mt-2">Walk in for a free trial class — no appointment needed</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
             {centres.map((c) => (
-              <div
-                key={c.name}
-                className="bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-xl transition-all duration-300 group"
-              >
-                {/* Image */}
-                <div className="relative h-44 overflow-hidden bg-gray-100">
-                  <img
-                    src={c.img}
-                    alt={`Muziclub ${c.name}`}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    onError={(e) => { (e.target as HTMLImageElement).src = "/homepage_banners/banner_1.png"; }}
-                  />
+              <div key={c.name} className="border border-white/[0.06] rounded-3xl overflow-hidden hover:shadow-xl transition-all duration-300 group" style={{ background: "#111116" }}>
+                <div className="relative h-44 overflow-hidden bg-black">
+                  <img src={c.img} alt={`Muziclub ${c.name}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onError={(e) => { (e.target as HTMLImageElement).src = "/homepage_banners/banner_1.png"; }} />
                   <div className="absolute inset-0 bg-black/30" />
-                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur rounded-xl px-3 py-1 text-xs font-bold text-gray-800">
+                  <div className="absolute top-4 left-4 bg-black/60 backdrop-blur rounded-xl px-3 py-1 text-xs font-bold text-white">
                     {c.badge}
                   </div>
                   {c.rating && (
-                    <div className="absolute bottom-4 right-4 bg-white rounded-xl px-3 py-1.5 flex items-center gap-1.5 shadow-md">
+                    <div className="absolute bottom-4 right-4 bg-black/60 backdrop-blur rounded-xl px-3 py-1.5 flex items-center gap-1.5">
                       <span className="text-primary font-extrabold text-sm">{c.rating} ⭐</span>
-                      <span className="text-gray-400 text-[10px]">({c.reviews} reviews)</span>
+                      <span className="text-white/40 text-[10px]">({c.reviews} reviews)</span>
                     </div>
                   )}
                 </div>
 
-                {/* Content */}
                 <div className="p-6 space-y-4">
-                  <h3 className="text-xl font-extrabold text-gray-900">Muziclub — {c.name}</h3>
-
+                  <h3 className="text-xl font-extrabold text-white">Muziclub — {c.name}</h3>
                   <div className="space-y-2.5">
                     <div className="flex items-start gap-3">
                       <MapPin className="w-4 h-4 text-primary mt-0.5 shrink-0" />
                       <div>
-                        <p className="text-sm text-gray-600">{c.address}</p>
+                        <p className="text-sm text-white/50">{c.address}</p>
                         {c.landmark && <p className="text-xs text-primary/70 mt-0.5">{c.landmark}</p>}
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
                       <Phone className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                       <div className="flex flex-col gap-0.5">
-                        <a href={`tel:${c.phone}`} className="text-sm text-gray-600 hover:text-primary transition-colors">{c.phone}</a>
-                        {c.altPhone && (
-                          <a href={`tel:${c.altPhone}`} className="text-sm text-gray-600 hover:text-primary transition-colors">{c.altPhone}</a>
-                        )}
+                        <a href={`tel:${c.phone}`} className="text-sm text-white/50 hover:text-primary transition-colors">{c.phone}</a>
+                        {c.altPhone && <a href={`tel:${c.altPhone}`} className="text-sm text-white/50 hover:text-primary transition-colors">{c.altPhone}</a>}
                       </div>
                     </div>
                     <div className="flex items-center gap-3">
                       <Mail className="w-4 h-4 text-primary shrink-0" />
-                      <a href={`mailto:${c.email}`} className="text-sm text-gray-600 hover:text-primary transition-colors">{c.email}</a>
+                      <a href={`mailto:${c.email}`} className="text-sm text-white/50 hover:text-primary transition-colors">{c.email}</a>
                     </div>
                     <div className="flex items-center gap-3">
                       <Clock className="w-4 h-4 text-primary shrink-0" />
-                      <span className="text-sm text-gray-600">{c.hours}</span>
+                      <span className="text-sm text-white/50">{c.hours}</span>
                     </div>
                   </div>
-
                   <div className="flex gap-3 pt-2">
-                    <a
-                      href={c.mapUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-2 bg-[#f7f7f9] border border-gray-100 text-gray-700 text-xs font-bold py-2.5 rounded-full hover:border-primary hover:text-primary transition-colors"
-                    >
-                      <MapPin className="w-3.5 h-3.5" />
-                      Open in Maps
+                    <a href={c.mapUrl} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 bg-white/5 border border-white/10 text-white/70 text-xs font-bold py-2.5 rounded-full hover:border-primary hover:text-primary transition-colors">
+                      <MapPin className="w-3.5 h-3.5" /> Open in Maps
                     </a>
-                    <Link
-                      to="/contact"
-                      className="flex-1 flex items-center justify-center gap-2 bg-primary text-white text-xs font-bold py-2.5 rounded-full hover:bg-primary/90 transition-colors shadow-sm shadow-primary/20"
-                    >
+                    <Link to="/contact" className="flex-1 flex items-center justify-center gap-2 bg-primary text-white text-xs font-bold py-2.5 rounded-full hover:bg-primary/90 transition-colors shadow-sm shadow-primary/20">
                       Book Trial Class
                     </Link>
                   </div>
@@ -198,19 +172,19 @@ const Center = () => {
       </section>
 
       {/* Facilities */}
-      <section className="bg-[#f7f7f9] py-16 border-y border-gray-100">
+      <section className="py-16 border-y border-white/5" style={{ background: "#111116" }}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <p className="text-primary text-xs font-bold uppercase tracking-widest mb-2">What's Inside</p>
-            <h2 className="text-3xl font-extrabold text-gray-900">World-Class Facilities</h2>
-            <p className="text-gray-400 text-sm mt-2">Everything you need to learn, practise, and perform</p>
+            <h2 className="text-3xl font-extrabold text-white">World-Class Facilities</h2>
+            <p className="text-white/40 text-sm mt-2">Everything you need to learn, practise, and perform</p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
             {facilities.map((f, i) => (
-              <div key={i} className="bg-white rounded-2xl p-5 border border-gray-100 text-center hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+              <div key={i} className="rounded-2xl p-5 border border-white/[0.06] text-center hover:border-white/10 hover:-translate-y-0.5 transition-all duration-200" style={{ background: "rgba(255,255,255,0.03)" }}>
                 <div className="text-3xl mb-3">{f.emoji}</div>
-                <p className="text-sm font-bold text-gray-800 leading-snug">{f.title}</p>
-                <p className="text-xs text-gray-400 mt-1 leading-relaxed">{f.desc}</p>
+                <p className="text-sm font-bold text-white leading-snug">{f.title}</p>
+                <p className="text-xs text-white/40 mt-1 leading-relaxed">{f.desc}</p>
               </div>
             ))}
           </div>
@@ -220,19 +194,13 @@ const Center = () => {
       {/* CTA */}
       <section className="py-14">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-2xl font-extrabold text-gray-900 mb-3">Ready to Walk In?</h2>
-          <p className="text-gray-400 text-sm mb-6">Book your free trial and visit our nearest centre — or start online from anywhere.</p>
+          <h2 className="text-2xl font-extrabold text-white mb-3">Ready to Walk In?</h2>
+          <p className="text-white/40 text-sm mb-6">Book your free trial and visit our nearest centre — or start online from anywhere.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link
-              to="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-primary text-white font-bold px-8 py-3.5 rounded-full hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
-            >
+            <Link to="/contact" className="inline-flex items-center justify-center gap-2 bg-primary text-white font-bold px-8 py-3.5 rounded-full hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20">
               Book Free Trial Class
             </Link>
-            <Link
-              to="/online-programs"
-              className="inline-flex items-center justify-center gap-2 border-2 border-gray-200 text-gray-700 font-semibold px-8 py-3.5 rounded-full hover:border-primary hover:text-primary transition-colors"
-            >
+            <Link to="/online-programs" className="inline-flex items-center justify-center gap-2 border-2 border-white/10 text-white/70 font-semibold px-8 py-3.5 rounded-full hover:border-primary hover:text-primary transition-colors">
               Explore Online Courses →
             </Link>
           </div>
