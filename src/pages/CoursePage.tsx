@@ -58,7 +58,7 @@ const CoursePage = () => {
               onError={(e) => { (e.target as HTMLImageElement).src = "/homepage_banners/banner_1.png"; }}
             />
             {/* Gradient overlay blending into left */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#1a1a2e] via-[#1a1a2e]/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#111116] via-[#111116]/40 to-transparent" />
           </div>
         </div>
         {/* Decorative circles */}
