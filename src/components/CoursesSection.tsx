@@ -48,7 +48,7 @@ const CoursesSection = () => {
   const canNext = startIdx + visible < courses.length;
 
   return (
-    <section className="py-16" style={{ background: "#1a1a2e" }}>
+    <section className="py-16" style={{ background: "#0a0a0d" }}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between mb-10">
           <h2 className="text-3xl md:text-4xl font-extrabold text-white">
@@ -74,13 +74,13 @@ const CoursesSection = () => {
           {courses.slice(startIdx, startIdx + visible).map((course, i) => (
             <div
               key={course.slug}
-              className="rounded-2xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 flex flex-col"
+              className="rounded-2xl overflow-hidden border border-white/[0.07] bg-white/[0.03] hover:bg-white/[0.06] hover:border-primary/30 hover:shadow-[0_0_30px_hsl(356_91%_47%_/_0.12)] transition-all duration-300 flex flex-col"
             >
               <div className="h-48 overflow-hidden">
                 <img
                   src={course.img}
                   alt={course.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                   onError={(e) => {
                     (e.target as HTMLImageElement).src = "/homepage_banners/banner_1.png";
                   }}
@@ -93,9 +93,9 @@ const CoursesSection = () => {
                 </p>
                 <Link
                   to={`/courses/${course.slug}`}
-                  className="inline-flex items-center justify-center px-5 py-2.5 rounded-full border border-white/20 text-white text-sm font-semibold hover:bg-white/10 transition-colors self-start"
+                  className="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-primary text-white text-sm font-bold hover:bg-rose-600 transition-colors self-start shadow-lg shadow-primary/20"
                 >
-                  Explore Course & Fees
+                  Explore Course →
                 </Link>
               </div>
             </div>

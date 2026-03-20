@@ -13,8 +13,8 @@ const steps = [
     step: "01",
     label: "Book A Free Trial",
     title: "Select your favourite course and book a free trial class at your convenient time",
-    color: "from-violet-500 to-purple-600",
-    glow: "violet",
+    color: "from-primary to-rose-600",
+    glow: "red",
   },
   {
     icon: Headphones,
@@ -22,8 +22,8 @@ const steps = [
     step: "02",
     label: "Try Before You Buy",
     title: "Get personalised guidance from our Academic Expert in the free trial class",
-    color: "from-cyan-500 to-blue-600",
-    glow: "cyan",
+    color: "from-rose-600 to-red-800",
+    glow: "rose",
   },
   {
     icon: CreditCard,
@@ -31,8 +31,8 @@ const steps = [
     step: "03",
     label: "Pay and Enrol",
     title: "Begin your 1:1 live and customised learning sessions with Muziclub Certified Teachers",
-    color: "from-emerald-500 to-green-600",
-    glow: "emerald",
+    color: "from-red-800 to-red-950",
+    glow: "crimson",
   },
   {
     icon: Sparkles,
@@ -40,26 +40,24 @@ const steps = [
     step: "04",
     label: "Learn, Practice & Perform",
     title: "Get Exclusive Access to Live Masterclasses, Sunday Jams and Digital Learning Tools",
-    color: "from-amber-500 to-orange-600",
-    glow: "amber",
+    color: "from-primary to-red-900",
+    glow: "red",
   },
 ];
 
 const glowColors: Record<string, string> = {
-  violet: "shadow-violet-500/20",
-  cyan: "shadow-cyan-500/20",
-  emerald: "shadow-emerald-500/20",
-  amber: "shadow-amber-500/20",
+  red:     "shadow-red-500/25",
+  rose:    "shadow-rose-600/25",
+  crimson: "shadow-red-800/25",
 };
 
 const EnrollSteps = () => {
   const [activeStep, setActiveStep] = useState(0);
 
   return (
-    <section className="py-24 bg-[hsl(240,20%,10%)] relative overflow-hidden">
-      {/* Animated background grid */}
+    <section className="py-24 relative overflow-hidden" style={{ background: "#0a0a0d" }}>
       <div
-        className="absolute inset-0 opacity-[0.04]"
+        className="absolute inset-0 opacity-[0.03]"
         style={{
           backgroundImage: `linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)`,
           backgroundSize: "60px 60px",

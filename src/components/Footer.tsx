@@ -36,7 +36,7 @@ const footerLinks = {
 
 const Footer = () => {
   return (
-    <footer className="relative bg-[#0a0a0f] text-gray-400 pt-24 overflow-hidden mt-20 border-t border-white/5">
+    <footer className="relative bg-[#0a0a0f] text-gray-400 pt-14 overflow-hidden  border-t border-white/5">
       {/* ── Oversized Background Watermark ── */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center pointer-events-none select-none z-0">
         <h1 className="text-[14vw] font-black text-white/[0.02] tracking-tighter whitespace-nowrap">
@@ -46,30 +46,7 @@ const Footer = () => {
 
       <div className="container mx-auto px-4 relative z-10">
 
-        {/* ── Top CTA & Newsletter Section ── */}
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 pb-16 border-b border-white/10 mb-16">
-          <div className="max-w-xl text-center lg:text-left">
-            <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-4">
-              Ready to hit <span className="text-primary italic">play?</span>
-            </h2>
-            <p className="text-white/60 text-sm md:text-base leading-relaxed">
-              Join thousands of students globally. Get personalized 1:1 live classes, masterclasses, and perform at our massive Sunday Jams.
-            </p>
-          </div>
 
-          <div className="w-full max-w-md bg-white/5 border border-white/10 p-2 pl-6 rounded-full flex items-center shadow-2xl backdrop-blur-md">
-            <Mail className="w-5 h-5 text-white/40 shrink-0" />
-            <input
-              type="email"
-              placeholder="Enter your email to subscribe"
-              className="bg-transparent border-none text-white text-sm w-full outline-none px-4 placeholder:text-white/40"
-            />
-            <button className="bg-primary hover:bg-primary/90 text-white font-bold p-3 px-5 rounded-full flex items-center justify-center transition-transform hover:scale-105 shadow-lg shadow-primary/30 shrink-0">
-              <span className="sr-only">Subscribe</span>
-              <ArrowRight className="w-5 h-5" />
-            </button>
-          </div>
-        </div>
 
         {/* ── Main Links Grid ── */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10 lg:gap-6 mb-20">
@@ -77,7 +54,7 @@ const Footer = () => {
           {/* Brand Info */}
           <div className="col-span-2 md:col-span-3 lg:col-span-2">
             <div className="flex items-center">
-              <img src="/logo.png" alt="Muziclub Logo" className="h-24 w-auto object-contain drop-shadow-lg" />
+              <img src="/logo.png" alt="Muziclub Logo" className="h-14 w-auto object-contain drop-shadow-lg" />
             </div>
             <p className="text-sm text-white/50 leading-relaxed mb-8 max-w-sm">
               Muziclub is a platform driven by people who live music. With a perfect balance of discipline and flexibility, our classes are designed to provide personalized focus, premier practice facilities, and fulfilling engagement with passionate teachers.

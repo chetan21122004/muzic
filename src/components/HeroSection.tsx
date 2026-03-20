@@ -74,7 +74,7 @@ const HeroSection = () => {
   const slide = slides[activeIdx];
 
   return (
-    <section className="relative w-full" style={{ background: "#1e1e2e" }}>
+    <section className="relative w-full" style={{ background: "#0a0a0d" }}>
       <div className="flex min-h-[520px] sm:min-h-[560px] lg:min-h-[620px]">
         {/* LEFT — Text */}
         <div className="relative z-10 flex flex-col justify-center px-6 sm:px-10 lg:px-16 py-12 w-full lg:w-[42%] shrink-0">
@@ -90,16 +90,16 @@ const HeroSection = () => {
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
-                to={slide.cta2.to}
-                className="inline-flex items-center justify-center px-7 py-3 rounded-full border border-white/40 text-white text-sm font-semibold hover:bg-white/10 transition-colors"
-              >
-                {slide.cta2.label}
-              </Link>
-              <Link
                 to={slide.cta1.to}
-                className="inline-flex items-center justify-center px-7 py-3 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:bg-primary/90 transition-colors shadow-lg shadow-primary/30"
+                className="inline-flex items-center justify-center px-7 py-3 rounded-full bg-gradient-to-r from-primary to-rose-600 text-white text-sm font-bold hover:from-rose-600 hover:to-primary transition-all shadow-lg shadow-primary/30 glow-red"
               >
                 {slide.cta1.label}
+              </Link>
+              <Link
+                to={slide.cta2.to}
+                className="inline-flex items-center justify-center px-7 py-3 rounded-full border border-white/30 text-white text-sm font-semibold hover:bg-white/10 transition-colors"
+              >
+                {slide.cta2.label}
               </Link>
             </div>
           </div>
@@ -125,7 +125,7 @@ const HeroSection = () => {
 
         {/* RIGHT — Photo Mosaic (Artium-style 2x3 grid) */}
         <div
-          className={`hidden lg:grid flex-1 grid-cols-3 grid-rows-2 gap-1 p-1 transition-opacity duration-500 ${animating ? "opacity-0" : "opacity-100"}`}
+          className={`hidden lg:grid relative flex-1 grid-cols-3 grid-rows-2 gap-1 p-1 transition-opacity duration-500 ${animating ? "opacity-0" : "opacity-100"}`}
         >
           {slide.photos.map((src, i) => (
             <div key={`${activeIdx}-${i}`} className="overflow-hidden relative">

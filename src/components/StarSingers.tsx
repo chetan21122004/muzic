@@ -20,7 +20,7 @@ const StarSingers = () => {
   if (students.length === 0) return null;
 
   return (
-    <section className="py-16" style={{ background: "#1e1e2e" }}>
+    <section className="py-16" style={{ background: "#0a0a0d" }}>
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-extrabold text-white italic mb-10 text-center lg:text-left">
           Star Students of Muziclub

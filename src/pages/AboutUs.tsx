@@ -19,38 +19,38 @@ const ratings = [
 
 const AboutUs = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen" style={{ background: "#0a0a0d" }}>
       <Navbar />
 
       {/* Hero */}
-      <section className="bg-[#f7f7f9] py-16 border-b border-gray-100">
+      <section className="py-16 border-b border-white/5" style={{ background: "#111116" }}>
         <div className="container mx-auto px-4 text-center">
           <p className="text-primary text-xs font-bold uppercase tracking-widest mb-3">Our Story</p>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
             About <span className="text-primary">Muziclub</span>
           </h1>
-          <p className="text-gray-400 max-w-2xl mx-auto text-base leading-relaxed">
+          <p className="text-white/50 max-w-2xl mx-auto text-base leading-relaxed">
             Learn and Live Music — India's leading music academy offering certified classes in vocals, guitar, keyboard, drums, and more.
           </p>
         </div>
       </section>
 
       {/* Story */}
-      <section className="py-16">
+      <section className="py-16" style={{ background: "#0a0a0d" }}>
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row items-start gap-14">
             <div className="flex-1 space-y-5">
-              <h2 className="text-3xl font-extrabold text-gray-900">Our Story</h2>
-              <p className="text-gray-500 leading-relaxed text-sm">
+              <h2 className="text-3xl font-extrabold text-white">Our Story</h2>
+              <p className="text-white/50 leading-relaxed text-sm">
                 Muziclub is a platform driven by people who live music and have a passion to develop the same with whoever they touch. Muziclub academy is founded on quality and structured music education. Our model has the right balance of discipline and flexibility that is needed to learn music.
               </p>
               <p className="text-gray-500 leading-relaxed text-sm">
                 Our classes are designed to provide personalized focus, practice facilities, and fulfilling engagement with passionate teachers. Learning without performing does not go far — so we provide an opportunity to all students to perform every week in Sunday Jam. Our teaching methods are continuously improving so that we can provide the best experience and results for students.
               </p>
-              <p className="text-gray-500 leading-relaxed text-sm">
+              <p className="text-white/50 leading-relaxed text-sm">
                 Muziclub is all about living music — making music a part of your life. Our motto 'Live Music' drives all service offerings including music classes at academy centres or online, arranging music shows and workshops, corporate seminars, or simply chilling out over a nice groove at jam sessions.
               </p>
-              <p className="text-gray-500 leading-relaxed text-sm">
+              <p className="text-white/50 leading-relaxed text-sm">
                 We are based at Pune, India with presence in Croydon, UK for effective coordination of online music classes in London and the rest of UK.
               </p>
             </div>
@@ -119,13 +119,13 @@ const AboutUs = () => {
       </section>
 
       {/* CTA */}
-      <section className="bg-[#f7f7f9] py-14 border-t border-gray-100">
+      <section className="py-14 border-t border-white/5" style={{ background: "#111116" }}>
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-2xl font-extrabold text-gray-900 mb-3">Ready to Start?</h2>
-          <p className="text-gray-400 text-sm mb-6">Book a free 1-on-1 trial class with our expert teachers today.</p>
+          <h2 className="text-2xl font-extrabold text-white mb-3">Ready to Start?</h2>
+          <p className="text-white/40 text-sm mb-6">Book a free 1-on-1 trial class with our expert teachers today.</p>
           <a
             href="/contact"
-            className="inline-flex items-center gap-2 bg-primary text-white font-bold px-8 py-3.5 rounded-full hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-rose-600 text-white font-bold px-8 py-3.5 rounded-full hover:from-rose-600 hover:to-primary transition-all shadow-lg shadow-primary/20 glow-red"
           >
             Book Free Trial Class
           </a>

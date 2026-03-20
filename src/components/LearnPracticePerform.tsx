@@ -19,7 +19,7 @@ const LearnPracticePerform = () => {
   const current = phrases[activeIdx];
 
   return (
-    <section className="py-20" style={{ background: "#1e1e2e" }}>
+    <section className="py-20" style={{ background: "#0a0a0d" }}>
       <div className="container mx-auto px-4">
         <div className="mb-8">
           <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-2">

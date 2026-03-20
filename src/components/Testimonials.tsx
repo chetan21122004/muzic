@@ -44,19 +44,19 @@ const Testimonials = () => {
     <section className="bg-white py-16">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between mb-10">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-foreground">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">
             Muziclub's Student Testimonials
           </h2>
           <div className="flex gap-2">
             <button
               onClick={() => canPrev && setStartIdx(startIdx - 1)}
-              className={`w-10 h-10 rounded-full border flex items-center justify-center transition-colors ${canPrev ? "border-gray-300 text-foreground hover:bg-gray-100" : "border-gray-200 text-gray-300 cursor-default"}`}
+              className={`w-10 h-10 rounded-full border flex items-center justify-center transition-colors ${canPrev ? "border-gray-300 text-gray-900 hover:bg-gray-100" : "border-gray-200 text-gray-300 cursor-default"}`}
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={() => canNext && setStartIdx(startIdx + 1)}
-              className={`w-10 h-10 rounded-full border flex items-center justify-center transition-colors ${canNext ? "border-gray-300 text-foreground hover:bg-gray-100" : "border-gray-200 text-gray-300 cursor-default"}`}
+              className={`w-10 h-10 rounded-full border flex items-center justify-center transition-colors ${canNext ? "border-gray-300 text-gray-900 hover:bg-gray-100" : "border-gray-200 text-gray-300 cursor-default"}`}
             >
               <ChevronRight className="w-5 h-5" />
             </button>
@@ -67,10 +67,18 @@ const Testimonials = () => {
           {testimonials.slice(startIdx, startIdx + visible).map((t, i) => (
             <div
               key={i}
-              className="bg-white rounded-2xl border border-gray-100 p-6 text-center shadow-sm hover:shadow-md transition-shadow"
+              className="bg-white rounded-2xl border border-gray-100 p-6 text-center shadow-sm hover:shadow-lg hover:border-primary/20 hover:-translate-y-1 transition-all duration-300 group"
             >
-              {/* Large circular avatar */}
-              <div className="w-24 h-24 mx-auto rounded-full overflow-hidden bg-gray-100 mb-4">
+              {/* Red quote mark */}
+              <div className="text-primary text-4xl font-black leading-none mb-3 opacity-80">"</div>
+              {/* 5 star rating */}
+              <div className="flex justify-center gap-0.5 mb-4">
+                {[...Array(5)].map((_, s) => (
+                  <span key={s} className="text-primary text-sm">★</span>
+                ))}
+              </div>
+              {/* Avatar */}
+              <div className="w-20 h-20 mx-auto rounded-full overflow-hidden bg-gray-100 mb-4 ring-2 ring-primary/20 group-hover:ring-primary/40 transition-all">
                 <img
                   src={t.img}
                   alt={t.name}
@@ -78,13 +86,13 @@ const Testimonials = () => {
                   onError={(e) => { (e.target as HTMLImageElement).src = "/homepage_banners/banner_1.png"; }}
                 />
               </div>
-              <h3 className="font-extrabold text-foreground text-lg">{t.name}</h3>
-              <p className="text-muted-foreground text-sm mt-0.5 mb-4">{t.location}</p>
-              <p className="text-muted-foreground text-sm leading-relaxed line-clamp-4">
+              <h3 className="font-extrabold text-gray-900 text-lg">{t.name}</h3>
+              <p className="text-primary text-xs font-semibold mt-0.5 mb-3 uppercase tracking-wide">{t.location}</p>
+              <p className="text-gray-500 text-sm leading-relaxed line-clamp-4">
                 {t.text}
               </p>
-              <button className="text-primary font-semibold text-sm mt-4 hover:underline">
-                read more
+              <button className="text-primary font-bold text-xs mt-4 uppercase tracking-wider hover:underline">
+                Read More
               </button>
             </div>
           ))}

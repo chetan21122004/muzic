@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Poppins", "sans-serif"],
+        sans: ["'Plus Jakarta Sans'", "Inter", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -60,8 +60,10 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        "surface-light": "hsl(var(--surface-light))",
-        "surface-light-foreground": "hsl(var(--surface-light-foreground))",
+        /* ── Brand surface tokens (use as bg-surface-dark / bg-surface-card) ── */
+        "surface-dark": "hsl(var(--surface-dark))",
+        "surface-card": "hsl(var(--surface-card))",
+        "surface-alt":  "hsl(var(--surface-alt))",
       },
       borderRadius: {
         lg: "var(--radius)",

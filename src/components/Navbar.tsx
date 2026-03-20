@@ -38,8 +38,8 @@ const Navbar = () => {
 
   return (
     <>
-      {/* ── Announcement Ticker (Gradient) ── */}
-      <div className="bg-gradient-to-r from-primary via-purple-600 to-primary text-white py-2.5 px-4 text-xs tracking-wide text-center overflow-hidden font-medium relative">
+      {/* ── Announcement Ticker (brand red) ── */}
+      <div className="bg-gradient-to-r from-[#c0021e] via-primary to-[#c0021e] text-white py-2.5 px-4 text-xs tracking-wide text-center overflow-hidden font-medium relative">
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="ticker-animate relative z-10">
           <span className="mx-8 font-semibold">🎵 Ukulele – 1 Month Crash Course! Enrol Now</span>
@@ -66,7 +66,7 @@ const Navbar = () => {
             <img
               src="/logo.png"
               alt="Muziclub Logo"
-              className="h-24 w-auto object-contain drop-shadow-lg"
+              className="h-12 w-auto object-contain drop-shadow-lg"
               onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
             />
           </Link>
@@ -135,9 +135,12 @@ const Navbar = () => {
                       : "text-white/70 hover:text-white hover:bg-white/5"
                   }`}
                 >
+                  {isActive && (
+                    <span className="absolute bottom-0.5 left-4 right-4 h-[2px] bg-primary rounded-full" />
+                  )}
                   {item.label}
                   {item.badge && (
-                    <span className="bg-primary/20 border border-primary/30 text-primary text-[9px] font-black uppercase px-2 py-0.5 rounded-full tracking-widest flex items-center gap-1 shadow-[0_0_10px_rgba(168,85,247,0.3)]">
+                    <span className="bg-primary/20 border border-primary/30 text-primary text-[9px] font-black uppercase px-2 py-0.5 rounded-full tracking-widest flex items-center gap-1 shadow-[0_0_10px_hsl(356_91%_47%_/_0.35)]">
                       <Sparkles className="w-2 h-2" />
                       {item.badge}
                     </span>
@@ -158,7 +161,7 @@ const Navbar = () => {
 
             <Link 
               to="/contact"
-              className="hidden sm:inline-flex items-center justify-center bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-primary text-white font-extrabold px-6 py-2.5 rounded-full text-sm shadow-xl shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all duration-300"
+              className="hidden sm:inline-flex items-center justify-center bg-gradient-to-r from-primary to-rose-600 hover:from-rose-600 hover:to-primary text-white font-extrabold px-6 py-2.5 rounded-full text-sm shadow-xl shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all duration-300 glow-red"
             >
               Book Free Trial
             </Link>
@@ -237,7 +240,7 @@ const Navbar = () => {
                 <Link
                   to="/contact"
                   onClick={() => setMobileOpen(false)}
-                  className="block w-full text-center py-3.5 text-sm font-extrabold text-white bg-gradient-to-r from-primary to-purple-600 rounded-xl shadow-lg shadow-primary/20"
+                  className="block w-full text-center py-3.5 text-sm font-extrabold text-white bg-gradient-to-r from-primary to-rose-600 rounded-xl shadow-lg shadow-primary/20"
                 >
                   Book Your Free Trial Now
                 </Link>

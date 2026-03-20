@@ -35,7 +35,7 @@ const advantages = [
 
 const AdvantageSection = () => {
   return (
-    <section className="py-20 bg-[hsl(240,20%,10%)] relative overflow-hidden">
+    <section className="py-20 relative overflow-hidden" style={{ background: "#0a0a0d" }}>
       {/* Subtle dot grid */}
       <div
         className="absolute inset-0 opacity-[0.03]"
