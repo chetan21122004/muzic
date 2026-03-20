@@ -345,7 +345,7 @@ const CoursePage = () => {
       </section>
 
       {/* ═══ 8. MORE COURSES — Dark carousel ═══ */}
-      <section className="py-16" style={{ background: "#111127" }}>
+      <section className="py-16" style={{ background: "#0a0a0d" }}>
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-extrabold text-white text-center mb-10">
             More courses on Muziclub
