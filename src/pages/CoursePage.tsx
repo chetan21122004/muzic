@@ -292,7 +292,7 @@ const CoursePage = () => {
       )}
 
       {/* ═══ 7. FEATURES — Left text + Right image (dark bg) ═══ */}
-      <section className="py-16" style={{ background: "#1a1a2e" }}>
+      <section className="py-16" style={{ background: "#111116" }}>
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             {/* Left: Feature list */}
