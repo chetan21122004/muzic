@@ -4,6 +4,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "./context/ThemeContext";
+import WhatsAppWidget from "./components/WhatsAppWidget";
+import ScrollToTop from "./components/ScrollToTop";
 import Index from "./pages/Index";
 import CoursePage from "./pages/CoursePage";
 import StudentShowcase from "./pages/StudentShowcase";
@@ -27,6 +29,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/courses/:slug" element={<CoursePage />} />
@@ -43,6 +46,7 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <WhatsAppWidget />
       </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>

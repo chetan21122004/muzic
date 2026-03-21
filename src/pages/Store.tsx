@@ -1,9 +1,11 @@
 import { useState } from "react";
-import { ShoppingCart, Star, Package, Truck, RotateCcw, Shield } from "lucide-react";
+import { Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 
+const WA_NUMBER = "919156303400";
 const categories = ["All", "Guitars", "Keyboards", "Drums", "Vocals", "Accessories", "Books & Scores"];
 
 const products = [
@@ -16,7 +18,7 @@ const products = [
     reviews: 124,
     tag: "Best Seller",
     tagColor: "bg-primary text-white",
-    img: "/homepage_banners/instrument.png",
+    img: "https://images.unsplash.com/photo-1550291652-6ea9114a47b1?w=600&q=80",
     desc: "Perfect for beginners. Steel-string acoustic. Includes capo and picks.",
   },
   {
@@ -28,7 +30,7 @@ const products = [
     reviews: 89,
     tag: "Popular",
     tagColor: "bg-emerald-500 text-white",
-    img: "/homepage_banners/banner_3.png",
+    img: "https://images.unsplash.com/photo-1552422535-c45813c61732?w=600&q=80",
     desc: "61 keys, 48 built-in tones. Great for beginners and practice at home.",
   },
   {
@@ -40,7 +42,7 @@ const products = [
     reviews: 41,
     tag: null,
     tagColor: "",
-    img: "/homepage_banners/banner_4.png",
+    img: "https://images.unsplash.com/photo-1543443374-b63afaaecb07?w=600&q=80",
     desc: "Single-ply coated drumheads for a warm, balanced tone. Pack of 3.",
   },
   {
@@ -52,7 +54,7 @@ const products = [
     reviews: 56,
     tag: "On Sale",
     tagColor: "bg-amber-500 text-white",
-    img: "/homepage_banners/singing.png",
+    img: "https://images.unsplash.com/photo-1516280440502-8610eb675546?w=600&q=80",
     desc: "Height-adjustable, heavy-duty base. Perfect for practice and small performances.",
   },
   {
@@ -64,7 +66,7 @@ const products = [
     reviews: 215,
     tag: "Top Rated",
     tagColor: "bg-purple-500 text-white",
-    img: "/homepage_banners/instrument.png",
+    img: "https://images.unsplash.com/photo-1605020420620-20c943cc4669?w=600&q=80",
     desc: "Quick release trigger style capo. Fits acoustic and electric guitars.",
   },
   {
@@ -76,7 +78,7 @@ const products = [
     reviews: 33,
     tag: null,
     tagColor: "",
-    img: "/homepage_banners/banner_1.png",
+    img: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?w=600&q=80",
     desc: "Official Trinity College London syllabus book for Guitar grades 1, 2 & 3.",
   },
   {
@@ -88,7 +90,7 @@ const products = [
     reviews: 302,
     tag: "Best Seller",
     tagColor: "bg-primary text-white",
-    img: "/homepage_banners/instrument.png",
+    img: "https://images.unsplash.com/photo-1516961642265-531546e84af2?w=600&q=80",
     desc: "Regular light nickel wound electric guitar strings (10–46). Pack of 2.",
   },
   {
@@ -100,21 +102,13 @@ const products = [
     reviews: 78,
     tag: null,
     tagColor: "",
-    img: "/homepage_banners/banner_3.png",
+    img: "https://images.unsplash.com/photo-1460036521480-a3ff487f3b52?w=600&q=80",
     desc: "Beat-Bank metronome with 100 rhythm patterns. Great for all instruments.",
   },
 ];
 
-const perks = [
-  { icon: <Truck className="w-5 h-5" />, title: "Free Delivery", desc: "On orders above ₹1,000" },
-  { icon: <RotateCcw className="w-5 h-5" />, title: "Easy Returns", desc: "7-day hassle-free returns" },
-  { icon: <Shield className="w-5 h-5" />, title: "Secure Payments", desc: "100% safe & encrypted" },
-  { icon: <Package className="w-5 h-5" />, title: "Genuine Products", desc: "All items are brand-new & authentic" },
-];
-
 const Store = () => {
   const [activeCategory, setActiveCategory] = useState("All");
-  const [cartCount, setCartCount] = useState(0);
 
   const filtered =
     activeCategory === "All"
@@ -122,7 +116,7 @@ const Store = () => {
       : products.filter((p) => p.category === activeCategory);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white relative">
       <Navbar />
 
       {/* Hero */}
@@ -138,34 +132,6 @@ const Store = () => {
                 Instruments, accessories, books, and everything your musical journey needs — curated by our teachers.
               </p>
             </div>
-            <div className="relative shrink-0">
-              <button className="flex items-center gap-2 bg-white border border-gray-200 rounded-full px-5 py-2.5 text-sm font-semibold text-gray-700 hover:border-primary transition-colors shadow-sm">
-                <ShoppingCart className="w-4 h-4 text-primary" />
-                Cart
-                {cartCount > 0 && (
-                  <span className="w-5 h-5 rounded-full bg-primary text-white text-[10px] flex items-center justify-center font-bold">
-                    {cartCount}
-                  </span>
-                )}
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Perks bar */}
-      <section className="border-b border-gray-100 py-5 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap gap-6 justify-center sm:justify-between">
-            {perks.map((p, i) => (
-              <div key={i} className="flex items-center gap-2.5 text-sm">
-                <div className="text-primary">{p.icon}</div>
-                <div>
-                  <p className="font-bold text-gray-800 text-xs">{p.title}</p>
-                  <p className="text-gray-400 text-[10px]">{p.desc}</p>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -232,20 +198,22 @@ const Store = () => {
                   </div>
 
                   {/* Price */}
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between mt-auto">
                     <div>
                       <span className="text-base font-extrabold text-gray-900">{product.price}</span>
                       {product.originalPrice && (
                         <span className="text-xs text-gray-300 line-through ml-2">{product.originalPrice}</span>
                       )}
                     </div>
-                    <button
-                      onClick={() => setCartCount((c) => c + 1)}
-                      className="flex items-center gap-1.5 bg-primary text-white text-xs font-bold px-3.5 py-2 rounded-full hover:bg-primary/90 transition-colors shadow-sm shadow-primary/20"
+                    <a
+                      href={`https://wa.me/${WA_NUMBER}?text=I'm%20interested%20in%20buying%20the%20${encodeURIComponent(product.name)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 bg-[#25D366] text-white text-xs font-bold px-4 py-2 rounded-full hover:bg-[#20bd5a] transition-colors shadow-sm shadow-[#25D366]/30"
                     >
-                      <ShoppingCart className="w-3 h-3" />
-                      Add
-                    </button>
+                      <WhatsAppIcon className="w-4 h-4 fill-white" />
+                      Inquire
+                    </a>
                   </div>
                 </div>
               </div>

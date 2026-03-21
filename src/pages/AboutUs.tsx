@@ -1,4 +1,4 @@
-import { MapPin } from "lucide-react";
+import { MapPin, Globe, Users, Trophy, Music, Calendar, Star, CheckCircle2 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -11,75 +11,45 @@ const team = [
   { img: "/instructor/Neha-Sinha-indian_vocals.webp", name: "Neha Sinha", role: "Indian Vocals Faculty" },
 ];
 
-const ratings = [
-  { location: "Baner, Pune", rating: "4.8", count: "345+" },
-  { location: "Pimple Saudagar, Pune", rating: "4.8", count: "183+" },
-  { location: "Hinjawadi, Pune", rating: "4.7", count: "95+" },
+const stats = [
+  { value: "10,000+", label: "Students Taught", icon: Users },
+  { value: "50+", label: "Expert Instructors", icon: Trophy },
+  { value: "14+", label: "Years of Excellence", icon: Calendar },
+  { value: "4.8/5", label: "Average Rating", icon: Star },
 ];
 
 const AboutUs = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background font-sans text-foreground selection:bg-primary/20">
       <Navbar />
 
-      {/* Hero */}
-      <section className="py-16 border-b border-border bg-secondary">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-primary text-xs font-bold uppercase tracking-widest mb-3">Our Story</p>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-foreground mb-4">
-            About <span className="text-primary">Muziclub</span>
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-black text-white">
+        <div className="absolute inset-0 opacity-40">
+          <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=1600&q=80" alt="Music background" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
+        </div>
+        <div className="container mx-auto px-4 relative z-10 text-center max-w-4xl">
+          <p className="text-primary font-bold tracking-[0.3em] text-xs uppercase mb-6 drop-shadow-md">Our Journey</p>
+          <h1 className="font-playfair text-5xl md:text-7xl font-extrabold mb-8 leading-tight">
+            We are all about <span className="text-primary">Living Music.</span>
           </h1>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-base leading-relaxed">
-            Learn and Live Music — India's leading music academy offering certified classes in vocals, guitar, keyboard, drums, and more.
+          <p className="text-lg md:text-xl text-gray-300 leading-relaxed font-light">
+            Founded on quality and structured education, Muziclub is India's premier platform driven by people who live music and have a passion to share it with the world.
           </p>
         </div>
       </section>
 
-      {/* Story */}
-      <section className="py-16 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row items-start gap-14">
-            <div className="flex-1 space-y-5">
-              <h2 className="text-3xl font-extrabold text-foreground">Our Story</h2>
-              <p className="text-muted-foreground leading-relaxed text-sm">
-                Muziclub is a platform driven by people who live music and have a passion to develop the same with whoever they touch. Muziclub academy is founded on quality and structured music education. Our model has the right balance of discipline and flexibility that is needed to learn music.
-              </p>
-              <p className="text-muted-foreground leading-relaxed text-sm">
-                Our classes are designed to provide personalized focus, practice facilities, and fulfilling engagement with passionate teachers. Learning without performing does not go far — so we provide an opportunity to all students to perform every week in Sunday Jam. Our teaching methods are continuously improving so that we can provide the best experience and results for students.
-              </p>
-              <p className="text-muted-foreground leading-relaxed text-sm">
-                Muziclub is all about living music — making music a part of your life. Our motto 'Live Music' drives all service offerings including music classes at academy centres or online, arranging music shows and workshops, corporate seminars, or simply chilling out over a nice groove at jam sessions.
-              </p>
-              <p className="text-muted-foreground leading-relaxed text-sm">
-                We are based at Pune, India with presence in Croydon, UK for effective coordination of online music classes in London and the rest of UK.
-              </p>
-            </div>
-            <div className="flex-1 w-full">
-              <div className="rounded-3xl overflow-hidden aspect-[4/3]">
-                <img src="/homepage_banners/banner_1.png" alt="Muziclub Academy" className="w-full h-full object-cover" onError={(e) => { e.currentTarget.onerror = null; (e.currentTarget as HTMLImageElement).src = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Crect width='100%25' height='100%25' fill='%23111'/%3E%3C/svg%3E"; }} />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Google Ratings */}
-      <section className="py-10 border-y border-border bg-secondary">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
-            <div>
-              <p className="text-xs font-bold text-primary uppercase tracking-widest mb-1">Google Reviews</p>
-              <h3 className="text-xl font-extrabold text-foreground">Highly Rated Across Pune</h3>
-            </div>
-            <div className="flex gap-8">
-              {ratings.map((r) => (
-                <div key={r.location} className="text-center">
-                  <div className="flex items-center gap-1">
-                    <MapPin className="w-3 h-3 text-primary" />
-                    <p className="text-xs text-muted-foreground font-medium">{r.location}</p>
-                  </div>
-                  <p className="text-2xl font-extrabold text-foreground mt-1">{r.rating} ⭐</p>
-                  <p className="text-[10px] text-muted-foreground">({r.count} reviews)</p>
+      {/* Stats Bar */}
+      <section className="relative z-20 -mt-12 mb-20 px-4">
+        <div className="container mx-auto max-w-5xl">
+          <div className="bg-background rounded-3xl shadow-2xl shadow-black/5 border border-border p-8 md:p-12">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-border">
+              {stats.map((stat, i) => (
+                <div key={i} className="text-center px-4">
+                  <stat.icon className="w-6 h-6 mx-auto text-primary mb-4 opacity-80" />
+                  <h3 className="text-3xl lg:text-4xl font-black text-foreground mb-2">{stat.value}</h3>
+                  <p className="text-xs uppercase tracking-[0.15em] font-bold text-muted-foreground">{stat.label}</p>
                 </div>
               ))}
             </div>
@@ -87,22 +57,159 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* Faculty */}
-      <section className="py-16 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <p className="text-primary text-xs font-bold uppercase tracking-widest mb-2">The Team</p>
-            <h2 className="text-3xl font-extrabold text-foreground">Meet Our Faculty</h2>
-            <p className="text-muted-foreground text-sm mt-2">Qualified, passionate teachers committed to your musical growth</p>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5">
-            {team.map((t) => (
-              <div key={t.name} className="text-center group">
-                <div className="w-full aspect-square rounded-2xl overflow-hidden mb-3 border border-border group-hover:border-primary/20 transition-all">
-                  <img src={t.img} alt={t.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+      {/* The Story */}
+      <section className="py-20 lg:py-32 bg-secondary">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
+            <div className="flex-1 space-y-8">
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-bold uppercase tracking-widest">
+                <Music className="w-3.5 h-3.5" /> Core Philosophy
+              </div>
+              <h2 className="font-playfair text-4xl lg:text-5xl font-extrabold text-foreground leading-tight">
+                The perfect balance of <span className="text-primary border-b-4 border-primary/20">discipline and flexibility.</span>
+              </h2>
+              <div className="space-y-6 text-muted-foreground leading-relaxed text-lg font-light">
+                <p>
+                  Muziclub is a platform driven by people who live music and have a passion to develop the same with whoever they touch. Our model ensures that students receive structured, high-quality music education without losing the joy of the art.
+                </p>
+                <p>
+                  Our classes provide personalized focus, premium practice facilities, and fulfilling engagement with passionate teachers. We firmly believe that learning without performing does not go far.
+                </p>
+                <p>
+                  That's why we provide an exclusive opportunity for all our students to perform live on stage every single week in our legendary <strong>Sunday Jams</strong>.
+                </p>
+              </div>
+              
+              <div className="pt-6 grid sm:grid-cols-2 gap-4">
+                {[
+                  "Certified Training Programs",
+                  "Weekly Live Performances",
+                  "Expert Passionate Teachers",
+                  "Premium Facilities"
+                ].map((feature, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
+                    <span className="font-semibold text-foreground text-sm">{feature}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <div className="flex-1 relative w-full">
+              <div className="aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl w-full max-w-lg mx-auto relative group flex items-center justify-center">
+                <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&q=80" alt="Live Music" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                <div className="absolute bottom-10 left-10 right-10">
+                  <h3 className="font-playfair text-3xl font-bold text-white mb-2">Sunday Jams.</h3>
+                  <p className="text-white/80 text-sm">Every week, our students take the stage.</p>
                 </div>
-                <p className="font-bold text-foreground text-sm">{t.name}</p>
-                <p className="text-xs text-primary font-medium mt-0.5">{t.role}</p>
+              </div>
+              
+              {/* Floating Element */}
+              <div className="absolute -bottom-10 -left-10 bg-background p-6 rounded-3xl shadow-xl hidden lg:block border border-border z-10 transition-transform duration-500 hover:-translate-y-2">
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center shrink-0">
+                    <Globe className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <p className="font-bold text-foreground">Global Presence</p>
+                    <p className="text-xs text-muted-foreground mt-1">Pune, India & Croydon, UK</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Locations & Ratings */}
+      <section className="py-24 bg-background border-y border-border">
+        <div className="container mx-auto px-4 max-w-6xl text-center">
+          <p className="text-primary text-xs font-bold uppercase tracking-widest mb-4">Our Centers</p>
+          <h2 className="font-playfair text-4xl md:text-5xl font-extrabold text-foreground mb-16">
+            Find Your Nearest Muziclub
+          </h2>
+          
+          <div className="grid md:grid-cols-2 gap-8 text-left">
+            {[
+              { 
+                name: "Baner Centre", 
+                address: "Near Orchid School, Baner, Pune, Maharashtra 411045", 
+                rating: "4.8", 
+                count: "345+",
+                img: "/homepage_banners/banner_2.png"
+              },
+              { 
+                name: "Pimple Saudagar Centre", 
+                address: "Spot 18 Mall Lane, Pimple Saudagar, Pune, Maharashtra 411027", 
+                rating: "4.8", 
+                count: "183+",
+                img: "/banner/banner-3.jpg"
+              },
+              { 
+                name: "Hinjawadi Centre", 
+                address: "Phase 1 Rd, Hinjawadi Rajiv Gandhi Infotech Park, Pune, Maharashtra 411057", 
+                rating: "4.7", 
+                count: "95+",
+                img: "/banner/banner-4.jpg" 
+              },
+              { 
+                name: "Kothrud Centre", 
+                address: "Near City Pride, Kothrud, Pune, Maharashtra 411038", 
+                rating: "4.9", 
+                count: "120+",
+                img: "/banner/banner-5.jpg"
+              }
+            ].map((r, i) => (
+              <div key={i} className="bg-secondary rounded-[2rem] overflow-hidden hover:shadow-2xl transition-all duration-300 border border-border hover:border-primary/20 flex flex-col group">
+                <div className="relative h-60 overflow-hidden">
+                  <img src={r.img} alt={r.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onError={(e) => { e.currentTarget.onerror = null; (e.currentTarget as HTMLImageElement).src = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Crect width='100%25' height='100%25' fill='%23111'/%3E%3C/svg%3E"; }} />
+                  <div className="absolute top-4 right-4 bg-background/95 backdrop-blur-sm px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-lg border border-border">
+                    <span className="font-bold text-foreground text-sm">{r.rating}</span>
+                    <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
+                    <span className="text-muted-foreground text-[10px] uppercase font-bold tracking-wider ml-1">({r.count})</span>
+                  </div>
+                </div>
+                <div className="p-8 flex flex-col flex-1">
+                  <h4 className="font-bold text-2xl text-foreground mb-4">{r.name}</h4>
+                  <div className="flex items-start gap-3 mb-8 text-muted-foreground">
+                    <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                    <p className="text-sm leading-relaxed">{r.address}</p>
+                  </div>
+                  <a href="#" className="mt-auto inline-flex items-center justify-center w-full bg-background border-2 border-primary text-primary font-bold py-3.5 rounded-xl hover:bg-primary hover:text-primary-foreground transition-colors">
+                    Get Directions
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Faculty */}
+      <section className="py-24 bg-secondary text-foreground border-y border-border">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-16">
+            <div className="max-w-xl">
+              <p className="text-primary text-xs font-bold uppercase tracking-widest mb-4">The Experts</p>
+              <h2 className="font-playfair text-4xl md:text-5xl font-extrabold leading-tight">
+                Meet the minds behind the music.
+              </h2>
+            </div>
+            <p className="text-muted-foreground max-w-sm text-sm leading-relaxed">
+              Our faculty comprises highly qualified and deeply passionate musicians committed entirely to your musical growth.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+            {team.map((t, i) => (
+              <div key={i} className="group cursor-pointer">
+                <div className="relative aspect-[4/5] rounded-3xl overflow-hidden mb-5 shadow-sm border border-border">
+                  <img src={t.img} alt={t.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+                <h4 className="font-bold text-sm text-foreground">{t.name}</h4>
+                <p className="text-primary text-[10px] font-bold uppercase tracking-wider mt-1">{t.role}</p>
               </div>
             ))}
           </div>
