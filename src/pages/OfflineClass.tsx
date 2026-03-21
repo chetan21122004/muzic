@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { MapPin, Star, Users, Award, Play, ChevronDown, Music, Guitar } from "lucide-react";
+import { MapPin, Star, Users, Award, ChevronDown, Music, Guitar } from "lucide-react";
 import { motion } from "framer-motion";
 
 /* ── Static Data ── */
@@ -280,18 +280,13 @@ const OfflineClass = () => {
             Our centres are designed to give you the best learning experience. Come see our state-of-the-art classrooms and practice rooms.
           </p>
 
-          {/* Video placeholder */}
+          {/* Tour Image */}
           <div className="relative max-w-3xl mx-auto rounded-2xl overflow-hidden aspect-video bg-foreground/5 mb-10">
             <img
               src="/homepage_banners/banner_2.png"
               alt="Academy Tour"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-              <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center shadow-xl cursor-pointer hover:scale-110 transition-transform">
-                <Play className="w-7 h-7 text-primary-foreground ml-1" />
-              </div>
-            </div>
           </div>
 
           {/* Centre Cards */}

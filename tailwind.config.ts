@@ -18,6 +18,13 @@ export default {
         serif: ["'Playfair Display'", "serif"],
         display: ["'Playfair Display'", "serif"],
       },
+      fontSize: {
+        xs: ["0.85rem", { lineHeight: "1.25rem" }],
+        sm: ["0.95rem", { lineHeight: "1.4rem" }],
+        base: ["1.05rem", { lineHeight: "1.6rem" }],
+        lg: ["1.2rem", { lineHeight: "1.75rem" }],
+        xl: ["1.35rem", { lineHeight: "1.85rem" }],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

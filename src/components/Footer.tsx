@@ -41,7 +41,7 @@ const Footer = () => {
         {/* ── Top Section ── */}
         <div className="py-14 border-b border-white/5 grid grid-cols-1 lg:grid-cols-5 gap-12">
           <div className="lg:col-span-2 flex flex-col gap-6">
-            <img src="/logo.png" alt="Muziclub Logo" className="h-12 w-auto object-contain self-start drop-shadow-lg" />
+            <img src="/logo.png" alt="Muziclub Logo" className="h-20 w-auto object-contain self-start drop-shadow-lg" />
             <p className="text-sm text-[#d1d1d6]/60 leading-relaxed max-w-xs">
               India's leading music academy — certified classes in vocals, guitar, piano, drums, and more. Learn from passionate teachers who live music.
             </p>
