@@ -9,7 +9,11 @@ const slides = [
     desc: "Building the gold standard in music education to make learning fun & accessible to people of all ages.",
     cta1: { label: "Book a Free Trial", to: "/contact" },
     cta2: { label: "Know More", to: "/online-programs" },
-    illustration: "/illustrations/Playing Music-bro.svg",
+    images: [
+      "/new_imgs/Copy of DSC00298 (1).webp",
+      "/new_imgs/Copy of DSC00403.webp",
+      "/new_imgs/Copy of DSC00504.webp"
+    ],
   },
   {
     tag: "International Certifications",
@@ -17,7 +21,11 @@ const slides = [
     desc: "Expertly crafted curriculums aligned with globally recognised music exams — Trinity College London, ABRSM, RSL.",
     cta1: { label: "Book a Free Trial", to: "/contact" },
     cta2: { label: "Know More", to: "/online-programs" },
-    illustration: "/illustrations/Compose music-bro.svg",
+    images: [
+      "/new_imgs/Copy of DSC00590.webp",
+      "/new_imgs/Copy of DSC00642 (2).webp",
+      "/new_imgs/Copy of DSC00711 (1).webp"
+    ],
   },
   {
     tag: "Sunday Jam Sessions",
@@ -25,7 +33,11 @@ const slides = [
     desc: "Showcase your music talent globally with Muziclub Superstar — compete, perform, and rise to stardom.",
     cta1: { label: "Book a Free Trial", to: "/contact" },
     cta2: { label: "Know More", to: "/student-showcase" },
-    illustration: "/illustrations/jazz piano-amico.svg",
+    images: [
+      "/new_imgs/DSC00762 (1).webp",
+      "/new_imgs/DSC01210 (1).webp",
+      "/new_imgs/Copy of DSC00677 (1).webp"
+    ],
   },
 ];
 
@@ -53,9 +65,19 @@ const HeroSection = () => {
   const slide = slides[activeIdx];
 
   return (
-    <section className="relative w-full bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/visuals/1.png')" }}>
-      <div className="absolute inset-0 bg-black/80 lg:bg-black/80 z-0 pointer-events-none"></div>
-      <div className="flex min-h-[520px] sm:min-h-[560px] lg:min-h-[620px]">
+    <section className="relative w-full bg-black overflow-hidden">
+      {/* Rotated Vertical Image Background */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden opacity-50">
+        <img
+          src="/visuals/8.png"
+          alt="Hero Background"
+          className="absolute top-1/2 left-1/2 w-[150vh] h-[150vw] max-w-none object-cover -translate-x-1/2 -translate-y-1/2 -rotate-90 filter contrast-125 saturate-50"
+        />
+      </div>
+
+      <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/80 to-transparent z-0 pointer-events-none"></div>
+
+      <div className="relative flex min-h-[520px] sm:min-h-[560px] lg:min-h-[620px]">
         {/* LEFT — Text */}
         <div className="relative z-10 flex flex-col justify-center px-6 sm:px-10 lg:px-16 py-12 w-full lg:w-[42%] shrink-0">
           <div className={`transition-all duration-500 ${animating ? "opacity-0 translate-y-4" : "opacity-100 translate-y-0"}`}>
@@ -113,18 +135,37 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* RIGHT — Dynamic Vector Illustration */}
-        <div className="hidden lg:flex relative flex-1 p-5 items-center justify-center">
+        {/* RIGHT — Crazy 3D Floating Photo Cascade */}
+        <div className="hidden lg:flex relative flex-1 p-5 items-center justify-center perspective-[2000px]">
           {slides.map((s, i) => (
-            <div 
-              key={i} 
-              className={`absolute inset-8 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${activeIdx === i && !animating ? "opacity-100 scale-100 blur-none pointer-events-auto" : "opacity-0 scale-95 blur-sm pointer-events-none"} flex flex-col justify-center items-center`}
+            <div
+              key={i}
+              className={`absolute inset-0 transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${activeIdx === i && !animating ? "opacity-100 scale-100 translate-y-0 pointer-events-auto" : "opacity-0 scale-90 translate-y-10 pointer-events-none"} flex items-center justify-center`}
             >
-              <img src={s.illustration} alt={s.title} className="w-full max-w-[500px] h-auto object-contain drop-shadow-[0_20px_50px_rgba(255,255,255,0.1)] hover:scale-105 transition-transform duration-700 hover:-translate-y-4" />
+              <div className="relative w-full max-w-[520px] aspect-square flex items-center justify-center group cursor-default">
+                {/* Main Center Image */}
+                <div className="absolute w-[60%] h-[75%] rounded-3xl overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.6)] border-2 border-white/10 z-20 transform transition-transform duration-700 group-hover:scale-105 group-hover:-rotate-3 translate-y-0">
+                  <img src={s.images[0]} alt="" className="w-full h-full object-cover filter contrast-[1.15] saturate-50 group-hover:saturate-100 transition-all duration-700" />
+                </div>
+
+                {/* Top Left Floating Image */}
+                <div className="absolute w-[45%] h-[55%] -top-[5%] -left-[5%] rounded-[2rem] overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.5)] border border-white/20 z-10 transform -rotate-[12deg] transition-all duration-700 group-hover:translate-x-[-15px] group-hover:translate-y-[-15px] group-hover:-rotate-[15deg]">
+                  <img src={s.images[1]} alt="" className="w-full h-full object-cover filter contrast-[1.15] saturate-50 group-hover:saturate-100 transition-all duration-700" />
+                </div>
+
+                {/* Bottom Right Floating Image */}
+                <div className="absolute w-[50%] h-[50%] -bottom-[5%] -right-[5%] rounded-[2rem] overflow-hidden shadow-[0_45px_70px_rgba(0,0,0,0.8)] border-4 border-white/20 z-30 transform rotate-[8deg] transition-all duration-700 group-hover:translate-x-[20px] group-hover:translate-y-[15px] group-hover:rotate-[12deg] group-hover:scale-110">
+                  <img src={s.images[2]} alt="" className="w-full h-full object-cover filter contrast-[1.15] saturate-50 group-hover:saturate-100 transition-all duration-700" />
+                </div>
+
+                {/* Cinematic Glowing Orbs */}
+                <div className="absolute w-72 h-72 bg-primary/20 rounded-full blur-[80px] -z-10 group-hover:bg-primary/30 transition-colors duration-700"></div>
+                <div className="absolute bottom-0 left-10 w-40 h-40 bg-secondary/20 rounded-full blur-[60px] -z-10 transition-colors duration-700"></div>
+              </div>
             </div>
           ))}
 
-          <div className="absolute bottom-8 right-8 z-30">
+          <div className="absolute bottom-8 right-8 z-40">
             <Link to="/contact" className="inline-flex items-center gap-2 bg-primary text-primary-foreground text-xs font-bold px-6 py-3 rounded-full shadow-2xl shadow-primary/40 hover:bg-[#c40812] transition-colors">
               <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-[10px]">▶</span>
               Book a Free Trial
@@ -132,9 +173,9 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Mobile bg */}
-        <div className="absolute inset-0 lg:hidden z-0 opacity-10 flex items-center justify-center pointer-events-none overflow-hidden">
-          <img src={slide.illustration} alt="" className="w-[150%] max-w-none h-auto object-contain opacity-20 blur-sm mix-blend-screen" />
+        {/* Mobile bg element */}
+        <div className="absolute inset-0 lg:hidden z-0 opacity-20 flex items-center justify-center pointer-events-none overflow-hidden">
+          <img src={slide.images[0]} alt="" className="w-full h-full object-cover mix-blend-overlay filter saturate-50 contrast-125" />
         </div>
       </div>
     </section>

@@ -18,9 +18,6 @@ const Index = () => {
       <AdvantageSection />
       <CoursesSection />
       <EnrollSteps />
-      <LearnPracticePerform />
-      <LiveSessions />
-      <StarSingers />
       <Testimonials />
       <JoinUs />
       <Footer />
