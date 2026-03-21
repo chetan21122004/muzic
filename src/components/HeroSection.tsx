@@ -74,7 +74,7 @@ const HeroSection = () => {
   const slide = slides[activeIdx];
 
   return (
-    <section className="relative w-full" style={{ background: "#0a0a0d" }}>
+    <section className="relative w-full" style={{ background: "#0b0b0c" }}>
       <div className="flex min-h-[520px] sm:min-h-[560px] lg:min-h-[620px]">
         {/* LEFT — Text */}
         <div className="relative z-10 flex flex-col justify-center px-6 sm:px-10 lg:px-16 py-12 w-full lg:w-[42%] shrink-0">
@@ -85,11 +85,10 @@ const HeroSection = () => {
             <h1 className="text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold text-white leading-[1.15] mb-5">
               {slide.title}
             </h1>
-            <p className="text-white/60 text-sm leading-relaxed mb-6 max-w-md">
+            <p className="text-[#d1d1d6] text-sm leading-relaxed mb-6 max-w-md">
               ● {slide.desc}
             </p>
 
-            {/* Professional Stats Strip */}
             <div className="flex items-center gap-6 mb-8">
               <div>
                 <p className="text-white font-extrabold text-lg md:text-xl leading-none">10k+</p>
@@ -110,7 +109,7 @@ const HeroSection = () => {
             <div className="flex flex-wrap gap-3">
               <Link
                 to={slide.cta1.to}
-                className="inline-flex items-center justify-center px-7 py-3 rounded-full bg-gradient-to-r from-primary to-rose-600 text-white text-sm font-bold hover:from-rose-600 hover:to-primary transition-all shadow-lg shadow-primary/30 glow-red"
+                className="inline-flex items-center justify-center px-7 py-3 rounded-full bg-primary hover:bg-[#c40812] text-primary-foreground text-sm font-bold transition-all shadow-lg shadow-primary/30"
               >
                 {slide.cta1.label}
               </Link>
@@ -123,38 +122,21 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Arrows */}
           <div className="flex gap-2 mt-10">
-            <button
-              onClick={() => goTo(activeIdx - 1)}
-              className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:bg-white/10 transition-colors"
-              aria-label="Previous"
-            >
+            <button onClick={() => goTo(activeIdx - 1)} className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:bg-white/10 transition-colors" aria-label="Previous">
               <ChevronLeft className="w-5 h-5" />
             </button>
-            <button
-              onClick={() => goTo(activeIdx + 1)}
-              className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:bg-white/10 transition-colors"
-              aria-label="Next"
-            >
+            <button onClick={() => goTo(activeIdx + 1)} className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:bg-white/10 transition-colors" aria-label="Next">
               <ChevronRight className="w-5 h-5" />
             </button>
           </div>
         </div>
 
-        {/* RIGHT — Photo Mosaic (Artium-style 2x3 grid) */}
-        <div
-          className={`hidden lg:grid relative flex-1 grid-cols-3 grid-rows-2 gap-1 p-1 transition-opacity duration-500 ${animating ? "opacity-0" : "opacity-100"}`}
-        >
+        {/* RIGHT — Photo Mosaic */}
+        <div className={`hidden lg:grid relative flex-1 grid-cols-3 grid-rows-2 gap-1 p-1 transition-opacity duration-500 ${animating ? "opacity-0" : "opacity-100"}`}>
           {slide.photos.map((src, i) => (
             <div key={`${activeIdx}-${i}`} className="overflow-hidden relative">
-              <img
-                src={src}
-                alt="Muziclub"
-                className="w-full h-full object-cover"
-                onError={(e) => { (e.target as HTMLImageElement).src = "/homepage_banners/banner_1.png"; }}
-              />
-              {/* Name overlay on some photos */}
+              <img src={src} alt="Muziclub" className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).src = "/homepage_banners/banner_1.png"; }} />
               {i < 3 && (
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-2">
                   <p className="text-white text-[10px] font-medium truncate">
@@ -164,26 +146,17 @@ const HeroSection = () => {
               )}
             </div>
           ))}
-          {/* Floating "Book a Free Trial" badge on last cell */}
           <div className="absolute bottom-4 right-4 z-20">
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 bg-primary text-primary-foreground text-xs font-bold px-4 py-2 rounded-full shadow-lg shadow-primary/30 hover:bg-primary/90 transition-colors"
-            >
+            <Link to="/contact" className="inline-flex items-center gap-2 bg-primary text-primary-foreground text-xs font-bold px-4 py-2 rounded-full shadow-lg shadow-primary/30 hover:bg-[#c40812] transition-colors">
               <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-[10px]">▶</span>
               Book a Free Trial
             </Link>
           </div>
         </div>
 
-        {/* Mobile: single background image */}
+        {/* Mobile bg */}
         <div className="absolute inset-0 lg:hidden z-0 opacity-15">
-          <img
-            src={slide.photos[0]}
-            alt=""
-            className="w-full h-full object-cover"
-            onError={(e) => { (e.target as HTMLImageElement).src = "/homepage_banners/banner_1.png"; }}
-          />
+          <img src={slide.photos[0]} alt="" className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).src = "/homepage_banners/banner_1.png"; }} />
         </div>
       </div>
     </section>

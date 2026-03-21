@@ -60,7 +60,6 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        /* ── Brand surface tokens (use as bg-surface-dark / bg-surface-card) ── */
         "surface-dark": "hsl(var(--surface-dark))",
         "surface-card": "hsl(var(--surface-card))",
         "surface-alt":  "hsl(var(--surface-alt))",
