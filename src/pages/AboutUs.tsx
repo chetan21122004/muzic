@@ -56,7 +56,7 @@ const AboutUs = () => {
             </div>
             <div className="flex-1 w-full">
               <div className="rounded-3xl overflow-hidden aspect-[4/3]">
-                <img src="/homepage_banners/banner_1.png" alt="Muziclub Academy" className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).src = "/homepage_banners/banner_3.png"; }} />
+                <img src="/homepage_banners/banner_1.png" alt="Muziclub Academy" className="w-full h-full object-cover" onError={(e) => { e.currentTarget.onerror = null; (e.currentTarget as HTMLImageElement).src = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Crect width='100%25' height='100%25' fill='%23111'/%3E%3C/svg%3E"; }} />
               </div>
             </div>
           </div>

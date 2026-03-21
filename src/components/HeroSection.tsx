@@ -136,7 +136,7 @@ const HeroSection = () => {
         <div className={`hidden lg:grid relative flex-1 grid-cols-3 grid-rows-2 gap-1 p-1 transition-opacity duration-500 ${animating ? "opacity-0" : "opacity-100"}`}>
           {slide.photos.map((src, i) => (
             <div key={`${activeIdx}-${i}`} className="overflow-hidden relative">
-              <img src={src} alt="Muziclub" className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).src = "/homepage_banners/banner_1.png"; }} />
+              <img src={src} alt="Muziclub" className="w-full h-full object-cover" onError={(e) => { e.currentTarget.onerror = null; (e.currentTarget as HTMLImageElement).src = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Crect width='100%25' height='100%25' fill='%23111'/%3E%3C/svg%3E"; }} />
               {i < 3 && (
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-2">
                   <p className="text-white text-[10px] font-medium truncate">
@@ -156,7 +156,7 @@ const HeroSection = () => {
 
         {/* Mobile bg */}
         <div className="absolute inset-0 lg:hidden z-0 opacity-15">
-          <img src={slide.photos[0]} alt="" className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).src = "/homepage_banners/banner_1.png"; }} />
+          <img src={slide.photos[0]} alt="" className="w-full h-full object-cover" onError={(e) => { e.currentTarget.onerror = null; (e.currentTarget as HTMLImageElement).src = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Crect width='100%25' height='100%25' fill='%23111'/%3E%3C/svg%3E"; }} />
         </div>
       </div>
     </section>

@@ -36,7 +36,7 @@ const CoursesSection = () => {
           {courses.slice(startIdx, startIdx + visible).map((course) => (
             <div key={course.slug} className="rounded-2xl overflow-hidden border border-border bg-background hover:shadow-xl hover:border-primary/20 hover:-translate-y-1 transition-all duration-300 flex flex-col">
               <div className="h-48 overflow-hidden">
-                <img src={course.img} alt={course.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" onError={(e) => { (e.target as HTMLImageElement).src = "/new_imgs/Copy of DSC00403.webp"; }} />
+                <img src={course.img} alt={course.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" onError={(e) => { e.currentTarget.onerror = null; (e.currentTarget as HTMLImageElement).src = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Crect width='100%25' height='100%25' fill='%23111'/%3E%3C/svg%3E"; }} />
               </div>
               <div className="p-5 flex flex-col flex-1">
                 <h3 className="font-bold text-foreground text-lg mb-2">{course.title}</h3>

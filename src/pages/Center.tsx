@@ -82,7 +82,7 @@ const Center = () => {
             {centres.map((c) => (
               <div key={c.name} className="group relative rounded-3xl overflow-hidden border border-border hover:border-primary/25 hover:shadow-xl transition-all duration-500 bg-background">
                 <div className="relative h-52 overflow-hidden">
-                  <img src={c.img} alt={`Muziclub ${c.name}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onError={(e) => { (e.target as HTMLImageElement).src = "/new_imgs/Copy of DSC00403.webp"; }} />
+                  <img src={c.img} alt={`Muziclub ${c.name}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onError={(e) => { e.currentTarget.onerror = null; (e.currentTarget as HTMLImageElement).src = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Crect width='100%25' height='100%25' fill='%23111'/%3E%3C/svg%3E"; }} />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
                   <div className="absolute top-4 left-4 bg-primary text-primary-foreground text-[9px] font-extrabold uppercase tracking-[0.18em] px-3 py-1.5 rounded-full shadow-lg">{c.badge}</div>
                   {c.rating && (

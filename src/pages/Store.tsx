@@ -203,7 +203,7 @@ const Store = () => {
                     src={product.img}
                     alt={product.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    onError={(e) => { (e.target as HTMLImageElement).src = "/homepage_banners/banner_1.png"; }}
+                    onError={(e) => { e.currentTarget.onerror = null; (e.currentTarget as HTMLImageElement).src = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Crect width='100%25' height='100%25' fill='%23111'/%3E%3C/svg%3E"; }}
                   />
                   {product.tag && (
                     <div className={`absolute top-3 left-3 text-[10px] font-bold px-2.5 py-1 rounded-full ${product.tagColor}`}>

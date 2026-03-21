@@ -16,7 +16,7 @@ const JoinUs = () => {
           </Link>
         </div>
         <div className="flex-1 relative min-h-[280px] lg:min-h-[320px]">
-          <img src="/new_imgs/Copy of DSC00677 (1).webp" alt="Teach with Muziclub" className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).src = "/new_imgs/Copy of DSC00403.webp"; }} />
+          <img src="/new_imgs/Copy of DSC00677 (1).webp" alt="Teach with Muziclub" className="w-full h-full object-cover" onError={(e) => { e.currentTarget.onerror = null; (e.currentTarget as HTMLImageElement).src = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Crect width='100%25' height='100%25' fill='%23111'/%3E%3C/svg%3E"; }} />
           <div className="absolute inset-0 bg-black/20" />
         </div>
       </div>

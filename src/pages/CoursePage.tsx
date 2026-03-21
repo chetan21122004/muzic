@@ -55,7 +55,7 @@ const CoursePage = () => {
               src={course.heroImage}
               alt={course.name}
               className="absolute inset-0 w-full h-full object-cover"
-              onError={(e) => { (e.target as HTMLImageElement).src = "/homepage_banners/banner_1.png"; }}
+              onError={(e) => { e.currentTarget.onerror = null; (e.currentTarget as HTMLImageElement).src = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Crect width='100%25' height='100%25' fill='%23111'/%3E%3C/svg%3E"; }}
             />
             {/* Gradient overlay blending into left */}
             <div className="absolute inset-0 bg-gradient-to-r from-[#111116] via-[#111116]/40 to-transparent" />
@@ -248,7 +248,7 @@ const CoursePage = () => {
                 src={course.heroImage}
                 alt="Online class"
                 className="w-full h-full object-cover opacity-80"
-                onError={(e) => { (e.target as HTMLImageElement).src = "/homepage_banners/banner_1.png"; }}
+                onError={(e) => { e.currentTarget.onerror = null; (e.currentTarget as HTMLImageElement).src = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Crect width='100%25' height='100%25' fill='%23111'/%3E%3C/svg%3E"; }}
               />
             </div>
           </div>
@@ -267,7 +267,7 @@ const CoursePage = () => {
                     src={course.facultyHead.image}
                     alt={course.facultyHead.name}
                     className="w-full h-full object-cover"
-                    onError={(e) => { (e.target as HTMLImageElement).src = "/homepage_banners/banner_1.png"; }}
+                    onError={(e) => { e.currentTarget.onerror = null; (e.currentTarget as HTMLImageElement).src = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Crect width='100%25' height='100%25' fill='%23111'/%3E%3C/svg%3E"; }}
                   />
                 </div>
               </div>
@@ -333,7 +333,7 @@ const CoursePage = () => {
                   src="/homepage_banners/banner_1.png"
                   alt="Muziclub Teachers"
                   className="w-full h-auto object-cover"
-                  onError={(e) => { (e.target as HTMLImageElement).src = "/homepage_banners/banner_1.png"; }}
+                  onError={(e) => { e.currentTarget.onerror = null; (e.currentTarget as HTMLImageElement).src = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Crect width='100%25' height='100%25' fill='%23111'/%3E%3C/svg%3E"; }}
                 />
               </div>
               <p className="text-white text-2xl md:text-3xl font-extrabold leading-snug">
@@ -362,7 +362,7 @@ const CoursePage = () => {
                     src={c.heroImage}
                     alt={c.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    onError={(e) => { (e.target as HTMLImageElement).src = "/homepage_banners/banner_1.png"; }}
+                    onError={(e) => { e.currentTarget.onerror = null; (e.currentTarget as HTMLImageElement).src = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Crect width='100%25' height='100%25' fill='%23111'/%3E%3C/svg%3E"; }}
                   />
                 </div>
                 <div className="p-4 flex items-center justify-between">

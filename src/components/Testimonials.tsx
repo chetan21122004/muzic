@@ -38,7 +38,7 @@ const Testimonials = () => {
                 {[...Array(5)].map((_, s) => (<span key={s} className="text-primary text-sm">★</span>))}
               </div>
               <div className="w-20 h-20 mx-auto rounded-full overflow-hidden bg-secondary mb-4 ring-2 ring-primary/20 group-hover:ring-primary/40 transition-all">
-                <img src={t.img} alt={t.name} className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).src = "/homepage_banners/banner_1.png"; }} />
+                <img src={t.img} alt={t.name} className="w-full h-full object-cover" onError={(e) => { e.currentTarget.onerror = null; (e.currentTarget as HTMLImageElement).src = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Crect width='100%25' height='100%25' fill='%23111'/%3E%3C/svg%3E"; }} />
               </div>
               <h3 className="font-extrabold text-foreground text-lg">{t.name}</h3>
               <p className="text-primary text-xs font-semibold mt-0.5 mb-3 uppercase tracking-wide">{t.location}</p>
