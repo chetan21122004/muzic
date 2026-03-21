@@ -102,9 +102,9 @@ const OfflineClass = () => {
       <section className="relative overflow-hidden bg-primary">
         <div className="absolute inset-0">
           <img
-            src="/homepage_banners/banner_1.png"
+            src="/visuals/6.png"
             alt="Muziclub Academy"
-            className="w-full h-full object-cover opacity-30"
+            className="w-full h-full object-cover opacity-40"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-primary/80 to-primary/95" />
         </div>

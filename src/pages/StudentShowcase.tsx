@@ -29,7 +29,8 @@ const StudentShowcase = () => {
       <Navbar />
 
       {/* Hero */}
-      <section className="relative py-12 overflow-hidden bg-secondary">
+      <section className="relative py-12 overflow-hidden bg-cover bg-center" style={{ backgroundImage: "url('/visuals/5.png')" }}>
+        <div className="absolute inset-0 bg-secondary/95 z-0"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-10">
             <div className="flex-1 text-center md:text-left">

@@ -26,7 +26,7 @@ const AboutUs = () => {
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-black text-white">
         <div className="absolute inset-0 opacity-40">
-          <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=1600&q=80" alt="Music background" className="w-full h-full object-cover" />
+          <img src="/visuals/4.png" alt="Music background" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
         </div>
         <div className="container mx-auto px-4 relative z-10 text-center max-w-4xl">

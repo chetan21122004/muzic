@@ -53,7 +53,8 @@ const HeroSection = () => {
   const slide = slides[activeIdx];
 
   return (
-    <section className="relative w-full" style={{ background: "#0b0b0c" }}>
+    <section className="relative w-full bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/visuals/1.png')" }}>
+      <div className="absolute inset-0 bg-black/80 lg:bg-black/80 z-0 pointer-events-none"></div>
       <div className="flex min-h-[520px] sm:min-h-[560px] lg:min-h-[620px]">
         {/* LEFT — Text */}
         <div className="relative z-10 flex flex-col justify-center px-6 sm:px-10 lg:px-16 py-12 w-full lg:w-[42%] shrink-0">

@@ -21,8 +21,9 @@ const ContactUs = () => {
       <Navbar />
 
       {/* Hero */}
-      <section className="py-16 border-b border-border bg-secondary overflow-hidden">
-        <div className="container mx-auto px-4">
+      <section className="relative py-16 border-b border-border bg-cover bg-center overflow-hidden" style={{ backgroundImage: "url('/visuals/8.png')" }}>
+        <div className="absolute inset-0 bg-secondary/95 z-0"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-10">
             <div className="flex-1 text-center md:text-left">
               <p className="text-primary text-xs font-bold uppercase tracking-widest mb-3">Reach Us</p>

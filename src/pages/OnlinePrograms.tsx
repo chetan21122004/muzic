@@ -16,8 +16,9 @@ const OnlinePrograms = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      <section className="py-16 border-b border-border bg-secondary">
-        <div className="container mx-auto px-4 text-center">
+      <section className="py-16 border-b border-border bg-cover bg-center relative" style={{ backgroundImage: "url('/visuals/7.png')" }}>
+        <div className="absolute inset-0 bg-secondary/95 z-0"></div>
+        <div className="container mx-auto px-4 text-center relative z-10">
           <p className="text-primary text-xs font-bold uppercase tracking-widest mb-3">All Courses</p>
           <h1 className="text-4xl md:text-5xl font-extrabold text-foreground mb-4">Online Music Classes —<br /><span className="text-primary">Learn from Anywhere</span></h1>
           <p className="text-muted-foreground max-w-xl mx-auto text-base leading-relaxed">Hobby classes tailored to your taste, or structured Grade classes for international certifications.</p>

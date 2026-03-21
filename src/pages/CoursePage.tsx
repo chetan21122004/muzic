@@ -34,8 +34,9 @@ const CoursePage = () => {
       <Navbar />
 
       {/* ═══ 1. HERO ═══ */}
-      <section className="relative overflow-hidden" style={{ background: "#111116" }}>
-        <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center min-h-[420px]">
+      <section className="relative overflow-hidden bg-cover bg-center" style={{ backgroundImage: "url('/visuals/3.png')" }}>
+        <div className="absolute inset-0 bg-black/80 lg:bg-black/85 z-0"></div>
+        <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center min-h-[420px] relative z-10">
           <div className="relative z-10 py-16 lg:py-24 lg:w-1/2">
             <h1 className="text-3xl md:text-5xl font-extrabold text-white leading-tight mb-4">
               Learn {course.name} Online

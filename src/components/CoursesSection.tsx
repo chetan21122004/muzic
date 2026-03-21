@@ -18,8 +18,9 @@ const CoursesSection = () => {
   const canNext = startIdx + visible < courses.length;
 
   return (
-    <section className="py-16 bg-background">
-      <div className="container mx-auto px-4">
+    <section className="py-16 relative bg-cover bg-center bg-fixed" style={{ backgroundImage: "url('/visuals/2.png')" }}>
+      <div className="absolute inset-0 bg-background/95 md:bg-background/90 z-0"></div>
+      <div className="container mx-auto px-4 relative z-10">
         <div className="flex items-center justify-between mb-10">
           <h2 className="text-3xl md:text-4xl font-extrabold text-foreground">Our Online Music Courses</h2>
           <div className="flex gap-2">
