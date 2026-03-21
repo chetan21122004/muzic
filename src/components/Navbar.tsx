@@ -6,7 +6,7 @@ import { courseCategories } from "@/data/courses";
 const navItems = [
   { label: "Courses", hasDropdown: true },
   { label: "Academies", href: "/center" },
-  { label: "Store", href: "/store", badge: "NEW" },
+  { label: "Store", href: "/store" },
   { label: "Showcase", href: "/student-showcase" },
   { label: "About Us", href: "/about" },
 ];
@@ -50,15 +50,14 @@ const Navbar = () => {
       </div>
 
       {/* ── Main Navbar ── */}
-      <nav 
-        className={`sticky top-0 w-full transition-all duration-300 z-[60] ${
-          scrolled 
-            ? "bg-[#0b0b0c]/95 backdrop-blur-xl shadow-lg py-2 pl-4 pr-1" 
+      <nav
+        className={`sticky top-0 w-full transition-all duration-300 z-[60] ${scrolled
+            ? "bg-[#0b0b0c]/95 backdrop-blur-xl shadow-lg py-2 pl-4 pr-1"
             : "bg-[#0b0b0c] py-3 pl-4 pr-1"
-        }`}
+          }`}
       >
         <div className="container mx-auto flex items-center justify-between px-2">
-          
+
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5 shrink-0 transition-transform hover:scale-[1.02] duration-300">
             <img
@@ -78,11 +77,10 @@ const Navbar = () => {
                 <div key={item.label} ref={dropdownRef} className="relative">
                   <button
                     onClick={() => setCoursesOpen(!coursesOpen)}
-                    className={`flex items-center gap-1.5 text-sm font-semibold transition-all px-4 py-2 rounded-full ${
-                      coursesOpen 
-                        ? "bg-primary/10 text-primary border border-primary/20" 
+                    className={`flex items-center gap-1.5 text-sm font-semibold transition-all px-4 py-2 rounded-full ${coursesOpen
+                        ? "bg-primary/10 text-primary border border-primary/20"
                         : "text-white/70 hover:text-white hover:bg-white/5 border border-transparent"
-                    }`}
+                      }`}
                   >
                     {item.label}
                     <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${coursesOpen ? "rotate-180 text-primary" : "text-white/40"}`} />
@@ -116,7 +114,7 @@ const Navbar = () => {
                       </div>
                       <div className="mt-8 pt-4 border-t border-white/5 flex items-center justify-between">
                         <p className="text-xs text-white/30 font-medium">Over 30+ certified courses available.</p>
-                        <Link to="/courses" onClick={()=>setCoursesOpen(false)} className="text-xs font-bold text-primary hover:text-primary/80 flex items-center gap-1 uppercase tracking-wider">
+                        <Link to="/courses" onClick={() => setCoursesOpen(false)} className="text-xs font-bold text-primary hover:text-primary/80 flex items-center gap-1 uppercase tracking-wider">
                           View All Courses &rarr;
                         </Link>
                       </div>
@@ -127,11 +125,10 @@ const Navbar = () => {
                 <Link
                   key={item.label}
                   to={item.href || "#"}
-                  className={`relative text-sm font-semibold transition-all px-4 py-2 rounded-full flex items-center gap-2 group ${
-                    isActive
+                  className={`relative text-sm font-semibold transition-all px-4 py-2 rounded-full flex items-center gap-2 group ${isActive
                       ? "text-white bg-white/10"
                       : "text-white/70 hover:text-white hover:bg-white/5"
-                  }`}
+                    }`}
                 >
                   {isActive && (
                     <span className="absolute bottom-0.5 left-4 right-4 h-[2px] bg-primary rounded-full" />
@@ -157,7 +154,7 @@ const Navbar = () => {
               Teach With Us
             </Link>
 
-            <Link 
+            <Link
               to="/contact"
               className="hidden sm:inline-flex items-center justify-center bg-primary hover:bg-[#c40812] text-primary-foreground font-extrabold px-6 py-2.5 rounded-full text-sm shadow-xl shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all duration-300"
             >

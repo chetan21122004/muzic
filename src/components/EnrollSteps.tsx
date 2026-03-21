@@ -22,7 +22,7 @@ const EnrollSteps = () => {
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
           <p className="text-primary font-semibold text-sm tracking-widest uppercase mb-3">Getting Started</p>
           <h2 className="text-3xl md:text-5xl font-extrabold text-foreground">
-            How to <span className="text-primary">Enrol</span> in Music Lessons?
+            How to <span className="text-primary">Enroll</span> in Music Lessons?
           </h2>
         </motion.div>
 

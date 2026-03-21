@@ -89,20 +89,21 @@ const HeroSection = () => {
               ● {slide.desc}
             </p>
 
-            <div className="flex items-center gap-6 mb-8">
-              <div>
-                <p className="text-white font-extrabold text-lg md:text-xl leading-none">10k+</p>
-                <p className="text-white/40 text-[9px] uppercase tracking-widest font-bold mt-1.5">Students</p>
+            {/* Stats Block Redesigned */}
+            <div className="inline-flex flex-wrap items-center gap-5 sm:gap-8 mb-10 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl px-6 py-4 shadow-2xl">
+              <div className="flex flex-col">
+                <p className="text-white font-black text-2xl lg:text-3xl leading-none mb-1.5">10k<span className="text-primary">+</span></p>
+                <p className="text-white/50 text-[10px] uppercase tracking-[0.2em] font-bold">Students</p>
               </div>
-              <div className="w-px h-6 bg-white/10" />
-              <div>
-                <p className="text-white font-extrabold text-lg md:text-xl leading-none">50+</p>
-                <p className="text-white/40 text-[9px] uppercase tracking-widest font-bold mt-1.5">Expert Tutors</p>
+              <div className="w-px h-10 bg-gradient-to-b from-transparent via-white/20 to-transparent hidden sm:block" />
+              <div className="flex flex-col">
+                <p className="text-white font-black text-2xl lg:text-3xl leading-none mb-1.5">50<span className="text-primary">+</span></p>
+                <p className="text-white/50 text-[10px] uppercase tracking-[0.2em] font-bold">Tutors</p>
               </div>
-              <div className="w-px h-6 bg-white/10" />
-              <div>
-                <p className="text-white font-extrabold text-lg md:text-xl leading-none">14+</p>
-                <p className="text-white/40 text-[9px] uppercase tracking-widest font-bold mt-1.5">Years Exp.</p>
+              <div className="w-px h-10 bg-gradient-to-b from-transparent via-white/20 to-transparent hidden sm:block" />
+              <div className="flex flex-col">
+                <p className="text-white font-black text-2xl lg:text-3xl leading-none mb-1.5">14<span className="text-primary">+</span></p>
+                <p className="text-white/50 text-[10px] uppercase tracking-[0.2em] font-bold">Years Exp.</p>
               </div>
             </div>
 
@@ -133,21 +134,41 @@ const HeroSection = () => {
         </div>
 
         {/* RIGHT — Photo Mosaic */}
-        <div className={`hidden lg:grid relative flex-1 grid-cols-3 grid-rows-2 gap-1 p-1 transition-opacity duration-500 ${animating ? "opacity-0" : "opacity-100"}`}>
-          {slide.photos.map((src, i) => (
-            <div key={`${activeIdx}-${i}`} className="overflow-hidden relative">
-              <img src={src} alt="Muziclub" className="w-full h-full object-cover" onError={(e) => { e.currentTarget.onerror = null; (e.currentTarget as HTMLImageElement).src = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Crect width='100%25' height='100%25' fill='%23111'/%3E%3C/svg%3E"; }} />
-              {i < 3 && (
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-2">
-                  <p className="text-white text-[10px] font-medium truncate">
-                    {["Guitar Faculty", "Muziclub Students", "Piano Faculty"][i]}
-                  </p>
-                </div>
-              )}
+        <div className="hidden lg:flex relative flex-1 p-5 items-center justify-center">
+          {/* Layout 0 */}
+          <div className={`absolute inset-8 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${activeIdx === 0 && !animating ? "opacity-100 scale-100 blur-none pointer-events-auto" : "opacity-0 scale-95 blur-sm pointer-events-none"} flex flex-col justify-center`}>
+            <div className="w-full h-[550px] grid grid-cols-4 grid-rows-2 gap-4">
+              <div className="col-span-2 row-span-2 rounded-[2rem] overflow-hidden shadow-2xl"><img src={slides[0].photos[0]} alt="Muziclub" className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" /></div>
+              <div className="col-span-1 row-span-1 rounded-[1.5rem] overflow-hidden shadow-lg"><img src={slides[0].photos[1]} alt="Muziclub" className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" /></div>
+              <div className="col-span-1 row-span-1 rounded-[1.5rem] overflow-hidden shadow-lg"><img src={slides[0].photos[2]} alt="Muziclub" className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" /></div>
+              <div className="col-span-1 row-span-1 rounded-[1.5rem] overflow-hidden shadow-lg"><img src={slides[0].photos[3]} alt="Muziclub" className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" /></div>
+              <div className="col-span-1 row-span-1 rounded-[1.5rem] overflow-hidden shadow-lg"><img src={slides[0].photos[4]} alt="Muziclub" className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" /></div>
             </div>
-          ))}
-          <div className="absolute bottom-4 right-4 z-20">
-            <Link to="/contact" className="inline-flex items-center gap-2 bg-primary text-primary-foreground text-xs font-bold px-4 py-2 rounded-full shadow-lg shadow-primary/30 hover:bg-[#c40812] transition-colors">
+          </div>
+          
+          {/* Layout 1 */}
+          <div className={`absolute inset-8 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${activeIdx === 1 && !animating ? "opacity-100 scale-100 blur-none pointer-events-auto" : "opacity-0 scale-95 blur-sm pointer-events-none"} flex flex-col justify-center`}>
+            <div className="w-full h-[550px] grid grid-cols-3 grid-rows-2 gap-4">
+              <div className="col-span-1 row-span-2 rounded-[2rem] overflow-hidden shadow-2xl"><img src={slides[1].photos[0]} alt="Muziclub" className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" /></div>
+              <div className="col-span-2 row-span-1 rounded-[2rem] overflow-hidden shadow-2xl"><img src={slides[1].photos[1]} alt="Muziclub" className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" /></div>
+              <div className="col-span-1 row-span-1 rounded-[1.5rem] overflow-hidden shadow-lg"><img src={slides[1].photos[2]} alt="Muziclub" className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" /></div>
+              <div className="col-span-1 row-span-1 rounded-[1.5rem] overflow-hidden shadow-lg"><img src={slides[1].photos[3]} alt="Muziclub" className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" /></div>
+            </div>
+          </div>
+
+          {/* Layout 2 */}
+          <div className={`absolute inset-8 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${activeIdx === 2 && !animating ? "opacity-100 scale-100 blur-none pointer-events-auto" : "opacity-0 scale-95 blur-sm pointer-events-none"} flex flex-col justify-center`}>
+            <div className="w-full h-[550px] grid grid-cols-3 grid-rows-2 gap-4">
+              <div className="col-span-2 row-span-1 rounded-[2rem] overflow-hidden shadow-2xl"><img src={slides[2].photos[0]} alt="Muziclub" className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" /></div>
+              <div className="col-span-1 row-span-1 rounded-[1.5rem] overflow-hidden shadow-lg"><img src={slides[2].photos[1]} alt="Muziclub" className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" /></div>
+              <div className="col-span-1 row-span-1 rounded-[1.5rem] overflow-hidden shadow-lg"><img src={slides[2].photos[2]} alt="Muziclub" className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" /></div>
+              <div className="col-span-1 row-span-1 rounded-[1.5rem] overflow-hidden shadow-lg"><img src={slides[2].photos[3]} alt="Muziclub" className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" /></div>
+              <div className="col-span-1 row-span-1 rounded-[1.5rem] overflow-hidden shadow-lg"><img src={slides[2].photos[4]} alt="Muziclub" className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" /></div>
+            </div>
+          </div>
+
+          <div className="absolute bottom-8 right-8 z-30">
+            <Link to="/contact" className="inline-flex items-center gap-2 bg-primary text-primary-foreground text-xs font-bold px-6 py-3 rounded-full shadow-2xl shadow-primary/40 hover:bg-[#c40812] transition-colors">
               <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-[10px]">▶</span>
               Book a Free Trial
             </Link>
@@ -156,7 +177,7 @@ const HeroSection = () => {
 
         {/* Mobile bg */}
         <div className="absolute inset-0 lg:hidden z-0 opacity-15">
-          <img src={slide.photos[0]} alt="" className="w-full h-full object-cover" onError={(e) => { e.currentTarget.onerror = null; (e.currentTarget as HTMLImageElement).src = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Crect width='100%25' height='100%25' fill='%23111'/%3E%3C/svg%3E"; }} />
+          <img src={slide.photos[0]} alt="" className="w-full h-full object-cover" />
         </div>
       </div>
     </section>
