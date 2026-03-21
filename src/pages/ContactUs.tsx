@@ -21,11 +21,19 @@ const ContactUs = () => {
       <Navbar />
 
       {/* Hero */}
-      <section className="py-16 border-b border-border bg-secondary">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-primary text-xs font-bold uppercase tracking-widest mb-3">Reach Us</p>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-foreground mb-4">Get In <span className="text-primary">Touch</span></h1>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-base">Have a question? Want to book a free trial? We're here to help — reach us online or visit any of our Pune centres.</p>
+      <section className="py-16 border-b border-border bg-secondary overflow-hidden">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-10">
+            <div className="flex-1 text-center md:text-left">
+              <p className="text-primary text-xs font-bold uppercase tracking-widest mb-3">Reach Us</p>
+              <h1 className="text-4xl md:text-5xl font-extrabold text-foreground mb-4">Get In <span className="text-primary">Touch</span></h1>
+              <p className="text-muted-foreground max-w-lg mx-auto md:mx-0 text-base leading-relaxed">Have a question? Want to book a free trial? We're here to help — reach us online or visit any of our Pune centres.</p>
+            </div>
+            <div className="flex-1 flex justify-center w-full max-w-sm relative">
+              <div className="absolute inset-0 bg-primary/10 rounded-full blur-3xl animate-pulse -z-10 w-64 h-64 m-auto"></div>
+              <img src="/illustrations/Contact us-amico.svg" alt="Contact Muziclub" className="w-full h-auto max-h-[250px] object-contain drop-shadow-md hover:-translate-y-2 hover:scale-105 transition-transform duration-500" />
+            </div>
+          </div>
         </div>
       </section>
 

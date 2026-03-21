@@ -29,15 +29,23 @@ const StudentShowcase = () => {
       <Navbar />
 
       {/* Hero */}
-      <section className="relative py-10 overflow-hidden bg-secondary">
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <span className="inline-block bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4 border border-primary/20">🎶 Talent & Performances</span>
-          <h1 className="text-4xl md:text-6xl font-extrabold text-foreground mb-5 leading-tight">Student <span className="text-primary">Showcase</span></h1>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">Our students don't just learn music — they live it. Watch real performances from Sunday Jams, live events, and personal cover videos.</p>
-          <div className="mt-8 flex flex-wrap justify-center gap-2 text-sm text-muted-foreground">
-            <span className="bg-secondary border border-border rounded-full px-3 py-1">🎓 {showcaseStudents.filter(s => !["Band Performance", "Faculty Band"].includes(s.category)).length} Students</span>
-            <span className="bg-secondary border border-border rounded-full px-3 py-1">▶ {showcaseStudents.filter(s => s.youtubeId).length} Videos</span>
-            <span className="bg-secondary border border-border rounded-full px-3 py-1">🎶 {showcaseStudents.filter(s => s.category === "Band Performance").length} Bands</span>
+      <section className="relative py-12 overflow-hidden bg-secondary">
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-10">
+            <div className="flex-1 text-center md:text-left">
+              <span className="inline-block bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4 border border-primary/20">🎶 Talent & Performances</span>
+              <h1 className="text-4xl md:text-6xl font-extrabold text-foreground mb-5 leading-tight">Student <span className="text-primary">Showcase</span></h1>
+              <p className="text-muted-foreground max-w-2xl mx-auto md:mx-0 text-base leading-relaxed">Our students don't just learn music — they live it. Watch real performances from Sunday Jams, live events, and personal cover videos.</p>
+              <div className="mt-8 flex flex-wrap justify-center md:justify-start gap-2 text-sm text-muted-foreground">
+                <span className="bg-background border border-border rounded-full px-3 py-1 shadow-sm">🎓 {showcaseStudents.filter(s => !["Band Performance", "Faculty Band"].includes(s.category)).length} Students</span>
+                <span className="bg-background border border-border rounded-full px-3 py-1 shadow-sm">▶ {showcaseStudents.filter(s => s.youtubeId).length} Videos</span>
+                <span className="bg-background border border-border rounded-full px-3 py-1 shadow-sm">🎶 {showcaseStudents.filter(s => s.category === "Band Performance").length} Bands</span>
+              </div>
+            </div>
+            <div className="flex-1 flex justify-center w-full max-w-[320px] relative">
+              <div className="absolute inset-0 bg-primary/20 rounded-full blur-[100px] -z-10 animate-pulse"></div>
+              <img src="/illustrations/Mic drop-rafiki.svg" alt="Sunday Jams Performance" className="w-full h-auto object-contain drop-shadow-xl hover:scale-105 transition-transform duration-500 hover:-translate-y-2" />
+            </div>
           </div>
         </div>
       </section>

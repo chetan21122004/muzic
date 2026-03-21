@@ -158,18 +158,23 @@ const Center = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <p className="text-primary text-[10px] font-extrabold uppercase tracking-[0.22em] mb-4">Get Started</p>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-3">Ready to Walk In?</h2>
-          <p className="text-muted-foreground text-sm mb-8 max-w-md mx-auto">Book a free trial and visit our nearest centre. Our doors are open — your music journey begins today.</p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link to="/contact" className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-bold px-8 py-3.5 rounded-full hover:bg-[#c40812] transition-all shadow-xl shadow-primary/25">
-              Book Free Trial Class
-            </Link>
-            <Link to="/online-programs" className="inline-flex items-center justify-center gap-2 border border-border text-muted-foreground font-semibold px-8 py-3.5 rounded-full hover:border-primary/50 hover:text-primary transition-colors">
-              Explore Online Courses <ArrowRight className="w-4 h-4" />
-            </Link>
+      <section className="py-20 bg-background overflow-hidden border-t border-border">
+        <div className="container mx-auto px-4 relative z-10 flex flex-col md:flex-row items-center justify-between gap-10">
+          <div className="flex-1 text-center md:text-left">
+            <p className="text-primary text-[10px] font-extrabold uppercase tracking-[0.22em] mb-4">Get Started</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-3">Ready to Walk In?</h2>
+            <p className="text-muted-foreground text-sm mb-8 max-w-md mx-auto md:mx-0 leading-relaxed">Book a free trial and visit our nearest centre. Our doors are open — your music journey begins today.</p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
+              <Link to="/contact" className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-bold px-8 py-3.5 rounded-full hover:bg-[#c40812] transition-all shadow-xl shadow-primary/25">
+                Book Free Trial
+              </Link>
+              <Link to="/online-programs" className="inline-flex items-center justify-center gap-2 border border-border text-muted-foreground font-semibold px-8 py-3.5 rounded-full hover:border-primary/50 hover:text-primary transition-colors bg-secondary">
+                Explore Online Courses <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+          <div className="flex-1 flex justify-center w-full max-w-md relative">
+            <img src="/illustrations/Location tracking-amico.svg" alt="Find Muziclub Centers" className="w-full h-auto object-contain drop-shadow-[0_10px_40px_rgba(0,0,0,0.05)] hover:scale-105 transition-transform duration-700" />
           </div>
         </div>
       </section>

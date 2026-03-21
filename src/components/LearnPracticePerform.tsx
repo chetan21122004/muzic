@@ -25,18 +25,9 @@ const LearnPracticePerform = () => {
         </div>
 
         <div className="flex flex-col lg:flex-row items-center gap-12 mt-10">
-          <div className="relative w-48 h-48 shrink-0">
-            <svg className="w-full h-full animate-[spin_20s_linear_infinite]" viewBox="0 0 200 200">
-              <defs><path id="circlePath" d="M 100,100 m -75,0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" /></defs>
-              <text className="fill-white/30 text-[13px] font-bold uppercase tracking-[0.3em]">
-                <textPath href="#circlePath">◆ LEARN ◆ PRACTICE ◆ PERFORM ◆  ACHIEVE</textPath>
-              </text>
-            </svg>
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-20 h-20 rounded-full bg-white/5 flex items-center justify-center backdrop-blur-sm border border-white/10 shadow-xl">
-                <img src="/logo_i.png" alt="Muziclub Icon" className="w-20 object-contain drop-shadow-md" />
-              </div>
-            </div>
+          <div className="relative w-80 h-80 shrink-0 flex items-center justify-center">
+            <div className="absolute inset-0 bg-primary/20 rounded-full blur-[80px] animate-pulse -z-10"></div>
+            <img src="/illustrations/Compose music-bro.svg" alt="Learn Practice Perform Methodology" className="w-full h-full object-contain drop-shadow-2xl hover:-translate-y-2 hover:scale-105 transition-transform duration-500" />
           </div>
 
           <div className="flex items-start gap-4">

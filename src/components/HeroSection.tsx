@@ -9,14 +9,7 @@ const slides = [
     desc: "Building the gold standard in music education to make learning fun & accessible to people of all ages.",
     cta1: { label: "Book a Free Trial", to: "/contact" },
     cta2: { label: "Know More", to: "/online-programs" },
-    photos: [
-      "/instructor/Harsh-Bagle-guitar.webp",
-      "/new_imgs/Copy of DSC00298 (1).webp",
-      "/instructor/jeet_Goswami-piano.webp",
-      "/instructor/Subham Chand Sahu_Drums.webp",
-      "/instructor/Kshitij_Kumar_Choudhary-Western-Vocals.webp",
-      "/instructor/Neelima-Hindustani_Vocals.webp",
-    ],
+    illustration: "/illustrations/Playing Music-bro.svg",
   },
   {
     tag: "International Certifications",
@@ -24,14 +17,7 @@ const slides = [
     desc: "Expertly crafted curriculums aligned with globally recognised music exams — Trinity College London, ABRSM, RSL.",
     cta1: { label: "Book a Free Trial", to: "/contact" },
     cta2: { label: "Know More", to: "/online-programs" },
-    photos: [
-      "/new_imgs/Copy of DSC00403.webp",
-      "/instructor/Kshitij_Kumar_Choudhary-Western-Vocals.webp",
-      "/instructor/Neelima-Hindustani_Vocals.webp",
-      "/new_imgs/Copy of DSC00456 (1).webp",
-      "/instructor/Harsh-Bagle-guitar.webp",
-      "/new_imgs/Copy of DSC00504.webp",
-    ],
+    illustration: "/illustrations/Compose music-bro.svg",
   },
   {
     tag: "Sunday Jam Sessions",
@@ -39,14 +25,7 @@ const slides = [
     desc: "Showcase your music talent globally with Muziclub Superstar — compete, perform, and rise to stardom.",
     cta1: { label: "Book a Free Trial", to: "/contact" },
     cta2: { label: "Know More", to: "/student-showcase" },
-    photos: [
-      "/new_imgs/Copy of DSC00590.webp",
-      "/instructor/Harsh-Bagle-guitar.webp",
-      "/new_imgs/Copy of DSC00642 (2).webp",
-      "/instructor/Subham Chand Sahu_Drums.webp",
-      "/new_imgs/Copy of DSC00677 (1).webp",
-      "/instructor/jeet_Goswami-piano.webp",
-    ],
+    illustration: "/illustrations/jazz piano-amico.svg",
   },
 ];
 
@@ -133,39 +112,16 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* RIGHT — Photo Mosaic */}
+        {/* RIGHT — Dynamic Vector Illustration */}
         <div className="hidden lg:flex relative flex-1 p-5 items-center justify-center">
-          {/* Layout 0 */}
-          <div className={`absolute inset-8 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${activeIdx === 0 && !animating ? "opacity-100 scale-100 blur-none pointer-events-auto" : "opacity-0 scale-95 blur-sm pointer-events-none"} flex flex-col justify-center`}>
-            <div className="w-full h-[550px] grid grid-cols-4 grid-rows-2 gap-4">
-              <div className="col-span-2 row-span-2 rounded-[2rem] overflow-hidden shadow-2xl"><img src={slides[0].photos[0]} alt="Muziclub" className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" /></div>
-              <div className="col-span-1 row-span-1 rounded-[1.5rem] overflow-hidden shadow-lg"><img src={slides[0].photos[1]} alt="Muziclub" className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" /></div>
-              <div className="col-span-1 row-span-1 rounded-[1.5rem] overflow-hidden shadow-lg"><img src={slides[0].photos[2]} alt="Muziclub" className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" /></div>
-              <div className="col-span-1 row-span-1 rounded-[1.5rem] overflow-hidden shadow-lg"><img src={slides[0].photos[3]} alt="Muziclub" className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" /></div>
-              <div className="col-span-1 row-span-1 rounded-[1.5rem] overflow-hidden shadow-lg"><img src={slides[0].photos[4]} alt="Muziclub" className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" /></div>
+          {slides.map((s, i) => (
+            <div 
+              key={i} 
+              className={`absolute inset-8 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${activeIdx === i && !animating ? "opacity-100 scale-100 blur-none pointer-events-auto" : "opacity-0 scale-95 blur-sm pointer-events-none"} flex flex-col justify-center items-center`}
+            >
+              <img src={s.illustration} alt={s.title} className="w-full max-w-[500px] h-auto object-contain drop-shadow-[0_20px_50px_rgba(255,255,255,0.1)] hover:scale-105 transition-transform duration-700 hover:-translate-y-4" />
             </div>
-          </div>
-          
-          {/* Layout 1 */}
-          <div className={`absolute inset-8 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${activeIdx === 1 && !animating ? "opacity-100 scale-100 blur-none pointer-events-auto" : "opacity-0 scale-95 blur-sm pointer-events-none"} flex flex-col justify-center`}>
-            <div className="w-full h-[550px] grid grid-cols-3 grid-rows-2 gap-4">
-              <div className="col-span-1 row-span-2 rounded-[2rem] overflow-hidden shadow-2xl"><img src={slides[1].photos[0]} alt="Muziclub" className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" /></div>
-              <div className="col-span-2 row-span-1 rounded-[2rem] overflow-hidden shadow-2xl"><img src={slides[1].photos[1]} alt="Muziclub" className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" /></div>
-              <div className="col-span-1 row-span-1 rounded-[1.5rem] overflow-hidden shadow-lg"><img src={slides[1].photos[2]} alt="Muziclub" className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" /></div>
-              <div className="col-span-1 row-span-1 rounded-[1.5rem] overflow-hidden shadow-lg"><img src={slides[1].photos[3]} alt="Muziclub" className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" /></div>
-            </div>
-          </div>
-
-          {/* Layout 2 */}
-          <div className={`absolute inset-8 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${activeIdx === 2 && !animating ? "opacity-100 scale-100 blur-none pointer-events-auto" : "opacity-0 scale-95 blur-sm pointer-events-none"} flex flex-col justify-center`}>
-            <div className="w-full h-[550px] grid grid-cols-3 grid-rows-2 gap-4">
-              <div className="col-span-2 row-span-1 rounded-[2rem] overflow-hidden shadow-2xl"><img src={slides[2].photos[0]} alt="Muziclub" className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" /></div>
-              <div className="col-span-1 row-span-1 rounded-[1.5rem] overflow-hidden shadow-lg"><img src={slides[2].photos[1]} alt="Muziclub" className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" /></div>
-              <div className="col-span-1 row-span-1 rounded-[1.5rem] overflow-hidden shadow-lg"><img src={slides[2].photos[2]} alt="Muziclub" className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" /></div>
-              <div className="col-span-1 row-span-1 rounded-[1.5rem] overflow-hidden shadow-lg"><img src={slides[2].photos[3]} alt="Muziclub" className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" /></div>
-              <div className="col-span-1 row-span-1 rounded-[1.5rem] overflow-hidden shadow-lg"><img src={slides[2].photos[4]} alt="Muziclub" className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" /></div>
-            </div>
-          </div>
+          ))}
 
           <div className="absolute bottom-8 right-8 z-30">
             <Link to="/contact" className="inline-flex items-center gap-2 bg-primary text-primary-foreground text-xs font-bold px-6 py-3 rounded-full shadow-2xl shadow-primary/40 hover:bg-[#c40812] transition-colors">
@@ -176,8 +132,8 @@ const HeroSection = () => {
         </div>
 
         {/* Mobile bg */}
-        <div className="absolute inset-0 lg:hidden z-0 opacity-15">
-          <img src={slide.photos[0]} alt="" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 lg:hidden z-0 opacity-10 flex items-center justify-center pointer-events-none overflow-hidden">
+          <img src={slide.illustration} alt="" className="w-[150%] max-w-none h-auto object-contain opacity-20 blur-sm mix-blend-screen" />
         </div>
       </div>
     </section>
