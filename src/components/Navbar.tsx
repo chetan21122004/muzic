@@ -38,15 +38,14 @@ const Navbar = () => {
   return (
     <>
       {/* ── Announcement Ticker (brand red) ── */}
-      <div className="bg-gradient-to-r from-[#c0021e] via-primary to-[#c0021e] text-white py-2.5 px-4 text-xs tracking-wide text-center overflow-hidden font-medium relative">
-        <div className="absolute inset-0 bg-black/10"></div>
+      <div className="bg-primary text-primary-foreground py-2.5 px-4 text-xs tracking-wide text-center overflow-hidden font-medium relative">
         <div className="ticker-animate relative z-10">
           <span className="mx-8 font-semibold">🎵 Ukulele – 1 Month Crash Course! Enrol Now</span>
           <span className="mx-8 font-semibold">🥁 Sunday Jam every week — perform live!</span>
-          <span className="mx-8 font-semibold text-white/90">🎸 International certifications: Trinity · ABRSM · RSL</span>
+          <span className="mx-8 font-semibold opacity-90">🎸 International certifications: Trinity · ABRSM · RSL</span>
           <span className="mx-8 font-semibold">🎵 Ukulele – 1 Month Crash Course! Enrol Now</span>
           <span className="mx-8 font-semibold">🥁 Sunday Jam every week — perform live!</span>
-          <span className="mx-8 font-semibold text-white/90">🎸 International certifications: Trinity · ABRSM · RSL</span>
+          <span className="mx-8 font-semibold opacity-90">🎸 International certifications: Trinity · ABRSM · RSL</span>
         </div>
       </div>
 
@@ -54,8 +53,8 @@ const Navbar = () => {
       <nav 
         className={`sticky top-0 w-full transition-all duration-300 z-[60] ${
           scrolled 
-            ? "bg-[#0a0a0f]/80 backdrop-blur-xl border-b border-white/5 shadow-2xl py-2 pl-4 pr-1" 
-            : "bg-[#0a0a0f] border-b border-white/5 py-3 pl-4 pr-1"
+            ? "bg-[#0b0b0c]/95 backdrop-blur-xl shadow-lg py-2 pl-4 pr-1" 
+            : "bg-[#0b0b0c] py-3 pl-4 pr-1"
         }`}
       >
         <div className="container mx-auto flex items-center justify-between px-2">
@@ -91,7 +90,7 @@ const Navbar = () => {
 
                   {/* Mega Menu Dropdown */}
                   {coursesOpen && (
-                    <div className="absolute top-[calc(100%+12px)] left-1/2 -translate-x-1/2 bg-[#111117]/95 backdrop-blur-2xl border border-white/10 rounded-3xl shadow-[0_0_50px_rgba(0,0,0,0.5)] p-8 z-50 min-w-[700px] animate-in fade-in slide-in-from-top-4 duration-300">
+                    <div className="absolute top-[calc(100%+12px)] left-1/2 -translate-x-1/2 bg-[#1c1c1e]/95 backdrop-blur-2xl border border-white/10 rounded-3xl shadow-[0_0_50px_rgba(0,0,0,0.5)] p-8 z-50 min-w-[700px] animate-in fade-in slide-in-from-top-4 duration-300">
                       <div className="grid grid-cols-4 gap-8">
                         {courseCategories.map((cat) => (
                           <div key={cat.title}>
@@ -139,7 +138,7 @@ const Navbar = () => {
                   )}
                   {item.label}
                   {item.badge && (
-                    <span className="bg-primary/20 border border-primary/30 text-primary text-[9px] font-black uppercase px-2 py-0.5 rounded-full tracking-widest flex items-center gap-1 shadow-[0_0_10px_hsl(356_91%_47%_/_0.35)]">
+                    <span className="bg-primary/20 border border-primary/30 text-primary text-[9px] font-black uppercase px-2 py-0.5 rounded-full tracking-widest flex items-center gap-1 shadow-[0_0_10px_hsl(358_93%_47%_/_0.35)]">
                       <Sparkles className="w-2 h-2" />
                       {item.badge}
                     </span>
@@ -160,7 +159,7 @@ const Navbar = () => {
 
             <Link 
               to="/contact"
-              className="hidden sm:inline-flex items-center justify-center bg-gradient-to-r from-primary to-rose-600 hover:from-rose-600 hover:to-primary text-white font-extrabold px-6 py-2.5 rounded-full text-sm shadow-xl shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all duration-300 glow-red"
+              className="hidden sm:inline-flex items-center justify-center bg-primary hover:bg-[#c40812] text-primary-foreground font-extrabold px-6 py-2.5 rounded-full text-sm shadow-xl shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all duration-300"
             >
               Book Free Trial
             </Link>
@@ -176,7 +175,7 @@ const Navbar = () => {
 
         {/* ── Mobile Menu Overlay ── */}
         {mobileOpen && (
-          <div className="xl:hidden absolute top-full left-0 w-full bg-[#0a0a0f] border-b border-white/10 shadow-2xl animate-in slide-in-from-top-4 duration-300">
+          <div className="xl:hidden absolute top-full left-0 w-full bg-[#0b0b0c] border-b border-white/10 shadow-2xl animate-in slide-in-from-top-4 duration-300">
             <div className="px-6 py-4 space-y-1 max-h-[80vh] overflow-y-auto">
               {navItems.map((item) =>
                 item.hasDropdown ? (
@@ -239,7 +238,7 @@ const Navbar = () => {
                 <Link
                   to="/contact"
                   onClick={() => setMobileOpen(false)}
-                  className="block w-full text-center py-3.5 text-sm font-extrabold text-white bg-gradient-to-r from-primary to-rose-600 rounded-xl shadow-lg shadow-primary/20"
+                  className="block w-full text-center py-3.5 text-sm font-extrabold text-primary-foreground bg-primary rounded-xl shadow-lg shadow-primary/20"
                 >
                   Book Your Free Trial Now
                 </Link>
