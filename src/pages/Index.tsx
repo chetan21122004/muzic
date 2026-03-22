@@ -12,14 +12,16 @@ import JoinUs from "@/components/JoinUs";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background flex flex-col w-full">
       <Navbar />
-      <HeroSection />
-      <AdvantageSection />
-      <CoursesSection />
-      <EnrollSteps />
-      <Testimonials />
-      <JoinUs />
+      <main className="flex-grow w-full overflow-hidden">
+        <HeroSection />
+        <AdvantageSection />
+        <CoursesSection />
+        <EnrollSteps />
+        <Testimonials />
+        <JoinUs />
+      </main>
       <Footer />
     </div>
   );

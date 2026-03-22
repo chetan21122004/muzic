@@ -1,43 +1,46 @@
 import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const slides = [
   {
-    tag: "Online & Academy",
     title: "The Muziclub Academic Board",
-    desc: "Building the gold standard in music education to make learning fun & accessible to people of all ages.",
-    cta1: { label: "Book a Free Trial", to: "/contact" },
-    cta2: { label: "Know More", to: "/online-programs" },
-    images: [
-      "/new_imgs/Copy of DSC00298 (1).webp",
-      "/new_imgs/Copy of DSC00403.webp",
-      "/new_imgs/Copy of DSC00504.webp"
+    bullets: [
+      "Building the gold standard in music education",
+      "Making learning fun & accessible to all ages"
     ],
+    cta1: { label: "Explore courses", to: "/online-programs" },
+    cta2: { label: "Book a free trial", to: "/contact" },
+    bannerImg: "/banners_new/1.png",
   },
   {
-    tag: "International Certifications",
     title: "Certified Music Courses with Graded Levels",
-    desc: "Expertly crafted curriculums aligned with globally recognised music exams — Trinity College London, ABRSM, RSL.",
-    cta1: { label: "Book a Free Trial", to: "/contact" },
-    cta2: { label: "Know More", to: "/online-programs" },
-    images: [
-      "/new_imgs/Copy of DSC00590.webp",
-      "/new_imgs/Copy of DSC00642 (2).webp",
-      "/new_imgs/Copy of DSC00711 (1).webp"
+    bullets: [
+      "Expertly crafted curriculums",
+      "Aligned with globally recognised exams — Trinity, ABRSM"
     ],
+    cta1: { label: "Explore courses", to: "/online-programs" },
+    cta2: { label: "Book a free trial", to: "/contact" },
+    bannerImg: "/banners_new/2.png",
   },
   {
-    tag: "Sunday Jam Sessions",
     title: "Step into the Spotlight with Muziclub Superstar",
-    desc: "Showcase your music talent globally with Muziclub Superstar — compete, perform, and rise to stardom.",
-    cta1: { label: "Book a Free Trial", to: "/contact" },
-    cta2: { label: "Know More", to: "/student-showcase" },
-    images: [
-      "/new_imgs/DSC00762 (1).webp",
-      "/new_imgs/DSC01210 (1).webp",
-      "/new_imgs/Copy of DSC00677 (1).webp"
+    bullets: [
+      "Showcase your music talent globally",
+      "Compete, perform, and rise to stardom"
     ],
+    cta1: { label: "Explore courses", to: "/student-showcase" },
+    cta2: { label: "Book a free trial", to: "/contact" },
+    bannerImg: "/banners_new/3.png",
+  },
+  {
+    title: "Live the Music with Our Community",
+    bullets: [
+      "Join thousands of students and mentors",
+      "Exclusive access to masterclasses and workshops"
+    ],
+    cta1: { label: "Explore activities", to: "/about" },
+    cta2: { label: "Book a free trial", to: "/contact" },
+    bannerImg: "/banners_new/4.png",
   },
 ];
 
@@ -65,117 +68,122 @@ const HeroSection = () => {
   const slide = slides[activeIdx];
 
   return (
-    <section className="relative w-full bg-black overflow-hidden">
-      {/* Rotated Vertical Image Background */}
-      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden opacity-50">
-        <img
-          src="/visuals/8.png"
-          alt="Hero Background"
-          className="absolute top-1/2 left-1/2 w-[150vh] h-[150vw] max-w-none object-cover -translate-x-1/2 -translate-y-1/2 -rotate-90 filter contrast-125 saturate-50"
-        />
-      </div>
-
-      <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/80 to-transparent z-0 pointer-events-none"></div>
-
-      <div className="relative flex min-h-[520px] sm:min-h-[560px] lg:min-h-[620px]">
-        {/* LEFT — Text */}
-        <div className="relative z-10 flex flex-col justify-center px-6 sm:px-10 lg:px-16 py-12 w-full lg:w-[42%] shrink-0">
-          <div className={`transition-all duration-500 ${animating ? "opacity-0 translate-y-4" : "opacity-100 translate-y-0"}`}>
-            <span className="inline-block text-[10px] font-black uppercase tracking-[0.2em] text-white/50 mb-5">
-              {slide.tag}
-            </span>
-            <h1 className="text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold text-white leading-[1.15] mb-5">
-              {slide.title}
-            </h1>
-            <p className="text-[#d1d1d6] text-sm leading-relaxed mb-6 max-w-md">
-              ● {slide.desc}
-            </p>
-
-            {/* Stats Block Redesigned */}
-            <div className="inline-flex flex-wrap items-center gap-5 sm:gap-8 mb-10 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl px-6 py-4 shadow-2xl">
-              <div className="flex flex-col">
-                <p className="text-white font-black text-2xl lg:text-3xl leading-none mb-1.5">10k<span className="text-primary">+</span></p>
-                <p className="text-white/50 text-[10px] uppercase tracking-[0.2em] font-bold">Students</p>
-              </div>
-              <div className="w-px h-10 bg-gradient-to-b from-transparent via-white/20 to-transparent hidden sm:block" />
-              <div className="flex flex-col">
-                <p className="text-white font-black text-2xl lg:text-3xl leading-none mb-1.5">50<span className="text-primary">+</span></p>
-                <p className="text-white/50 text-[10px] uppercase tracking-[0.2em] font-bold">Tutors</p>
-              </div>
-              <div className="w-px h-10 bg-gradient-to-b from-transparent via-white/20 to-transparent hidden sm:block" />
-              <div className="flex flex-col">
-                <p className="text-white font-black text-2xl lg:text-3xl leading-none mb-1.5">14<span className="text-primary">+</span></p>
-                <p className="text-white/50 text-[10px] uppercase tracking-[0.2em] font-bold">Years Exp.</p>
-              </div>
-            </div>
-
-            <div className="flex flex-wrap gap-3">
-              <Link
-                to={slide.cta1.to}
-                className="inline-flex items-center justify-center px-7 py-3 rounded-full bg-primary hover:bg-[#c40812] text-primary-foreground text-sm font-bold transition-all shadow-lg shadow-primary/30"
-              >
-                {slide.cta1.label}
-              </Link>
-              <Link
-                to={slide.cta2.to}
-                className="inline-flex items-center justify-center px-7 py-3 rounded-full border border-white/30 text-white text-sm font-semibold hover:bg-white/10 transition-colors"
-              >
-                {slide.cta2.label}
-              </Link>
-            </div>
-          </div>
-
-          <div className="flex gap-2 mt-10">
-            <button onClick={() => goTo(activeIdx - 1)} className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:bg-white/10 transition-colors" aria-label="Previous">
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button onClick={() => goTo(activeIdx + 1)} className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:bg-white/10 transition-colors" aria-label="Next">
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </div>
+    <section className="relative w-full bg-[#110103] overflow-hidden min-h-[580px] lg:min-h-[640px] flex flex-col">
+      {/* Banner Background Cascade */}
+      {slides.map((s, i) => (
+        <div
+          key={i}
+          className={`absolute inset-0 z-0 transition-opacity duration-1000 ${activeIdx === i ? "opacity-100" : "opacity-0 pointer-events-none"
+            }`}
+        >
+          <img
+            src={s.bannerImg}
+            alt={s.title}
+            className="w-full h-full object-cover object-right lg:object-[70%_center] filter brightness-[0.85]"
+          />
         </div>
+      ))}
 
-        {/* RIGHT — Crazy 3D Floating Photo Cascade */}
-        <div className="hidden lg:flex relative flex-1 p-5 items-center justify-center perspective-[2000px]">
-          {slides.map((s, i) => (
-            <div
-              key={i}
-              className={`absolute inset-0 transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${activeIdx === i && !animating ? "opacity-100 scale-100 translate-y-0 pointer-events-auto" : "opacity-0 scale-90 translate-y-10 pointer-events-none"} flex items-center justify-center`}
+      {/* Red Gradient Overlay (Mostly Red Theme as requested) */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#9b0914] via-[#9b0914]/80 to-transparent lg:to-black/20 z-0 pointer-events-none"></div>
+
+      {/* Main Content Area */}
+      <div className="relative flex-1 container mx-auto px-6 lg:px-16 flex flex-col justify-center pb-24 lg:pb-32 pt-16 z-10 lg:pl-28">
+        <div className={`transition-all duration-700 w-full lg:w-[50%] max-w-xl ${animating ? "opacity-0 translate-y-4" : "opacity-100 translate-y-0"}`}>
+          {/* Elegant Serif Title */}
+          <h1 className="text-4xl md:text-[3.25rem] font-serif font-medium text-white leading-[1.12] mb-6 drop-shadow-xl tracking-tight">
+            {slide.title}
+          </h1>
+
+          {/* Bulleted Description */}
+          <ul className="mb-10 space-y-3 pl-1">
+            {slide.bullets.map((b, i) => (
+              <li key={i} className="flex items-center gap-3 text-white/95 text-[15px] sm:text-base font-medium drop-shadow-md">
+                <div className="w-1.5 h-1.5 rounded-full bg-white shrink-0 shadow-lg"></div>
+                {b}
+              </li>
+            ))}
+          </ul>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-wrap items-center gap-4">
+            <Link
+              to={slide.cta1.to}
+              className="inline-flex items-center justify-center px-8 py-3.5 rounded-md bg-white text-[#111] text-[15px] font-bold transition-transform hover:scale-105 shadow-[0_10px_20px_rgba(0,0,0,0.3)]"
             >
-              <div className="relative w-full max-w-[520px] aspect-square flex items-center justify-center group cursor-default">
-                {/* Main Center Image */}
-                <div className="absolute w-[60%] h-[75%] rounded-3xl overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.6)] border-2 border-white/10 z-20 transform transition-transform duration-700 group-hover:scale-105 group-hover:-rotate-3 translate-y-0">
-                  <img src={s.images[0]} alt="" className="w-full h-full object-cover filter contrast-[1.15] saturate-50 group-hover:saturate-100 transition-all duration-700" />
-                </div>
-
-                {/* Top Left Floating Image */}
-                <div className="absolute w-[45%] h-[55%] -top-[5%] -left-[5%] rounded-[2rem] overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.5)] border border-white/20 z-10 transform -rotate-[12deg] transition-all duration-700 group-hover:translate-x-[-15px] group-hover:translate-y-[-15px] group-hover:-rotate-[15deg]">
-                  <img src={s.images[1]} alt="" className="w-full h-full object-cover filter contrast-[1.15] saturate-50 group-hover:saturate-100 transition-all duration-700" />
-                </div>
-
-                {/* Bottom Right Floating Image */}
-                <div className="absolute w-[50%] h-[50%] -bottom-[5%] -right-[5%] rounded-[2rem] overflow-hidden shadow-[0_45px_70px_rgba(0,0,0,0.8)] border-4 border-white/20 z-30 transform rotate-[8deg] transition-all duration-700 group-hover:translate-x-[20px] group-hover:translate-y-[15px] group-hover:rotate-[12deg] group-hover:scale-110">
-                  <img src={s.images[2]} alt="" className="w-full h-full object-cover filter contrast-[1.15] saturate-50 group-hover:saturate-100 transition-all duration-700" />
-                </div>
-
-                {/* Cinematic Glowing Orbs */}
-                <div className="absolute w-72 h-72 bg-primary/20 rounded-full blur-[80px] -z-10 group-hover:bg-primary/30 transition-colors duration-700"></div>
-                <div className="absolute bottom-0 left-10 w-40 h-40 bg-secondary/20 rounded-full blur-[60px] -z-10 transition-colors duration-700"></div>
-              </div>
-            </div>
-          ))}
-
-          <div className="absolute bottom-8 right-8 z-40">
-            <Link to="/contact" className="inline-flex items-center gap-2 bg-primary text-primary-foreground text-xs font-bold px-6 py-3 rounded-full shadow-2xl shadow-primary/40 hover:bg-[#c40812] transition-colors">
-              <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-[10px]">▶</span>
-              Book a Free Trial
+              {slide.cta1.label}
+            </Link>
+            <Link
+              to={slide.cta2.to}
+              className="inline-flex items-center justify-center px-8 py-3.5 rounded-md bg-[#e31837] text-white text-[15px] font-bold transition-transform hover:scale-105 shadow-[0_10px_20px_rgba(0,0,0,0.3)]"
+            >
+              {slide.cta2.label}
             </Link>
           </div>
         </div>
+      </div>
 
-        {/* Mobile bg element */}
-        <div className="absolute inset-0 lg:hidden z-0 opacity-20 flex items-center justify-center pointer-events-none overflow-hidden">
-          <img src={slide.images[0]} alt="" className="w-full h-full object-cover mix-blend-overlay filter saturate-50 contrast-125" />
+      {/* Slider Indicator Dots */}
+      <div className="absolute bottom-24 left-1/2 -translate-x-1/2 flex items-center justify-center gap-2 z-20">
+        {slides.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => goTo(i)}
+            className={`transition-all duration-300 rounded-full ${activeIdx === i ? "w-2.5 h-2.5 bg-white shadow-md shadow-black/50" : "w-1.5 h-1.5 bg-white/40 hover:bg-white/80"
+              }`}
+          />
+        ))}
+      </div>
+
+      {/* Bottom Trust Makers Bar Container */}
+      <div className="absolute bottom-0 left-0 w-full z-20 overflow-hidden border-t border-white/5 bg-black/20 backdrop-blur-[2px]">
+        {/* Subtle dark gradient backing so the stats stand out on the image */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent pointer-events-none"></div>
+
+        <div className="relative container mx-auto px-4 sm:px-6 lg:px-12 py-8 flex flex-wrap justify-center lg:justify-between items-center gap-y-10 gap-x-4 lg:gap-0">
+
+          {/* 10,000+ Students Taught */}
+          <div className="flex flex-col items-center w-[42%] lg:w-auto text-center lg:px-6 xl:px-8 group">
+            <div className="text-[38px] lg:text-[42px] font-black text-white leading-none mb-2 drop-shadow-lg tracking-tighter transition-transform duration-500 group-hover:scale-105">
+              10,000<span className="text-[#ff2a40]">+</span>
+            </div>
+            <div className="text-[10px] lg:text-[11px] text-white/60 font-bold uppercase tracking-[0.2em]">Students Taught</div>
+          </div>
+
+          <div className="hidden lg:block w-[1px] h-12 bg-white/10"></div>
+
+          {/* 50+ Expert Instructors */}
+          <div className="flex flex-col items-center w-[42%] lg:w-auto text-center lg:px-6 xl:px-8 group">
+            <div className="text-[38px] lg:text-[42px] font-black text-white leading-none mb-2 drop-shadow-lg tracking-tighter transition-transform duration-500 group-hover:scale-105">
+              50<span className="text-[#ff2a40]">+</span>
+            </div>
+            <div className="text-[10px] lg:text-[11px] text-white/60 font-bold uppercase tracking-[0.2em]">Expert Instructors</div>
+          </div>
+
+          <div className="hidden lg:block w-[1px] h-12 bg-white/10"></div>
+
+          {/* 14+ Years of Excellence */}
+          <div className="flex flex-col items-center w-[42%] lg:w-auto text-center lg:px-6 xl:px-8 group">
+            <div className="text-[38px] lg:text-[42px] font-black text-white leading-none mb-2 drop-shadow-lg tracking-tighter transition-transform duration-500 group-hover:scale-105">
+              14<span className="text-[#ff2a40]">+</span>
+            </div>
+            <div className="text-[10px] lg:text-[11px] text-white/60 font-bold uppercase tracking-[0.2em]">Years of Excellence</div>
+          </div>
+
+          <div className="hidden lg:block w-[1px] h-12 bg-white/10"></div>
+
+          {/* 4.8/5 Average Rating */}
+          <div className="flex flex-col items-center w-[42%] lg:w-auto text-center lg:px-6 xl:px-8 group">
+            <div className="flex items-baseline justify-center text-[38px] lg:text-[42px] font-black text-white leading-none mb-2 drop-shadow-lg tracking-tighter transition-transform duration-500 group-hover:scale-105">
+              4.8<span className="text-[#ff2a40] text-[20px] lg:text-[24px] ml-0.5">/5</span>
+            </div>
+            <div className="text-[10px] lg:text-[11px] text-white/60 font-bold uppercase tracking-[0.2em] flex flex-col items-center gap-1">
+              Average Rating
+              <div className="flex text-[#ff2a40] text-[9px] tracking-widest gap-0.5">
+                ★★★★★
+              </div>
+            </div>          </div>
+
         </div>
       </div>
     </section>

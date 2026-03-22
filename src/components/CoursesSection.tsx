@@ -18,12 +18,12 @@ const CoursesSection = () => {
   const canNext = startIdx + visible < courses.length;
 
   return (
-    <section className="py-16 relative bg-cover bg-center bg-fixed" style={{ backgroundImage: "url('/visuals/2.png')" }}>
+    <section className="py-16 relative bg-cover bg-center" style={{ backgroundImage: "url('/visuals/2.png')" }}>
       <div className="absolute inset-0 bg-background/95 md:bg-background/90 z-0"></div>
       <div className="container mx-auto px-4 relative z-10">
-        <div className="flex items-center justify-between mb-10">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-10">
           <h2 className="text-3xl md:text-4xl font-extrabold text-foreground">Our Online Music Courses</h2>
-          <div className="flex gap-2">
+          <div className="flex gap-2 self-start sm:self-auto">
             <button onClick={() => canPrev && setStartIdx(startIdx - 1)} className={`w-10 h-10 rounded-full border flex items-center justify-center transition-colors ${canPrev ? "border-border text-foreground hover:bg-secondary" : "border-border/50 text-muted-foreground/30 cursor-default"}`}>
               <ChevronLeft className="w-5 h-5" />
             </button>
