@@ -107,12 +107,7 @@ const Navbar = () => {
                         </div>
                       ))}
                     </div>
-                    <div className="mt-12 pt-6 border-t border-white/5 flex items-center justify-between">
-                      <p className="text-xs text-white/30 font-medium">Over 30+ certified courses available.</p>
-                      <Link to="/courses" className="text-[13px] font-bold text-white hover:text-primary flex items-center gap-2 group transition-colors">
-                        Explore All Programs <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                      </Link>
-                    </div>
+
                   </div>
                 </div>
               </div>
