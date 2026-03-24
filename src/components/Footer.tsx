@@ -15,7 +15,7 @@ const courseLinks = [
 const quickLinks = [
   { name: "About Muziclub", href: "/about" },
   { name: "Academies", href: "/center" },
-  { name: "Showcase", href: "/student-showcase" },
+  { name: "Performances", href: "/student-showcase" },
   { name: "Store", href: "/store" },
   { name: "Teach With Us", href: "/teach-with-us" },
   { name: "Contact Us", href: "/contact" },
@@ -24,8 +24,8 @@ const quickLinks = [
 
 const centres = [
   { name: "Baner (HQ)", address: "Office 11 & 12, Aditi Commerce, Baner Road, Pune 411069", phone: "+91 9156 303 400" },
-  { name: "Pimple Saudagar", address: "2nd Floor, Radhika Avenue, Opp. McDonalds, Pune 411027", phone: "+91 9156 303 400" },
-  { name: "Hinjewadi", address: "Spirea, S.91/4, Bhumkar Das Gugre Rd, Wakad 411033", phone: "+91 9156 303 400" },
+  { name: "Pimple Saudagar (Flagship)", address: "2nd Floor, Radhika Avenue, Pune 411027", phone: "+91 9156 303 400" },
+  { name: "Wakad West (Flagship)", address: "Spirea, S.91/4, Bhumkar Das Gugre Rd, Wakad 411033", phone: "+91 9156 303 400" },
   { name: "Croydon, UK", address: "Croydon, London, United Kingdom", phone: "+44 7768 928 645" },
 ];
 

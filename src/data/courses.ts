@@ -167,7 +167,7 @@ export const allCourses: Course[] = courseCategories
       heroImage: courseImages[c.slug] || "/new_imgs/Copy of DSC00403.webp",
       features: [
         { icon: "🎓", title: "Expert Teachers", description: `Finding the right teacher is paramount when learning ${c.name}. At Muziclub, we have a faculty of trained music experts personally handpicked to deliver the best music learning experience.` },
-        { icon: "🎤", title: "From Student to Performer", description: "Every student who enrols with us gets to perform in front of a virtual audience at Muziclub Showcase, followed by a LIVE audience at our Sunday Jam sessions." },
+        { icon: "🎤", title: "From Student to Performer", description: "Every student who enrols with us gets to perform in front of a virtual audience at Muziclub Performances, followed by a LIVE audience at our Sunday Jam sessions." },
         { icon: "⭐", title: "Course For All", description: `Our online ${c.name} classes cover all aspects of learning. It aims to build on your expression and on-stage confidence — ideal for music aspirants at all levels, beginner to pro.` },
       ],
       levels: ["Preparatory", "Intermediate", "Proficient", "Advanced"],

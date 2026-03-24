@@ -1,21 +1,17 @@
-import { MapPin, Globe, Users, Trophy, Music, Calendar, Star, CheckCircle2 } from "lucide-react";
+import { MapPin, Globe, Users, Trophy, Music, Calendar, Star, CheckCircle2, Phone, Clock, Mail, ExternalLink } from "lucide-react";
+import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const team = [
-  { img: "/instructor/Subham Chand Sahu_Drums.webp", name: "Subham Chand Sahu", role: "Drums Faculty" },
-  { img: "/instructor/Harsh-Bagle-guitar.webp", name: "Harsh Bagle", role: "Guitar Faculty" },
-  { img: "/instructor/jeet_Goswami-piano.webp", name: "Jeet Goswami", role: "Piano Faculty" },
-  { img: "/instructor/Kshitij_Kumar_Choudhary-Western-Vocals.webp", name: "Kshitij Kumar Choudhary", role: "Western Vocals Faculty" },
   { img: "/instructor/Neelima-Hindustani_Vocals.webp", name: "Neelima", role: "Hindustani Vocals Faculty" },
-  { img: "/instructor/Neha-Sinha-indian_vocals.webp", name: "Neha Sinha", role: "Indian Vocals Faculty" },
 ];
 
 const stats = [
   { value: "10,000+", label: "Students Taught", icon: Users },
   { value: "50+", label: "Expert Instructors", icon: Trophy },
   { value: "14+", label: "Years of Excellence", icon: Calendar },
-  { value: "4.8/5", label: "Average Rating", icon: Star },
+  { value: "4.9", label: "Google Rating", isGoogle: true },
 ];
 
 const AboutUs = () => {
@@ -27,7 +23,7 @@ const AboutUs = () => {
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-black text-white">
         <div className="absolute inset-0 opacity-40">
           <img src="/visuals/4.png" alt="Music background" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
         </div>
         <div className="container mx-auto px-4 relative z-10 text-center max-w-4xl">
           <p className="text-primary font-bold tracking-[0.3em] text-xs uppercase mb-6 drop-shadow-md">Our Journey</p>
@@ -47,8 +43,19 @@ const AboutUs = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-border">
               {stats.map((stat, i) => (
                 <div key={i} className="text-center px-4">
-                  <stat.icon className="w-6 h-6 mx-auto text-primary mb-4 opacity-80" />
-                  <h3 className="text-3xl lg:text-4xl font-black text-foreground mb-2">{stat.value}</h3>
+                  {stat.isGoogle ? (
+                    <div className="w-8 h-8 mx-auto mb-4 bg-background p-1.5 rounded-full shadow-sm drop-shadow-sm flex items-center justify-center">
+                      <svg viewBox="0 0 24 24" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
+                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
+                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05" />
+                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335" />
+                      </svg>
+                    </div>
+                  ) : (
+                    <stat.icon className="w-6 h-6 mx-auto text-primary mb-4 opacity-80" />
+                  )}
+                  <h3 className="text-3xl lg:text-4xl font-black text-foreground mb-2 flex items-center justify-center gap-1">{stat.value} {stat.isGoogle && <Star className="w-5 h-5 text-[#FABB05] fill-[#FABB05]" />}</h3>
                   <p className="text-xs uppercase tracking-[0.15em] font-bold text-muted-foreground">{stat.label}</p>
                 </div>
               ))}
@@ -79,7 +86,7 @@ const AboutUs = () => {
                   That's why we provide an exclusive opportunity for all our students to perform live on stage every single week in our legendary <strong>Sunday Jams</strong>.
                 </p>
               </div>
-              
+
               <div className="pt-6 grid sm:grid-cols-2 gap-4">
                 {[
                   "Certified Training Programs",
@@ -94,27 +101,44 @@ const AboutUs = () => {
                 ))}
               </div>
             </div>
-            
-            <div className="flex-1 relative w-full">
-              <div className="aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl w-full max-w-lg mx-auto relative group flex items-center justify-center">
-                <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&q=80" alt="Live Music" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                <div className="absolute bottom-10 left-10 right-10">
-                  <h3 className="font-playfair text-3xl font-bold text-white mb-2">Sunday Jams.</h3>
-                  <p className="text-white/80 text-sm">Every week, our students take the stage.</p>
+
+            <div className="flex-1 relative w-full h-[550px] lg:h-[650px] max-w-xl mx-auto">
+              <div className="grid grid-cols-12 grid-rows-6 gap-3 h-full">
+                {/* Image 1: Top Left Large */}
+                <div className="col-span-7 row-span-4 relative rounded-[2rem] overflow-hidden group shadow-lg">
+                  <img src="/new_imgs/Copy of DSC00298 (1).webp" alt="Live Band Performance" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent pointer-events-none" />
+                  <div className="absolute bottom-6 left-6 right-6 text-white pointer-events-none">
+                    <h3 className="font-playfair text-2xl font-bold mb-1 shadow-black/50 drop-shadow-lg">Sunday Jams</h3>
+                    <p className="text-white/90 text-sm drop-shadow-md">Every week, our students take the stage.</p>
+                  </div>
+                </div>
+                {/* Image 2: Top Right Small */}
+                <div className="col-span-5 row-span-2 relative rounded-[1.5rem] overflow-hidden group shadow-lg">
+                  <img src="/new_imgs/DSC01210 (1).webp" alt="Performance" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                </div>
+                {/* Image 3: Middle Right Small */}
+                <div className="col-span-5 row-span-2 relative rounded-[1.5rem] overflow-hidden group shadow-lg">
+                  <img src="/new_imgs/Copy of DSC00456 (1).webp" alt="Acoustic Performance" className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" />
+                </div>
+                {/* Image 4: Bottom Left Small */}
+                <div className="col-span-5 row-span-2 relative rounded-[1.5rem] overflow-hidden group shadow-lg">
+                  <img src="/new_imgs/Copy of DSC00590.webp" alt="Student Showcase" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                </div>
+                {/* Image 5: Bottom Right Wide */}
+                <div className="col-span-7 row-span-2 relative rounded-[1.5rem] overflow-hidden group shadow-lg">
+                  <img src="/new_imgs/Copy of DSC00504.webp" alt="Stage Performance" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 </div>
               </div>
-              
+
               {/* Floating Element */}
-              <div className="absolute -bottom-10 -left-10 bg-background p-6 rounded-3xl shadow-xl hidden lg:block border border-border z-10 transition-transform duration-500 hover:-translate-y-2">
-                <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center shrink-0">
-                    <Globe className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-bold text-foreground">Global Presence</p>
-                    <p className="text-xs text-muted-foreground mt-1">Pune, India & Croydon, UK</p>
-                  </div>
+              <div className="absolute -bottom-6 -left-6 bg-background p-5 rounded-3xl shadow-2xl hidden lg:flex items-center gap-4 border border-border z-10 animate-in fade-in slide-in-from-bottom hover:-translate-y-2 transition-transform duration-500">
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center shrink-0">
+                  <Globe className="w-5 h-5 text-primary" />
+                </div>
+                <div>
+                  <p className="font-bold text-foreground text-sm">Global Presence</p>
+                  <p className="text-[10px] text-muted-foreground mt-0.5">Pune, India & Croydon, UK</p>
                 </div>
               </div>
             </div>
@@ -122,63 +146,71 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* Locations & Ratings */}
-      <section className="py-24 bg-background border-y border-border">
-        <div className="container mx-auto px-4 max-w-6xl text-center">
-          <p className="text-primary text-xs font-bold uppercase tracking-widest mb-4">Our Centers</p>
-          <h2 className="font-playfair text-4xl md:text-5xl font-extrabold text-foreground mb-16">
-            Find Your Nearest Muziclub
-          </h2>
-          
-          <div className="grid md:grid-cols-2 gap-8 text-left">
+      {/* Locations */}
+      <section className="py-10 bg-background border-y border-border">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-14">
+            <p className="text-primary text-[10px] font-extrabold uppercase tracking-[0.22em] mb-3">Find Us</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-foreground">Our Academies</h2>
+            <p className="text-muted-foreground text-sm mt-2">Walk in for a free trial class — no appointment needed</p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {[
-              { 
-                name: "Baner Centre", 
-                address: "Near Orchid School, Baner, Pune, Maharashtra 411045", 
-                rating: "4.8", 
-                count: "345+",
-                img: "/homepage_banners/banner_2.png"
-              },
-              { 
-                name: "Pimple Saudagar Centre", 
-                address: "Spot 18 Mall Lane, Pimple Saudagar, Pune, Maharashtra 411027", 
-                rating: "4.8", 
-                count: "183+",
-                img: "/banner/banner-3.jpg"
-              },
-              { 
-                name: "Hinjawadi Centre", 
-                address: "Phase 1 Rd, Hinjawadi Rajiv Gandhi Infotech Park, Pune, Maharashtra 411057", 
-                rating: "4.7", 
-                count: "95+",
-                img: "/banner/banner-4.jpg" 
-              },
-              { 
-                name: "Kothrud Centre", 
-                address: "Near City Pride, Kothrud, Pune, Maharashtra 411038", 
-                rating: "4.9", 
-                count: "120+",
-                img: "/banner/banner-5.jpg"
-              }
-            ].map((r, i) => (
-              <div key={i} className="bg-secondary rounded-[2rem] overflow-hidden hover:shadow-2xl transition-all duration-300 border border-border hover:border-primary/20 flex flex-col group">
-                <div className="relative h-60 overflow-hidden">
-                  <img src={r.img} alt={r.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onError={(e) => { e.currentTarget.onerror = null; (e.currentTarget as HTMLImageElement).src = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Crect width='100%25' height='100%25' fill='%23111'/%3E%3C/svg%3E"; }} />
-                  <div className="absolute top-4 right-4 bg-background/95 backdrop-blur-sm px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-lg border border-border">
-                    <span className="font-bold text-foreground text-sm">{r.rating}</span>
-                    <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
-                    <span className="text-muted-foreground text-[10px] uppercase font-bold tracking-wider ml-1">({r.count})</span>
-                  </div>
+              { name: "Baner", tagline: "Head Office & Academy", badge: "HEAD OFFICE", address: "Office 11 & 12, Aditi Commerce, Baner Road, Opp. Hillview Residency, Pune – 411045", landmark: "Above Bikaner Sweets", phone: "+91 91563 03400", altPhone: null, email: "info@muziclub.com", hours: "Daily: 10 AM – 8 PM", rating: "4.8", reviews: "360+", mapUrl: "https://maps.google.com/?q=Muziclub+Baner+Aditi+Commerce+Baner+Road+Pune", img: "/new_imgs/Copy of DSC00403.webp" },
+              { name: "Pimple Saudagar", tagline: "Flagship Academy", badge: "FLAGSHIP", address: "2nd Floor, Radhika Avenue, near Jagtap Dairy, beside Savitribai Phule Park, Pune – 411057", landmark: "Near Savitribai Phule Park", phone: "+91 75070 02008", altPhone: "+91 77699 87599", email: "ps@muziclub.com", hours: "Daily: 11 AM – 8 PM", rating: "4.9", reviews: "544+", mapUrl: "https://maps.google.com/?q=Muziclub+Pimple+Saudagar+Radhika+Avenue+Pune", img: "/new_imgs/Copy of DSC00590.webp" },
+              { name: "Wakad West", tagline: "Flagship Academy", badge: "FLAGSHIP", address: "Spirea, S. 91/4, Bhumkar Das Gugre Rd, near Silver Spoon, Bhumkar Nagar, Wakad, Pune – 411033", landmark: "Near Silver Spoon, Bhumkar Nagar", phone: "+91 80805 87033", altPhone: "+91 75078 10055", email: "wakad@muziclub.com", hours: "Daily: 11 AM – 8 PM", rating: "4.9", reviews: "430+", mapUrl: "https://maps.google.com/?q=Muziclub+Wakad+Spirea+Bhumkar+Das+Gugre+Rd+Pune", img: "/new_imgs/Copy of DSC00677 (1).webp" },
+              { name: "Croydon, UK", tagline: "UK Coordination Centre", badge: "UK CENTRE", address: "Croydon, London, United Kingdom – CR0 5RR", landmark: "South London — Online Coordination & UK Classes", phone: "+44 7424 233 605", altPhone: "+44 203 769 0013", email: "uk@muziclub.com", hours: "Mon – Sat: 10 AM – 8 PM (IST online)", rating: null, reviews: null, mapUrl: "https://maps.google.com/?q=Croydon+London+CR0+5RR+UK", img: "/new_imgs/Copy of DSC00711 (1).webp" },
+            ].map((c) => (
+              <div key={c.name} className="group relative rounded-3xl overflow-hidden border border-border hover:border-primary/25 hover:shadow-xl transition-all duration-500 bg-background">
+                <div className="relative h-52 overflow-hidden">
+                  <img src={c.img} alt={`Muziclub ${c.name}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onError={(e) => { e.currentTarget.onerror = null; (e.currentTarget as HTMLImageElement).src = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Crect width='100%25' height='100%25' fill='%23111'/%3E%3C/svg%3E"; }} />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                  <div className="absolute top-4 left-4 bg-primary text-primary-foreground text-[9px] font-extrabold uppercase tracking-[0.18em] px-3 py-1.5 rounded-full shadow-lg">{c.badge}</div>
+                  {c.rating && (
+                    <div className="absolute top-4 right-4 flex items-center gap-1.5 bg-white/90 backdrop-blur-sm border border-border rounded-xl px-3 py-1.5">
+                      <Star className="w-3 h-3 text-primary fill-primary" />
+                      <span className="text-foreground font-extrabold text-sm">{c.rating}</span>
+                      <span className="text-muted-foreground text-[10px]">({c.reviews})</span>
+                    </div>
+                  )}
                 </div>
-                <div className="p-8 flex flex-col flex-1">
-                  <h4 className="font-bold text-2xl text-foreground mb-4">{r.name}</h4>
-                  <div className="flex items-start gap-3 mb-8 text-muted-foreground">
-                    <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                    <p className="text-sm leading-relaxed">{r.address}</p>
+                <div className="p-6">
+                  <div className="mb-4">
+                    <p className="text-primary text-[10px] font-bold uppercase tracking-widest mb-1">{c.tagline}</p>
+                    <h3 className="text-xl font-extrabold text-foreground">Muziclub — {c.name}</h3>
                   </div>
-                  <a href="#" className="mt-auto inline-flex items-center justify-center w-full bg-background border-2 border-primary text-primary font-bold py-3.5 rounded-xl hover:bg-primary hover:text-primary-foreground transition-colors">
-                    Get Directions
-                  </a>
+                  <div className="space-y-3 mb-6">
+                    <div className="flex items-start gap-3">
+                      <MapPin className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                      <div>
+                        <p className="text-sm text-muted-foreground leading-relaxed">{c.address}</p>
+                        {c.landmark && <p className="text-xs text-primary/70 mt-0.5 font-medium">{c.landmark}</p>}
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Phone className="w-4 h-4 text-primary shrink-0" />
+                      <div className="flex flex-wrap gap-x-4 gap-y-0.5">
+                        <a href={`tel:${c.phone}`} className="text-sm text-muted-foreground hover:text-primary transition-colors">{c.phone}</a>
+                        {c.altPhone && <a href={`tel:${c.altPhone}`} className="text-sm text-muted-foreground hover:text-primary transition-colors">{c.altPhone}</a>}
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Mail className="w-4 h-4 text-primary shrink-0" />
+                      <a href={`mailto:${c.email}`} className="text-sm text-muted-foreground hover:text-primary transition-colors">{c.email}</a>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Clock className="w-4 h-4 text-primary shrink-0" />
+                      <span className="text-sm text-muted-foreground">{c.hours}</span>
+                    </div>
+                  </div>
+                  <div className="flex gap-3">
+                    <a href={c.mapUrl} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 border border-border text-muted-foreground text-xs font-bold py-2.5 rounded-full hover:border-primary/50 hover:text-primary transition-all">
+                      <ExternalLink className="w-3.5 h-3.5" /> Open in Maps
+                    </a>
+                    <Link to="/contact" className="flex-1 flex items-center justify-center gap-2 bg-primary text-primary-foreground text-xs font-bold py-2.5 rounded-full hover:bg-[#c40812] transition-all shadow-lg shadow-primary/20">
+                      Walk-in Free Trial
+                    </Link>
+                  </div>
                 </div>
               </div>
             ))}
@@ -186,33 +218,46 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* Faculty */}
+      {/* Faculty Spotlight */}
       <section className="py-24 bg-secondary text-foreground border-y border-border">
-        <div className="container mx-auto px-4 max-w-7xl">
-          <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-16">
-            <div className="max-w-xl">
-              <p className="text-primary text-xs font-bold uppercase tracking-widest mb-4">The Experts</p>
-              <h2 className="font-playfair text-4xl md:text-5xl font-extrabold leading-tight">
-                Meet the minds behind the music.
-              </h2>
-            </div>
-            <p className="text-muted-foreground max-w-sm text-sm leading-relaxed">
-              Our faculty comprises highly qualified and deeply passionate musicians committed entirely to your musical growth.
-            </p>
+        <div className="container mx-auto px-4 max-w-5xl">
+          <div className="text-center mb-16">
+            <p className="text-primary text-xs font-bold uppercase tracking-widest mb-4">Our Faculty Head</p>
+            <h2 className="font-playfair text-4xl md:text-5xl font-extrabold leading-tight">
+              Meet the mind behind the music.
+            </h2>
           </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-            {team.map((t, i) => (
-              <div key={i} className="group cursor-pointer">
-                <div className="relative aspect-[4/5] rounded-3xl overflow-hidden mb-5 shadow-sm border border-border">
-                  <img src={t.img} alt={t.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                <h4 className="font-bold text-sm text-foreground">{t.name}</h4>
-                <p className="text-primary text-[10px] font-bold uppercase tracking-wider mt-1">{t.role}</p>
+
+          {team.map((t, i) => (
+            <div key={i} className="bg-background border border-border rounded-[2.5rem] overflow-hidden shadow-2xl flex flex-col md:flex-row items-stretch group">
+              <div className="relative w-full md:w-5/12 aspect-[4/5] md:aspect-auto overflow-hidden">
+                <img src={t.img} alt={t.name} className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
-            ))}
-          </div>
+              <div className="p-10 md:p-14 flex flex-col justify-center flex-1">
+                <span className="inline-block px-4 py-1.5 bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold uppercase tracking-widest rounded-full w-fit mb-5">
+                  {t.role}
+                </span>
+                <h3 className="font-playfair text-4xl font-extrabold text-foreground mb-4">{t.name}</h3>
+                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-8">
+                  A highly qualified and deeply passionate musician committed entirely to your musical growth. With years of experience and countless students trained across the globe, {t.name} brings both beautiful tradition and modern innovation into every single vocal session.
+                </p>
+                <div className="grid grid-cols-2 gap-4 mb-8">
+                  <div className="border-l-2 border-primary/30 pl-4">
+                    <p className="text-2xl font-black text-foreground">10+</p>
+                    <p className="text-xs text-muted-foreground font-semibold uppercase tracking-wider mt-1">Years Exp.</p>
+                  </div>
+                  <div className="border-l-2 border-primary/30 pl-4">
+                    <p className="text-2xl font-black text-foreground">1000+</p>
+                    <p className="text-xs text-muted-foreground font-semibold uppercase tracking-wider mt-1">Students Taught</p>
+                  </div>
+                </div>
+                <a href="/contact" className="inline-flex items-center justify-center bg-primary text-primary-foreground font-bold px-8 py-3.5 rounded-full hover:bg-[#c40812] transition-colors w-fit shadow-lg shadow-primary/20">
+                  Join Her Class
+                </a>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 

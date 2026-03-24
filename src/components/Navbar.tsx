@@ -7,7 +7,7 @@ const navItems = [
   { label: "Courses", hasDropdown: true },
   { label: "Academies", href: "/center" },
   { label: "Store", href: "/store" },
-  { label: "Showcase", href: "/student-showcase" },
+  { label: "Performances", href: "/student-showcase" },
   { label: "About", href: "/about" },
 ];
 
@@ -142,7 +142,7 @@ const Navbar = () => {
             to="/contact"
             className="hidden sm:inline-flex items-center justify-center bg-white text-black hover:bg-white/90 font-bold px-7 py-2.5 rounded-full text-[13px] transition-transform hover:scale-105 shadow-[0_0_20px_rgba(255,255,255,0.05)]"
           >
-            Book Free Trial
+            Walk-in Free Trial
           </Link>
 
           <button
@@ -211,7 +211,7 @@ const Navbar = () => {
                 to="/contact"
                 className="w-full text-center py-3.5 text-sm font-bold text-black bg-white rounded-2xl hover:bg-white/90 transition-colors"
               >
-                Book Your Trial
+                Walk-in Free Trial
               </Link>
             </div>
           </div>

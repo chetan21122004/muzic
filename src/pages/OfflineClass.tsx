@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 const stats = [
   { icon: Users, value: "15,000+", label: "Global Learners" },
   { icon: Award, value: "200+", label: "Certified Teachers" },
-  { icon: Star, value: "4.8", label: "Google Rating" },
+  { icon: Star, value: "4.9", label: "Google Rating" },
 ];
 
 const centres = [

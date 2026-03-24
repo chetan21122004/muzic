@@ -4,9 +4,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const centres = [
-  { name: "Baner", tagline: "Head Office & Flagship Academy", badge: "HEAD OFFICE", address: "Office 11 & 12, Aditi Commerce, Baner Road, Opp. Hillview Residency, Pune – 411045", landmark: "Above Bikaner Sweets", phone: "+91 91563 03400", altPhone: null as string | null, email: "info@muziclub.com", hours: "Daily: 10 AM – 8 PM", rating: "4.8", reviews: "360+", mapUrl: "https://maps.google.com/?q=Muziclub+Baner+Aditi+Commerce+Baner+Road+Pune", img: "/new_imgs/Copy of DSC00403.webp" },
-  { name: "Pimple Saudagar", tagline: "Music Academy", badge: "ACADEMY", address: "2nd Floor, Radhika Avenue, near Jagtap Dairy, beside Savitribai Phule Park, Pune – 411057", landmark: "Opposite McDonald's", phone: "+91 75070 02008", altPhone: "+91 77699 87599", email: "ps@muziclub.com", hours: "Daily: 11 AM – 8 PM", rating: "4.9", reviews: "544+", mapUrl: "https://maps.google.com/?q=Muziclub+Pimple+Saudagar+Radhika+Avenue+Pune", img: "/new_imgs/Copy of DSC00590.webp" },
-  { name: "Wakad / Hinjawadi", tagline: "Music Academy", badge: "ACADEMY", address: "Spirea, S. 91/4, Bhumkar Das Gugre Rd, near Silver Spoon, Bhumkar Nagar, Wakad, Pune – 411033", landmark: "Near Silver Spoon, Bhumkar Nagar", phone: "+91 80805 87033", altPhone: "+91 75078 10055", email: "wakad@muziclub.com", hours: "Daily: 11 AM – 8 PM", rating: "4.9", reviews: "430+", mapUrl: "https://maps.google.com/?q=Muziclub+Wakad+Spirea+Bhumkar+Das+Gugre+Rd+Pune", img: "/new_imgs/Copy of DSC00677 (1).webp" },
+  { name: "Baner", tagline: "Head Office & Academy", badge: "HEAD OFFICE", address: "Office 11 & 12, Aditi Commerce, Baner Road, Opp. Hillview Residency, Pune – 411045", landmark: "Above Bikaner Sweets", phone: "+91 91563 03400", altPhone: null as string | null, email: "info@muziclub.com", hours: "Daily: 10 AM – 8 PM", rating: "4.8", reviews: "360+", mapUrl: "https://maps.google.com/?q=Muziclub+Baner+Aditi+Commerce+Baner+Road+Pune", img: "/new_imgs/Copy of DSC00403.webp" },
+  { name: "Pimple Saudagar", tagline: "Flagship Academy", badge: "FLAGSHIP", address: "2nd Floor, Radhika Avenue, near Jagtap Dairy, beside Savitribai Phule Park, Pune – 411057", landmark: "Near Savitribai Phule Park", phone: "+91 75070 02008", altPhone: "+91 77699 87599", email: "ps@muziclub.com", hours: "Daily: 11 AM – 8 PM", rating: "4.9", reviews: "544+", mapUrl: "https://maps.google.com/?q=Muziclub+Pimple+Saudagar+Radhika+Avenue+Pune", img: "/new_imgs/Copy of DSC00590.webp" },
+  { name: "Wakad West", tagline: "Flagship Academy", badge: "FLAGSHIP", address: "Spirea, S. 91/4, Bhumkar Das Gugre Rd, near Silver Spoon, Bhumkar Nagar, Wakad, Pune – 411033", landmark: "Near Silver Spoon, Bhumkar Nagar", phone: "+91 80805 87033", altPhone: "+91 75078 10055", email: "wakad@muziclub.com", hours: "Daily: 11 AM – 8 PM", rating: "4.9", reviews: "430+", mapUrl: "https://maps.google.com/?q=Muziclub+Wakad+Spirea+Bhumkar+Das+Gugre+Rd+Pune", img: "/new_imgs/Copy of DSC00677 (1).webp" },
   { name: "Croydon, UK", tagline: "UK Coordination Centre", badge: "UK CENTRE", address: "Croydon, London, United Kingdom – CR0 5RR", landmark: "South London — Online Coordination & UK Classes", phone: "+44 7424 233 605", altPhone: "+44 203 769 0013", email: "uk@muziclub.com", hours: "Mon – Sat: 10 AM – 8 PM (IST online)", rating: null as string | null, reviews: null as string | null, mapUrl: "https://maps.google.com/?q=Croydon+London+CR0+5RR+UK", img: "/new_imgs/Copy of DSC00711 (1).webp" },
 ];
 
@@ -20,10 +20,10 @@ const facilities = [
 ];
 
 const stats = [
-  { value: "3", label: "Pune Centres" },
-  { value: "1,300+", label: "Google Reviews" },
-  { value: "4.9★", label: "Avg Rating" },
-  { value: "14+", label: "Years of Excellence" },
+  { value: "25,000+", label: "Students Taught" },
+  { value: "75+", label: "Teachers" },
+  { value: "16+", label: "Years Experience" },
+  { value: "4.9", label: "Google Rating", isRating: true },
 ];
 
 const Center = () => {
@@ -31,26 +31,7 @@ const Center = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      {/* Hero */}
-      <section className="relative overflow-hidden py-24 border-b border-border bg-secondary">
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <span className="inline-block bg-primary/10 border border-primary/20 text-primary text-[10px] font-extrabold uppercase tracking-[0.25em] px-4 py-1.5 rounded-full mb-6">Our Locations</span>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-foreground mb-5 leading-[1.08]">
-            Where Music<br /><span className="text-primary">Comes Alive</span>
-          </h1>
-          <p className="text-muted-foreground max-w-xl mx-auto text-base leading-relaxed mb-12">
-            Three world-class music academies in Pune and a coordination centre in London — find your nearest Muziclub.
-          </p>
-          <div className="inline-flex items-center gap-0 rounded-2xl border border-border bg-background overflow-hidden shadow-sm">
-            {stats.map((s, i) => (
-              <div key={s.label} className={`px-7 py-4 text-center ${i < stats.length - 1 ? "border-r border-border" : ""}`}>
-                <p className="text-2xl font-extrabold text-foreground leading-none">{s.value}</p>
-                <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-bold mt-1.5">{s.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* Online Banner */}
       <section className="py-6 border-b border-border bg-background">
@@ -71,7 +52,7 @@ const Center = () => {
       </section>
 
       {/* Centres Grid */}
-      <section className="py-20 bg-background">
+      <section className="py-10 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-14">
             <p className="text-primary text-[10px] font-extrabold uppercase tracking-[0.22em] mb-3">Find Us</p>
@@ -127,10 +108,54 @@ const Center = () => {
                       <ExternalLink className="w-3.5 h-3.5" /> Open in Maps
                     </a>
                     <Link to="/contact" className="flex-1 flex items-center justify-center gap-2 bg-primary text-primary-foreground text-xs font-bold py-2.5 rounded-full hover:bg-[#c40812] transition-all shadow-lg shadow-primary/20">
-                      Book Free Trial
+                      Walk-in Free Trial
                     </Link>
                   </div>
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-10 border-b border-border bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-14">
+            <p className="text-primary text-[10px] font-extrabold uppercase tracking-[0.22em] mb-3">Our Impact</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-foreground">Muziclub by the Numbers</h2>
+            <p className="text-muted-foreground text-sm mt-2 max-w-2xl mx-auto">
+              Over a decade of spreading the joy of music through passionate teaching and a thriving community.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+            {stats.map((s, i) => (
+              <div key={s.label} className="group relative p-6 rounded-3xl bg-secondary/50 border border-border flex flex-col items-center justify-center text-center overflow-hidden hover:border-primary/30 hover:shadow-xl transition-all duration-500">
+                <div className="relative z-10 flex flex-col items-center">
+                  <p className="text-4xl font-extrabold text-foreground mb-2 group-hover:scale-110 transition-transform duration-500">{s.value}</p>
+                  {s.isRating && (
+                    <div className="flex items-center gap-1 mb-2">
+                      <svg viewBox="0 0 24 24" className="w-4 h-4 mr-1" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
+                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
+                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05" />
+                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335" />
+                      </svg>
+                      {[1, 2, 3, 4].map((star) => (
+                        <Star key={star} className="w-4 h-4 text-[#FABB05] fill-[#FABB05]" />
+                      ))}
+                      <div className="relative w-4 h-4">
+                        <Star className="w-4 h-4 text-[#e0e0e0] fill-[#e0e0e0] absolute" />
+                        <div className="absolute inset-0 overflow-hidden" style={{ width: '75%' }}>
+                          <Star className="w-4 h-4 text-[#FABB05] fill-[#FABB05]" />
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                  <p className="text-[10px] sm:text-xs text-muted-foreground uppercase tracking-[0.2em] font-bold mt-1">{s.label}</p>
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
             ))}
           </div>
@@ -158,7 +183,7 @@ const Center = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-background overflow-hidden border-t border-border">
+      <section className=" py-4 bg-background overflow-hidden border-t border-border">
         <div className="container mx-auto px-4 relative z-10 flex flex-col md:flex-row items-center justify-between gap-10">
           <div className="flex-1 text-center md:text-left">
             <p className="text-primary text-[10px] font-extrabold uppercase tracking-[0.22em] mb-4">Get Started</p>
@@ -166,7 +191,7 @@ const Center = () => {
             <p className="text-muted-foreground text-sm mb-8 max-w-md mx-auto md:mx-0 leading-relaxed">Book a free trial and visit our nearest centre. Our doors are open — your music journey begins today.</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
               <Link to="/contact" className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-bold px-8 py-3.5 rounded-full hover:bg-[#c40812] transition-all shadow-xl shadow-primary/25">
-                Book Free Trial
+                Walk-in Free Trial
               </Link>
               <Link to="/online-programs" className="inline-flex items-center justify-center gap-2 border border-border text-muted-foreground font-semibold px-8 py-3.5 rounded-full hover:border-primary/50 hover:text-primary transition-colors bg-secondary">
                 Explore Online Courses <ArrowRight className="w-4 h-4" />

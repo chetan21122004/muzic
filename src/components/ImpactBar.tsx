@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const stats = [
   { value: "14,000+", label: "Students Taught" },
   { value: "13+ Yrs", label: "Of Excellence" },
-  { value: "4.8 ★", label: "Google Rating" },
+  { value: "4.9 ★", label: "Google Rating", isGoogle: true },
   { value: "4 Centres", label: "Pune & UK" },
   { value: "Trinity · ABRSM · RSL", label: "Certifications" },
 ];

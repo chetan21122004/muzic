@@ -29,13 +29,13 @@ const StudentShowcase = () => {
       <Navbar />
 
       {/* Hero */}
-      <section className="relative py-12 overflow-hidden bg-cover bg-center" style={{ backgroundImage: "url('/visuals/5.png')" }}>
+      <section className="relative py-4 overflow-hidden bg-cover bg-center" style={{ backgroundImage: "url('/visuals/5.png')" }}>
         <div className="absolute inset-0 bg-secondary/95 z-0"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-10">
             <div className="flex-1 text-center md:text-left">
               <span className="inline-block bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4 border border-primary/20">🎶 Talent & Performances</span>
-              <h1 className="text-4xl md:text-6xl font-extrabold text-foreground mb-5 leading-tight">Student <span className="text-primary">Showcase</span></h1>
+              <h1 className="text-4xl md:text-6xl font-extrabold text-foreground mb-5 leading-tight">Student <span className="text-primary">Performances</span></h1>
               <p className="text-muted-foreground max-w-2xl mx-auto md:mx-0 text-base leading-relaxed">Our students don't just learn music — they live it. Watch real performances from Sunday Jams, live events, and personal cover videos.</p>
               <div className="mt-8 flex flex-wrap justify-center md:justify-start gap-2 text-sm text-muted-foreground">
                 <span className="bg-background border border-border rounded-full px-3 py-1 shadow-sm">🎓 {showcaseStudents.filter(s => !["Band Performance", "Faculty Band"].includes(s.category)).length} Students</span>
@@ -63,44 +63,44 @@ const StudentShowcase = () => {
       </section>
 
       {/* Grid */}
-      <section className="py-14 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-            {filtered.map((student) => (
-              <button key={student.id} onClick={() => openModal(student)} className="group border border-border rounded-2xl overflow-hidden hover:border-primary/40 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 text-left bg-background">
-                <div className="relative aspect-video overflow-hidden bg-secondary">
-                  {student.youtubeId ? (
-                    <>
-                      <img src={ytThumb(student.youtubeId)} alt={student.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-                      <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-300" />
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-12 h-12 rounded-full bg-primary/90 flex items-center justify-center shadow-lg shadow-primary/50 group-hover:scale-110 transition-transform duration-200">
-                          <Play className="w-5 h-5 text-white fill-white ml-0.5" />
-                        </div>
+      <section className="py-6 lg:py-14 bg-background">
+              <div className="container mx-auto px-4 sm:px-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 lg:gap-5">
+                  {filtered.map((student) => (
+                    <button key={student.id} onClick={() => openModal(student)} className="group border border-border lg:border-border/80 rounded-[1.25rem] lg:rounded-2xl overflow-hidden hover:border-primary/40 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 text-left bg-background flex flex-row lg:flex-col items-stretch h-32 sm:h-36 lg:h-auto">
+                      <div className="relative w-[40%] sm:w-[45%] lg:w-full h-full lg:h-auto lg:aspect-video shrink-0 bg-secondary overflow-hidden border-r lg:border-r-0 border-border/50 lg:border-transparent">
+                        {student.youtubeId ? (
+                          <>
+                            <img src={ytThumb(student.youtubeId)} alt={student.name} className="absolute lg:static inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                            <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-300" />
+                            <div className="absolute inset-0 flex items-center justify-center">
+                              <div className="w-8 h-8 lg:w-12 lg:h-12 rounded-full bg-primary/90 flex items-center justify-center shadow-lg shadow-primary/50 group-hover:scale-110 transition-transform duration-200">
+                                <Play className="w-3.5 h-3.5 lg:w-5 lg:h-5 text-white fill-white ml-0.5" />
+                              </div>
+                            </div>
+                          </>
+                        ) : (
+                          <div className="w-full h-full bg-secondary flex items-center justify-center">
+                            <span className="text-4xl lg:text-7xl filter drop-shadow-lg group-hover:scale-110 transition-transform duration-300">{getEmoji(student.instrument)}</span>
+                          </div>
+                        )}
+                        <span className="absolute top-2 left-2 text-[8px] lg:text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full bg-white/90 backdrop-blur border border-border text-primary">{student.category}</span>
                       </div>
-                    </>
-                  ) : (
-                    <div className="w-full h-full bg-secondary flex items-center justify-center">
-                      <span className="text-7xl filter drop-shadow-lg group-hover:scale-110 transition-transform duration-300">{getEmoji(student.instrument)}</span>
-                    </div>
-                  )}
-                  <span className="absolute top-2 left-2 text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full bg-white/90 backdrop-blur border border-border text-primary">{student.category}</span>
-                </div>
-                <div className="p-4">
-                  <p className="font-extrabold text-foreground text-sm leading-snug">{student.name}</p>
-                  <p className="text-xs font-semibold mt-0.5 text-primary">{student.instrument}</p>
-                  {student.teacher && <p className="text-[11px] text-muted-foreground mt-1 truncate">👨‍🏫 {student.teacher}</p>}
-                  <p className="text-xs text-muted-foreground mt-2 leading-relaxed line-clamp-2">{student.tagline}</p>
-                  {student.song && (
-                    <div className="mt-2 flex items-center gap-1.5 text-[10px] text-muted-foreground/60">
-                      <Music className="w-3 h-3 shrink-0" /><span className="truncate">{student.song}</span>
-                    </div>
-                  )}
-                </div>
+                      <div className="p-3 lg:p-4 flex flex-col flex-1 justify-center lg:justify-start overflow-hidden">
+                        <p className="font-extrabold text-foreground text-[14px] lg:text-sm leading-snug line-clamp-1 lg:line-clamp-none">{student.name}</p>
+                        <p className="text-[11px] lg:text-xs font-semibold mt-0.5 text-primary">{student.instrument}</p>
+                        {student.teacher && <p className="text-[10px] lg:text-[11px] text-muted-foreground mt-0.5 lg:mt-1 truncate">👨🏫 {student.teacher}</p>}
+                        <p className="text-[11px] lg:text-xs text-muted-foreground mt-1.5 lg:mt-2 leading-snug lg:leading-relaxed line-clamp-2">{student.tagline}</p>
+                        {student.song && (
+                          <div className="mt-1.5 lg:mt-2 flex items-center gap-1.5 text-[9px] lg:text-[10px] text-muted-foreground/60 shrink-0 overflow-hidden">
+                            <Music className="w-2.5 h-2.5 lg:w-3 lg:h-3 shrink-0" /><span className="truncate">{student.song}</span>
+                          </div>
+                        )}
+                      </div>
               </button>
             ))}
           </div>
-          {filtered.length === 0 && <p className="text-center text-muted-foreground py-20 text-sm">No showcases in this category yet.</p>}
+          {filtered.length === 0 && <p className="text-center text-muted-foreground py-20 text-[13px] lg:text-sm">No showcases in this category yet.</p>}
         </div>
       </section>
 

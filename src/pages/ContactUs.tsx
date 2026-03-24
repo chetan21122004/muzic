@@ -6,8 +6,8 @@ import Footer from "@/components/Footer";
 
 const centres = [
   { name: "Baner (Head Office)", address: "Office 11 & 12, Aditi Commerce, Baner Road, Pune, 411069", landmark: "Above Bikaner Sweets", phone: "+91 9156303400", email: "enquiries@muziclub.com", hours: "Mon – Sat: 9 AM – 9 PM", mapUrl: "https://maps.google.com/?q=Aditi+Commerce+Baner+Road+Pune+411069", badge: "🏢 Head Office" },
-  { name: "Pimple Saudagar", address: "2nd Floor, Radhika Avenue, Near Jagtap Dairy, Opp. McDonalds, Pune, 411027", landmark: "Opposite McDonald's", phone: "+91 9156303400", email: "enquiries@muziclub.com", hours: "Mon – Sat: 10 AM – 8 PM", mapUrl: "#", badge: "🎵 Academy" },
-  { name: "Hinjewadi", address: "Spirea, S. 91/4, Bhumkar Das Gugre Rd, Wakad, Maharashtra 411033", landmark: "Near Wakad", phone: "+91 9156303400", email: "enquiries@muziclub.com", hours: "Mon – Sat: 9 AM – 9 PM", mapUrl: "#", badge: "🎵 Academy" },
+  { name: "Pimple Saudagar (Flagship)", address: "2nd Floor, Radhika Avenue, Near Jagtap Dairy, Pune, 411027", landmark: "Near Savitribai Phule Park", phone: "+91 9156303400", email: "enquiries@muziclub.com", hours: "Mon – Sat: 10 AM – 8 PM", mapUrl: "#", badge: "⭐ Flagship Academy" },
+  { name: "Wakad West (Flagship)", address: "Spirea, S. 91/4, Bhumkar Das Gugre Rd, Wakad, Maharashtra 411033", landmark: "Near Wakad", phone: "+91 9156303400", email: "enquiries@muziclub.com", hours: "Mon – Sat: 9 AM – 9 PM", mapUrl: "#", badge: "⭐ Flagship Academy" },
   { name: "Croydon, UK", address: "Croydon, London, United Kingdom", landmark: "UK Coordination Centre", phone: "+44 7768928645", email: "online@muziclub.com", hours: "Mon – Sat: 10 AM – 8 PM (IST Online)", mapUrl: "#", badge: "🇬🇧 UK Centre" },
 ];
 
