@@ -120,11 +120,10 @@ const Footer = () => {
 
           <div>
             <p className="text-[10px] font-extrabold text-primary uppercase tracking-[0.2em] mb-5">Follow Us</p>
-            <div className="flex flex-wrap gap-2 mb-8">
+            <div className="flex flex-wrap gap-2 mb-6">
               {[
                 { Icon: Instagram, href: "https://instagram.com/muziclub", label: "Instagram" },
                 { Icon: Facebook, href: "https://facebook.com/themuziclub", label: "Facebook" },
-                { Icon: Youtube, href: "https://youtube.com/@themuziclub", label: "YouTube" },
                 { Icon: Linkedin, href: "https://linkedin.com/company/muziclub", label: "LinkedIn" },
               ].map(({ Icon, href, label }) => (
                 <a key={label} href={href} target="_blank" rel="noreferrer" title={label} className="w-9 h-9 rounded-xl border border-white/10 flex items-center justify-center text-[#d1d1d6]/40 hover:text-white hover:border-primary/40 hover:bg-primary/10 transition-all">
@@ -132,6 +131,19 @@ const Footer = () => {
                 </a>
               ))}
             </div>
+
+            <p className="text-[10px] font-extrabold text-primary uppercase tracking-[0.2em] mb-3">Our Channels</p>
+            <div className="flex flex-col gap-2.5 mb-8">
+              <a href="https://www.youtube.com/@themuziclub" target="_blank" rel="noreferrer" className="flex items-center gap-3 text-xs font-semibold text-[#d1d1d6]/70 hover:text-white group transition-colors">
+                <div className="w-7 h-7 rounded-lg bg-[#ff0000]/10 border border-[#ff0000]/20 flex items-center justify-center group-hover:bg-[#ff0000] transition-colors"><Youtube className="w-3.5 h-3.5 text-[#ff0000] group-hover:text-white transition-colors" /></div>
+                The Muziclub Official
+              </a>
+              <a href="https://www.youtube.com/@muziclubpimplesaudagar" target="_blank" rel="noreferrer" className="flex items-center gap-3 text-xs font-semibold text-[#d1d1d6]/70 hover:text-white group transition-colors">
+                <div className="w-7 h-7 rounded-lg bg-[#ff0000]/10 border border-[#ff0000]/20 flex items-center justify-center group-hover:bg-[#ff0000] transition-colors"><Youtube className="w-3.5 h-3.5 text-[#ff0000] group-hover:text-white transition-colors" /></div>
+                Muziclub Pimple Saudagar
+              </a>
+            </div>
+
             <p className="text-[10px] font-extrabold text-primary uppercase tracking-[0.2em] mb-3">Certifications</p>
             <div className="space-y-1.5">
               {["Trinity College London", "ABRSM", "RSL – Rockschool", "G.M.V. Mumbai"].map((cert) => (
