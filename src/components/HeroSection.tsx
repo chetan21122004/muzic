@@ -12,7 +12,7 @@ const slides = [
     cta1: { label: "Explore courses", to: "/online-programs" },
     cta2: { label: "Walk-in Free Trial", to: "/contact" },
     bannerImg: "/banners_new/1.png",
-    sideImg: "/new_imgs/Copy of DSC00298 (1).webp",
+    sideImg: "/illustrations/Compose music-bro.svg",
   },
   {
     title: "Certified Music Courses with Graded Levels",
@@ -24,7 +24,7 @@ const slides = [
     cta1: { label: "Explore courses", to: "/online-programs" },
     cta2: { label: "Walk-in Free Trial", to: "/contact" },
     bannerImg: "/banners_new/3.png",
-    sideImg: "/new_imgs/Copy of DSC00504.webp",
+    sideImg: "/illustrations/jazz piano-amico.svg",
   },
   {
     title: "Step into the Spotlight with Muziclub Performances",
@@ -35,7 +35,7 @@ const slides = [
     cta1: { label: "Watch performances", to: "/student-showcase" },
     cta2: { label: "Walk-in Free Trial", to: "/contact" },
     bannerImg: "/banners_new/2.png",
-    sideImg: "/new_imgs/Copy of DSC00677 (1).webp",
+    sideImg: "/illustrations/Mic drop-bro.svg",
   },
   {
     title: "Live the Music with Our Community",
@@ -47,7 +47,7 @@ const slides = [
     cta1: { label: "Explore activities", to: "/about" },
     cta2: { label: "Walk-in Free Trial", to: "/contact" },
     bannerImg: "/banners_new/4.png",
-    sideImg: "/new_imgs/Copy of DSC00590.webp",
+    sideImg: "/illustrations/Playing Music-bro.svg",
   },
 ];
 
@@ -138,16 +138,14 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Right Side: Featured Image (Desktop Only) */}
-        <div className={`hidden lg:flex w-full lg:w-[40%] justify-end mt-12 lg:mt-0 transition-all duration-700 delay-100 ${animating ? "opacity-0 translate-x-8" : "opacity-100 translate-x-0"}`}>
-          <div className="relative w-full max-w-[360px] aspect-[4/5] rounded-[2rem] overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.6)] border-4 border-white/10 group bg-black/40 xl:mr-10">
+        {/* Right Side: Featured Illustration (Desktop Only) */}
+        <div className={`hidden lg:flex w-full lg:w-[40%] justify-end items-center mt-12 lg:mt-0 transition-all duration-700 delay-100 ${animating ? "opacity-0 translate-x-8" : "opacity-100 translate-x-0"}`}>
+          <div className="relative w-full max-w-[450px] xl:mr-10 flex items-center justify-center group">
             <img
               src={slide.sideImg}
-              alt="Muziclub Student Highlight"
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter group-hover:brightness-110"
+              alt="Muziclub Highlight"
+              className="w-full h-auto object-contain drop-shadow-2xl transition-transform duration-700 group-hover:scale-110 group-hover:-translate-y-3"
             />
-            {/* Elegant inner glow overlay */}
-            <div className="absolute inset-0 ring-1 ring-inset ring-white/20 rounded-[2rem] pointer-events-none transition-all duration-500 group-hover:ring-white/40"></div>
           </div>
         </div>
 
@@ -219,8 +217,11 @@ const HeroSection = () => {
             </div>
             <div className="text-[9px] sm:text-[10px] lg:text-[11px] text-[#a0a0a0] lg:text-white/60 font-black uppercase tracking-[0.2em] flex flex-col items-center gap-0.5 lg:gap-1">
               Google Rating
-              <div className="flex text-[#FABB05] text-[8px] lg:text-[10px] tracking-widest gap-0.5 mt-0.5">
-                ★★★★★
+              <div className="relative inline-block text-[#E0E0E0] text-[8px] lg:text-[10px] tracking-widest mt-0.5">
+                <span className="opacity-30">★★★★★</span>
+                <div className="absolute top-0 left-0 overflow-hidden text-[#FABB05] w-[95%] whitespace-nowrap">
+                  ★★★★★
+                </div>
               </div>
             </div>
           </div>

@@ -72,8 +72,8 @@ const Navbar = () => {
                   onMouseEnter={() => setCoursesOpen(true)}
                   onClick={() => setCoursesOpen(!coursesOpen)}
                   className={`flex items-center gap-1.5 text-[13px] font-semibold tracking-wide transition-colors ${coursesOpen || isActive
-                    ? "text-white"
-                    : "text-white/50 hover:text-white"
+                    ? "text-red-500"
+                    : "text-white/80 hover:text-white"
                     }`}
                 >
                   {item.label}
@@ -116,8 +116,8 @@ const Navbar = () => {
                 key={item.label}
                 to={item.href || "#"}
                 className={`relative text-[13px] font-semibold tracking-wide transition-colors ${isActive
-                  ? "text-white"
-                  : "text-white/50 hover:text-white"
+                  ? "text-red-500"
+                  : "text-white/80 hover:text-white"
                   }`}
               >
                 {item.label}
@@ -133,7 +133,7 @@ const Navbar = () => {
         <div className="flex items-center gap-8">
           <Link
             to="/teach-with-us"
-            className="hidden xl:block text-[13px] font-semibold text-white/40 hover:text-white transition-colors"
+            className="hidden xl:block text-[13px] font-semibold text-white/90 hover:text-white transition-colors"
           >
             Careers
           </Link>

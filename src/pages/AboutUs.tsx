@@ -8,9 +8,9 @@ const team = [
 ];
 
 const stats = [
-  { value: "10,000+", label: "Students Taught", icon: Users },
-  { value: "50+", label: "Expert Instructors", icon: Trophy },
-  { value: "14+", label: "Years of Excellence", icon: Calendar },
+  { value: "25,000+", label: "Students Taught", icon: Users },
+  { value: "75+", label: "Teachers", icon: Trophy },
+  { value: "16+", label: "Years Experience", icon: Calendar },
   { value: "4.9", label: "Google Rating", isGoogle: true },
 ];
 
@@ -55,7 +55,16 @@ const AboutUs = () => {
                   ) : (
                     <stat.icon className="w-6 h-6 mx-auto text-primary mb-4 opacity-80" />
                   )}
-                  <h3 className="text-3xl lg:text-4xl font-black text-foreground mb-2 flex items-center justify-center gap-1">{stat.value} {stat.isGoogle && <Star className="w-5 h-5 text-[#FABB05] fill-[#FABB05]" />}</h3>
+                  <h3 className="text-3xl lg:text-4xl font-black text-foreground mb-2 flex items-center justify-center gap-1">{stat.value} 
+                    {stat.isGoogle && (
+                      <div className="relative inline-block text-[#E0E0E0] text-[16px] tracking-[0.02em] ml-1">
+                        <span className="opacity-30">★★★★★</span>
+                        <div className="absolute top-0 left-0 overflow-hidden text-[#FABB05] w-[95%] whitespace-nowrap">
+                          ★★★★★
+                        </div>
+                      </div>
+                    )}
+                  </h3>
                   <p className="text-xs uppercase tracking-[0.15em] font-bold text-muted-foreground">{stat.label}</p>
                 </div>
               ))}
@@ -218,46 +227,32 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* Faculty Spotlight */}
       <section className="py-24 bg-secondary text-foreground border-y border-border">
-        <div className="container mx-auto px-4 max-w-5xl">
-          <div className="text-center mb-16">
-            <p className="text-primary text-xs font-bold uppercase tracking-widest mb-4">Our Faculty Head</p>
-            <h2 className="font-playfair text-4xl md:text-5xl font-extrabold leading-tight">
-              Meet the mind behind the music.
-            </h2>
+        <div className="container mx-auto px-4 max-w-7xl">
+          <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-16">
+            <div className="max-w-xl">
+              <p className="text-primary text-xs font-bold uppercase tracking-widest mb-4">The Experts</p>
+              <h2 className="font-playfair text-4xl md:text-5xl font-extrabold leading-tight">
+                Meet the minds behind the music.
+              </h2>
+            </div>
+            <p className="text-muted-foreground max-w-sm text-sm leading-relaxed">
+              Our faculty comprises highly qualified and deeply passionate musicians committed entirely to your musical growth.
+            </p>
           </div>
 
-          {team.map((t, i) => (
-            <div key={i} className="bg-background border border-border rounded-[2.5rem] overflow-hidden shadow-2xl flex flex-col md:flex-row items-stretch group">
-              <div className="relative w-full md:w-5/12 aspect-[4/5] md:aspect-auto overflow-hidden">
-                <img src={t.img} alt={t.name} className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </div>
-              <div className="p-10 md:p-14 flex flex-col justify-center flex-1">
-                <span className="inline-block px-4 py-1.5 bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold uppercase tracking-widest rounded-full w-fit mb-5">
-                  {t.role}
-                </span>
-                <h3 className="font-playfair text-4xl font-extrabold text-foreground mb-4">{t.name}</h3>
-                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-8">
-                  A highly qualified and deeply passionate musician committed entirely to your musical growth. With years of experience and countless students trained across the globe, {t.name} brings both beautiful tradition and modern innovation into every single vocal session.
-                </p>
-                <div className="grid grid-cols-2 gap-4 mb-8">
-                  <div className="border-l-2 border-primary/30 pl-4">
-                    <p className="text-2xl font-black text-foreground">10+</p>
-                    <p className="text-xs text-muted-foreground font-semibold uppercase tracking-wider mt-1">Years Exp.</p>
-                  </div>
-                  <div className="border-l-2 border-primary/30 pl-4">
-                    <p className="text-2xl font-black text-foreground">1000+</p>
-                    <p className="text-xs text-muted-foreground font-semibold uppercase tracking-wider mt-1">Students Taught</p>
-                  </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+            {team.map((t, i) => (
+              <div key={i} className="group cursor-pointer">
+                <div className="relative aspect-[4/5] rounded-3xl overflow-hidden mb-5 shadow-sm border border-border">
+                  <img src={t.img} alt={t.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
-                <a href="/contact" className="inline-flex items-center justify-center bg-primary text-primary-foreground font-bold px-8 py-3.5 rounded-full hover:bg-[#c40812] transition-colors w-fit shadow-lg shadow-primary/20">
-                  Join Her Class
-                </a>
+                <h4 className="font-bold text-sm text-foreground">{t.name}</h4>
+                <p className="text-primary text-[10px] font-bold uppercase tracking-wider mt-1">{t.role}</p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
