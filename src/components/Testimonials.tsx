@@ -1,5 +1,6 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const testimonials = [
   { name: "Sonya Meher", location: "Hindustani Vocals Student", img: "https://img.youtube.com/vi/QOy61MeG0xc/hqdefault.jpg", text: "A proud mother to 2 children, singing is my passion. Learning Hindustani Vocals at Muziclub since 2015 has been an incredible journey. The teachers are incredibly patient and encouraging." },
@@ -9,6 +10,16 @@ const testimonials = [
   { name: "Akshit Dhall", location: "Independent Singer-Songwriter", img: "https://img.youtube.com/vi/qdRIdz-h-DI/hqdefault.jpg", text: "As an independent artist, the mentors here helped me refine my original songs. I now perform 90-120 minute live sets! It's a great place to hone your skills and meet fellow musicians." },
 ];
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 30, scale: 0.96 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { delay: i * 0.1, duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+  }),
+};
+
 const Testimonials = () => {
   const [startIdx, setStartIdx] = useState(0);
   const visible = 4;
@@ -16,9 +27,15 @@ const Testimonials = () => {
   const canNext = startIdx + visible < testimonials.length;
 
   return (
-    <section className="bg-background py-16">
+    <section className="bg-background py-16 overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-10">
+        <motion.div
+          className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-10"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+        >
           <h2 className="text-3xl md:text-4xl font-extrabold text-foreground">Muziclub's Student Testimonials</h2>
           <div className="flex gap-2 self-start sm:self-auto">
             <button onClick={() => canPrev && setStartIdx(startIdx - 1)} className={`w-10 h-10 rounded-full border flex items-center justify-center transition-colors ${canPrev ? "border-border text-foreground hover:bg-secondary" : "border-border/50 text-muted-foreground/30 cursor-default"}`}>
@@ -28,11 +45,19 @@ const Testimonials = () => {
               <ChevronRight className="w-5 h-5" />
             </button>
           </div>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {testimonials.slice(startIdx, startIdx + visible).map((t, i) => (
-            <div key={i} className="bg-background rounded-2xl border border-border p-6 text-center shadow-sm hover:shadow-lg hover:border-primary/20 hover:-translate-y-1 transition-all duration-300 group">
+            <motion.div
+              key={`${startIdx}-${i}`}
+              custom={i}
+              variants={cardVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-40px" }}
+              className="bg-background rounded-2xl border border-border p-6 text-center shadow-sm hover:shadow-lg hover:border-primary/20 hover:-translate-y-1 transition-all duration-300 group"
+            >
               <div className="text-primary text-4xl font-black leading-none mb-3 opacity-80">"</div>
               <div className="flex justify-center gap-0.5 mb-4">
                 {[...Array(5)].map((_, s) => (<span key={s} className="text-primary text-sm">★</span>))}
@@ -44,7 +69,7 @@ const Testimonials = () => {
               <p className="text-primary text-xs font-semibold mt-0.5 mb-3 uppercase tracking-wide">{t.location}</p>
               <p className="text-muted-foreground text-sm leading-relaxed line-clamp-4">{t.text}</p>
               <button className="text-primary font-bold text-xs mt-4 uppercase tracking-wider hover:underline">Read More</button>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

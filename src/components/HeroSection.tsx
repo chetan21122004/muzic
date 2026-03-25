@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { CountUp } from "./CountUp";
+import { motion } from "framer-motion";
 
 const slides = [
   {
@@ -169,40 +170,72 @@ const HeroSection = () => {
         {/* Subtle dark gradient backing for desktop only */}
         <div className="hidden lg:block absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent pointer-events-none"></div>
 
-        <div className="relative container mx-auto px-4 sm:px-6 lg:px-12 py-8 lg:py-8 grid grid-cols-2 lg:flex lg:justify-between items-center gap-y-8 gap-x-2 lg:gap-0">
+        <motion.div
+          className="relative container mx-auto px-4 sm:px-6 lg:px-12 py-8 lg:py-8 grid grid-cols-2 lg:flex lg:justify-between items-center gap-y-8 gap-x-2 lg:gap-0"
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.12, delayChildren: 0.4 } },
+          }}
+          initial="hidden"
+          animate="visible"
+        >
 
           {/* 25,000 Students Taught */}
-          <div className="flex flex-col items-center w-full lg:w-auto text-center lg:px-6 xl:px-8 group">
+          <motion.div
+            className="flex flex-col items-center w-full lg:w-auto text-center lg:px-6 xl:px-8 group"
+            variants={{
+              hidden: { opacity: 0, y: 30, scale: 0.85 },
+              visible: { opacity: 1, y: 0, scale: 1, transition: { type: "spring", stiffness: 260, damping: 18 } },
+            }}
+          >
             <div className="text-[32px] sm:text-[34px] lg:text-[42px] font-black text-white leading-none mb-1.5 lg:mb-2 tracking-tighter transition-transform duration-500 group-hover:scale-105">
               <CountUp end={25000} /><span className="text-[#e31837]">+</span>
             </div>
             <div className="text-[9px] sm:text-[10px] lg:text-[11px] text-[#a0a0a0] lg:text-white/60 font-black uppercase tracking-[0.2em] leading-tight">Students Taught</div>
-          </div>
+          </motion.div>
 
           <div className="hidden lg:block w-[1px] h-12 bg-white/10"></div>
 
           {/* 75 Expert Instructors */}
-          <div className="flex flex-col items-center w-full lg:w-auto text-center lg:px-6 xl:px-8 group">
+          <motion.div
+            className="flex flex-col items-center w-full lg:w-auto text-center lg:px-6 xl:px-8 group"
+            variants={{
+              hidden: { opacity: 0, y: 30, scale: 0.85 },
+              visible: { opacity: 1, y: 0, scale: 1, transition: { type: "spring", stiffness: 260, damping: 18 } },
+            }}
+          >
             <div className="text-[32px] sm:text-[34px] lg:text-[42px] font-black text-white leading-none mb-1.5 lg:mb-2 tracking-tighter transition-transform duration-500 group-hover:scale-105">
               <CountUp end={75} /><span className="text-[#e31837]">+</span>
             </div>
             <div className="text-[9px] sm:text-[10px] lg:text-[11px] text-[#a0a0a0] lg:text-white/60 font-black uppercase tracking-[0.2em] leading-tight">Expert Instructors</div>
-          </div>
+          </motion.div>
 
           <div className="hidden lg:block w-[1px] h-12 bg-white/10"></div>
 
           {/* 16+ Years of Excellence */}
-          <div className="flex flex-col items-center w-full lg:w-auto text-center lg:px-6 xl:px-8 group">
+          <motion.div
+            className="flex flex-col items-center w-full lg:w-auto text-center lg:px-6 xl:px-8 group"
+            variants={{
+              hidden: { opacity: 0, y: 30, scale: 0.85 },
+              visible: { opacity: 1, y: 0, scale: 1, transition: { type: "spring", stiffness: 260, damping: 18 } },
+            }}
+          >
             <div className="text-[32px] sm:text-[34px] lg:text-[42px] font-black text-white leading-none mb-1.5 lg:mb-2 tracking-tighter transition-transform duration-500 group-hover:scale-105">
               <CountUp end={16} /><span className="text-[#e31837]">+</span>
             </div>
             <div className="text-[9px] sm:text-[10px] lg:text-[11px] text-[#a0a0a0] lg:text-white/60 font-black uppercase tracking-[0.2em] leading-tight">Years<br className="lg:hidden" /> of Excellence</div>
-          </div>
+          </motion.div>
 
           <div className="hidden lg:block w-[1px] h-12 bg-white/10"></div>
 
           {/* Google Rating */}
-          <div className="flex flex-col items-center w-full lg:w-auto text-center lg:px-6 xl:px-8 group">
+          <motion.div
+            className="flex flex-col items-center w-full lg:w-auto text-center lg:px-6 xl:px-8 group"
+            variants={{
+              hidden: { opacity: 0, y: 30, scale: 0.85 },
+              visible: { opacity: 1, y: 0, scale: 1, transition: { type: "spring", stiffness: 260, damping: 18 } },
+            }}
+          >
             <div className="flex items-center gap-1.5 lg:gap-2.5 mb-1.5 lg:mb-2 transition-transform duration-500 group-hover:scale-105">
               <div className="bg-white p-1 lg:p-1.5 rounded-full shadow-[0_0_10px_rgba(255,255,255,0.2)]">
                 <svg viewBox="0 0 24 24" className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" xmlns="http://www.w3.org/2000/svg">
@@ -225,9 +258,9 @@ const HeroSection = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-        </div>
+        </motion.div>
       </div>
     </section>
   );

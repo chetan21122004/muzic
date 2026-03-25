@@ -58,7 +58,7 @@ const Center = () => {
           <div className="text-center mb-14">
             <p className="text-primary text-[10px] font-extrabold uppercase tracking-[0.22em] mb-3">Find Us</p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-foreground">Our Centres</h2>
-            <p className="text-muted-foreground text-sm mt-2">Walk in for a free trial class —  appointment needed</p>
+            <p className="text-muted-foreground text-sm mt-2">Walk in for a free trial class — appointment needed</p>
           </div>
           <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {centres.map((c) => (
