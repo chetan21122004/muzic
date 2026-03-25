@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
+import { CountUp } from "./CountUp";
 
 const stats = [
-  { value: "25,000+", label: "Students Taught" },
-  { value: "16+ Yrs", label: "Of Excellence" },
-  { value: "4.9", label: "Google Rating", isGoogle: true },
-  { value: "4 Centres", label: "Pune & UK" },
+  { value: "25,000+", num: 25000, suffix: "+", label: "Students Taught" },
+  { value: "16+ Yrs", num: 16, suffix: "+ Yrs", label: "Of Excellence" },
+  { value: "4.9", num: 4.9, suffix: "", decimals: 1, label: "Google Rating", isGoogle: true },
+  { value: "4 Centres", num: 4, suffix: " Centres", label: "Pune & UK" },
   { value: "Trinity · ABRSM · RSL", label: "Certifications" },
 ];
 
@@ -16,7 +17,7 @@ const ImpactBar = () => {
           {stats.map((s, i) => (
             <div key={i} className="text-center flex-1 min-w-[120px] relative group">
               <p className="text-foreground font-extrabold text-xl md:text-2xl group-hover:text-primary transition-colors duration-300 flex items-center justify-center gap-1.5 pt-1">
-                {s.value}
+                {s.num !== undefined ? <CountUp end={s.num} suffix={s.suffix} decimals={s.decimals || 0} /> : s.value}
                 {s.isGoogle && (
                   <div className="relative inline-block text-[#E0E0E0] text-[12px] tracking-[0.02em] -mt-0.5">
                     <span className="opacity-30">★★★★★</span>

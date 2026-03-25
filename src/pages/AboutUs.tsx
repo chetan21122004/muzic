@@ -2,16 +2,17 @@ import { MapPin, Globe, Users, Trophy, Music, Calendar, Star, CheckCircle2, Phon
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { CountUp } from "@/components/CountUp";
 
 const team = [
   { img: "/instructor/Neelima-Hindustani_Vocals.webp", name: "Neelima", role: "Hindustani Vocals Faculty" },
 ];
 
 const stats = [
-  { value: "25,000+", label: "Students Taught", icon: Users },
-  { value: "75+", label: "Teachers", icon: Trophy },
-  { value: "16+", label: "Years Experience", icon: Calendar },
-  { value: "4.9", label: "Google Rating", isGoogle: true },
+  { value: "25,000+", num: 25000, suffix: "+", label: "Students Taught", icon: Users },
+  { value: "75+", num: 75, suffix: "+", label: "Teachers", icon: Trophy },
+  { value: "16+", num: 16, suffix: "+", label: "Years Experience", icon: Calendar },
+  { value: "4.9", num: 4.9, suffix: "", decimals: 1, label: "Google Rating", isGoogle: true },
 ];
 
 const AboutUs = () => {
@@ -55,7 +56,11 @@ const AboutUs = () => {
                   ) : (
                     <stat.icon className="w-6 h-6 mx-auto text-primary mb-4 opacity-80" />
                   )}
-                  <h3 className="text-3xl lg:text-4xl font-black text-foreground mb-2 flex items-center justify-center gap-1">{stat.value} 
+                  <h3 className="text-3xl lg:text-4xl font-black text-foreground mb-2 flex items-center justify-center gap-1">
+                    {stat.num !== undefined
+                      ? <CountUp end={stat.num} suffix={stat.suffix ?? ""} decimals={stat.decimals ?? 0} />
+                      : stat.value
+                    }
                     {stat.isGoogle && (
                       <div className="relative inline-block text-[#E0E0E0] text-[16px] tracking-[0.02em] ml-1">
                         <span className="opacity-30">★★★★★</span>

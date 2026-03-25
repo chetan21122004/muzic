@@ -4,12 +4,13 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { MapPin, Star, Users, Award, ChevronDown, Music, Guitar } from "lucide-react";
 import { motion } from "framer-motion";
+import { CountUp } from "@/components/CountUp";
 
 /* ── Static Data ── */
 const stats = [
-  { icon: Users, value: "25,000+", label: "Global Learners" },
-  { icon: Award, value: "75+", label: "Certified Teachers" },
-  { icon: Star, value: "4.9", label: "Google Rating", isGoogle: true },
+  { icon: Users, value: "25,000+", num: 25000, suffix: "+", label: "Global Learners" },
+  { icon: Award, value: "75+", num: 75, suffix: "+", label: "Certified Teachers" },
+  { icon: Star, value: "4.9", num: 4.9, suffix: "", decimals: 1, label: "Google Rating", isGoogle: true },
 ];
 
 const centres = [
@@ -47,20 +48,25 @@ const galleryCategories = [
   },
 ];
 
-const certLogos = ["Trinity", "RSL", "ABRSM", "Rockschool", "LCM"];
+const certLogos = ["Trinity", "ABRSM", "RSL", "ABGMVM Mumbai"];
 
 const vocalsLearnings = [
-  "Hindustani Classical Vocals",
-  "Carnatic Classical Vocals",
-  "Bollywood / Film Music",
-  "Western Vocals",
+  "Bollywood Singing",
+  "Indian Classical Vocal",
+  "Western Vocal",
+  "Karaoke Singing",
 ];
 
 const instrumentLearnings = [
-  "Piano/Keyboard",
-  "Guitar",
-  "Drums",
+  "Guitar Acoustic",
+  "Guitar Electric",
+  "Guitar Bass",
   "Violin",
+  "Harmonium",
+  "Flute",
+  "Keyboard",
+  "Piano",
+  "Ukulele",
 ];
 
 const featuredIn = [
@@ -271,7 +277,10 @@ const OfflineClass = () => {
                 </div>
                 <div>
                   <p className="text-xl font-extrabold text-foreground flex items-center gap-1.5">
-                    {s.value}
+                    {s.num !== undefined
+                      ? <CountUp end={s.num} suffix={s.suffix ?? ""} decimals={s.decimals ?? 0} />
+                      : s.value
+                    }
                     {s.isGoogle && (
                       <div className="relative inline-block text-[#E0E0E0] text-[12px] tracking-[0.02em] -mt-0.5">
                         <span className="opacity-30">★★★★★</span>

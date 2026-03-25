@@ -2,6 +2,7 @@ import { MapPin, Phone, Clock, Mail, ArrowRight, Star, ExternalLink } from "luci
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { CountUp } from "@/components/CountUp";
 
 const centres = [
   { name: "Baner", tagline: "Head Office & Academy", badge: "HEAD OFFICE", address: "Office 11 & 12, Aditi Commerce, Baner Road, Opp. Hillview Residency, Pune – 411045", landmark: "Above Bikaner Sweets", phone: "+91 91563 03400", altPhone: null as string | null, email: "info@muziclub.com", hours: "Daily: 10 AM – 8 PM", rating: "4.8", reviews: "360+", mapUrl: "https://maps.google.com/?q=Muziclub+Baner+Aditi+Commerce+Baner+Road+Pune", img: "/new_imgs/Copy of DSC00403.webp" },
@@ -20,10 +21,10 @@ const facilities = [
 ];
 
 const stats = [
-  { value: "25,000+", label: "Students Taught" },
-  { value: "75+", label: "Teachers" },
-  { value: "16+", label: "Years Experience" },
-  { value: "4.9", label: "Google Rating", isRating: true },
+  { value: "25,000+", num: 25000, suffix: "+", label: "Students Taught" },
+  { value: "75+", num: 75, suffix: "+", label: "Teachers" },
+  { value: "16+", num: 16, suffix: "+", label: "Years Experience" },
+  { value: "4.9", num: 4.9, suffix: "", decimals: 1, label: "Google Rating", isRating: true },
 ];
 
 const Center = () => {
@@ -133,7 +134,12 @@ const Center = () => {
             {stats.map((s, i) => (
               <div key={s.label} className="group relative p-6 rounded-3xl bg-secondary/50 border border-border flex flex-col items-center justify-center text-center overflow-hidden hover:border-primary/30 hover:shadow-xl transition-all duration-500">
                 <div className="relative z-10 flex flex-col items-center">
-                  <p className="text-4xl font-extrabold text-foreground mb-2 group-hover:scale-110 transition-transform duration-500">{s.value}</p>
+                  <p className="text-4xl font-extrabold text-foreground mb-2 group-hover:scale-110 transition-transform duration-500">
+                    {s.num !== undefined
+                      ? <CountUp end={s.num} suffix={s.suffix ?? ""} decimals={s.decimals ?? 0} />
+                      : s.value
+                    }
+                  </p>
                   {s.isRating && (
                     <div className="flex items-center gap-1 mb-2">
                       <svg viewBox="0 0 24 24" className="w-5 h-5 mr-1 drop-shadow-sm" xmlns="http://www.w3.org/2000/svg">

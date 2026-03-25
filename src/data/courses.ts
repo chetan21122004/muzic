@@ -35,25 +35,23 @@ export const courseCategories = [
   {
     title: "Vocals",
     courses: [
-      { name: "Bollywood / Hindi Film Music", slug: "popular-film-music-hindi" },
-      { name: "Indian Classical Vocals", slug: "hindustani-classical-vocal" },
-      { name: "Carnatic Classical Vocal", slug: "carnatic-classical-vocal" },
-      { name: "Western Vocals", slug: "western-vocal" },
-      { name: "Tamil Film Music", slug: "popular-film-music-tamil" },
-      { name: "Kannada Film Music", slug: "popular-film-music-kannada" },
-      { name: "Ghazal", slug: "ghazal" },
-      { name: "Devotional", slug: "devotional" },
+      { name: "Bollywood Singing", slug: "bollywood-singing" },
+      { name: "Indian Classical Vocal", slug: "indian-classical-vocal" },
+      { name: "Western Vocal", slug: "western-vocal" },
+      { name: "Karaoke Singing", slug: "karaoke-singing" },
     ],
   },
   {
     title: "Instruments",
     courses: [
-      { name: "Guitar – Acoustic", slug: "guitar-acoustic" },
-      { name: "Guitar – Rock & Pop", slug: "guitar-rock-pop" },
-      { name: "Piano", slug: "piano" },
-      { name: "Keyboard", slug: "keyboard" },
+      { name: "Guitar Acoustic", slug: "guitar-acoustic" },
+      { name: "Guitar Electric", slug: "guitar-electric" },
+      { name: "Guitar Bass", slug: "guitar-bass" },
       { name: "Violin", slug: "violin" },
+      { name: "Harmonium", slug: "harmonium" },
       { name: "Flute", slug: "flute" },
+      { name: "Keyboard", slug: "keyboard" },
+      { name: "Piano", slug: "piano" },
       { name: "Ukulele", slug: "ukulele" },
     ],
   },
@@ -62,6 +60,8 @@ export const courseCategories = [
     courses: [
       { name: "Drums", slug: "drums" },
       { name: "Tabla", slug: "tabla" },
+      { name: "Dholak/Dholki", slug: "dholak" },
+      { name: "Clapbox", slug: "clapbox" },
     ],
   },
   {
@@ -70,7 +70,7 @@ export const courseCategories = [
       { name: "Trinity College London", slug: "trinity" },
       { name: "ABRSM – Royal Schools of Music", slug: "abrsm" },
       { name: "RSL – Rock School", slug: "rsl" },
-      { name: "G.M.V. Mandal Mumbai", slug: "gmv" },
+      { name: "ABGMVM Akhil Bhartiya Gandharva Mahavidyalaya Mandal Mumbai", slug: "gmv" },
     ],
   },
 ];

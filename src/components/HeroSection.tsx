@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
+import { CountUp } from "./CountUp";
 
 const slides = [
   {
@@ -173,7 +174,7 @@ const HeroSection = () => {
           {/* 25,000 Students Taught */}
           <div className="flex flex-col items-center w-full lg:w-auto text-center lg:px-6 xl:px-8 group">
             <div className="text-[32px] sm:text-[34px] lg:text-[42px] font-black text-white leading-none mb-1.5 lg:mb-2 tracking-tighter transition-transform duration-500 group-hover:scale-105">
-              25,000<span className="text-[#e31837]">+</span>
+              <CountUp end={25000} /><span className="text-[#e31837]">+</span>
             </div>
             <div className="text-[9px] sm:text-[10px] lg:text-[11px] text-[#a0a0a0] lg:text-white/60 font-black uppercase tracking-[0.2em] leading-tight">Students Taught</div>
           </div>
@@ -183,7 +184,7 @@ const HeroSection = () => {
           {/* 75 Expert Instructors */}
           <div className="flex flex-col items-center w-full lg:w-auto text-center lg:px-6 xl:px-8 group">
             <div className="text-[32px] sm:text-[34px] lg:text-[42px] font-black text-white leading-none mb-1.5 lg:mb-2 tracking-tighter transition-transform duration-500 group-hover:scale-105">
-              75<span className="text-[#e31837]">+</span>
+              <CountUp end={75} /><span className="text-[#e31837]">+</span>
             </div>
             <div className="text-[9px] sm:text-[10px] lg:text-[11px] text-[#a0a0a0] lg:text-white/60 font-black uppercase tracking-[0.2em] leading-tight">Expert Instructors</div>
           </div>
@@ -193,7 +194,7 @@ const HeroSection = () => {
           {/* 16+ Years of Excellence */}
           <div className="flex flex-col items-center w-full lg:w-auto text-center lg:px-6 xl:px-8 group">
             <div className="text-[32px] sm:text-[34px] lg:text-[42px] font-black text-white leading-none mb-1.5 lg:mb-2 tracking-tighter transition-transform duration-500 group-hover:scale-105">
-              16<span className="text-[#e31837]">+</span>
+              <CountUp end={16} /><span className="text-[#e31837]">+</span>
             </div>
             <div className="text-[9px] sm:text-[10px] lg:text-[11px] text-[#a0a0a0] lg:text-white/60 font-black uppercase tracking-[0.2em] leading-tight">Years<br className="lg:hidden" /> of Excellence</div>
           </div>
@@ -212,7 +213,7 @@ const HeroSection = () => {
                 </svg>
               </div>
               <div className="text-[28px] sm:text-[34px] lg:text-[42px] font-black text-white leading-none tracking-tighter">
-                4.9
+                <CountUp end={4.9} decimals={1} />
               </div>
             </div>
             <div className="text-[9px] sm:text-[10px] lg:text-[11px] text-[#a0a0a0] lg:text-white/60 font-black uppercase tracking-[0.2em] flex flex-col items-center gap-0.5 lg:gap-1">
