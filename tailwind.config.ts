@@ -15,8 +15,9 @@ export default {
     extend: {
       fontFamily: {
         sans: ["'Open Sans'", "Inter", "sans-serif"],
-        serif: ["'Playfair Display'", "serif"],
-        display: ["'Playfair Display'", "serif"],
+        serif: ["'Century Gothic'", "CenturyGothic", "AppleGothic", "sans-serif"],
+        display: ["'Century Gothic'", "CenturyGothic", "AppleGothic", "sans-serif"],
+        playfair: ["'Century Gothic'", "CenturyGothic", "AppleGothic", "sans-serif"],
       },
       fontSize: {
         xs: ["0.85rem", { lineHeight: "1.25rem" }],
