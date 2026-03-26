@@ -298,7 +298,7 @@ export const curriculumData: Record<string, CurriculumLevel[]> = {
         "Scales: Major - G, D two octaves. C, F octave",
         "Minor - E, D one octave, A two octave with corresponding arpeggios",
         "Shifting: Third Position. D major scale one octave starting from A string Third Position",
-        "Exercises and studies form Franz Wohlfarht",
+        "Exercises and studies from Franz Wohlfahrt",
         "Eta Cohen Violin Method Book 2 & Suzuki Violin Method Book 1 and 2",
         "Pieces/Songs of candidate's choice"
       ]
@@ -309,7 +309,7 @@ export const curriculumData: Record<string, CurriculumLevel[]> = {
         "Scales: Major D, A, Bb two octaves, F, C, Eb one octave",
         "Minor - D, A, G two octaves with corresponding arpeggios",
         "Dominant 7ths in G, A",
-        "Franz Wohlfarht exercises and studies continued",
+        "Franz Wohlfahrt exercises and studies continued",
         "Eta Cohen Violin Method Book 2 Continued & Suzuki Violin Method Book 2 and 3",
         "Pieces/Songs of candidate's choice"
       ]
@@ -322,7 +322,7 @@ export const curriculumData: Record<string, CurriculumLevel[]> = {
         "Minor - G three octaves. C, Bb two octaves with corresponding arpeggios",
         "Dominant 7th in C, D",
         "Introduction to Chromatic Scale starting on open D",
-        "Higher level studies and etudes by Franz Wohlfarht",
+        "Higher level studies and etudes by Franz Wohlfahrt",
         "Eta Cohen Violin Method Book 3 & Suzuki Violin Method book 3"
       ]
     }

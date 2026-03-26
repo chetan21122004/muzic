@@ -23,9 +23,9 @@ const quickLinks = [
 ];
 
 const centres = [
-  { name: "Baner (HQ)", address: "Office 11 & 12, Aditi Commerce, Baner Road, Pune 411069", phone: "+91 9156 303 400" },
-  { name: "Pimple Saudagar (Flagship)", address: "2nd Floor, Radhika Avenue, Pune 411027", phone: "+91 9156 303 400" },
-  { name: "Wakad West (Flagship)", address: "Spirea, S.91/4, Bhumkar Das Gugre Rd, Wakad 411033", phone: "+91 9156 303 400" },
+  { name: "Baner (HQ)", address: "Office 11 & 12, Aditi Commerce, Baner Road, Pune 411069", phone: "+91 91563 03400" },
+  { name: "Pimple Saudagar (Flagship)", address: "2nd Floor, Radhika Avenue, Pune 411027", phone: "+91 77699 87599" },
+  { name: "Wakad Office (Flagship)", address: "Spirea, S.91/4, Bhumkar Das Gugre Rd, Wakad 411033", phone: "+91 80805 87033" },
   { name: "Croydon, UK", address: "Croydon, London, United Kingdom", phone: "+44 7768 928 645" },
 ];
 
@@ -58,11 +58,11 @@ const Footer = () => {
                 </div>
                 <span className="text-sm text-[#d1d1d6]/70 group-hover:text-white transition-colors font-medium">+44 7768 928 645 <span className="text-[#d1d1d6]/30 text-xs">(UK)</span></span>
               </a>
-              <a href="mailto:info@muziclub.com" className="flex items-center gap-3 group w-fit">
+              <a href="mailto:enquiries@muziclub.com" className="flex items-center gap-3 group w-fit">
                 <div className="w-8 h-8 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary transition-colors">
                   <Mail className="w-3.5 h-3.5 text-primary group-hover:text-white transition-colors" />
                 </div>
-                <span className="text-sm text-[#d1d1d6]/70 group-hover:text-white transition-colors font-medium">info@muziclub.com</span>
+                <span className="text-sm text-[#d1d1d6]/70 group-hover:text-white transition-colors font-medium">enquiries@muziclub.com</span>
               </a>
             </div>
           </div>

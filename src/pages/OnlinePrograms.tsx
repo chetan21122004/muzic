@@ -57,7 +57,7 @@ const OnlinePrograms = () => {
                 <div className="text-2xl mb-3">{formatIcons[course.category] || "🎵"}</div>
                 <h3 className="font-bold text-foreground text-sm leading-snug mb-1">{course.name}</h3>
                 <p className="text-[10px] text-primary font-semibold uppercase tracking-wide">{course.category}</p>
-                <p className="text-xs text-primary font-semibold mt-3 group-hover:underline">Enrol →</p>
+                <p className="text-xs text-primary font-semibold mt-3 group-hover:underline">Enroll →</p>
               </Link>
             ))}
           </div>

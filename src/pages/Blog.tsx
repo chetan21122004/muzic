@@ -27,7 +27,7 @@ const blogPosts = [
         slug: "ukulele-1-month-crash-course",
         title: "Ukulele – 1 Month Crash Course!",
         subtitle: "New Batch Begins August 2022",
-        excerpt: "Always wanted to learn the ukulele? Muziclub is launching a fun, structured 1-month crash course for beginners. Learn basic chords, strumming patterns, and play your favourite songs — all in just 4 weeks! Batches begin August 2022. Limited seats. Enrol now.",
+        excerpt: "Always wanted to learn the ukulele? Muziclub is launching a fun, structured 1-month crash course for beginners. Learn basic chords, strumming patterns, and play your favourite songs — all in just 4 weeks! Batches begin August 2022. Limited seats. Enroll now.",
         date: "July 2022",
         categories: ["ukulele", "crash course", "batch"],
         emoji: "🎵",

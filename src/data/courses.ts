@@ -22,6 +22,8 @@ export interface Course {
   levels: string[];
   pricing: PricingLevel[];
   curriculum?: CurriculumLevel[];
+  hidePricing?: boolean;
+  durationPerModule?: string;
   facultyHead?: {
     name: string;
     title: string;
@@ -158,40 +160,99 @@ function generatePricing(name: string): PricingLevel[] {
 export const allCourses: Course[] = courseCategories
   .filter((cat) => cat.title !== "Certifications")
   .flatMap((cat) =>
-    cat.courses.map((c) => ({
-      slug: c.slug,
-      name: c.name,
-      category: cat.title,
-      shortDescription: `Learn ${c.name} at Muziclub. Hobby and Grade classes available online and in-person, tailored for all ages and skill levels.`,
-      heroDescription: `Personalised 1:1 ${c.name} Lessons tailored to every skill level — Amateur to Pro!`,
-      heroImage: courseImages[c.slug] || "/new_imgs/Copy of DSC00403.webp",
-      features: [
-        { icon: "🎓", title: "Expert Teachers", description: `Finding the right teacher is paramount when learning ${c.name}. At Muziclub, we have a faculty of trained music experts personally handpicked to deliver the best music learning experience.` },
-        { icon: "🎤", title: "From Student to Performer", description: "Every student who enrols with us gets to perform in front of a virtual audience at Muziclub Performances, followed by a LIVE audience at our Sunday Jam sessions." },
-        { icon: "⭐", title: "Course For All", description: `Our online ${c.name} classes cover all aspects of learning. It aims to build on your expression and on-stage confidence — ideal for music aspirants at all levels, beginner to pro.` },
-      ],
-      levels: ["Preparatory", "Intermediate", "Proficient", "Advanced"],
-      pricing: generatePricing(c.name),
-      curriculum: curriculumData[c.slug],
-      facultyHead: {
-        name: "Muziclub Academic Board",
-        title: `Muziclub Faculty Head — Online ${c.name} Course`,
-        image: "/instructor/Neelima-Hindustani_Vocals.webp",
-        bio: `The Muziclub Academic Board has designed and certified our ${c.name} course. Backed by years of collective experience, our board has carefully curated the ${c.name} curriculum at Muziclub to ensure our students receive the best music education. Under expert guidance, our students receive world-class ${c.name} training that reflects creativity and technical excellence.`,
-      },
-      faqItems: [
-        { question: `What is the duration of the ${c.name} course?`, answer: "The course duration depends on the level you choose. Classes follow content structured as Preparatory, Intermediate, Proficient and Advanced levels." },
-        { question: "How large are group classes?", answer: "For group classes, the number of participants is strictly limited to 3 to maintain session effectiveness and give you personalized focus." },
-        { question: "Do you offer Grade examinations?", answer: "Yes! Grade Classes follow the level structure from internationally recognized boards like Trinity, ABRSM, and Rockschool (RSL)." },
-        { question: "Are classes customized to my taste?", answer: "Absolutely. Our Hobby Classes are customized based on individual preferences to help you play the music you love." },
-        { question: "Can I perform live as a student?", answer: "Yes! Our motto 'live music' drives us. We arrange regular Sunday Jams where all students have the opportunity to perform live on stage." },
-        { question: "How are the classes conducted?", answer: "Classes are available 1-on-1 via video call, or at our physical academy centres (Baner, Pimple Saudagar, Hinjawadi)." },
-        { question: "What if I miss a class?", answer: "We understand that schedules can be unpredictable. You can easily reschedule your lessons at your convenience." },
-        { question: `Do I need any prior experience to learn ${c.name}?`, answer: "Not at all! Our Preparatory level is designed for absolute beginners with zero prior experience." },
-        { question: "What is the fee structure?", answer: "Our fees start at INR 800/class for the Preparatory level. Higher levels offer bulk discounts of 5-10%." },
-        { question: "Can I get a free trial before enrolling?", answer: "Absolutely! We encourage all students to book a FREE trial class before enrolling." },
-      ],
-    }))
+    cat.courses.map((c) => {
+      const isViolin = c.slug === "violin";
+      
+      const violinLevels = [
+        "Prep (1-2)",
+        "Intermediate (3-4)",
+        "Proficient (5-6)",
+        "Advanced (7-8)"
+      ];
+
+      const violinPricing: PricingLevel[] = [
+        {
+          name: "Module 1",
+          label: "Beginner",
+          pricePerClass: 0,
+          totalClasses: 24,
+          description: "Introduction to violin, holding, bowing exercises, and major/minor scales.",
+          learningPoints: curriculumData["violin"][0].topics
+        },
+        {
+          name: "Module 2",
+          label: "Intermediate 1",
+          pricePerClass: 0,
+          totalClasses: 24,
+          description: "Advanced scales, third position shifting, and Franz Wohlfahrt studies.",
+          learningPoints: curriculumData["violin"][1].topics
+        },
+        {
+          name: "Module 3",
+          label: "Intermediate 2",
+          pricePerClass: 0,
+          totalClasses: 24,
+          description: "Expanded scales, dominant 7ths, and continued Suzuki methods.",
+          learningPoints: curriculumData["violin"][2].topics
+        },
+        {
+          name: "Module 4",
+          label: "Advanced",
+          pricePerClass: 0,
+          totalClasses: 24,
+          description: "5th position, 3-octave scales, chromatic scales, and advanced studies.",
+          learningPoints: curriculumData["violin"][3].topics
+        }
+      ];
+
+      return {
+        slug: c.slug,
+        name: c.name,
+        category: cat.title,
+        shortDescription: isViolin 
+          ? "Master the Violin with our structured modules. From beginners to advanced, learn techniques, scales, and classical pieces."
+          : `Learn ${c.name} at Muziclub. Hobby and Grade classes available online and in-person, tailored for all ages and skill levels.`,
+        heroDescription: isViolin
+          ? "Professional In-person Violin Lessons tailored to every skill level — Amateur to Pro!"
+          : `Personalised In-person ${c.name} Lessons tailored to every skill level — Amateur to Pro!`,
+        heroImage: courseImages[c.slug] || "/new_imgs/Copy of DSC00403.webp",
+        features: isViolin ? [
+          { icon: "🎯", title: "In-person Classes", description: "Personalized attention at our academy centers with dedicated instructors for maximum progress." },
+          { icon: "🕐", title: "60 Min Class", description: "Focused sessions designed to balance technique and repertoire." },
+          { icon: "🏫", title: "Academy Learning", description: "Learn at our specialized academy centers with hands-on guidance." },
+          { icon: "📜", title: "Course Certificate", description: "Get recognized for your milestones with certified course completion." },
+          { icon: "📊", title: "Quarterly Feedback", description: "Detailed assessment of your progress every quarter." },
+          { icon: "📅", title: "24 Sessions", description: "A comprehensive roadmap of ~24 sessions per module." },
+        ] : [
+          { icon: "🎓", title: "Expert Teachers", description: `Finding the right teacher is paramount when learning ${c.name}. At Muziclub, we have a faculty of trained music experts personally handpicked to deliver the best music learning experience.` },
+          { icon: "🎤", title: "From Student to Performer", description: "Every student who enrolls with us gets to perform in front of a virtual audience at Muziclub Performances, followed by a LIVE audience at our Sunday Jam sessions." },
+          { icon: "⭐", title: "Course For All", description: `Our In-person ${c.name} classes cover all aspects of learning. It aims to build on your expression and on-stage confidence — ideal for music aspirants at all levels, beginner to pro.` },
+        ],
+        levels: isViolin ? violinLevels : ["Preparatory", "Intermediate", "Proficient", "Advanced"],
+        pricing: isViolin ? violinPricing : generatePricing(c.name),
+        curriculum: curriculumData[c.slug],
+        hidePricing: isViolin,
+        durationPerModule: isViolin ? "6 months" : undefined,
+        facultyHead: {
+          name: "Muziclub Academic Board",
+          title: `Muziclub Faculty Head — In-person ${c.name} Course`,
+          image: "/instructor/Neelima-Hindustani_Vocals.webp",
+          bio: `The Muziclub Academic Board has designed and certified our ${c.name} course. Backed by years of collective experience, our board has carefully curated the ${c.name} curriculum at Muziclub to ensure our students receive the best music education. Under expert guidance, our students receive world-class ${c.name} training that reflects creativity and technical excellence.`,
+        },
+        faqItems: [
+          { question: `What is the duration of the ${c.name} course?`, answer: isViolin ? "Each module in the Violin course duration is 6 months, comprising ~24 sessions." : "The course duration depends on the level you choose. Classes follow content structured as Preparatory, Intermediate, Proficient and Advanced levels." },
+          { question: "How large are group classes?", answer: "For group classes, the number of participants is strictly limited to 3 to maintain session effectiveness and give you personalized focus." },
+          { question: "Do you offer Grade examinations?", answer: "Yes! Grade Classes follow the level structure from internationally recognized boards like Trinity, ABRSM, and Rockschool (RSL)." },
+          { question: "Are classes customized to my taste?", answer: "Absolutely. Our Hobby Classes are customized based on individual preferences to help you play the music you love." },
+          { question: "Can I perform live as a student?", answer: "Yes! Our motto 'live music' drives us. We arrange regular Sunday Jams where all students have the opportunity to perform live on stage." },
+          { question: "How are the classes conducted?", answer: "Classes are conducted In-person at our physical academy centres (Baner, Pimple Saudagar, Hinjawadi)." },
+          { question: "What if I miss a class?", answer: "We understand that schedules can be unpredictable. You can easily reschedule your lessons at your convenience." },
+          { question: `Do I need any prior experience to learn ${c.name}?`, answer: "Not at all! Our Preparatory level is designed for absolute beginners with zero prior experience." },
+          { question: "What is the fee structure?", answer: isViolin ? "Please contact us for more information about the Violin course fees and enrollment options." : "Our fees start at INR 800/class for the Preparatory level. Higher levels offer bulk discounts of 5-10%." },
+          { question: "Can I get a free trial before enrolling?", answer: "Absolutely! We encourage all students to book a FREE trial class before enrolling." },
+        ],
+      };
+    })
   );
 
 export function getCourseBySlug(slug: string): Course | undefined {

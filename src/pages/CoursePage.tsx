@@ -113,16 +113,18 @@ const CoursePage = () => {
                         <span className="text-xs text-muted-foreground font-medium">{tier.label}</span>
                       )}
                       <p className="font-extrabold text-foreground text-lg">{tier.name}</p>
-                      {tier.discount && (
+                      {!course.hidePricing && tier.discount && (
                         <span className="text-xs font-bold text-primary">{tier.discount}</span>
                       )}
                     </div>
-                    <div className="text-right">
-                      {tier.originalPrice && (
-                        <p className="text-sm text-muted-foreground line-through">INR {tier.originalPrice}</p>
-                      )}
-                      <p className="font-bold text-foreground">INR {tier.pricePerClass}/class</p>
-                    </div>
+                    {!course.hidePricing && (
+                      <div className="text-right">
+                        {tier.originalPrice && (
+                          <p className="text-sm text-muted-foreground line-through">INR {tier.originalPrice}</p>
+                        )}
+                        <p className="font-bold text-foreground">INR {tier.pricePerClass}/class</p>
+                      </div>
+                    )}
                   </div>
                   {/* Arrow indicator for selected */}
                   {selectedLevel === i && (
@@ -142,13 +144,26 @@ const CoursePage = () => {
               </p>
 
               {/* Price display */}
-              <div className="flex items-baseline gap-3 mb-6">
-                <span className="text-sm text-muted-foreground">Price</span>
-                <span className="text-2xl font-extrabold text-primary">
-                  INR {currentPricing.pricePerClass * currentPricing.totalClasses}
-                </span>
-                <span className="text-muted-foreground text-sm">/ {currentPricing.totalClasses} classes</span>
-              </div>
+              {!course.hidePricing && (
+                <div className="flex items-baseline gap-3 mb-6">
+                  <span className="text-sm text-muted-foreground">Price</span>
+                  <span className="text-2xl font-extrabold text-primary">
+                    INR {currentPricing.pricePerClass * currentPricing.totalClasses}
+                  </span>
+                  <span className="text-muted-foreground text-sm">/ {currentPricing.totalClasses} classes</span>
+                </div>
+              )}
+
+              {/* Duration display for courses like Violin */}
+              {course.durationPerModule && (
+                <div className="flex items-baseline gap-3 mb-6">
+                  <span className="text-sm text-muted-foreground">Duration</span>
+                  <span className="text-xl font-extrabold text-primary">
+                    {course.durationPerModule}
+                  </span>
+                  <span className="text-muted-foreground text-sm">/ {currentPricing.totalClasses} sessions</span>
+                </div>
+              )}
 
               {/* CTA buttons */}
               <div className="flex flex-wrap gap-3 mb-8">
@@ -162,7 +177,7 @@ const CoursePage = () => {
                   to="/contact"
                   className="inline-flex items-center justify-center px-8 py-3 rounded-full border-2 border-foreground/20 text-foreground font-semibold text-sm hover:bg-secondary transition-colors"
                 >
-                  Buy Now
+                  {course.hidePricing ? "Enquire Now" : "Buy Now"}
                 </Link>
               </div>
 
@@ -179,12 +194,19 @@ const CoursePage = () => {
 
               {/* Feature badges */}
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {[
-                  { icon: Video, label: "1 on 1 Personal teacher" },
+                {(course.slug === "violin" ? [
+                  { icon: Video, label: "In-person Classes" },
+                  { icon: Clock, label: "60 Min Sessions" },
+                  { icon: Award, label: "Course Certificate" },
+                  { icon: MessageCircle, label: "Quarterly Feedback" },
+                  { icon: Star, label: "Live Masterclass" },
+                  { icon: Check, label: "24 Sessions" },
+                ] : [
+                  { icon: Video, label: "In-person learning" },
                   { icon: Star, label: "Live Masterclass" },
                   { icon: Award, label: "Course Certificate" },
                   { icon: Clock, label: "60 Mins Classes" },
-                ].map((badge, i) => (
+                ]).map((badge, i) => (
                   <div key={i} className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
                       <badge.icon className="w-5 h-5 text-primary" />
@@ -208,7 +230,7 @@ const CoursePage = () => {
             {[
               { step: "Step 1", text: `The first step in your ${course.name} learning journey at Muziclub begins when you register and Book A FREE trial class.` },
               { step: "Step 2", text: "Our academic expert will gauge your skills and expertise in your FREE trial class and recommend an appropriate course level to ensure a smooth learning experience." },
-              { step: "Step 3", text: `The last step is to enrol in the course recommended by our academic expert and begin to learn ${course.name} under the guidance of our experienced teachers.` },
+              { step: "Step 3", text: `The last step is to enroll in the course recommended by our academic expert and begin to learn ${course.name} under the guidance of our experienced teachers.` },
             ].map((s, i) => (
               <div key={i} className="flex flex-1">
                 <div className="flex-1 p-6 md:p-8">

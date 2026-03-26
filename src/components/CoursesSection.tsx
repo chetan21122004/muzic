@@ -6,7 +6,7 @@ const courses = [
   { img: "/new_imgs/Copy of DSC00711 (1).webp", title: "Guitar", desc: "Acoustic & electric guitar classes — from Bollywood strumming to Rock & Pop. RSL & Trinity certifications available.", slug: "guitar-acoustic" },
   { img: "/new_imgs/Copy of DSC00504.webp", title: "Piano / Keyboard", desc: "From Western Classical to Pop songs. Expert teachers guide you to international certifications.", slug: "piano" },
   { img: "/new_imgs/DSC01210 (1).webp", title: "Bollywood Vocals", desc: "Sing your favourite Hindi film songs while developing professional vocal technique and stage confidence.", slug: "popular-film-music-hindi" },
-  { img: "/instructor/Neelima-Hindustani_Vocals.webp", title: "Indian Classical Vocals", desc: "Master Hindustani and Carnatic classical traditions with qualified and experienced music gurus.", slug: "hindustani-classical-vocal" },
+  { img: "/instructor/Neelima-Hindustani_Vocals.webp", title: "Indian Classical Vocals", desc: "Master Hindustani classical traditions with qualified and experienced music gurus.", slug: "hindustani-classical-vocal" },
   { img: "/new_imgs/Copy of DSC00456 (1).webp", title: "Drums", desc: "Learn rhythm and groove from qualified drum instructors. Perform live at our weekly Sunday Jam sessions.", slug: "drums" },
   { img: "/new_imgs/DSC00762 (1).webp", title: "Western Vocals", desc: "Explore Western classical singing, pop, and stage performance skills for any audience.", slug: "western-vocal" },
 ];

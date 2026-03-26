@@ -9,7 +9,7 @@ import stepPerform from "@/assets/step-perform.png";
 const steps = [
   { icon: CalendarCheck, image: stepBookTrial, step: "01", label: "Book A Free Trial", title: "Select your favourite course and book a free trial class at your convenient time" },
   { icon: Headphones, image: stepTryClass, step: "02", label: "Try Before You Buy", title: "Get personalised guidance from our Academic Expert in the free trial class" },
-  { icon: CreditCard, image: stepPayEnrol, step: "03", label: "Pay and Enrol", title: "Begin your 1:1 live and customised learning sessions with Muziclub Certified Teachers" },
+  { icon: CreditCard, image: stepPayEnrol, step: "03", label: "Pay and Enroll", title: "Begin your In-person and customised learning sessions with Muziclub Certified Teachers" },
   { icon: Sparkles, image: stepPerform, step: "04", label: "Learn, Practice & Perform", title: "Get Exclusive Access to Live Masterclasses, Sunday Jams and Digital Learning Tools" },
 ];
 

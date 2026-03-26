@@ -6,8 +6,8 @@ import Footer from "@/components/Footer";
 
 const centres = [
   { name: "Baner (Head Office)", address: "Office 11 & 12, Aditi Commerce, Baner Road, Pune, 411069", landmark: "Above Bikaner Sweets", phone: "+91 9156303400", email: "enquiries@muziclub.com", hours: "Mon – Sat: 9 AM – 9 PM", mapUrl: "https://maps.google.com/?q=Aditi+Commerce+Baner+Road+Pune+411069", badge: "🏢 Head Office" },
-  { name: "Pimple Saudagar (Flagship)", address: "2nd Floor, Radhika Avenue, Near Jagtap Dairy, Pune, 411027", landmark: "Near Savitribai Phule Park", phone: "+91 9156303400", email: "enquiries@muziclub.com", hours: "Mon – Sat: 10 AM – 8 PM", mapUrl: "#", badge: "⭐ Flagship Academy" },
-  { name: "Wakad West (Flagship)", address: "Spirea, S. 91/4, Bhumkar Das Gugre Rd, Wakad, Maharashtra 411033", landmark: "Near Wakad", phone: "+91 9156303400", email: "enquiries@muziclub.com", hours: "Mon – Sat: 9 AM – 9 PM", mapUrl: "#", badge: "⭐ Flagship Academy" },
+  { name: "Pimple Saudagar (Flagship)", address: "2nd Floor, Radhika Avenue, Near Jagtap Dairy, Pune, 411027", landmark: "Near Savitribai Phule Park", phone: "+91 77699 87599", altPhone: "+91 75070 02008", email: "mzps1319@gmail.com", hours: "Mon – Sat: 10 AM – 8 PM", mapUrl: "#", badge: "⭐ Flagship Academy" },
+  { name: "Wakad Office (Flagship)", address: "Spirea, S. 91/4, Bhumkar Das Gugre Rd, Wakad, Maharashtra 411033", landmark: "Near Wakad", phone: "+91 80805 87033", altPhone: "+91 75078 10055", email: "mzspirea@gmail.com", hours: "Mon – Sat: 9 AM – 9 PM", mapUrl: "#", badge: "⭐ Flagship Academy" },
   { name: "Croydon, UK", address: "Croydon, London, United Kingdom", landmark: "UK Coordination Centre", phone: "+44 7768928645", email: "online@muziclub.com", hours: "Mon – Sat: 10 AM – 8 PM (IST Online)", mapUrl: "#", badge: "🇬🇧 UK Centre" },
 ];
 
@@ -44,7 +44,7 @@ const ContactUs = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-primary-foreground text-sm">
             <a href="tel:+919156303400" className="flex items-center gap-2 hover:opacity-80 transition-opacity"><Phone className="w-4 h-4" /><span>+91 9156303400</span></a>
             <span className="hidden sm:block opacity-40">|</span>
-            <a href="mailto:info@muziclub.com" className="flex items-center gap-2 hover:opacity-80 transition-opacity"><Mail className="w-4 h-4" /><span>info@muziclub.com</span></a>
+            <a href="mailto:enquiries@muziclub.com" className="flex items-center gap-2 hover:opacity-80 transition-opacity"><Mail className="w-4 h-4" /><span>enquiries@muziclub.com</span></a>
             <span className="hidden sm:block opacity-40">|</span>
             <a href="tel:+447768928645" className="flex items-center gap-2 hover:opacity-80 transition-opacity"><Phone className="w-4 h-4" /><span>+44 7768928645 (UK)</span></a>
           </div>
@@ -130,7 +130,17 @@ const ContactUs = () => {
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <div className="flex items-center gap-3"><Phone className="w-4 h-4 text-primary shrink-0" /><a href={`tel:${c.phone}`} className="text-sm text-muted-foreground hover:text-primary transition-colors">{c.phone}</a></div>
+                  <div className="flex flex-col gap-1">
+                    <div className="flex items-center gap-3">
+                      <Phone className="w-4 h-4 text-primary shrink-0" />
+                      <a href={`tel:${c.phone.replace(/\s/g, "")}`} className="text-sm text-muted-foreground hover:text-primary transition-colors">{c.phone}</a>
+                    </div>
+                    {c.altPhone && (
+                      <div className="flex items-center gap-3 ml-7">
+                        <a href={`tel:${c.altPhone.replace(/\s/g, "")}`} className="text-sm text-muted-foreground hover:text-primary transition-colors">{c.altPhone}</a>
+                      </div>
+                    )}
+                  </div>
                   <div className="flex items-center gap-3"><Mail className="w-4 h-4 text-primary shrink-0" /><a href={`mailto:${c.email}`} className="text-sm text-muted-foreground hover:text-primary transition-colors">{c.email}</a></div>
                   <div className="flex items-center gap-3"><Clock className="w-4 h-4 text-primary shrink-0" /><span className="text-sm text-muted-foreground">{c.hours}</span></div>
                 </div>

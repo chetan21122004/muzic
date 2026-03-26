@@ -8,7 +8,7 @@ import advProgress from "@/assets/adv-progress.png";
 
 const advantages = [
   { image: advCurriculum, title: "Performance based curriculum designed by music maestros" },
-  { image: advLiveClass, title: "1:1 Live Classes in vocals and instruments by certified music teachers" },
+  { image: advLiveClass, title: "In-person classes in vocals and instruments by certified music teachers" },
   { image: advMasterclass, title: "Exclusive Live masterclasses by industry legends" },
   { image: advPractice, title: "Practice facilities at all 3 Pune academy centres" },
   { image: advPerform, title: "Sunday Jam! Every student gets to perform for an audience" },
