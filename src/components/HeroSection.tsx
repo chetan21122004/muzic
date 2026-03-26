@@ -9,7 +9,7 @@ const slides = [
     bullets: [
       "Building the gold standard in music education",
       "Making learning fun & accessible to all ages",
-      "Online & In-Person Classes Available"
+      "In-person classes at our award-winning academies"
     ],
     cta1: { label: "Explore courses", to: "/online-programs" },
     cta2: { label: "Walk-in Free Trial", to: "/contact" },
@@ -21,7 +21,7 @@ const slides = [
     bullets: [
       "Expertly crafted curriculums",
       "Aligned with globally recognised exams — Trinity, ABRSM",
-      "Online & In-Person Classes Available"
+      "In-person classes at our award-winning academies"
     ],
     cta1: { label: "Explore courses", to: "/online-programs" },
     cta2: { label: "Walk-in Free Trial", to: "/contact" },
@@ -44,7 +44,7 @@ const slides = [
     bullets: [
       "Join thousands of students and mentors",
       "Exclusive access to masterclasses and workshops",
-      "Online & In-Person Classes Available"
+      "In-person classes at our award-winning academies"
     ],
     cta1: { label: "Explore activities", to: "/about" },
     cta2: { label: "Walk-in Free Trial", to: "/contact" },
@@ -88,6 +88,8 @@ const HeroSection = () => {
           <img
             src={s.bannerImg}
             alt={s.title}
+            loading={i === 0 ? "eager" : "lazy"}
+            decoding="async"
             className="w-full h-full object-cover object-right lg:object-[70%_center] filter brightness-[0.85]"
           />
         </div>
@@ -146,6 +148,8 @@ const HeroSection = () => {
             <img
               src={slide.sideImg}
               alt="Muziclub Highlight"
+              loading="lazy"
+              decoding="async"
               className="w-full h-auto object-contain drop-shadow-2xl transition-transform duration-700 group-hover:scale-110 group-hover:-translate-y-3"
             />
           </div>

@@ -4,8 +4,8 @@ import Footer from "@/components/Footer";
 import { Check } from "lucide-react";
 
 const plans = [
-  { title: "Hobby Classes", emoji: "🎸", tagline: "Learn music for passion", highlight: false, points: ["Customized to your preferences & goals", "Play the songs and styles you love", "Bollywood / Rock / Jazz / Pop — your choice", "Flexible pace, no exam pressure", "1-on-1 online via video call", "Or walk into any Pune academy centre"], cta: "Book Free Trial", note: "Contact us for pricing" },
-  { title: "Grade Classes", emoji: "⭐", tagline: "Structured & internationally certified", highlight: true, points: ["Syllabus from Trinity, ABRSM, RSL or GMV Mandal", "Clear level progression — Beginner to Advanced", "Exam prep & technique coaching", "Internationally recognised certificate on passing", "Group classes capped at 3 students max", "1-on-1 option available on request"], cta: "Book Free Trial", note: "Contact us for pricing" },
+  { title: "Hobby Classes", emoji: "🎸", tagline: "Learn music for passion", highlight: false, points: ["Customized to your preferences & goals", "Play the songs and styles you love", "Bollywood / Rock / Jazz / Pop — your choice", "Flexible pace, no exam pressure", "Personalized in-person learning sessions", "Walk into any of our award-winning Pune academies"], cta: "Book Free Trial", note: "Contact us for pricing" },
+  { title: "Grade Classes", emoji: "⭐", tagline: "Structured & internationally certified", highlight: true, points: ["Syllabus from Trinity, ABRSM, RSL or GMV Mandal", "Clear level progression — Beginner to Advanced", "Exam prep & technique coaching", "Internationally recognised certificate on passing", "Small group classes capped at 3 students max", "In-person one-on-one option available on request"], cta: "Book Free Trial", note: "Contact us for pricing" },
 ];
 
 const certs = [
@@ -16,9 +16,9 @@ const certs = [
 ];
 
 const faqs = [
-  { q: "How does the free trial class work?", a: "Book a free 1-on-1 class with one of our expert teachers. No commitment — you see if we're a good fit before enrolling." },
-  { q: "Are classes online or in-person?", a: "Both! You can attend 1-on-1 live video classes from anywhere, or visit any of our 3 Pune academy centres." },
-  { q: "How many students per class?", a: "Hobby classes are 1-on-1. Group classes are capped at a maximum of 3 students." },
+  { q: "How does the free trial class work?", a: "Book a free in-person trial class with one of our expert teachers. No commitment — you see if we're a good fit before enrolling." },
+  { q: "Are classes online or in-person?", a: "We prioritize in-person learning for the best musical results. You can visit any of our 3 Pune academy centres, or inquire about our coordination for other locations." },
+  { q: "How many students per class?", a: "Hobby classes are primarily one-on-one. Group classes are capped at a maximum of 3 students for focused attention." },
   { q: "Can I switch between Hobby and Grade classes?", a: "Yes — our teachers will advise you and you can switch based on your progress and goals." },
 ];
 

@@ -10,12 +10,11 @@ interface CountUpProps {
 }
 
 export const CountUp = ({ end, duration = 2, suffix = "", decimals = 0, className = "" }: CountUpProps) => {
-  const [count, setCount] = useState(0);
-  const ref = useRef(null);
+  const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   useEffect(() => {
-    if (isInView) {
+    if (isInView && ref.current) {
       let startTimestamp: number;
       const step = (timestamp: number) => {
         if (!startTimestamp) startTimestamp = timestamp;
@@ -23,27 +22,27 @@ export const CountUp = ({ end, duration = 2, suffix = "", decimals = 0, classNam
         
         // easeOutQuart
         const easeProgress = 1 - Math.pow(1 - progress, 4);
+        const currentCount = easeProgress * end;
         
-        setCount(easeProgress * end);
+        if (ref.current) {
+          ref.current.innerText = currentCount.toLocaleString(undefined, {
+            minimumFractionDigits: decimals,
+            maximumFractionDigits: decimals,
+          }) + suffix;
+        }
         
         if (progress < 1) {
           window.requestAnimationFrame(step);
-        } else {
-          setCount(end);
         }
       };
       window.requestAnimationFrame(step);
     }
-  }, [isInView, end, duration]);
-
-  const formattedCount = count.toLocaleString(undefined, {
-    minimumFractionDigits: decimals,
-    maximumFractionDigits: decimals,
-  });
+  }, [isInView, end, duration, decimals, suffix]);
 
   return (
     <span ref={ref} className={className}>
-      {formattedCount}{suffix}
+      {/* Initial value before animation starts */}
+      0{suffix}
     </span>
   );
 };

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Phone, Mail, MapPin, Clock, Linkedin, Facebook, Twitter, Youtube, Instagram, Send } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Linkedin, Facebook, Youtube, Instagram, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -21,7 +21,9 @@ const ContactUs = () => {
       <Navbar />
 
       {/* Hero */}
-      <section className="relative py-16 border-b border-border bg-cover bg-center overflow-hidden" style={{ backgroundImage: "url('/visuals/8.png')" }}>
+      <section className="relative py-6 border-b border-border overflow-hidden">
+        {/* Optimized background image */}
+        <img src="/visuals/8.png" alt="Contact background" loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-secondary/95 z-0"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-10">
@@ -32,7 +34,7 @@ const ContactUs = () => {
             </div>
             <div className="flex-1 flex justify-center w-full max-w-sm relative">
               <div className="absolute inset-0 bg-primary/10 rounded-full blur-3xl animate-pulse -z-10 w-64 h-64 m-auto"></div>
-              <img src="/illustrations/Contact us-amico.svg" alt="Contact Muziclub" className="w-full h-auto max-h-[250px] object-contain drop-shadow-md hover:-translate-y-2 hover:scale-105 transition-transform duration-500" />
+              <img src="/illustrations/Contact us-amico.svg" alt="Contact Muziclub" loading="lazy" decoding="async" className="w-full h-auto max-h-[250px] object-contain drop-shadow-md hover:-translate-y-2 hover:scale-105 transition-transform duration-500" />
             </div>
           </div>
         </div>
@@ -51,7 +53,7 @@ const ContactUs = () => {
         </div>
       </section>
 
-      <div className="container mx-auto px-4 py-14 grid lg:grid-cols-5 gap-12">
+      <div className="container mx-auto px-4 py-4 grid lg:grid-cols-5 gap-12">
         {/* Form */}
         <div className="lg:col-span-2">
           <h2 className="text-2xl font-extrabold text-foreground mb-2">Send Us a Message</h2>
@@ -97,7 +99,6 @@ const ContactUs = () => {
               {[
                 { Icon: Linkedin, href: "https://www.linkedin.com/company/muziclub", label: "LinkedIn" },
                 { Icon: Facebook, href: "https://www.facebook.com/themuziclub", label: "Facebook" },
-                { Icon: Twitter, href: "https://twitter.com/muziclub", label: "Twitter" },
                 { Icon: Instagram, href: "https://www.instagram.com/muziclub", label: "Instagram" },
                 { Icon: Youtube, href: "https://www.youtube.com/@themuziclub", label: "YouTube" },
               ].map(({ Icon, href, label }) => (

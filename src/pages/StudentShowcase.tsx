@@ -19,13 +19,17 @@ const StudentShowcase = () => {
   const [activeCategory, setActiveCategory] = useState<ShowcaseCategory>("All");
   const [selected, setSelected] = useState<(typeof showcaseStudents)[0] | null>(null);
   const [videoPlaying, setVideoPlaying] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(20);
 
   const filtered = activeCategory === "All" ? showcaseStudents : showcaseStudents.filter((s) => s.category === activeCategory);
+  const displayed = filtered.slice(0, visibleCount);
+  const hasMore = visibleCount < filtered.length;
+
   const openModal = (student: (typeof showcaseStudents)[0]) => { setSelected(student); setVideoPlaying(false); };
   const closeModal = () => { setSelected(null); setVideoPlaying(false); };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background text-foreground">
       <Navbar />
 
       {/* Hero */}
@@ -38,14 +42,14 @@ const StudentShowcase = () => {
               <h1 className="text-4xl md:text-6xl font-extrabold text-foreground mb-5 leading-tight">Student <span className="text-primary">Performances</span></h1>
               <p className="text-muted-foreground max-w-2xl mx-auto md:mx-0 text-base leading-relaxed">Our students don't just learn music — they live it. Watch real performances from Sunday Jams, live events, and personal cover videos.</p>
               <div className="mt-8 flex flex-wrap justify-center md:justify-start gap-2 text-sm text-muted-foreground">
-                <span className="bg-background border border-border rounded-full px-3 py-1 shadow-sm">🎓 {showcaseStudents.filter(s => !["Band Performance", "Faculty Band"].includes(s.category)).length} Students</span>
-                <span className="bg-background border border-border rounded-full px-3 py-1 shadow-sm">▶ {showcaseStudents.filter(s => s.youtubeId).length} Videos</span>
-                <span className="bg-background border border-border rounded-full px-3 py-1 shadow-sm">🎶 {showcaseStudents.filter(s => s.category === "Band Performance").length} Bands</span>
+                <span className="bg-background border border-border rounded-full px-3 py-1 shadow-sm font-medium">🎓 {showcaseStudents.filter(s => !["Band Performance", "Faculty Band"].includes(s.category)).length} Students</span>
+                <span className="bg-background border border-border rounded-full px-3 py-1 shadow-sm font-medium">▶ {showcaseStudents.filter(s => s.youtubeId).length} Videos</span>
+                <span className="bg-background border border-border rounded-full px-3 py-1 shadow-sm font-medium">🎶 {showcaseStudents.filter(s => s.category === "Band Performance").length} Bands</span>
               </div>
             </div>
             <div className="flex-1 flex justify-center w-full max-w-[320px] relative">
               <div className="absolute inset-0 bg-primary/20 rounded-full blur-[100px] -z-10 animate-pulse"></div>
-              <img src="/illustrations/Mic drop-rafiki.svg" alt="Sunday Jams Performance" className="w-full h-auto object-contain drop-shadow-xl hover:scale-105 transition-transform duration-500 hover:-translate-y-2" />
+              <img src="/illustrations/Mic drop-rafiki.svg" alt="Sunday Jams Performance" loading="lazy" decoding="async" className="w-full h-auto object-contain drop-shadow-xl hover:scale-105 transition-transform duration-500 hover:-translate-y-2" />
             </div>
           </div>
         </div>
@@ -73,7 +77,13 @@ const StudentShowcase = () => {
         <div className="container mx-auto px-4">
           <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
             {showcaseCategories.map((cat) => (
-              <button key={cat} onClick={() => setActiveCategory(cat as ShowcaseCategory)} className={`shrink-0 px-4 py-1.5 rounded-full text-sm font-semibold transition-all duration-200 border ${activeCategory === cat ? "bg-primary border-primary text-primary-foreground shadow-lg shadow-primary/30" : "border-border text-muted-foreground hover:border-primary/30 hover:text-primary"}`}>{cat}</button>
+              <button 
+                key={cat} 
+                onClick={() => { setActiveCategory(cat as ShowcaseCategory); setVisibleCount(20); }} 
+                className={`shrink-0 px-4 py-1.5 rounded-full text-sm font-semibold transition-all duration-200 border ${activeCategory === cat ? "bg-primary border-primary text-primary-foreground shadow-lg shadow-primary/30" : "border-border text-muted-foreground hover:border-primary/30 hover:text-primary"}`}
+              >
+                {cat}
+              </button>
             ))}
           </div>
         </div>
@@ -83,12 +93,12 @@ const StudentShowcase = () => {
       <section className="py-6 lg:py-14 bg-background">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 lg:gap-5">
-            {filtered.map((student) => (
+            {displayed.map((student) => (
               <button key={student.id} onClick={() => openModal(student)} className="group border border-border lg:border-border/80 rounded-[1.25rem] lg:rounded-2xl overflow-hidden hover:border-primary/40 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 text-left bg-background flex flex-row lg:flex-col items-stretch h-32 sm:h-36 lg:h-auto">
                 <div className="relative w-[40%] sm:w-[45%] lg:w-full h-full lg:h-auto lg:aspect-video shrink-0 bg-secondary overflow-hidden border-r lg:border-r-0 border-border/50 lg:border-transparent">
                   {student.youtubeId ? (
                     <>
-                      <img src={ytThumb(student.youtubeId)} alt={student.name} className="absolute lg:static inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                      <img src={ytThumb(student.youtubeId)} alt={student.name} loading="lazy" decoding="async" className="absolute lg:static inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                       <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-300" />
                       <div className="absolute inset-0 flex items-center justify-center">
                         <div className="w-8 h-8 lg:w-12 lg:h-12 rounded-full bg-primary/90 flex items-center justify-center shadow-lg shadow-primary/50 group-hover:scale-110 transition-transform duration-200">
@@ -106,7 +116,7 @@ const StudentShowcase = () => {
                 <div className="p-3 lg:p-4 flex flex-col flex-1 justify-center lg:justify-start overflow-hidden">
                   <p className="font-extrabold text-foreground text-[14px] lg:text-sm leading-snug line-clamp-1 lg:line-clamp-none">{student.name}</p>
                   <p className="text-[11px] lg:text-xs font-semibold mt-0.5 text-primary">{student.instrument}</p>
-                  {student.teacher && <p className="text-[10px] lg:text-[11px] text-muted-foreground mt-0.5 lg:mt-1 truncate">👨🏫 {student.teacher}</p>}
+                  {student.teacher && <p className="text-[10px] lg:text-[11px] text-muted-foreground mt-0.5 lg:mt-1 truncate">👨‍🏫 {student.teacher}</p>}
                   <p className="text-[11px] lg:text-xs text-muted-foreground mt-1.5 lg:mt-2 leading-snug lg:leading-relaxed line-clamp-2">{student.tagline}</p>
                   {student.song && (
                     <div className="mt-1.5 lg:mt-2 flex items-center gap-1.5 text-[9px] lg:text-[10px] text-muted-foreground/60 shrink-0 overflow-hidden">
@@ -117,6 +127,18 @@ const StudentShowcase = () => {
               </button>
             ))}
           </div>
+          
+          {hasMore && (
+            <div className="mt-12 text-center">
+              <button 
+                onClick={() => setVisibleCount(prev => prev + 20)}
+                className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-secondary border border-border text-foreground font-bold hover:bg-border transition-all shadow-sm"
+              >
+                Load More Performances
+              </button>
+            </div>
+          )}
+
           {filtered.length === 0 && <p className="text-center text-muted-foreground py-20 text-[13px] lg:text-sm">No showcases in this category yet.</p>}
         </div>
       </section>
