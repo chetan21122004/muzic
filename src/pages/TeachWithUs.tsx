@@ -16,7 +16,26 @@ const benefits = [
 const TeachWithUs = () => {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", instrument: "", experience: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
-  const handleSubmit = (e: React.FormEvent) => { e.preventDefault(); setSubmitted(true); };
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const subject = encodeURIComponent("New Enquiry - Teach With Us");
+    const body = encodeURIComponent(
+      [
+        `Name: ${formData.name}`,
+        `Email: ${formData.email}`,
+        `Phone: ${formData.phone}`,
+        `Specialization: ${formData.instrument}`,
+        `Experience: ${formData.experience}`,
+        "",
+        "About candidate:",
+        formData.message,
+      ].join("\n")
+    );
+
+    window.location.href = `mailto:enquiries@muziclub.com?subject=${subject}&body=${body}`;
+    setSubmitted(true);
+  };
 
   return (
     <div className="min-h-screen bg-background font-secondary">
@@ -94,8 +113,8 @@ const TeachWithUs = () => {
             {submitted ? (
               <div className="rounded-[2rem] p-12 text-center border border-white/10 bg-black/40 backdrop-blur-xl">
                 <div className="text-6xl mb-6">🎉</div>
-                <h3 className="text-2xl font-extrabold text-white mb-3">Application Received!</h3>
-                <p className="text-white/60 text-base">Thank you! Our team will be in touch very soon.</p>
+                <h3 className="text-2xl font-extrabold text-white mb-3">Email draft opened</h3>
+                <p className="text-white/70 text-base">Your mail app should open with application details prefilled.</p>
                 <button onClick={() => setSubmitted(false)} className="mt-8 text-[#e31837] text-sm font-bold hover:text-[#ff2a40] transition-colors uppercase tracking-wider">Submit another application</button>
               </div>
             ) : (

@@ -124,7 +124,6 @@ const Footer = () => {
               {[
                 { Icon: Instagram, href: "https://instagram.com/muziclub", label: "Instagram" },
                 { Icon: Facebook, href: "https://facebook.com/themuziclub", label: "Facebook" },
-                { Icon: Linkedin, href: "https://linkedin.com/company/muziclub", label: "LinkedIn" },
               ].map(({ Icon, href, label }) => (
                 <a key={label} href={href} target="_blank" rel="noreferrer" title={label} className="w-9 h-9 rounded-xl border border-white/10 flex items-center justify-center text-white/80 hover:text-white hover:border-primary/40 hover:bg-primary/10 transition-all">
                   <Icon className="w-4 h-4" />
@@ -159,7 +158,7 @@ const Footer = () => {
         {/* ── Bottom Bar ── */}
         <div className="py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-white/70 font-medium tracking-wide">
-            © {new Date().getFullYear()} Muziclub. All rights reserved. Let the music play.
+            © {new Date().getFullYear()} COSIO. All rights reserved. Let the music play.
           </p>
           <div className="flex items-center gap-5 text-xs text-white/70">
             <Link to="/about" className="hover:text-white transition-colors">Privacy Policy</Link>

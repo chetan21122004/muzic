@@ -14,7 +14,24 @@ const centres = [
 const ContactUs = () => {
   const [formData, setFormData] = useState({ firstName: "", lastName: "", email: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
-  const handleSubmit = (e: React.FormEvent) => { e.preventDefault(); setSubmitted(true); };
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const fullName = `${formData.firstName} ${formData.lastName}`.trim();
+    const subject = encodeURIComponent("New Enquiry - Contact Us");
+    const body = encodeURIComponent(
+      [
+        `Name: ${fullName}`,
+        `Email: ${formData.email}`,
+        "",
+        "Message:",
+        formData.message,
+      ].join("\n")
+    );
+
+    window.location.href = `mailto:enquiries@muziclub.com?subject=${subject}&body=${body}`;
+    setSubmitted(true);
+  };
 
   return (
     <div className="min-h-screen bg-background font-secondary">
@@ -62,8 +79,8 @@ const ContactUs = () => {
           {submitted ? (
             <div className="border border-border rounded-2xl p-8 text-center space-y-3 bg-secondary">
               <div className="text-4xl">🎉</div>
-              <h3 className="text-foreground font-extrabold text-lg">Message sent!</h3>
-              <p className="text-muted-foreground text-sm">We'll get back to you very soon.</p>
+              <h3 className="text-foreground font-extrabold text-lg">Email draft opened</h3>
+              <p className="text-muted-foreground text-sm">Your mail app should open with details prefilled.</p>
               <button onClick={() => setSubmitted(false)} className="text-primary text-sm font-semibold hover:underline">Send another message</button>
             </div>
           ) : (

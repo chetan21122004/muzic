@@ -99,6 +99,27 @@ const testimonials = [
 
 const OfflineClass = () => {
   const [learnTab, setLearnTab] = useState<"vocals" | "instruments">("vocals");
+  const handleBookingSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const data = new FormData(e.currentTarget);
+    const subject = encodeURIComponent("New Enquiry - Offline Class Visit");
+    const body = encodeURIComponent(
+      [
+        `Learning preference: ${data.get("type") || ""}`,
+        `Visit timeline: ${data.get("visitPlan") || ""}`,
+        `Full name: ${data.get("fullName") || ""}`,
+        `Learner age: ${data.get("age") || ""}`,
+        `Student gender: ${data.get("gender") || ""}`,
+        `Email: ${data.get("email") || ""}`,
+        `Phone: ${data.get("phone") || ""}`,
+        `Course: ${data.get("course") || ""}`,
+        `Nearest centre: ${data.get("centre") || ""}`,
+      ].join("\n")
+    );
+
+    window.location.href = `mailto:enquiries@muziclub.com?subject=${subject}&body=${body}`;
+  };
 
   return (
     <div className="min-h-screen bg-background font-secondary">
@@ -135,7 +156,7 @@ const OfflineClass = () => {
               <span className="text-primary">FREE Demo Class!</span>
             </h3>
 
-            <form className="mt-5 space-y-4" onSubmit={(e) => e.preventDefault()}>
+            <form className="mt-5 space-y-4" onSubmit={handleBookingSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="text-xs font-medium text-muted-foreground mb-1 block">
@@ -143,11 +164,11 @@ const OfflineClass = () => {
                   </label>
                   <div className="flex gap-3">
                     <label className="flex items-center gap-1.5 text-sm text-foreground">
-                      <input type="radio" name="type" defaultChecked className="accent-primary" />
+                      <input type="radio" name="type" value="Instrument" defaultChecked className="accent-primary" />
                       Instrument
                     </label>
                     <label className="flex items-center gap-1.5 text-sm text-foreground">
-                      <input type="radio" name="type" className="accent-primary" />
+                      <input type="radio" name="type" value="Vocal / Singing" className="accent-primary" />
                       Vocal / Singing
                     </label>
                   </div>
@@ -157,7 +178,7 @@ const OfflineClass = () => {
                     When are you planning to visit?
                   </label>
                   <div className="relative">
-                    <select className="w-full border border-border rounded-lg px-3 py-2.5 text-sm bg-background text-foreground appearance-none">
+                    <select name="visitPlan" className="w-full border border-border rounded-lg px-3 py-2.5 text-sm bg-background text-foreground appearance-none">
                       <option>Within 1 Week</option>
                       <option>This Weekend</option>
                       <option>Next Month</option>
@@ -171,6 +192,7 @@ const OfflineClass = () => {
                 <label className="text-xs font-medium text-muted-foreground mb-1 block">Full Name</label>
                 <input
                   type="text"
+                  name="fullName"
                   placeholder="Enter your full name"
                   className="w-full border border-border rounded-lg px-3 py-2.5 text-sm bg-background text-foreground placeholder:text-muted-foreground"
                 />
@@ -182,7 +204,7 @@ const OfflineClass = () => {
                   <div className="flex gap-2 flex-wrap">
                     {["5-8", "9-14", "15-18", "18-40", "40+"].map((age) => (
                       <label key={age} className="flex items-center gap-1 text-sm text-foreground">
-                        <input type="radio" name="age" className="accent-primary" />
+                        <input type="radio" name="age" value={age} className="accent-primary" />
                         {age}
                       </label>
                     ))}
@@ -193,7 +215,7 @@ const OfflineClass = () => {
                   <div className="flex gap-3">
                     {["Male", "Female"].map((g) => (
                       <label key={g} className="flex items-center gap-1 text-sm text-foreground">
-                        <input type="radio" name="gender" className="accent-primary" />
+                        <input type="radio" name="gender" value={g} className="accent-primary" />
                         {g}
                       </label>
                     ))}
@@ -205,6 +227,7 @@ const OfflineClass = () => {
                 <label className="text-xs font-medium text-muted-foreground mb-1 block">Email</label>
                 <input
                   type="email"
+                  name="email"
                   placeholder="Enter your email"
                   className="w-full border border-border rounded-lg px-3 py-2.5 text-sm bg-background text-foreground placeholder:text-muted-foreground"
                 />
@@ -214,6 +237,7 @@ const OfflineClass = () => {
                 <label className="text-xs font-medium text-muted-foreground mb-1 block">Phone Number</label>
                 <input
                   type="tel"
+                  name="phone"
                   placeholder="Enter your phone number"
                   className="w-full border border-border rounded-lg px-3 py-2.5 text-sm bg-background text-foreground placeholder:text-muted-foreground"
                 />
@@ -222,7 +246,7 @@ const OfflineClass = () => {
               <div>
                 <label className="text-xs font-medium text-muted-foreground mb-1 block">Select a course</label>
                 <div className="relative">
-                  <select className="w-full border border-border rounded-lg px-3 py-2.5 text-sm bg-background text-foreground appearance-none">
+                  <select name="course" className="w-full border border-border rounded-lg px-3 py-2.5 text-sm bg-background text-foreground appearance-none">
                     <option>Guitar – Acoustic</option>
                     <option>Piano</option>
                     <option>Drums</option>
@@ -238,7 +262,7 @@ const OfflineClass = () => {
               <div>
                 <label className="text-xs font-medium text-muted-foreground mb-1 block">Nearest Centre</label>
                 <div className="relative">
-                  <select className="w-full border border-border rounded-lg px-3 py-2.5 text-sm bg-background text-foreground appearance-none">
+                  <select name="centre" className="w-full border border-border rounded-lg px-3 py-2.5 text-sm bg-background text-foreground appearance-none">
                     <option>Kothrud Centre</option>
                     <option>Baner Centre</option>
                   </select>

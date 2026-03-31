@@ -283,47 +283,49 @@ export const curriculumData: Record<string, CurriculumLevel[]> = {
     {
       level: "Module 1",
       topics: [
-        "Introduction to Violin: Holding, initial bowing exercises - separate bows, slurs, finger placement",
-        "Introduction to staff notation, sight reading",
-        "Bowing and Fingering Exercises for Technical Improvement",
-        "Technical works: Major Scale A, D, G one octave. Later - G major & A major 2 Octaves",
-        "Minor Scale - D, A Two Octaves with Arpeggios",
-        "Eta Cohen Violin Method Book 1 & Suzuki Violin Method Book 1",
-        "Pieces/Songs of candidate's choice"
+        "1. Introduction to Violin: Holding, initial bowing exercises - separate bows,slurs, finger placement 2. Introduction to staff notation, sight reading.",
+       ,        "2. Introduction to staff notation, sight reading",
+       ,
+        "3. Bowing and Fingering Exercises for Technical Improvement.",
+        "4. Technical works: Major Scale A, D, G one octave. Later in the module - G major & A major 2 Octaves and Arpeggios. Minor Scale-D, A Two Octaves with Arpeggios.",
+        "5. Eta Cohen Violin Method Book 1",
+        "6. Suzuki Violin Method Book 1 (later in the module)",
+        "7. Pieces/Songs of candidate's choice according to the level of expertise he/she has achieved."
       ]
     },
     {
       level: "Module 2",
       topics: [
-        "Scales: Major - G, D two octaves. C, F octave",
-        "Minor - E, D one octave, A two octave with corresponding arpeggios",
-        "Shifting: Third Position. D major scale one octave starting from A string Third Position",
-        "Exercises and studies from Franz Wohlfahrt",
-        "Eta Cohen Violin Method Book 2 & Suzuki Violin Method Book 1 and 2",
-        "Pieces/Songs of candidate's choice"
+        "1. Scales: Major-G, D two octaves. C, F octave. Minor - E, D one octave A two octave with corresponding arpeggios. All scales and arpeggios are both with separate bows and slurs.",
+        "2. Shifting: Third Position. Dmajor scale one octave starting from A string Third Position.",
+        "3. Exercises and studies form Franz Wohlfarht.",
+        "4. Eta Cohen Violin Method Book 2",
+        "5. Suzuki Violin Method Book 1 and 2 (later in the module)",
+        "6. Pieces/Songs of candidate's choice according to the level of expertise he/she has achieved"
       ]
     },
     {
       level: "Module 3",
       topics: [
-        "Scales: Major D, A, Bb two octaves, F, C, Eb one octave",
-        "Minor - D, A, G two octaves with corresponding arpeggios",
-        "Dominant 7ths in G, A",
-        "Franz Wohlfahrt exercises and studies continued",
-        "Eta Cohen Violin Method Book 2 Continued & Suzuki Violin Method Book 2 and 3",
-        "Pieces/Songs of candidate's choice"
+        "1. Scales: Major D, A,Bb two octaves, F, C,Eb one octave. Minor - D, A, G two octaves with corresponding arpeggios. All scales and arpeggios are to be played both with separate bows and slurs.",
+        "2. Dominant 7ths in G, A.",
+        "3. Franz Wohlfarht exercises and studies continued.",
+        "4. Eta Cohen Violin Method Book 2 Continued.",
+        "5. Suzuki Violin Method Book 2 and 3 (later in the module)",
+        "6. Pieces/Songs of candidate's choice according to the level of expertise he/she has achieved"
       ]
     },
     {
       level: "Module 4",
       topics: [
-        "Introduction to 5th position",
-        "Scales: Major - G three octaves, C, Bb two octaves",
-        "Minor - G three octaves. C, Bb two octaves with corresponding arpeggios",
-        "Dominant 7th in C, D",
-        "Introduction to Chromatic Scale starting on open D",
-        "Higher level studies and etudes by Franz Wohlfahrt",
-        "Eta Cohen Violin Method Book 3 & Suzuki Violin Method book 3"
+        "1. Introduction to 5th position",
+        "2. Scales: Major-G three octaves, C, Bb two octaves. Minor - G three octaves. C, Bb two octaves with corresponding arpeggios.",
+        "3. Dominant 7th in C, D.",
+        "4. Introduction to Chromatic Scale starting on open D.",
+        "5. Higher level studies and etudes by Franz Wohlfarht.",
+        "6. Eta Cohen Violin Method Book 3.",
+        "7. Suzuki Violin Method book 3.",
+        "8. Pieces/Songs of candidate's choice according to the level of expertise he/she has achieved"
       ]
     }
   ],
