@@ -8,12 +8,23 @@ import { X, Music, User, Calendar, Award, Play, Youtube } from "lucide-react";
 const ytThumb = (id: string) => `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
 const ytEmbed = (id: string) => `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
 
-const instrumentEmoji: Record<string, string> = {
-  Drums: "🥁", Guitar: "🎸", Keyboard: "🎹", Piano: "🎹",
-  Vocals: "🎤", "Western Vocals": "🎤", "Hindustani Vocals": "🎤",
-  "Guitar & Vocals": "🎸", "Piano & Guitar": "🎹", Band: "🎶",
+const getShowcaseFallbackImage = (category: (typeof showcaseStudents)[number]["category"]): string => {
+  switch (category) {
+    case "Guitar":
+    case "Band Performance":
+    case "Faculty Band":
+      return "/illustrations/Playing Music-bro.svg";
+    case "Drums":
+      return "/illustrations/Compose music-bro.svg";
+    case "Keyboard":
+    case "Piano":
+      return "/illustrations/jazz piano-amico.svg";
+    case "Vocals":
+      return "/illustrations/Mic drop-rafiki.svg";
+    default:
+      return "/illustrations/Welcome-pana.svg";
+  }
 };
-const getEmoji = (i: string) => instrumentEmoji[i] ?? "🎵";
 
 const StudentShowcase = () => {
   const [activeCategory, setActiveCategory] = useState<ShowcaseCategory>("All");
@@ -104,7 +115,13 @@ const StudentShowcase = () => {
                     </>
                   ) : (
                     <div className="w-full h-full bg-secondary flex items-center justify-center">
-                      <span className="text-4xl lg:text-7xl filter drop-shadow-lg group-hover:scale-110 transition-transform duration-300">{getEmoji(student.instrument)}</span>
+                      <img
+                        src={getShowcaseFallbackImage(student.category)}
+                        alt=""
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full h-full object-contain object-center p-3 sm:p-4 opacity-90 group-hover:scale-105 transition-transform duration-300"
+                      />
                     </div>
                   )}
                   <span className="absolute top-2 left-2 text-[8px] lg:text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full bg-white/90 backdrop-blur border border-border text-primary">{student.category}</span>
@@ -161,7 +178,15 @@ const StudentShowcase = () => {
                   </>
                 )
               ) : (
-                <div className="w-full h-full bg-primary/10 flex items-center justify-center"><span className="text-8xl">{getEmoji(selected.instrument)}</span></div>
+                <div className="w-full h-full bg-gradient-to-br from-primary/10 via-secondary to-primary/5 flex items-center justify-center p-6">
+                  <img
+                    src={getShowcaseFallbackImage(selected.category)}
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-contain object-center opacity-95"
+                  />
+                </div>
               )}
             </div>
             <div className="px-6 pb-8 pt-4">
