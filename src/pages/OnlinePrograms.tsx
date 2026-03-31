@@ -13,7 +13,7 @@ const OnlinePrograms = () => {
   const filtered = activeTab === "All" ? allCoursesList : allCoursesList.filter((c) => c.category === activeTab);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background font-secondary">
       <Navbar />
 
       <section className="py-16 border-b border-border bg-cover bg-center relative" style={{ backgroundImage: "url('/visuals/7.png')" }}>
@@ -68,7 +68,7 @@ const OnlinePrograms = () => {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl font-extrabold text-foreground mb-3">Not sure which course is right for you?</h2>
           <p className="text-muted-foreground text-sm mb-6">Book a free 1-on-1 trial class — our teachers will guide you.</p>
-          <Link to="/contact" className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-bold px-8 py-3.5 rounded-full hover:bg-[#c40812] transition-colors shadow-lg shadow-primary/20">Book Free Trial Class</Link>
+          <Link to="/enquire" className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-bold px-8 py-3.5 rounded-full hover:bg-[#c40812] transition-colors shadow-lg shadow-primary/20">Book Free Trial Class</Link>
         </div>
       </section>
 

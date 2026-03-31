@@ -15,6 +15,9 @@ export default {
     extend: {
       fontFamily: {
         sans: ["'Open Sans'", "Inter", "sans-serif"],
+        core: ["'Century Gothic'", "CenturyGothic", "AppleGothic", "sans-serif"],
+        secondary: ["'PT Serif'", "Palatino", "Times New Roman", "serif"],
+        tertiary: ["'Montserrat'", "'Open Sans'", "Inter", "sans-serif"],
         serif: ["'Century Gothic'", "CenturyGothic", "AppleGothic", "sans-serif"],
         display: ["'Century Gothic'", "CenturyGothic", "AppleGothic", "sans-serif"],
         playfair: ["'Century Gothic'", "CenturyGothic", "AppleGothic", "sans-serif"],

@@ -12,7 +12,7 @@ const CoursePage = () => {
 
   if (!course) {
     return (
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-background font-secondary">
         <Navbar />
         <div className="container mx-auto py-20 text-center">
           <h1 className="text-3xl font-bold text-foreground mb-4">Course Not Found</h1>
@@ -26,11 +26,12 @@ const CoursePage = () => {
   const moreCourses = allCourses
     .filter((c) => c.slug !== course.slug)
     .slice(0, 5);
+  const isViolin = course.slug === "violin";
 
   const currentPricing: PricingLevel = course.pricing[selectedLevel];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background font-secondary">
       <Navbar />
 
       {/* ═══ 1. HERO ═══ */}
@@ -38,14 +39,14 @@ const CoursePage = () => {
         <div className="absolute inset-0 bg-black/80 lg:bg-black/85 z-0"></div>
         <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center min-h-[420px] relative z-10">
           <div className="relative z-10 py-16 lg:py-24 lg:w-1/2">
-            <h1 className="text-3xl md:text-5xl font-extrabold text-white leading-tight mb-4">
-              Learn {course.name} Online
+            <h1 className="font-core tracking-[0.02em] text-3xl md:text-[2.75rem] font-bold text-white leading-tight mb-4">
+              {isViolin ? "Learn Violin with us" : `Learn ${course.name} with us`}
             </h1>
             <p className="text-white/70 text-base md:text-lg mb-8 max-w-lg">
               {course.heroDescription}
             </p>
             <Link
-              to="/contact"
+              to="/enquire"
               className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:bg-primary/90 transition-colors shadow-lg shadow-primary/30"
             >
               Book Your Free Class
@@ -67,31 +68,11 @@ const CoursePage = () => {
         <div className="absolute bottom-10 right-40 w-20 h-20 rounded-full bg-white/5 blur-lg" />
       </section>
 
-      {/* ═══ 2. WHY LEARN WITH US — 3 columns ═══ */}
-      <section className="py-16 bg-background">
+  {/* ═══ 3. ABOUT / PRICING — Left tiers + Right details ═══ */}
+  <section className="py-12 md:py-14 bg-secondary">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-4xl font-extrabold text-foreground text-center mb-14">
-            Why Learn {course.name} With Us?
-          </h2>
-          <div className="grid md:grid-cols-3 gap-10">
-            {course.features.map((f, i) => (
-              <div key={i}>
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                  <span className="text-xl">{f.icon}</span>
-                </div>
-                <h3 className="text-lg font-extrabold text-foreground mb-3">{f.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{f.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══ 3. ABOUT / PRICING — Left tiers + Right details ═══ */}
-      <section className="py-16 bg-secondary">
-        <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-4xl font-extrabold text-foreground text-center mb-14">
-            About Our Online {course.name} Course
+          <h2 className="font-core tracking-[0.018em] text-2xl md:text-3xl font-bold text-foreground text-center mb-10">
+            {isViolin ? `About Our ${course.name} Course` : `About Our ${course.name} Course`}
           </h2>
 
           <div className="flex flex-col lg:flex-row gap-8">
@@ -110,11 +91,11 @@ const CoursePage = () => {
                   <div className="flex items-center justify-between">
                     <div>
                       {tier.label && (
-                        <span className="text-xs text-muted-foreground font-medium">{tier.label}</span>
+                        <span className="text-sm text-foreground/70 font-semibold">{tier.label}</span>
                       )}
-                      <p className="font-extrabold text-foreground text-lg">{tier.name}</p>
+                      <p className="font-extrabold text-foreground text-base md:text-lg leading-snug">{tier.name}</p>
                       {!course.hidePricing && tier.discount && (
-                        <span className="text-xs font-bold text-primary">{tier.discount}</span>
+                        <span className="text-sm font-bold text-primary">{tier.discount}</span>
                       )}
                     </div>
                     {!course.hidePricing && (
@@ -137,9 +118,11 @@ const CoursePage = () => {
             </div>
 
             {/* Right: Selected level details */}
-            <div className="flex-1 bg-background rounded-2xl p-8 border border-border">
-              <h3 className="text-xl font-extrabold text-foreground mb-3">{currentPricing.name} Level</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+            <div className="flex-1 bg-background rounded-2xl p-6 md:p-7 border border-border">
+              <h3 className="font-core tracking-[0.015em] text-lg md:text-xl font-bold text-foreground mb-3">
+                {isViolin ? currentPricing.name : `${currentPricing.name} Level`}
+              </h3>
+              <p className="font-tertiary text-muted-foreground text-sm leading-relaxed mb-5">
                 {currentPricing.description}
               </p>
 
@@ -168,13 +151,13 @@ const CoursePage = () => {
               {/* CTA buttons */}
               <div className="flex flex-wrap gap-3 mb-8">
                 <Link
-                  to="/contact"
+                  to="/enquire"
                   className="inline-flex items-center justify-center px-8 py-3 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:bg-primary/90 transition-colors"
                 >
                   Book Your Free Class
                 </Link>
                 <Link
-                  to="/contact"
+                  to="/enquire"
                   className="inline-flex items-center justify-center px-8 py-3 rounded-full border-2 border-foreground/20 text-foreground font-semibold text-sm hover:bg-secondary transition-colors"
                 >
                   {course.hidePricing ? "Enquire Now" : "Buy Now"}
@@ -182,36 +165,36 @@ const CoursePage = () => {
               </div>
 
               {/* What you'll learn */}
-              <h4 className="font-bold text-foreground mb-4">What will you learn</h4>
+              <h4 className="font-core tracking-[0.015em] font-bold text-foreground mb-4">What will you learn</h4>
               <div className="grid md:grid-cols-2 gap-3 mb-8">
                 {currentPricing.learningPoints.map((point, i) => (
                   <div key={i} className="flex items-start gap-2">
                     <Check className="w-4 h-4 text-green-500 mt-1 shrink-0" />
-                    <span className="text-muted-foreground text-sm leading-relaxed">{point}</span>
+                    <span className="text-muted-foreground text-sm md:text-base leading-relaxed">{point}</span>
                   </div>
                 ))}
               </div>
 
               {/* Feature badges */}
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                 {(course.slug === "violin" ? [
-                  { icon: Video, label: "In-person Classes" },
-                  { icon: Clock, label: "60 Min Sessions" },
-                  { icon: Award, label: "Course Certificate" },
-                  { icon: MessageCircle, label: "Quarterly Feedback" },
-                  { icon: Star, label: "Live Masterclass" },
+                  { icon: Video, label: "In Person Classes" },
                   { icon: Check, label: "24 Sessions" },
+                  { icon: Clock, label: "60 Min Sessions" },
+                  { icon: MessageCircle, label: "Quarterly Feedback" },
+                  { icon: Star, label: "Half Yearly Assessments" },
+                  { icon: Award, label: "Course Certification" },
                 ] : [
                   { icon: Video, label: "In-person learning" },
                   { icon: Star, label: "Live Masterclass" },
                   { icon: Award, label: "Course Certificate" },
                   { icon: Clock, label: "60 Mins Classes" },
                 ]).map((badge, i) => (
-                  <div key={i} className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                      <badge.icon className="w-5 h-5 text-primary" />
+                  <div key={i} className="flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-md bg-primary/10 flex items-center justify-center">
+                      <badge.icon className="w-4 h-4 text-primary" />
                     </div>
-                    <span className="text-sm font-medium text-foreground">{badge.label}</span>
+                    <span className="font-tertiary text-sm font-medium text-foreground leading-snug">{badge.label}</span>
                   </div>
                 ))}
               </div>
@@ -220,21 +203,43 @@ const CoursePage = () => {
         </div>
       </section>
 
+      {/* ═══ 2. WHY LEARN WITH US — 3 columns ═══ */}
+      <section className="py-12 md:py-14 bg-background">
+        <div className="container mx-auto px-4">
+          <h2 className="font-core tracking-[0.018em] text-2xl md:text-3xl font-bold text-foreground text-center mb-9 md:mb-10">
+            Why Learn {course.name} With Us?
+          </h2>
+          <div className="grid md:grid-cols-3 gap-6 md:gap-7">
+            {course.features.map((f, i) => (
+              <div key={i}>
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
+                  <span className="text-lg">{f.icon}</span>
+                </div>
+                <h3 className="font-core tracking-[0.015em] text-base md:text-[1.05rem] font-bold text-foreground mb-2">{f.title}</h3>
+                <p className="font-tertiary text-muted-foreground text-xs md:text-sm leading-relaxed">{f.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+    
+
       {/* ═══ 4. HOW IT WORKS — 3 steps with dividers ═══ */}
       <section className="py-16" style={{ background: "#111116" }}>
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-4xl font-extrabold text-white text-center mb-14">
-            How Online {course.name} Classes Work At Muziclub
+          <h2 className="font-core tracking-[0.02em] text-2xl md:text-3xl font-bold text-white text-center mb-12">
+            {isViolin ? `How ${course.name} Classes Work At muziclub` : `How ${course.name} Classes Work At muziclub`}
           </h2>
           <div className="flex flex-col md:flex-row gap-0">
             {[
-              { step: "Step 1", text: `The first step in your ${course.name} learning journey at Muziclub begins when you register and Book A FREE trial class.` },
+              { step: "Step 1", text: `The first step in your ${course.name} learning journey at muziclub begins when you register and Book A FREE trial class.` },
               { step: "Step 2", text: "Our academic expert will gauge your skills and expertise in your FREE trial class and recommend an appropriate course level to ensure a smooth learning experience." },
               { step: "Step 3", text: `The last step is to enroll in the course recommended by our academic expert and begin to learn ${course.name} under the guidance of our experienced teachers.` },
             ].map((s, i) => (
               <div key={i} className="flex flex-1">
                 <div className="flex-1 p-6 md:p-8">
-                  <h3 className="text-white font-extrabold text-lg mb-3">{s.step}</h3>
+                  <h3 className="font-core tracking-[0.015em] text-white font-extrabold text-lg mb-3">{s.step}</h3>
                   <p className="text-white/60 text-sm leading-relaxed">{s.text}</p>
                 </div>
                 {i < 2 && (
@@ -250,7 +255,7 @@ const CoursePage = () => {
       <section className="relative overflow-hidden" style={{ background: "linear-gradient(135deg, #111116 0%, #0a0a0d 100%)" }}>
         <div className="container mx-auto px-4 py-14 flex flex-col lg:flex-row items-center gap-8">
           <div className="flex-1">
-            <h2 className="text-2xl md:text-3xl font-extrabold text-white mb-3">
+            <h2 className="font-core tracking-[0.018em] text-2xl md:text-3xl font-extrabold text-white mb-3">
               <span className="text-white">Still unsure?</span>{" "}
               <span className="text-white/70">Let us resolve those doubts!</span>
             </h2>
@@ -258,7 +263,7 @@ const CoursePage = () => {
               Schedule a FREE trial session and let our teachers solve all your queries.
             </p>
             <Link
-              to="/contact"
+              to="/enquire"
               className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:bg-primary/90 transition-colors shadow-lg shadow-primary/30"
             >
               Book Your Free Class
@@ -269,7 +274,7 @@ const CoursePage = () => {
             <div className="absolute inset-0 rounded-3xl border-4 border-white/20 overflow-hidden bg-black/30">
               <img
                 src={course.heroImage}
-                alt="Online class"
+                alt="Class session"
                 className="w-full h-full object-cover opacity-80"
                 onError={(e) => { e.currentTarget.onerror = null; (e.currentTarget as HTMLImageElement).src = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Crect width='100%25' height='100%25' fill='%23111'/%3E%3C/svg%3E"; }}
               />
@@ -299,7 +304,7 @@ const CoursePage = () => {
                 <p className="text-primary font-bold text-sm uppercase tracking-wide mb-2">
                   Course Designed And Certified By
                 </p>
-                <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-2">
+                <h2 className="font-core tracking-[0.018em] text-3xl md:text-4xl font-extrabold text-foreground mb-2">
                   {course.facultyHead.name}
                 </h2>
                 <p className="text-muted-foreground font-medium text-base mb-5">
@@ -324,7 +329,7 @@ const CoursePage = () => {
                 {
                   icon: "🔄",
                   title: "Experienced Dedicated Teachers",
-                  desc: "Providing qualitative music education is our top priority. Every Muziclub teacher undergoes a rigorous evaluation process to ensure the most qualified teachers for you.",
+                  desc: "Providing qualitative music education is our top priority. Every muziclub teacher undergoes a rigorous evaluation process to ensure the most qualified teachers for you.",
                 },
                 {
                   icon: "📖",
@@ -342,7 +347,7 @@ const CoursePage = () => {
                     <span className="text-lg">{f.icon}</span>
                   </div>
                   <div>
-                    <h3 className="text-white font-extrabold text-lg mb-2">{f.title}</h3>
+                    <h3 className="font-core tracking-[0.015em] text-white font-extrabold text-lg mb-2">{f.title}</h3>
                     <p className="text-white/50 text-sm leading-relaxed">{f.desc}</p>
                   </div>
                 </div>
@@ -354,12 +359,12 @@ const CoursePage = () => {
               <div className="rounded-2xl overflow-hidden mb-4">
                 <img
                   src="/homepage_banners/banner_1.png"
-                  alt="Muziclub Teachers"
+                  alt="muziclub teachers"
                   className="w-full h-auto object-cover"
                   onError={(e) => { e.currentTarget.onerror = null; (e.currentTarget as HTMLImageElement).src = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Crect width='100%25' height='100%25' fill='%23111'/%3E%3C/svg%3E"; }}
                 />
               </div>
-              <p className="text-white text-2xl md:text-3xl font-extrabold leading-snug">
+              <p className="font-core tracking-[0.018em] text-white text-2xl md:text-3xl font-extrabold leading-snug">
                 Learn from the best teachers in the industry
               </p>
             </div>
@@ -370,8 +375,8 @@ const CoursePage = () => {
       {/* ═══ 8. MORE COURSES — Dark carousel ═══ */}
       <section className="py-16" style={{ background: "#0a0a0d" }}>
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-extrabold text-white text-center mb-10">
-            More courses on Muziclub
+          <h2 className="font-core tracking-[0.018em] text-2xl md:text-3xl font-extrabold text-white text-center mb-10">
+            More courses on muziclub
           </h2>
           <div className="flex gap-5 overflow-x-auto pb-4 scrollbar-hide">
             {moreCourses.map((c) => (
@@ -401,7 +406,7 @@ const CoursePage = () => {
       {/* ═══ 9. FAQ ═══ */}
       <section className="py-16 bg-secondary">
         <div className="container mx-auto px-4 max-w-3xl">
-          <h2 className="text-2xl md:text-4xl font-extrabold text-foreground text-center mb-12">
+          <h2 className="font-core tracking-[0.018em] text-2xl md:text-4xl font-extrabold text-foreground text-center mb-12">
             Frequently Asked Questions
           </h2>
           <div className="space-y-3">

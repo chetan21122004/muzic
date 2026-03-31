@@ -24,7 +24,7 @@ const faqs = [
 
 const Pricing = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background font-secondary">
       <Navbar />
 
       {/* Red/White Aesthetic Inner Page Hero for Pricing */}
@@ -40,7 +40,7 @@ const Pricing = () => {
 
         <div className="relative container mx-auto px-6 lg:px-16 text-center z-10 flex flex-col items-center justify-center py-20">
           <p className="text-[#ff2a40] text-xs font-black uppercase tracking-[0.3em] mb-4 drop-shadow-md">Pricing & Formats</p>
-          <h1 className="text-4xl md:text-5xl lg:text-[4rem] font-serif font-medium text-white leading-[1.1] mb-6 drop-shadow-xl tracking-tight max-w-3xl">
+          <h1 className="text-4xl md:text-5xl lg:text-[4rem] font-core font-medium text-white leading-[1.1] mb-6 drop-shadow-xl max-w-3xl">
             Simple, Transparent <br />
             Pricing Plans.
           </h1>
@@ -84,7 +84,7 @@ const Pricing = () => {
                   ))}
                 </ul>
                 
-                <Link to="/contact" className={`block w-full text-center font-bold py-4 rounded-xl text-[15px] transition-all duration-300 ${plan.highlight ? "bg-[#e31837] text-white hover:bg-[#ff2a40] shadow-[0_10px_20px_rgba(227,24,55,0.2)]" : "bg-secondary text-foreground hover:bg-[#110103] hover:text-white"}`}>
+                <Link to="/enquire" className={`block w-full text-center font-bold py-4 rounded-xl text-[15px] transition-all duration-300 ${plan.highlight ? "bg-[#e31837] text-white hover:bg-[#ff2a40] shadow-[0_10px_20px_rgba(227,24,55,0.2)]" : "bg-secondary text-foreground hover:bg-[#110103] hover:text-white"}`}>
                   {plan.cta} →
                 </Link>
                 <p className="text-[11px] text-muted-foreground text-center mt-4 font-bold uppercase tracking-wider">{plan.note}</p>
@@ -140,9 +140,9 @@ const Pricing = () => {
       <section className="relative bg-[#110103] py-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#e31837]/20 to-transparent pointer-events-none"></div>
         <div className="container mx-auto px-6 text-center space-y-8 relative z-10">
-          <h2 className="text-3xl lg:text-[2.5rem] font-serif font-medium text-white leading-tight">Start with a Free Trial Class</h2>
+          <h2 className="text-3xl lg:text-[2.5rem] font-core font-medium text-white leading-tight">Start with a Free Trial Class</h2>
           <p className="text-white/70 max-w-lg mx-auto text-base lg:text-lg font-medium drop-shadow-md">No credit card needed. Just show up and experience the Muziclub difference.</p>
-          <Link to="/contact" className="inline-flex items-center justify-center px-10 py-4 rounded-md bg-[#e31837] text-white text-[15px] font-bold transition-transform hover:scale-105 shadow-[0_10px_20px_rgba(227,24,55,0.3)] mt-2">
+          <Link to="/enquire" className="inline-flex items-center justify-center px-10 py-4 rounded-md bg-[#e31837] text-white text-[15px] font-bold transition-transform hover:scale-105 shadow-[0_10px_20px_rgba(227,24,55,0.3)] mt-2">
             Book My Free Trial
           </Link>
         </div>

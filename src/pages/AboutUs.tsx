@@ -17,7 +17,7 @@ const stats = [
 
 const AboutUs = () => {
   return (
-    <div className="min-h-screen bg-background font-sans text-foreground selection:bg-primary/20">
+    <div className="min-h-screen bg-background font-secondary text-foreground selection:bg-primary/20">
       <Navbar />
 
       {/* Hero Section */}
@@ -28,7 +28,7 @@ const AboutUs = () => {
         </div>
         <div className="container mx-auto px-4 relative z-10 text-center max-w-4xl">
           <p className="text-primary font-bold tracking-[0.3em] text-xs uppercase mb-6 drop-shadow-md">Our Journey</p>
-          <h1 className="font-playfair text-5xl md:text-7xl font-extrabold mb-8 leading-tight">
+          <h1 className="font-core text-5xl md:text-7xl font-extrabold mb-8 leading-tight">
             We are all about <span className="text-primary">Living Music.</span>
           </h1>
           <p className="text-lg md:text-xl text-gray-300 leading-relaxed font-light">
@@ -86,7 +86,7 @@ const AboutUs = () => {
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-bold uppercase tracking-widest">
                 <Music className="w-3.5 h-3.5" /> Core Philosophy
               </div>
-              <h2 className="font-playfair text-4xl lg:text-5xl font-extrabold text-foreground leading-tight">
+              <h2 className="font-core text-4xl lg:text-5xl font-extrabold text-foreground leading-tight">
                 The perfect balance of <span className="text-primary border-b-4 border-primary/20">discipline and flexibility.</span>
               </h2>
               <div className="space-y-6 text-muted-foreground leading-relaxed text-lg font-light">
@@ -123,7 +123,7 @@ const AboutUs = () => {
                   <img src="/new_imgs/Copy of DSC00298 (1).webp" alt="Live Band Performance" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent pointer-events-none" />
                   <div className="absolute bottom-6 left-6 right-6 text-white pointer-events-none">
-                    <h3 className="font-playfair text-2xl font-bold mb-1 shadow-black/50 drop-shadow-lg">Sunday Jams</h3>
+                    <h3 className="font-core text-2xl font-bold mb-1 shadow-black/50 drop-shadow-lg">Sunday Jams</h3>
                     <p className="text-white/90 text-sm drop-shadow-md">Every week, our students take the stage.</p>
                   </div>
                 </div>
@@ -166,7 +166,7 @@ const AboutUs = () => {
           <div className="text-center mb-14">
             <p className="text-primary text-[10px] font-extrabold uppercase tracking-[0.22em] mb-3">Find Us</p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-foreground">Our Academies</h2>
-            <p className="text-muted-foreground text-sm mt-2">Walk in for a free trial class — no appointment needed</p>
+            <p className="text-muted-foreground text-sm mt-2">Walk in for a free trial class :- appointment needed</p>
           </div>
           <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {[
@@ -221,7 +221,7 @@ const AboutUs = () => {
                     <a href={c.mapUrl} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 border border-border text-muted-foreground text-xs font-bold py-2.5 rounded-full hover:border-primary/50 hover:text-primary transition-all">
                       <ExternalLink className="w-3.5 h-3.5" /> Open in Maps
                     </a>
-                    <Link to="/contact" className="flex-1 flex items-center justify-center gap-2 bg-primary text-primary-foreground text-xs font-bold py-2.5 rounded-full hover:bg-[#c40812] transition-all shadow-lg shadow-primary/20">
+                    <Link to="/enquire" className="flex-1 flex items-center justify-center gap-2 bg-primary text-primary-foreground text-xs font-bold py-2.5 rounded-full hover:bg-[#c40812] transition-all shadow-lg shadow-primary/20">
                       Walk-in Free Trial
                     </Link>
                   </div>
@@ -232,12 +232,12 @@ const AboutUs = () => {
         </div>
       </section>
 
-      <section className="py-24 bg-secondary text-foreground border-y border-border">
+      {/* <section className="py-24 bg-secondary text-foreground border-y border-border">
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-16">
             <div className="max-w-xl">
               <p className="text-primary text-xs font-bold uppercase tracking-widest mb-4">The Experts</p>
-              <h2 className="font-playfair text-4xl md:text-5xl font-extrabold leading-tight">
+              <h2 className="font-core text-4xl md:text-5xl font-extrabold leading-tight">
                 Meet the minds behind the music.
               </h2>
             </div>
@@ -259,7 +259,7 @@ const AboutUs = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       <Footer />
     </div>

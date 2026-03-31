@@ -17,7 +17,7 @@ const ContactUs = () => {
   const handleSubmit = (e: React.FormEvent) => { e.preventDefault(); setSubmitted(true); };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background font-secondary">
       <Navbar />
 
       {/* Hero */}

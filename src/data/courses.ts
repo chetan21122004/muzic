@@ -164,40 +164,36 @@ export const allCourses: Course[] = courseCategories
       const isViolin = c.slug === "violin";
       
       const violinLevels = [
-        "Prep (1-2)",
-        "Intermediate (3-4)",
-        "Proficient (5-6)",
-        "Advanced (7-8)"
+        "Beginner (Level 1 & Level 2)",
+        "Intermediate (Level 3 & 4)",
+        "Proficient (5 & 6)",
+        "Advanced (7 & 8)"
       ];
 
       const violinPricing: PricingLevel[] = [
         {
-          name: "Module 1",
-          label: "Beginner",
+          name: "Beginner (Level 1 & Level 2)",
           pricePerClass: 0,
           totalClasses: 24,
           description: "Introduction to violin, holding, bowing exercises, and major/minor scales.",
           learningPoints: curriculumData["violin"][0].topics
         },
         {
-          name: "Module 2",
-          label: "Intermediate 1",
+          name: "Intermediate (Level 3 & 4)",
           pricePerClass: 0,
           totalClasses: 24,
           description: "Advanced scales, third position shifting, and Franz Wohlfahrt studies.",
           learningPoints: curriculumData["violin"][1].topics
         },
         {
-          name: "Module 3",
-          label: "Intermediate 2",
+          name: "Proficient (5 & 6)",
           pricePerClass: 0,
           totalClasses: 24,
           description: "Expanded scales, dominant 7ths, and continued Suzuki methods.",
           learningPoints: curriculumData["violin"][2].topics
         },
         {
-          name: "Module 4",
-          label: "Advanced",
+          name: "Advanced (7 & 8)",
           pricePerClass: 0,
           totalClasses: 24,
           description: "5th position, 3-octave scales, chromatic scales, and advanced studies.",
@@ -213,7 +209,7 @@ export const allCourses: Course[] = courseCategories
           ? "Master the Violin with our structured modules. From beginners to advanced, learn techniques, scales, and classical pieces."
           : `Learn ${c.name} at Muziclub. Hobby and Grade classes available online and in-person, tailored for all ages and skill levels.`,
         heroDescription: isViolin
-          ? "Professional In-person Violin Lessons tailored to every skill level — Amateur to Pro!"
+          ? "Professional violin lessons tailored to every skill level - Amateur to Pro."
           : `Personalised In-person ${c.name} Lessons tailored to every skill level — Amateur to Pro!`,
         heroImage: courseImages[c.slug] || "/new_imgs/Copy of DSC00403.webp",
         features: isViolin ? [

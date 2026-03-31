@@ -101,7 +101,7 @@ const OfflineClass = () => {
   const [learnTab, setLearnTab] = useState<"vocals" | "instruments">("vocals");
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background font-secondary">
       <Navbar />
 
       {/* ═══ 1. HERO WITH FORM ═══ */}
@@ -435,7 +435,7 @@ const OfflineClass = () => {
 
           <div className="text-center mt-8">
             <Link
-              to="/contact"
+              to="/enquire"
               className="inline-flex items-center justify-center px-8 py-3 rounded-full bg-primary text-primary-foreground font-bold text-sm hover:bg-primary/90 transition-colors shadow-lg"
             >
               Book a Visit
@@ -506,7 +506,7 @@ const OfflineClass = () => {
 
           <div className="text-center mt-10">
             <Link
-              to="/contact"
+              to="/enquire"
               className="inline-flex items-center justify-center px-8 py-3 rounded-full bg-primary text-primary-foreground font-bold text-sm hover:bg-primary/90 transition-colors shadow-lg"
             >
               Book a Visit

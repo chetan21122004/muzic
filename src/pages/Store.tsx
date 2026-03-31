@@ -5,7 +5,7 @@ import { Wrench } from "lucide-react";
 
 const Store = () => {
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="min-h-screen bg-background font-secondary flex flex-col">
       <Navbar />
 
       <main className="flex-1 flex flex-col items-center justify-center relative overflow-hidden bg-[#110103] py-16 z-10">
@@ -24,7 +24,7 @@ const Store = () => {
             <Wrench className="w-10 h-10 text-[#ff2a40]" />
           </div>
           <p className="text-[#ff2a40] text-xs font-black uppercase tracking-[0.3em] mb-4 drop-shadow-md">New Gear Coming Soon</p>
-          <h1 className="text-4xl md:text-5xl lg:text-[5rem] font-serif font-medium text-white leading-[1.1] mb-6 drop-shadow-xl tracking-tight max-w-4xl">
+          <h1 className="text-4xl md:text-5xl lg:text-[5rem] font-core font-medium text-white leading-[1.1] mb-6 drop-shadow-xl max-w-4xl">
             Store is Under <br className="hidden sm:block" /> Construction.
           </h1>
           <p className="text-white/80 max-w-xl mx-auto text-base sm:text-lg leading-relaxed mb-10 drop-shadow-md font-medium">

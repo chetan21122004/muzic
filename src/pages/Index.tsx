@@ -12,7 +12,7 @@ import JoinUs from "@/components/JoinUs";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background flex flex-col w-full">
+    <div className="min-h-screen bg-background font-secondary flex flex-col w-full">
       <Navbar />
       <main className="flex-grow w-full overflow-hidden">
         <HeroSection />

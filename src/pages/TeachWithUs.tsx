@@ -19,7 +19,7 @@ const TeachWithUs = () => {
   const handleSubmit = (e: React.FormEvent) => { e.preventDefault(); setSubmitted(true); };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background font-secondary">
       <Navbar />
 
       {/* Red/White Aesthetic Inner Page Hero */}
@@ -35,7 +35,7 @@ const TeachWithUs = () => {
 
         <div className="relative container mx-auto px-6 lg:px-16 text-center lg:text-left z-10 flex flex-col justify-center py-20 lg:pl-28">
           <p className="text-[#ff2a40] text-xs font-black uppercase tracking-[0.3em] mb-4 drop-shadow-md">Join Our Team</p>
-          <h1 className="text-4xl md:text-5xl lg:text-[4rem] font-serif font-medium text-white leading-[1.1] mb-6 drop-shadow-xl tracking-tight max-w-3xl">
+          <h1 className="text-4xl md:text-5xl lg:text-[4rem] font-core font-medium text-white leading-[1.1] mb-6 drop-shadow-xl max-w-3xl">
             Love Teaching Music? <br />
             Join the Muziclub Family.
           </h1>
@@ -81,15 +81,15 @@ const TeachWithUs = () => {
         </div>
       </section>
 
-      <section id="apply" className="py-24 border-t border-white/5 bg-[#110103] relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#110103] to-[#9b0914]/20 pointer-events-none drop-shadow-2xl opacity-50"></div>
+      <section id="apply" className="py-24 border-t border-white/5 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-white to-[#9b0914]/20 pointer-events-none drop-shadow-2xl opacity-50"></div>
 
         <div className="container mx-auto px-6 lg:px-16 relative z-10">
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl lg:text-4xl font-extrabold text-white">Apply To Teach</h2>
+              <h2 className="text-3xl lg:text-4xl font-extrabold text-black">Apply To Teach</h2>
               <div className="w-16 h-1 bg-[#e31837] mx-auto rounded-full mt-4 mb-4"></div>
-              <p className="text-white/60 text-base">Fill in your details below — our team will reach out within 24 hours</p>
+              <p className="text-black/90 text-base">Fill in your details below — our team will reach out within 24 hours</p>
             </div>
             {submitted ? (
               <div className="rounded-[2rem] p-12 text-center border border-white/10 bg-black/40 backdrop-blur-xl">
@@ -99,7 +99,7 @@ const TeachWithUs = () => {
                 <button onClick={() => setSubmitted(false)} className="mt-8 text-[#e31837] text-sm font-bold hover:text-[#ff2a40] transition-colors uppercase tracking-wider">Submit another application</button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="rounded-[2rem] p-8 md:p-10 border border-white/10 space-y-6 bg-black/40 backdrop-blur-md shadow-2xl">
+              <form onSubmit={handleSubmit} className="rounded-[2rem] p-8 md:p-10 border border-white/10 space-y-6 bg-black/80 backdrop-blur-md shadow-2xl">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-xs font-bold text-white/70 mb-2 uppercase tracking-wide">Full Name *</label>

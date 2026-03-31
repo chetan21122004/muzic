@@ -5,9 +5,9 @@ import { courseCategories } from "@/data/courses";
 
 const navItems = [
   { label: "Courses", hasDropdown: true },
-  { label: "Academies", href: "/center" },
+  { label: "Academies", href: "/muziclub-baner" },
   { label: "Store", href: "/store" },
-  { label: "Performances", href: "/student-showcase" },
+  { label: "Performances", href: "/red-carpet" },
   { label: "About", href: "/about" },
 ];
 
@@ -44,7 +44,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`sticky top-0 w-full transition-all duration-500 z-[60] ${scrolled
+      className={`sticky top-0 w-full font-tertiary transition-all duration-500 z-[60] ${scrolled
         ? "bg-[#050505]/80 backdrop-blur-2xl border-b border-white/5 py-1"
         : "bg-[#0a0a0b] border-b border-transparent"
         }`}
@@ -132,14 +132,14 @@ const Navbar = () => {
         {/* Right CTAs */}
         <div className="flex items-center gap-8">
           <Link
-            to="/teach-with-us"
+            to="/careers"
             className="hidden xl:block text-[13px] font-semibold text-white/90 hover:text-white transition-colors"
           >
             Careers
           </Link>
 
           <Link
-            to="/contact"
+            to="/enquire"
             className="hidden sm:inline-flex items-center justify-center bg-white text-black hover:bg-white/90 font-bold px-7 py-2.5 rounded-full text-[13px] transition-transform hover:scale-105 shadow-[0_0_20px_rgba(255,255,255,0.05)]"
           >
             Walk-in Free Trial
@@ -202,13 +202,13 @@ const Navbar = () => {
             )}
             <div className="pt-8 pb-6 flex flex-col gap-4">
               <Link
-                to="/teach-with-us"
+                to="/careers"
                 className="w-full text-center py-3.5 text-sm font-bold text-white/60 bg-white/5 rounded-2xl hover:bg-white/10 transition-colors"
               >
                 Careers
               </Link>
               <Link
-                to="/contact"
+                to="/enquire"
                 className="w-full text-center py-3.5 text-sm font-bold text-black bg-white rounded-2xl hover:bg-white/90 transition-colors"
               >
                 Walk-in Free Trial

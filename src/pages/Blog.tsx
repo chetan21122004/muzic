@@ -70,7 +70,7 @@ const Blog = () => {
     const rest = blogPosts.filter((p) => !p.featured);
 
     return (
-        <div className="min-h-screen bg-background">
+        <div className="min-h-screen bg-background font-secondary">
             <Navbar />
 
             {/* Hero */}

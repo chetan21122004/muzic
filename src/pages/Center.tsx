@@ -29,7 +29,7 @@ const stats = [
 
 const Center = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background font-secondary">
       <Navbar />
 
 
@@ -45,7 +45,7 @@ const Center = () => {
                 <p className="text-xs text-muted-foreground mt-0.5">All courses available as live 1-on-1 online classes — UK, USA & worldwide.</p>
               </div>
             </div>
-            <Link to="/online-programs" className="shrink-0 inline-flex items-center gap-2 bg-primary text-primary-foreground text-xs font-bold px-5 py-2.5 rounded-full hover:bg-[#c40812] transition-colors shadow-lg shadow-primary/20">
+            <Link to="/online-music-classes-in-croydon-and-uk" className="shrink-0 inline-flex items-center gap-2 bg-primary text-primary-foreground text-xs font-bold px-5 py-2.5 rounded-full hover:bg-[#c40812] transition-colors shadow-lg shadow-primary/20">
               Explore Online Classes <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
@@ -108,7 +108,7 @@ const Center = () => {
                     <a href={c.mapUrl} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 border border-border text-muted-foreground text-xs font-bold py-2.5 rounded-full hover:border-primary/50 hover:text-primary transition-all">
                       <ExternalLink className="w-3.5 h-3.5" /> Open in Maps
                     </a>
-                    <Link to="/contact" className="flex-1 flex items-center justify-center gap-2 bg-primary text-primary-foreground text-xs font-bold py-2.5 rounded-full hover:bg-[#c40812] transition-all shadow-lg shadow-primary/20">
+                    <Link to="/enquire" className="flex-1 flex items-center justify-center gap-2 bg-primary text-primary-foreground text-xs font-bold py-2.5 rounded-full hover:bg-[#c40812] transition-all shadow-lg shadow-primary/20">
                       Walk-in Free Trial
                     </Link>
                   </div>
@@ -193,10 +193,10 @@ const Center = () => {
             <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-3">Ready to Walk In?</h2>
             <p className="text-muted-foreground text-sm mb-8 max-w-md mx-auto md:mx-0 leading-relaxed">Book a free trial and visit our nearest centre. Our doors are open — your music journey begins today.</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
-              <Link to="/contact" className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-bold px-8 py-3.5 rounded-full hover:bg-[#c40812] transition-all shadow-xl shadow-primary/25">
+              <Link to="/enquire" className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-bold px-8 py-3.5 rounded-full hover:bg-[#c40812] transition-all shadow-xl shadow-primary/25">
                 Walk-in Free Trial
               </Link>
-              <Link to="/online-programs" className="inline-flex items-center justify-center gap-2 border border-border text-muted-foreground font-semibold px-8 py-3.5 rounded-full hover:border-primary/50 hover:text-primary transition-colors bg-secondary">
+              <Link to="/online-music-classes-in-croydon-and-uk" className="inline-flex items-center justify-center gap-2 border border-border text-muted-foreground font-semibold px-8 py-3.5 rounded-full hover:border-primary/50 hover:text-primary transition-colors bg-secondary">
                 Explore Online Courses <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
