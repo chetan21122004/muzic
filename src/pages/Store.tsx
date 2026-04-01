@@ -28,7 +28,7 @@ const Store = () => {
             Store is Under <br className="hidden sm:block" /> Construction.
           </h1>
           <p className="text-white/80 max-w-xl mx-auto text-base sm:text-lg leading-relaxed mb-10 drop-shadow-md font-medium">
-            We're upgrading our online shop to bring you the best instruments, books, and accessories. Please check back soon or visit one of our academies.
+            We're upgrading our shop to bring you the best instruments, books, and accessories. Please check back soon or visit one of our academies.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link to="/" className="inline-flex items-center justify-center px-10 py-4 rounded-md bg-[#e31837] text-white text-[15px] font-bold transition-transform hover:scale-105 shadow-[0_10px_20px_rgba(227,24,55,0.3)]">

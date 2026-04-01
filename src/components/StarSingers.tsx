@@ -17,7 +17,7 @@ const StarSingers = () => {
   return (
     <section className="py-16" style={{ background: "#0b0b0c" }}>
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-extrabold text-white italic mb-10 text-center lg:text-left">Star Students of Muziclub</h2>
+        <h2 className="text-3xl md:text-4xl font-extrabold text-white italic mb-10 text-center lg:text-left">Star Students of <span className="font-core">muziclub</span></h2>
 
         <div className="flex flex-col lg:flex-row gap-8">
           <div className="lg:w-[35%] space-y-1">

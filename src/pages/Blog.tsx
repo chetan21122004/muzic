@@ -7,7 +7,7 @@ const blogPosts = [
         slug: "malay-kale-drums-no-one-knows-cover",
         title: "Malay Kale – Drums Student | #studentshowcase",
         subtitle: "No One Knows – Drums Cover",
-        excerpt: "Malay Kale is a drums student at Muziclub who has been learning for over a year. Watch him perform an energetic cover of 'No One Knows' by Queens of the Stone Age. This cover showcases his technique, timing, and musical feel — a testament to what consistent practice and great teaching can achieve.",
+        excerpt: "Malay Kale is a drums student at muziclub who has been learning for over a year. Watch him perform an energetic cover of 'No One Knows' by Queens of the Stone Age. This cover showcases his technique, timing, and musical feel — a testament to what consistent practice and great teaching can achieve.",
         date: "October 2022",
         categories: ["cover", "drums", "malay kale", "student showcase"],
         emoji: "🥁",
@@ -17,7 +17,7 @@ const blogPosts = [
         slug: "arushi-deshpande-guitar-student-showcase",
         title: "Arushi Deshpande – Guitar Student | #studentshowcase",
         subtitle: "Beautiful guitar covers and originals",
-        excerpt: "Arushi Deshpande is a guitar student learning with Conrad Bhengra at Muziclub. Watch her perform heartfelt guitar covers and originals that show immense growth in her playing style. A wonderful example of dedication and passion.",
+        excerpt: "Arushi Deshpande is a guitar student learning with Conrad Bhengra at muziclub. Watch her perform heartfelt guitar covers and originals that show immense growth in her playing style. A wonderful example of dedication and passion.",
         date: "September 2022",
         categories: ["guitar cover", "student showcase", "Conrad Bhengra"],
         emoji: "🎸",
@@ -27,7 +27,7 @@ const blogPosts = [
         slug: "ukulele-1-month-crash-course",
         title: "Ukulele – 1 Month Crash Course!",
         subtitle: "New Batch Begins August 2022",
-        excerpt: "Always wanted to learn the ukulele? Muziclub is launching a fun, structured 1-month crash course for beginners. Learn basic chords, strumming patterns, and play your favourite songs — all in just 4 weeks! Batches begin August 2022. Limited seats. Enroll now.",
+        excerpt: "Always wanted to learn the ukulele? muziclub is launching a fun, structured 1-month crash course for beginners. Learn basic chords, strumming patterns, and play your favourite songs — all in just 4 weeks! Batches begin August 2022. Limited seats. Enroll now.",
         date: "July 2022",
         categories: ["ukulele", "crash course", "batch"],
         emoji: "🎵",
@@ -46,8 +46,8 @@ const blogPosts = [
     {
         slug: "charan-varun-raavi-keyboard-students",
         title: "Charan Raavi & Varun Raavi – Keyboard Students | #studentshowcase",
-        subtitle: "Learning at Muziclub for almost a year",
-        excerpt: "Charan Raavi and Varun Raavi have been learning keyboard at Muziclub for almost a year. Their progress is remarkable — from complete beginners to confident players capable of performing melodic pieces. Watch their showcase performance.",
+        subtitle: "Learning at muziclub for almost a year",
+        excerpt: "Charan Raavi and Varun Raavi have been learning keyboard at muziclub for almost a year. Their progress is remarkable — from complete beginners to confident players capable of performing melodic pieces. Watch their showcase performance.",
         date: "June 2022",
         categories: ["keyboard", "student showcase", "piano"],
         emoji: "🎹",
@@ -57,7 +57,7 @@ const blogPosts = [
         slug: "sunday-jam-fathers-day-special",
         title: "Sunday Jam – Father's Day Special",
         subtitle: "A musical dedication to all fathers",
-        excerpt: "Muziclub's iconic Sunday Jam went special for Father's Day! Students performed beautiful dedications to their fathers — a heartwarming celebration of music, family, and love. Sunday Jam is an opportunity for all Muziclub students to perform live every week.",
+        excerpt: "muziclub's iconic Sunday Jam went special for Father's Day! Students performed beautiful dedications to their fathers — a heartwarming celebration of music, family, and love. Sunday Jam is an opportunity for all muziclub students to perform live every week.",
         date: "June 2022",
         categories: ["Sunday Jam", "events", "performance"],
         emoji: "🎤",
@@ -76,11 +76,11 @@ const Blog = () => {
             {/* Hero */}
             <section className="bg-card py-16 border-b border-border">
                 <div className="container mx-auto px-4 text-center">
-                    <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-                        Muzi<span className="text-primary">club</span> Blog
+                    <h1 className="font-core text-4xl md:text-5xl font-bold text-foreground mb-4 normal-case">
+                        <span className="normal-case">muziclub</span> Blog
                     </h1>
                     <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-                        Student showcases, course announcements, Sunday Jam highlights, and everything Muziclub.
+                        Student showcases, course announcements, Sunday Jam highlights, and everything <span className="font-core">muziclub</span>.
                     </p>
                 </div>
             </section>
@@ -154,9 +154,9 @@ const Blog = () => {
 
                 {/* CTA */}
                 <div className="mt-14 bg-primary/10 border border-primary/20 rounded-2xl p-8 text-center">
-                    <h3 className="text-foreground font-bold text-xl mb-2">Want to be featured on the Muziclub Blog?</h3>
+                    <h3 className="text-foreground font-bold text-xl mb-2">Want to be featured on the <span className="font-core">muziclub</span> Blog?</h3>
                     <p className="text-muted-foreground text-sm mb-4">
-                        Join Muziclub, perform at our Sunday Jam sessions, and you too could be our next featured student!
+                        Join <span className="font-core">muziclub</span>, perform at our Sunday Jam sessions, and you too could be our next featured student!
                     </p>
                     <a
                         href="https://muziclub.com/contact-us/"

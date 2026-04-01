@@ -56,7 +56,7 @@ const TeachWithUs = () => {
           <p className="text-[#ff2a40] text-xs font-black uppercase tracking-[0.3em] mb-4 drop-shadow-md">Join Our Team</p>
           <h1 className="text-4xl md:text-5xl lg:text-[4rem] font-core font-medium text-white leading-[1.1] mb-6 drop-shadow-xl max-w-3xl">
             Love Teaching Music? <br />
-            Join the Muziclub Family.
+            Join the <span className="font-core">muziclub</span> Family.
           </h1>
           <p className="text-white/90 max-w-xl mx-auto lg:mx-0 text-base sm:text-lg leading-relaxed mb-10 drop-shadow-md font-medium">
             If you're passionate about teaching music, we'd love to have you on our team. Build your career with India's leading music academy.
@@ -79,7 +79,7 @@ const TeachWithUs = () => {
 
         <div className="container mx-auto px-6 lg:px-16 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-4">Why Teach at Muziclub?</h2>
+            <h2 className="font-core text-3xl lg:text-4xl font-extrabold text-foreground mb-4">Why Teach at <span className="font-core normal-case">muziclub</span>?</h2>
             <div className="w-16 h-1 bg-[#e31837] mx-auto rounded-full mb-6"></div>
             <p className="text-muted-foreground text-base max-w-xl mx-auto">We empower our teachers with exactly what they need to thrive in the modern era of music education.</p>
           </div>

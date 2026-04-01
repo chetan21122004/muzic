@@ -8,11 +8,17 @@ import { X, Music, User, Calendar, Award, Play, Youtube } from "lucide-react";
 const ytThumb = (id: string) => `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
 const ytEmbed = (id: string) => `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
 
-const getShowcaseFallbackImage = (category: (typeof showcaseStudents)[number]["category"]): string => {
-  switch (category) {
+const getStableVariantIndex = (key: string, variantCount: number): number => {
+  let hash = 0;
+  for (let i = 0; i < key.length; i += 1) {
+    hash = (hash * 31 + key.charCodeAt(i)) >>> 0;
+  }
+  return hash % variantCount;
+};
+
+const getShowcaseFallbackImage = (student: (typeof showcaseStudents)[number]): string => {
+  switch (student.category) {
     case "Guitar":
-    case "Band Performance":
-    case "Faculty Band":
       return "/illustrations/Playing Music-bro.svg";
     case "Drums":
       return "/illustrations/Compose music-bro.svg";
@@ -21,6 +27,15 @@ const getShowcaseFallbackImage = (category: (typeof showcaseStudents)[number]["c
       return "/illustrations/jazz piano-amico.svg";
     case "Vocals":
       return "/illustrations/Mic drop-rafiki.svg";
+    case "Band Performance":
+    case "Faculty Band": {
+      const bandVariants = [
+        "/illustrations/Playing Music-bro.svg",
+        "/illustrations/Compose music-bro.svg",
+        "/illustrations/Mic drop-bro.svg",
+      ];
+      return bandVariants[getStableVariantIndex(student.id, bandVariants.length)];
+    }
     default:
       return "/illustrations/Welcome-pana.svg";
   }
@@ -73,8 +88,8 @@ const StudentShowcase = () => {
             </div>
           </div>
           <div className="flex items-center gap-2 sm:gap-3 w-full md:w-auto overflow-x-auto pb-1 sm:pb-0 scrollbar-hide snap-x">
-            <a href="https://www.youtube.com/@themuziclub" target="_blank" rel="noreferrer" className="shrink-0 snap-start flex items-center justify-center gap-2 bg-white text-primary px-4 py-2 rounded-full text-[11px] lg:text-xs font-bold hover:bg-gray-100 transition-colors shadow-lg">The Muziclub Official</a>
-            <a href="https://www.youtube.com/@muziclubpimplesaudagar" target="_blank" rel="noreferrer" className="shrink-0 snap-start flex items-center justify-center gap-2 bg-black/40 backdrop-blur-md text-white border border-white/10 px-4 py-2 rounded-full text-[11px] lg:text-xs font-bold hover:bg-black/60 transition-colors shadow-lg">Muziclub Pimple Saudagar</a>
+            <a href="https://www.youtube.com/@themuziclub" target="_blank" rel="noreferrer" className="shrink-0 snap-start flex items-center justify-center gap-2 bg-white text-primary px-4 py-2 rounded-full text-[11px] lg:text-xs font-bold hover:bg-gray-100 transition-colors shadow-lg">The <span className="font-core">muziclub</span> Official</a>
+            <a href="https://www.youtube.com/@muziclubpimplesaudagar" target="_blank" rel="noreferrer" className="shrink-0 snap-start flex items-center justify-center gap-2 bg-black/40 backdrop-blur-md text-white border border-white/10 px-4 py-2 rounded-full text-[11px] lg:text-xs font-bold hover:bg-black/60 transition-colors shadow-lg"><span className="font-core">muziclub</span> Pimple Saudagar</a>
           </div>
         </div>
       </section>
@@ -116,7 +131,7 @@ const StudentShowcase = () => {
                   ) : (
                     <div className="w-full h-full bg-secondary flex items-center justify-center">
                       <img
-                        src={getShowcaseFallbackImage(student.category)}
+                        src={getShowcaseFallbackImage(student)}
                         alt=""
                         loading="lazy"
                         decoding="async"
@@ -180,7 +195,7 @@ const StudentShowcase = () => {
               ) : (
                 <div className="w-full h-full bg-gradient-to-br from-primary/10 via-secondary to-primary/5 flex items-center justify-center p-6">
                   <img
-                    src={getShowcaseFallbackImage(selected.category)}
+                    src={getShowcaseFallbackImage(selected)}
                     alt=""
                     loading="lazy"
                     decoding="async"

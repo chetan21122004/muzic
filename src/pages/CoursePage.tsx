@@ -8,7 +8,7 @@ import { ChevronRight, Check, Video, Star, Award, Clock, MessageCircle } from "l
 const CoursePage = () => {
   const { slug } = useParams<{ slug: string }>();
   const course = getCourseBySlug(slug || "");
-  const [selectedLevel, setSelectedLevel] = useState(2); // default to Proficient
+  const [selectedLevel, setSelectedLevel] = useState(0); // Beginner — same tier layout for all courses
 
   if (!course) {
     return (
@@ -26,8 +26,6 @@ const CoursePage = () => {
   const moreCourses = allCourses
     .filter((c) => c.slug !== course.slug)
     .slice(0, 5);
-  const isViolin = course.slug === "violin";
-
   const currentPricing: PricingLevel = course.pricing[selectedLevel];
 
   return (
@@ -40,7 +38,7 @@ const CoursePage = () => {
         <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center min-h-[420px] relative z-10">
           <div className="relative z-10 py-16 lg:py-24 lg:w-1/2">
             <h1 className="font-core tracking-[0.02em] text-3xl md:text-[2.75rem] font-bold text-white leading-tight mb-4">
-              {isViolin ? "Learn Violin with us" : `Learn ${course.name} with us`}
+              Learn {course.name} with us
             </h1>
             <p className="text-white/70 text-base md:text-lg mb-8 max-w-lg">
               {course.heroDescription}
@@ -49,7 +47,7 @@ const CoursePage = () => {
               to="/enquire"
               className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:bg-primary/90 transition-colors shadow-lg shadow-primary/30"
             >
-              Book Your Free Class
+              Book Your Free Trial Class
             </Link>
           </div>
           <div className="hidden lg:block lg:w-1/2 relative h-full">
@@ -72,7 +70,7 @@ const CoursePage = () => {
   <section className="py-12 md:py-14 bg-secondary">
         <div className="container mx-auto px-4">
           <h2 className="font-core tracking-[0.018em] text-2xl md:text-3xl font-bold text-foreground text-center mb-10">
-            {isViolin ? `About Our ${course.name} Course` : `About Our ${course.name} Course`}
+            About Our {course.name} Course
           </h2>
 
           <div className="flex flex-col lg:flex-row gap-8">
@@ -120,7 +118,7 @@ const CoursePage = () => {
             {/* Right: Selected level details */}
             <div className="flex-1 bg-background rounded-2xl p-6 md:p-7 border border-border">
               <h3 className="font-core tracking-[0.015em] text-lg md:text-xl font-bold text-foreground mb-3">
-                {isViolin ? currentPricing.name : `${currentPricing.name} Level`}
+                {currentPricing.name}
               </h3>
               <p className="font-tertiary text-muted-foreground text-sm leading-relaxed mb-5">
                 {currentPricing.description}
@@ -154,7 +152,7 @@ const CoursePage = () => {
                   to="/enquire"
                   className="inline-flex items-center justify-center px-8 py-3 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:bg-primary/90 transition-colors"
                 >
-                  Book Your Free Class
+                  Book Your Free Trial Class
                 </Link>
                 <Link
                   to="/enquire"
@@ -164,32 +162,33 @@ const CoursePage = () => {
                 </Link>
               </div>
 
-              {/* What you'll learn */}
-              <h4 className="font-core tracking-[0.015em] font-bold text-foreground mb-4">What will you learn</h4>
-              <div className="grid md:grid-cols-2 gap-3 mb-8">
-                {currentPricing.learningPoints.map((point, i) => (
-                  <div key={i} className="flex items-start gap-2">
-                    <Check className="w-4 h-4 text-green-500 mt-1 shrink-0" />
-                    <span className="text-muted-foreground text-sm md:text-base leading-relaxed">{point}</span>
-                  </div>
-                ))}
+              {/* Curriculum — Academic Board (Violin only has topics for now) */}
+              <h4 className="font-core tracking-[0.015em] font-bold text-foreground mb-4 uppercase text-[13px] md:text-sm">
+                CURRICULLUM- <span className="font-core normal-case">muziclub</span> ACADEMIC BOARD
+              </h4>
+              <div className="grid md:grid-cols-2 gap-3 mb-8 min-h-[4rem]">
+                {currentPricing.learningPoints.length > 0 ? (
+                  currentPricing.learningPoints.map((point, i) => (
+                    <div key={i} className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-green-500 mt-1 shrink-0" />
+                      <span className="font-secondary text-muted-foreground text-sm md:text-base leading-relaxed">{point}</span>
+                    </div>
+                  ))
+                ) : (
+                  <div className="col-span-2 min-h-[2rem]" aria-hidden />
+                )}
               </div>
 
               {/* Feature badges */}
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                {(course.slug === "violin" ? [
+                {[
                   { icon: Video, label: "In Person Classes" },
                   { icon: Check, label: "24 Sessions" },
                   { icon: Clock, label: "60 Min Sessions" },
                   { icon: MessageCircle, label: "Quarterly Feedback" },
                   { icon: Star, label: "Half Yearly Assessments" },
                   { icon: Award, label: "Course Certification" },
-                ] : [
-                  { icon: Video, label: "In-person learning" },
-                  { icon: Star, label: "Live Masterclass" },
-                  { icon: Award, label: "Course Certificate" },
-                  { icon: Clock, label: "60 Mins Classes" },
-                ]).map((badge, i) => (
+                ].map((badge, i) => (
                   <div key={i} className="flex items-center gap-2.5">
                     <div className="w-8 h-8 rounded-md bg-primary/10 flex items-center justify-center">
                       <badge.icon className="w-4 h-4 text-primary" />
@@ -229,7 +228,8 @@ const CoursePage = () => {
       <section className="py-16" style={{ background: "#111116" }}>
         <div className="container mx-auto px-4">
           <h2 className="font-core tracking-[0.02em] text-2xl md:text-3xl font-bold text-white text-center mb-12">
-            {isViolin ? `How ${course.name} Classes Work At muziclub` : `How ${course.name} Classes Work At muziclub`}
+            How {course.name} Classes Work At{" "}
+            <span className="font-core normal-case">muziclub</span>
           </h2>
           <div className="flex flex-col md:flex-row gap-0">
             {[
@@ -240,7 +240,7 @@ const CoursePage = () => {
               <div key={i} className="flex flex-1">
                 <div className="flex-1 p-6 md:p-8">
                   <h3 className="font-core tracking-[0.015em] text-white font-extrabold text-lg mb-3">{s.step}</h3>
-                  <p className="text-white/60 text-sm leading-relaxed">{s.text}</p>
+                  <p className="font-secondary text-white/60 text-sm leading-relaxed">{s.text}</p>
                 </div>
                 {i < 2 && (
                   <div className="hidden md:block w-px bg-white/20 self-stretch mx-2" />
@@ -266,7 +266,7 @@ const CoursePage = () => {
               to="/enquire"
               className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:bg-primary/90 transition-colors shadow-lg shadow-primary/30"
             >
-              Book Your Free Class
+              Book Your Free Trial Class
             </Link>
           </div>
           {/* Phone mockup */}
@@ -348,7 +348,7 @@ const CoursePage = () => {
                   </div>
                   <div>
                     <h3 className="font-core tracking-[0.015em] text-white font-extrabold text-lg mb-2">{f.title}</h3>
-                    <p className="text-white/50 text-sm leading-relaxed">{f.desc}</p>
+                    <p className="font-secondary text-white/50 text-sm leading-relaxed">{f.desc}</p>
                   </div>
                 </div>
               ))}
@@ -376,7 +376,7 @@ const CoursePage = () => {
       <section className="py-16" style={{ background: "#0a0a0d" }}>
         <div className="container mx-auto px-4">
           <h2 className="font-core tracking-[0.018em] text-2xl md:text-3xl font-extrabold text-white text-center mb-10">
-            More courses on muziclub
+            More courses on <span className="font-core">muziclub</span>
           </h2>
           <div className="flex gap-5 overflow-x-auto pb-4 scrollbar-hide">
             {moreCourses.map((c) => (
@@ -422,17 +422,6 @@ const CoursePage = () => {
           </div>
         </div>
       </section>
-
-      {/* ═══ FLOATING WHATSAPP CTA ═══ */}
-      <a
-        href="https://wa.me/919876543210?text=Hi%20I%20want%20to%20book%20a%20free%20trial"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-50 inline-flex items-center gap-2 bg-green-500 text-white font-bold text-sm px-5 py-3 rounded-full shadow-lg hover:bg-green-600 transition-colors"
-      >
-        <MessageCircle className="w-5 h-5" />
-        Book a Free Trial
-      </a>
 
       <Footer />
     </div>

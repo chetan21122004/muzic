@@ -3,19 +3,23 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { CountUp } from "@/components/CountUp";
+import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 
 const centres = [
-  { name: "Baner", tagline: "Head Office & Academy", badge: "HEAD OFFICE", address: "Office 11 & 12, Aditi Commerce, Baner Road, Opp. Hillview Residency, Pune – 411045", landmark: "Above Bikaner Sweets", phone: "+91 91563 03400", altPhone: null as string | null, email: "enquiries@muziclub.com", hours: "Daily: 10 AM – 8 PM", rating: "4.8", reviews: "360+", mapUrl: "https://maps.google.com/?q=Muziclub+Baner+Aditi+Commerce+Baner+Road+Pune", img: "/new_imgs/Copy of DSC00403.webp" },
-  { name: "Pimple Saudagar", tagline: "Flagship Academy", badge: "FLAGSHIP", address: "2nd Floor, Radhika Avenue, near Jagtap Dairy, beside Savitribai Phule Park, Pune – 411057", landmark: "Near Savitribai Phule Park", phone: "+91 77699 87599", altPhone: "+91 75070 02008", email: "mzps1319@gmail.com", hours: "Daily: 11 AM – 8 PM", rating: "4.9", reviews: "544+", mapUrl: "https://maps.google.com/?q=Muziclub+Pimple+Saudagar+Radhika+Avenue+Pune", img: "/new_imgs/Copy of DSC00590.webp" },
-  { name: "Wakad Office", tagline: "Flagship Academy", badge: "FLAGSHIP", address: "Spirea, S. 91/4, Bhumkar Das Gugre Rd, near Silver Spoon, Bhumkar Nagar, Wakad, Pune – 411033", landmark: "Near Silver Spoon, Bhumkar Nagar", phone: "+91 80805 87033", altPhone: "+91 75078 10055", email: "mzspirea@gmail.com", hours: "Daily: 11 AM – 8 PM", rating: "4.9", reviews: "430+", mapUrl: "https://maps.google.com/?q=Muziclub+Wakad+Spirea+Bhumkar+Das+Gugre+Rd+Pune", img: "/new_imgs/Copy of DSC00677 (1).webp" },
-  { name: "Croydon, UK", tagline: "UK Coordination Centre", badge: "UK CENTRE", address: "Croydon, London, United Kingdom – CR0 5RR", landmark: "South London — Online Coordination & UK Classes", phone: "+44 7424 233 605", altPhone: "+44 203 769 0013", email: "uk@muziclub.com", hours: "Mon – Sat: 10 AM – 8 PM (IST online)", rating: null as string | null, reviews: null as string | null, mapUrl: "https://maps.google.com/?q=Croydon+London+CR0+5RR+UK", img: "/new_imgs/Copy of DSC00711 (1).webp" },
+  { name: "Baner", tagline: "Head Office & Academy", badge: "HEAD OFFICE", address: "Office 11 & 12, Aditi Commerce, Baner Road, Opp. Hillview Residency, Pune – 411045", landmark: "Above Bikaner Sweets", phone: "+91 91563 03400", altPhone: null as string | null, email: "enquiries@muziclub.com", hours: "Daily: 10 AM – 8 PM", rating: "4.8", reviews: "360+", mapUrl: "https://maps.google.com/?q=Muziclub+Baner+Aditi+Commerce+Baner+Road+Pune", img: "/new_imgs/Copy of DSC00403.webp", whatsapp: "919156303400" },
+  { name: "Pimple Saudagar", tagline: "Flagship Academy", badge: "FLAGSHIP", address: "2nd Floor, Radhika Avenue, near Jagtap Dairy, beside Savitribai Phule Park, Pune – 411057", landmark: "Near Savitribai Phule Park", phone: "+91 77699 87599", altPhone: "+91 75070 02008", email: "mzps1319@gmail.com", hours: "Daily: 11 AM – 8 PM", rating: "4.9", reviews: "544+", mapUrl: "https://maps.google.com/?q=Muziclub+Pimple+Saudagar+Radhika+Avenue+Pune", img: "/new_imgs/Copy of DSC00590.webp", whatsapp: "917769987599" },
+  { name: "Wakad Office", tagline: "Flagship Academy", badge: "FLAGSHIP", address: "Spirea, S. 91/4, Bhumkar Das Gugre Rd, near Silver Spoon, Bhumkar Nagar, Wakad, Pune – 411033", landmark: "Near Silver Spoon, Bhumkar Nagar", phone: "+91 80805 87033", altPhone: "+91 75078 10055", email: "mzspirea@gmail.com", hours: "Daily: 11 AM – 8 PM", rating: "4.9", reviews: "430+", mapUrl: "https://maps.google.com/?q=Muziclub+Wakad+Spirea+Bhumkar+Das+Gugre+Rd+Pune", img: "/new_imgs/Copy of DSC00677 (1).webp", whatsapp: "918080587033" },
+  { name: "Croydon, UK", tagline: "UK Coordination Centre", badge: "UK CENTRE", address: "Croydon, London, United Kingdom – CR0 5RR", landmark: "South London — Online Coordination & UK Classes", phone: "+44 7424 233 605", altPhone: "+44 203 769 0013", email: "uk@muziclub.com", hours: "Mon – Sat: 10 AM – 8 PM (IST online)", rating: null as string | null, reviews: null as string | null, mapUrl: "https://maps.google.com/?q=Croydon+London+CR0+5RR+UK", img: "/new_imgs/Copy of DSC00711 (1).webp", whatsapp: "447424233605" },
 ];
+
+const centreWhatsAppHref = (num: string, centreName: string) =>
+  `https://wa.me/${num}?text=${encodeURIComponent(`Hi! I'm interested in ${centreName} — muziclub.`)}`;
 
 const facilities = [
   { icon: "🎸", title: "Practice Rooms", desc: "Dedicated soundproofed practice rooms at every Pune centre" },
   { icon: "🥁", title: "Drum Kits", desc: "Full acoustic and electronic drum kits for all practice sessions" },
   { icon: "🎹", title: "Keyboards & Pianos", desc: "Professional-grade keyboards and upright pianos" },
-  { icon: "🎤", title: "Vocal Studio", desc: "Dedicated vocal rooms with proper acoustic treatment" },
+  { icon: "🎤", title: "Recording Studio", desc: "Dedicated vocal rooms with proper acoustic treatment" },
   { icon: "🎵", title: "Sunday Jam Stage", desc: "Live stage with PA system for weekly Sunday Jam performances" },
   { icon: "☕", title: "Lounge Area", desc: "Comfortable waiting area for parents and students" },
 ];
@@ -45,7 +49,7 @@ const Center = () => {
                 <p className="text-xs text-muted-foreground mt-0.5">All courses available as live 1-on-1 online classes — UK, USA & worldwide.</p>
               </div>
             </div>
-            <Link to="/online-music-classes-in-croydon-and-uk" className="shrink-0 inline-flex items-center gap-2 bg-primary text-primary-foreground text-xs font-bold px-5 py-2.5 rounded-full hover:bg-[#c40812] transition-colors shadow-lg shadow-primary/20">
+            <Link to="/online" className="shrink-0 inline-flex items-center gap-2 bg-primary text-primary-foreground text-xs font-bold px-5 py-2.5 rounded-full hover:bg-[#c40812] transition-colors shadow-lg shadow-primary/20">
               Explore Online Classes <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
@@ -57,7 +61,7 @@ const Center = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-14">
             <p className="text-primary text-[10px] font-extrabold uppercase tracking-[0.22em] mb-3">Find Us</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-foreground">Our Centres</h2>
+            <h2 className="font-core text-3xl md:text-4xl font-extrabold text-foreground">Our Centres</h2>
             <p className="text-muted-foreground text-sm mt-2">Walk in for a free trial class — appointment needed</p>
           </div>
           <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
@@ -78,7 +82,7 @@ const Center = () => {
                 <div className="p-6">
                   <div className="mb-4">
                     <p className="text-primary text-[10px] font-bold uppercase tracking-widest mb-1">{c.tagline}</p>
-                    <h3 className="text-xl font-extrabold text-foreground">Muziclub — {c.name}</h3>
+                    <h3 className="text-xl font-extrabold text-foreground"><span className="font-core">muziclub</span> — {c.name}</h3>
                   </div>
                   <div className="space-y-3 mb-6">
                     <div className="flex items-start gap-3">
@@ -104,13 +108,22 @@ const Center = () => {
                       <span className="text-sm text-muted-foreground">{c.hours}</span>
                     </div>
                   </div>
-                  <div className="flex gap-3">
+                  <div className="flex flex-col sm:flex-row gap-3">
                     <a href={c.mapUrl} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 border border-border text-muted-foreground text-xs font-bold py-2.5 rounded-full hover:border-primary/50 hover:text-primary transition-all">
                       <ExternalLink className="w-3.5 h-3.5" /> Open in Maps
                     </a>
                     <Link to="/enquire" className="flex-1 flex items-center justify-center gap-2 bg-primary text-primary-foreground text-xs font-bold py-2.5 rounded-full hover:bg-[#c40812] transition-all shadow-lg shadow-primary/20">
                       Walk-in Free Trial
                     </Link>
+                    <a
+                      href={centreWhatsAppHref(c.whatsapp, c.name)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 inline-flex items-center justify-center gap-2 bg-[#25D366] text-white text-xs font-bold py-2.5 rounded-full hover:bg-[#20bd5a] transition-colors shadow-lg"
+                    >
+                      <WhatsAppIcon className="w-4 h-4 fill-white shrink-0" />
+                      WhatsApp
+                    </a>
                   </div>
                 </div>
               </div>
@@ -124,7 +137,9 @@ const Center = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-14">
             <p className="text-primary text-[10px] font-extrabold uppercase tracking-[0.22em] mb-3">Our Impact</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-foreground">Muziclub by the Numbers</h2>
+            <h2 className="font-core text-3xl md:text-4xl font-extrabold text-foreground normal-case">
+              <span className="normal-case">muziclub</span> by the Numbers
+            </h2>
             <p className="text-muted-foreground text-sm mt-2 max-w-2xl mx-auto">
               Over a decade of spreading the joy of music through passionate teaching and a thriving community.
             </p>
@@ -156,7 +171,7 @@ const Center = () => {
                       </div>
                     </div>
                   )}
-                  <p className="text-[10px] sm:text-xs text-muted-foreground uppercase tracking-[0.2em] font-bold mt-1">{s.label}</p>
+                  <p className="font-secondary text-[10px] sm:text-xs text-muted-foreground uppercase tracking-[0.2em] font-bold mt-1">{s.label}</p>
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
@@ -170,7 +185,7 @@ const Center = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-14">
             <p className="text-primary text-[10px] font-extrabold uppercase tracking-[0.22em] mb-3">What's Inside</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-foreground">World-Class Facilities</h2>
+            <h2 className="font-core text-3xl md:text-4xl font-extrabold text-foreground">World-Class Facilities</h2>
             <p className="text-muted-foreground text-sm mt-2">Everything you need to learn, practise, and perform at the highest level</p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
@@ -190,13 +205,13 @@ const Center = () => {
         <div className="container mx-auto px-4 relative z-10 flex flex-col md:flex-row items-center justify-between gap-10">
           <div className="flex-1 text-center md:text-left">
             <p className="text-primary text-[10px] font-extrabold uppercase tracking-[0.22em] mb-4">Get Started</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-3">Ready to Walk In?</h2>
+            <h2 className="font-core text-3xl md:text-4xl font-extrabold text-foreground mb-3">Ready to Walk In?</h2>
             <p className="text-muted-foreground text-sm mb-8 max-w-md mx-auto md:mx-0 leading-relaxed">Book a free trial and visit our nearest centre. Our doors are open — your music journey begins today.</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
               <Link to="/enquire" className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-bold px-8 py-3.5 rounded-full hover:bg-[#c40812] transition-all shadow-xl shadow-primary/25">
                 Walk-in Free Trial
               </Link>
-              <Link to="/online-music-classes-in-croydon-and-uk" className="inline-flex items-center justify-center gap-2 border border-border text-muted-foreground font-semibold px-8 py-3.5 rounded-full hover:border-primary/50 hover:text-primary transition-colors bg-secondary">
+              <Link to="/online" className="inline-flex items-center justify-center gap-2 border border-border text-muted-foreground font-semibold px-8 py-3.5 rounded-full hover:border-primary/50 hover:text-primary transition-colors bg-secondary">
                 Explore Online Courses <ArrowRight className="w-4 h-4" />
               </Link>
             </div>

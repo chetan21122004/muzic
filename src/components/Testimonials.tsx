@@ -3,9 +3,9 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 
 const testimonials = [
-  { name: "Sonya Meher", location: "Hindustani Vocals Student", img: "https://img.youtube.com/vi/QOy61MeG0xc/hqdefault.jpg", text: "A proud mother to 2 children, singing is my passion. Learning Hindustani Vocals at Muziclub since 2015 has been an incredible journey. The teachers are incredibly patient and encouraging." },
-  { name: "Preetish Pratihari", location: "Guitar Student (Trinity Grade 7)", img: "https://img.youtube.com/vi/7CnKhSLG_7E/hqdefault.jpg", text: "I have been learning guitar with Muziclub on and off for more than 7 years. The expert guidance from the faculty artist helped me reach Trinity Rock & Pop Level 6. Highly recommended!" },
-  { name: "Malay Kale", location: "Drums Student", img: "https://img.youtube.com/vi/fd94YZG0Mgw/hqdefault.jpg", text: "Learning drums at Muziclub has been amazing. The teachers make classes highly interactive and always encourage two-way discussions. They even supported me in starting my own YouTube channel!" },
+  { name: "Sonya Meher", location: "Hindustani Vocals Student", img: "https://img.youtube.com/vi/QOy61MeG0xc/hqdefault.jpg", text: "A proud mother to 2 children, singing is my passion. Learning Hindustani Vocals at muziclub since 2015 has been an incredible journey. The teachers are incredibly patient and encouraging." },
+  { name: "Preetish Pratihari", location: "Guitar Student (Trinity Grade 7)", img: "https://img.youtube.com/vi/7CnKhSLG_7E/hqdefault.jpg", text: "I have been learning guitar with muziclub on and off for more than 7 years. The expert guidance from the faculty artist helped me reach Trinity Rock & Pop Level 6. Highly recommended!" },
+  { name: "Malay Kale", location: "Drums Student", img: "https://img.youtube.com/vi/fd94YZG0Mgw/hqdefault.jpg", text: "Learning drums at muziclub has been amazing. The teachers make classes highly interactive and always encourage two-way discussions. They even supported me in starting my own YouTube channel!" },
   { name: "Anusha Bhatia", location: "Western Vocals Student", img: "https://img.youtube.com/vi/RghXPi_oSfQ/hqdefault.jpg", text: "I believe in 'Sing because you love it, not because you can'. I've been learning Western Vocals here for a year and the environment is extremely supportive. Getting to perform live is a big plus." },
   { name: "Akshit Dhall", location: "Independent Singer-Songwriter", img: "https://img.youtube.com/vi/qdRIdz-h-DI/hqdefault.jpg", text: "As an independent artist, the mentors here helped me refine my original songs. I now perform 90-120 minute live sets! It's a great place to hone your skills and meet fellow musicians." },
 ];
@@ -36,7 +36,7 @@ const Testimonials = () => {
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
         >
-          <h2 className="text-3xl md:text-4xl font-extrabold text-foreground">Muziclub's Student Testimonials</h2>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-foreground"><span className="font-core">muziclub</span>'s Student Testimonials</h2>
           <div className="flex gap-2 self-start sm:self-auto">
             <button onClick={() => canPrev && setStartIdx(startIdx - 1)} className={`w-10 h-10 rounded-full border flex items-center justify-center transition-colors ${canPrev ? "border-border text-foreground hover:bg-secondary" : "border-border/50 text-muted-foreground/30 cursor-default"}`}>
               <ChevronLeft className="w-5 h-5" />

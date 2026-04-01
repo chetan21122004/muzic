@@ -22,7 +22,7 @@ const CoursesSection = () => {
       <div className="absolute inset-0 bg-background/95 md:bg-background/90 z-0"></div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-row items-center justify-between gap-4 mb-8 lg:mb-10">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground max-w-[65%] lg:max-w-full leading-tight">Our Online Music Courses</h2>
+          <h2 className="font-core text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground max-w-[65%] lg:max-w-full leading-tight">Our Music Courses</h2>
           <div className="flex gap-1.5 lg:gap-2 shrink-0">
             <button onClick={() => canPrev && setStartIdx(startIdx - 1)} className={`w-8 h-8 lg:w-10 lg:h-10 rounded-full border flex items-center justify-center transition-colors ${canPrev ? "border-border text-foreground hover:bg-secondary" : "border-border/50 text-muted-foreground/30 cursor-default"}`}>
               <ChevronLeft className="w-4 h-4 lg:w-5 lg:h-5" />

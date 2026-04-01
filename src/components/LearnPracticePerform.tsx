@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 const phrases = [
   { keyword: "LEARN", text: "music from the best teachers with personalized 1-on-1 classes tailored to your goals" },
   { keyword: "PRACTICE", text: "music anytime with personal teachers and practice rooms to perfect your skill" },
-  { keyword: "PERFORM", text: "like a pro in front of a huge audience. Muziclub showcase is waiting for you!" },
+  { keyword: "PERFORM", text: "like a pro in front of a huge audience. muziclub showcase is waiting for you!" },
 ];
 
 const LearnPracticePerform = () => {

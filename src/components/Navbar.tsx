@@ -6,6 +6,8 @@ import { courseCategories } from "@/data/courses";
 const navItems = [
   { label: "Courses", hasDropdown: true },
   { label: "Academies", href: "/muziclub-baner" },
+  { label: "Online", href: "/online" },
+  { label: "Gallery", href: "/gallery" },
   { label: "Store", href: "/store" },
   { label: "Performances", href: "/red-carpet" },
   { label: "About", href: "/about" },

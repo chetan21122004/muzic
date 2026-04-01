@@ -44,7 +44,7 @@ const JoinUs = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
-            Become a Muziclub Certified Music Teacher and train students all around the world.
+            Become a <span className="font-core">muziclub</span> Certified Music Teacher and train students all around the world.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

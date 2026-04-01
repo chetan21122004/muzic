@@ -9,7 +9,7 @@ import stepPerform from "@/assets/step-perform.png";
 const steps = [
   { icon: CalendarCheck, image: stepBookTrial, step: "01", label: "Book A Free Trial", title: "Select your favourite course and book a free trial class at your convenient time" },
   { icon: Headphones, image: stepTryClass, step: "02", label: "Try Before You Buy", title: "Get personalised guidance from our Academic Expert in the free trial class" },
-  { icon: CreditCard, image: stepPayEnrol, step: "03", label: "Pay and Enroll", title: "Begin your In-person and customised learning sessions with Muziclub Certified Teachers" },
+  { icon: CreditCard, image: stepPayEnrol, step: "03", label: "Pay and Enroll", title: "Begin your In-person and customised learning sessions with muziclub certified teachers" },
   { icon: Sparkles, image: stepPerform, step: "04", label: "Learn, Practice & Perform", title: "Get Exclusive Access to Live Masterclasses, Sunday Jams and Digital Learning Tools" },
 ];
 
@@ -30,7 +30,7 @@ const EnrollSteps = () => {
       <div className="container mx-auto px-4 relative z-10">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
           <p className="text-primary font-semibold text-sm tracking-widest uppercase mb-3">Getting Started</p>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-foreground">
+          <h2 className="font-core text-3xl md:text-5xl font-extrabold text-foreground">
             How to <span className="text-primary">Enroll</span> in Music Lessons?
           </h2>
         </motion.div>

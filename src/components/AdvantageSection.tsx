@@ -22,7 +22,7 @@ const AdvantageSection = () => {
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-10 lg:mb-14">
           <p className="text-primary font-semibold text-[10px] sm:text-xs lg:text-sm tracking-widest uppercase mb-2 lg:mb-3">Why Choose Us</p>
           <h2 className="text-[2rem] leading-[1.15] sm:text-4xl lg:text-5xl lg:leading-tight font-extrabold text-foreground px-2 lg:px-0">
-            The Muziclub <span className="text-primary">Advantage</span>
+            The <span className="font-core">muziclub</span> <span className="text-primary">Advantage</span>
           </h2>
         </motion.div>
 

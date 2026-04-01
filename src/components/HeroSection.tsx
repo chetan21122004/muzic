@@ -5,13 +5,13 @@ import { motion } from "framer-motion";
 
 const slides = [
   {
-    title: "The Muziclub Academic Board",
+    title: "The muziclub Academic Board",
     bullets: [
       "Building the gold standard in music education",
       "Making learning fun & accessible to all ages",
       "In-person classes at our award-winning academies"
     ],
-    cta1: { label: "Explore courses", to: "/online-programs" },
+    cta1: { label: "Explore courses", to: "/online" },
     cta2: { label: "Walk-in Free Trial", to: "/contact" },
     bannerImg: "/banners_new/1.png",
     sideImg: "/illustrations/Compose music-bro.svg",
@@ -23,18 +23,18 @@ const slides = [
       "Aligned with globally recognised exams — Trinity, ABRSM",
       "In-person classes at our award-winning academies"
     ],
-    cta1: { label: "Explore courses", to: "/online-programs" },
+    cta1: { label: "Explore courses", to: "/online" },
     cta2: { label: "Walk-in Free Trial", to: "/contact" },
     bannerImg: "/banners_new/3.png",
     sideImg: "/illustrations/jazz piano-amico.svg",
   },
   {
-    title: "Step into the Spotlight with Muziclub Performances",
+    title: "Step into the Spotlight with muziclub Performances",
     bullets: [
       "Showcase your music talent globally",
       "Compete, perform, and rise to stardom"
     ],
-    cta1: { label: "Watch performances", to: "/student-showcase" },
+    cta1: { label: "Watch performances", to: "/red-carpet" },
     cta2: { label: "Walk-in Free Trial", to: "/contact" },
     bannerImg: "/banners_new/2.png",
     sideImg: "/illustrations/Mic drop-bro.svg",
@@ -108,7 +108,7 @@ const HeroSection = () => {
 
           {/* Elegant Serif Title */}
           <div className="min-h-[105px] sm:min-h-[135px] lg:min-h-0 flex flex-col justify-end lg:justify-start">
-            <h1 className="text-[2rem] sm:text-4xl md:text-[3.25rem] font-serif font-medium text-white leading-[1.25] lg:leading-[1.12] mb-6 lg:mb-6 drop-shadow-2xl tracking-tight">
+            <h1 className="text-[2rem] sm:text-4xl md:text-[3.25rem] font-core font-medium text-white leading-[1.25] lg:leading-[1.12] mb-6 lg:mb-6 drop-shadow-2xl tracking-tight">
               {slide.title}
             </h1>
           </div>
@@ -147,7 +147,7 @@ const HeroSection = () => {
           <div className="relative w-full max-w-[450px] xl:mr-10 flex items-center justify-center group">
             <img
               src={slide.sideImg}
-              alt="Muziclub Highlight"
+              alt="muziclub highlight"
               loading="lazy"
               decoding="async"
               className="w-full h-auto object-contain drop-shadow-2xl transition-transform duration-700 group-hover:scale-110 group-hover:-translate-y-3"
@@ -195,7 +195,7 @@ const HeroSection = () => {
             <div className="text-[32px] sm:text-[34px] lg:text-[42px] font-black text-white leading-none mb-1.5 lg:mb-2 tracking-tighter transition-transform duration-500 group-hover:scale-105">
               <CountUp end={25000} /><span className="text-[#e31837]">+</span>
             </div>
-            <div className="text-[9px] sm:text-[10px] lg:text-[11px] text-[#a0a0a0] lg:text-white/60 font-black uppercase tracking-[0.2em] leading-tight">Students Taught</div>
+            <div className="font-secondary text-[9px] sm:text-[10px] lg:text-[11px] text-[#a0a0a0] lg:text-white/60 font-black uppercase tracking-[0.2em] leading-tight">Students Taught</div>
           </motion.div>
 
           <div className="hidden lg:block w-[1px] h-12 bg-white/10"></div>
@@ -211,7 +211,7 @@ const HeroSection = () => {
             <div className="text-[32px] sm:text-[34px] lg:text-[42px] font-black text-white leading-none mb-1.5 lg:mb-2 tracking-tighter transition-transform duration-500 group-hover:scale-105">
               <CountUp end={75} /><span className="text-[#e31837]">+</span>
             </div>
-            <div className="text-[9px] sm:text-[10px] lg:text-[11px] text-[#a0a0a0] lg:text-white/60 font-black uppercase tracking-[0.2em] leading-tight">Expert Instructors</div>
+            <div className="font-secondary text-[9px] sm:text-[10px] lg:text-[11px] text-[#a0a0a0] lg:text-white/60 font-black uppercase tracking-[0.2em] leading-tight">Expert Instructors</div>
           </motion.div>
 
           <div className="hidden lg:block w-[1px] h-12 bg-white/10"></div>
@@ -227,7 +227,7 @@ const HeroSection = () => {
             <div className="text-[32px] sm:text-[34px] lg:text-[42px] font-black text-white leading-none mb-1.5 lg:mb-2 tracking-tighter transition-transform duration-500 group-hover:scale-105">
               <CountUp end={16} /><span className="text-[#e31837]">+</span>
             </div>
-            <div className="text-[9px] sm:text-[10px] lg:text-[11px] text-[#a0a0a0] lg:text-white/60 font-black uppercase tracking-[0.2em] leading-tight">Years<br className="lg:hidden" /> of Excellence</div>
+            <div className="font-secondary text-[9px] sm:text-[10px] lg:text-[11px] text-[#a0a0a0] lg:text-white/60 font-black uppercase tracking-[0.2em] leading-tight">Years<br className="lg:hidden" /> of Excellence</div>
           </motion.div>
 
           <div className="hidden lg:block w-[1px] h-12 bg-white/10"></div>
@@ -253,7 +253,7 @@ const HeroSection = () => {
                 <CountUp end={4.9} decimals={1} />
               </div>
             </div>
-            <div className="text-[9px] sm:text-[10px] lg:text-[11px] text-[#a0a0a0] lg:text-white/60 font-black uppercase tracking-[0.2em] flex flex-col items-center gap-0.5 lg:gap-1">
+            <div className="font-secondary text-[9px] sm:text-[10px] lg:text-[11px] text-[#a0a0a0] lg:text-white/60 font-black uppercase tracking-[0.2em] flex flex-col items-center gap-0.5 lg:gap-1">
               Google Rating
               <div className="relative inline-block text-[#E0E0E0] text-[8px] lg:text-[10px] tracking-widest mt-0.5">
                 <span className="opacity-30">★★★★★</span>

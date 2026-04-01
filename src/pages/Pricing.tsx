@@ -141,7 +141,7 @@ const Pricing = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-[#e31837]/20 to-transparent pointer-events-none"></div>
         <div className="container mx-auto px-6 text-center space-y-8 relative z-10">
           <h2 className="text-3xl lg:text-[2.5rem] font-core font-medium text-white leading-tight">Start with a Free Trial Class</h2>
-          <p className="text-white/70 max-w-lg mx-auto text-base lg:text-lg font-medium drop-shadow-md">No credit card needed. Just show up and experience the Muziclub difference.</p>
+          <p className="text-white/70 max-w-lg mx-auto text-base lg:text-lg font-medium drop-shadow-md">No credit card needed. Just show up and experience the <span className="font-core">muziclub</span> difference.</p>
           <Link to="/enquire" className="inline-flex items-center justify-center px-10 py-4 rounded-md bg-[#e31837] text-white text-[15px] font-bold transition-transform hover:scale-105 shadow-[0_10px_20px_rgba(227,24,55,0.3)] mt-2">
             Book My Free Trial
           </Link>

@@ -97,154 +97,89 @@ const courseImages: Record<string, string> = {
   "tabla": "/instructor/Subham Chand Sahu_Drums.webp",
 };
 
-function generatePricing(name: string): PricingLevel[] {
-  return [
-    {
-      name: "Preparatory",
-      label: "Ideal for Beginners",
-      pricePerClass: 800,
-      totalClasses: 48,
-      description: `The preparatory level of our online ${name} classes is designed for absolute beginners. You will learn the fundamentals, basic techniques, and develop a strong foundation to build upon.`,
-      learningPoints: [
-        "Build a strong foundation in basic techniques and theory.",
-        "Develop proper posture, breathing, and practice habits.",
-        "Learn to play/sing simple compositions with confidence.",
-        "Understand basic music notation and terminology.",
-      ],
-    },
-    {
-      name: "Intermediate",
-      discount: "5% off",
-      pricePerClass: 879,
-      originalPrice: 925,
-      totalClasses: 72,
-      description: `The intermediate level takes your ${name} skills further with more complex techniques, diverse repertoire, and deeper theoretical understanding.`,
-      learningPoints: [
-        "Explore intermediate-level compositions and repertoire.",
-        "Develop nuanced expression and dynamic control.",
-        "Strengthen theoretical knowledge for deeper understanding.",
-        "Begin preparing for graded certification exams.",
-      ],
-    },
-    {
-      name: "Proficient",
-      discount: "10% off",
-      pricePerClass: 945,
-      originalPrice: 1050,
-      totalClasses: 96,
-      description: `The proficient level of our online ${name} classes is a transformative and guided learning experience. At this level, you will refine advanced techniques, expressive improvisation, and dynamic performance artistry.`,
-      learningPoints: [
-        "Hone advanced techniques and improvisation skills.",
-        "Deepen your understanding of complex musical structures.",
-        "Engage in immersive guided listening and analysis sessions.",
-        "Prepare for professional-level performances and exams.",
-      ],
-    },
-    {
-      name: "Advanced",
-      discount: "10% off",
-      pricePerClass: 945,
-      originalPrice: 1050,
-      totalClasses: 96,
-      description: `The advanced level is for serious students who want to achieve mastery in ${name}. Focus on professional performance, composition, and career readiness.`,
-      learningPoints: [
-        "Master professional-level performance techniques.",
-        "Develop your unique artistic voice and style.",
-        "Create original compositions and arrangements.",
-        "Build a performance portfolio for career opportunities.",
-      ],
-    },
+/** Same four tier names as Violin — used for every course page layout. */
+const STANDARD_LEVEL_TIER_NAMES = [
+  "Beginner ( Level 1 & Level 2 )",
+  "Intermediate ( Level 3 & Level 4 )",
+  "Proficient ( Level 5 & Level 6 )",
+  "Advanced ( Level 7 & Level 8 )",
+] as const;
+
+function tierBlurb(courseName: string, index: number): string {
+  const blurbs = [
+    `Introduction to ${courseName}: fundamentals, technique, and building a strong foundation — aligned with our structured academic pathway.`,
+    `Expanded skills and repertoire in ${courseName} — technique, musicality, and confidence across core material.`,
+    `Refined ${courseName} study — advanced technique, expression, and performance depth.`,
+    `Mastery-focused ${courseName} — professional-level repertoire, performance artistry, and readiness for the stage.`,
   ];
+  return blurbs[index];
 }
+
+/** Violin-style four tiers, pricing hidden on page (same UI as Violin). Curriculum bullets: Violin only until other data is finalized. */
+function violinStylePricingLevels(courseName: string, slug: string): PricingLevel[] {
+  const violinModules = curriculumData["violin"];
+  return STANDARD_LEVEL_TIER_NAMES.map((name, i) => ({
+    name,
+    pricePerClass: 0,
+    totalClasses: 24,
+    description: tierBlurb(courseName, i),
+    learningPoints:
+      slug === "violin"
+        ? (violinModules[i]?.topics ?? []).filter((t): t is string => typeof t === "string" && t.trim().length > 0)
+        : [],
+  }));
+}
+
+const sharedCourseFeatures: Course["features"] = [
+  { icon: "🎯", title: "In-person Classes", description: "Personalized attention at our academy centers with dedicated instructors for maximum progress." },
+  { icon: "🕐", title: "60 Min Class", description: "Focused sessions designed to balance technique and repertoire." },
+  { icon: "🏫", title: "Academy Learning", description: "Learn at our specialized academy centers with hands-on guidance." },
+  { icon: "📜", title: "Course Certificate", description: "Get recognized for your milestones with certified course completion." },
+  { icon: "📊", title: "Quarterly Feedback", description: "Detailed assessment of your progress every quarter." },
+  { icon: "📅", title: "24 Sessions", description: "A comprehensive roadmap of ~24 sessions per module." },
+];
 
 export const allCourses: Course[] = courseCategories
   .filter((cat) => cat.title !== "Certifications")
   .flatMap((cat) =>
     cat.courses.map((c) => {
-      const isViolin = c.slug === "violin";
-      
-      const violinLevels = [
-        "Beginner (Level 1 & Level 2)",
-        "Intermediate (Level 3 & 4)",
-        "Proficient (5 & 6)",
-        "Advanced (7 & 8)"
-      ];
-
-      const violinPricing: PricingLevel[] = [
-        {
-          name: "Beginner (Level 1 & Level 2)",
-          pricePerClass: 0,
-          totalClasses: 24,
-          description: "Introduction to violin, holding, bowing exercises, and major/minor scales.",
-          learningPoints: curriculumData["violin"][0].topics
-        },
-        {
-          name: "Intermediate (Level 3 & 4)",
-          pricePerClass: 0,
-          totalClasses: 24,
-          description: "Advanced scales, third position shifting, and Franz Wohlfahrt studies.",
-          learningPoints: curriculumData["violin"][1].topics
-        },
-        {
-          name: "Proficient (5 & 6)",
-          pricePerClass: 0,
-          totalClasses: 24,
-          description: "Expanded scales, dominant 7ths, and continued Suzuki methods.",
-          learningPoints: curriculumData["violin"][2].topics
-        },
-        {
-          name: "Advanced (7 & 8)",
-          pricePerClass: 0,
-          totalClasses: 24,
-          description: "5th position, 3-octave scales, chromatic scales, and advanced studies.",
-          learningPoints: curriculumData["violin"][3].topics
-        }
-      ];
+      const pricing = violinStylePricingLevels(c.name, c.slug);
+      if (c.slug === "violin") {
+        pricing[0].description = "Introduction to violin, holding, bowing exercises, and major/minor scales.";
+        pricing[1].description = "Advanced scales, third position shifting, and Franz Wohlfahrt studies.";
+        pricing[2].description = "Expanded scales, dominant 7ths, and continued Suzuki methods.";
+        pricing[3].description = "5th position, 3-octave scales, chromatic scales, and advanced studies.";
+      }
 
       return {
         slug: c.slug,
         name: c.name,
         category: cat.title,
-        shortDescription: isViolin 
-          ? "Master the Violin with our structured modules. From beginners to advanced, learn techniques, scales, and classical pieces."
-          : `Learn ${c.name} at Muziclub. Hobby and Grade classes available online and in-person, tailored for all ages and skill levels.`,
-        heroDescription: isViolin
-          ? "Professional violin lessons tailored to every skill level - Amateur to Pro."
-          : `Personalised In-person ${c.name} Lessons tailored to every skill level — Amateur to Pro!`,
+        shortDescription: `Master ${c.name} with our structured modules. From beginners to advanced, learn technique, repertoire, and performance skills.`,
+        heroDescription: `Professional ${c.name} lessons tailored to every skill level - Amateur to Pro.`,
         heroImage: courseImages[c.slug] || "/new_imgs/Copy of DSC00403.webp",
-        features: isViolin ? [
-          { icon: "🎯", title: "In-person Classes", description: "Personalized attention at our academy centers with dedicated instructors for maximum progress." },
-          { icon: "🕐", title: "60 Min Class", description: "Focused sessions designed to balance technique and repertoire." },
-          { icon: "🏫", title: "Academy Learning", description: "Learn at our specialized academy centers with hands-on guidance." },
-          { icon: "📜", title: "Course Certificate", description: "Get recognized for your milestones with certified course completion." },
-          { icon: "📊", title: "Quarterly Feedback", description: "Detailed assessment of your progress every quarter." },
-          { icon: "📅", title: "24 Sessions", description: "A comprehensive roadmap of ~24 sessions per module." },
-        ] : [
-          { icon: "🎓", title: "Expert Teachers", description: `Finding the right teacher is paramount when learning ${c.name}. At Muziclub, we have a faculty of trained music experts personally handpicked to deliver the best music learning experience.` },
-          { icon: "🎤", title: "From Student to Performer", description: "Every student who enrolls with us gets to perform in front of a virtual audience at Muziclub Performances, followed by a LIVE audience at our Sunday Jam sessions." },
-          { icon: "⭐", title: "Course For All", description: `Our In-person ${c.name} classes cover all aspects of learning. It aims to build on your expression and on-stage confidence — ideal for music aspirants at all levels, beginner to pro.` },
-        ],
-        levels: isViolin ? violinLevels : ["Preparatory", "Intermediate", "Proficient", "Advanced"],
-        pricing: isViolin ? violinPricing : generatePricing(c.name),
+        features: sharedCourseFeatures,
+        levels: [...STANDARD_LEVEL_TIER_NAMES],
+        pricing,
         curriculum: curriculumData[c.slug],
-        hidePricing: isViolin,
-        durationPerModule: isViolin ? "6 months" : undefined,
+        hidePricing: true,
+        durationPerModule: "6 months",
         facultyHead: {
-          name: "Muziclub Academic Board",
-          title: `Muziclub Faculty Head — In-person ${c.name} Course`,
+          name: "muziclub Academic Board",
+          title: `muziclub Faculty Head — In-person ${c.name} Course`,
           image: "/instructor/Neelima-Hindustani_Vocals.webp",
-          bio: `The Muziclub Academic Board has designed and certified our ${c.name} course. Backed by years of collective experience, our board has carefully curated the ${c.name} curriculum at Muziclub to ensure our students receive the best music education. Under expert guidance, our students receive world-class ${c.name} training that reflects creativity and technical excellence.`,
+          bio: `The muziclub Academic Board has designed and certified our ${c.name} course. Backed by years of collective experience, our board has carefully curated the ${c.name} curriculum at muziclub to ensure our students receive the best music education. Under expert guidance, our students receive world-class ${c.name} training that reflects creativity and technical excellence.`,
         },
         faqItems: [
-          { question: `What is the duration of the ${c.name} course?`, answer: isViolin ? "Each module in the Violin course duration is 6 months, comprising ~24 sessions." : "The course duration depends on the level you choose. Classes follow content structured as Preparatory, Intermediate, Proficient and Advanced levels." },
+          { question: `What is the duration of the ${c.name} course?`, answer: `Each module is 6 months, comprising ~24 sessions, structured across Beginner through Advanced levels.` },
           { question: "How large are group classes?", answer: "For group classes, the number of participants is strictly limited to 3 to maintain session effectiveness and give you personalized focus." },
           { question: "Do you offer Grade examinations?", answer: "Yes! Grade Classes follow the level structure from internationally recognized boards like Trinity, ABRSM, and Rockschool (RSL)." },
           { question: "Are classes customized to my taste?", answer: "Absolutely. Our Hobby Classes are customized based on individual preferences to help you play the music you love." },
           { question: "Can I perform live as a student?", answer: "Yes! Our motto 'live music' drives us. We arrange regular Sunday Jams where all students have the opportunity to perform live on stage." },
           { question: "How are the classes conducted?", answer: "Classes are conducted In-person at our physical academy centres (Baner, Pimple Saudagar, Hinjawadi)." },
           { question: "What if I miss a class?", answer: "We understand that schedules can be unpredictable. You can easily reschedule your lessons at your convenience." },
-          { question: `Do I need any prior experience to learn ${c.name}?`, answer: "Not at all! Our Preparatory level is designed for absolute beginners with zero prior experience." },
-          { question: "What is the fee structure?", answer: isViolin ? "Please contact us for more information about the Violin course fees and enrollment options." : "Our fees start at INR 800/class for the Preparatory level. Higher levels offer bulk discounts of 5-10%." },
+          { question: `Do I need any prior experience to learn ${c.name}?`, answer: "Not at all! Our Beginner level is designed for absolute beginners with zero prior experience." },
+          { question: "What is the fee structure?", answer: `Please contact us for more information about ${c.name} course fees and enrollment options.` },
           { question: "Can I get a free trial before enrolling?", answer: "Absolutely! We encourage all students to book a FREE trial class before enrolling." },
         ],
       };

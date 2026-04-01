@@ -14,8 +14,8 @@ const stats = [
 ];
 
 const centres = [
-  { name: "Muziclub Kothrud Centre", address: "Near City Pride, Kothrud, Pune", mapLink: "#" },
-  { name: "Muziclub Baner Centre", address: "Near Orchid School, Baner, Pune", mapLink: "#" },
+  { name: "muziclub Kothrud Centre", address: "Near City Pride, Kothrud, Pune", mapLink: "#" },
+  { name: "muziclub Baner Centre", address: "Near Orchid School, Baner, Pune", mapLink: "#" },
 ];
 
 const galleryCategories = [
@@ -81,7 +81,7 @@ const testimonials = [
     name: "Aarav Kulkarni",
     location: "Kothrud",
     stars: 5,
-    text: "The offline classes at Muziclub are amazing. My daughter has been learning piano for a year and the progress is incredible. The teachers are patient and very skilled.",
+    text: "The offline classes at muziclub are amazing. My daughter has been learning piano for a year and the progress is incredible. The teachers are patient and very skilled.",
   },
   {
     name: "Priya Deshpande",
@@ -494,7 +494,7 @@ const OfflineClass = () => {
             See What <span className="text-primary underline decoration-primary">Our Learners</span> Say
           </h2>
           <p className="text-muted-foreground text-sm text-center max-w-lg mx-auto mb-10">
-            Our alumni have shared genuine stories about their musical journey at Muziclub.
+            Our alumni have shared genuine stories about their musical journey at <span className="font-core">muziclub</span>.
           </p>
 
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">

@@ -46,7 +46,7 @@ const ContactUs = () => {
           <div className="flex flex-col md:flex-row items-center justify-between gap-10">
             <div className="flex-1 text-center md:text-left">
               <p className="text-primary text-xs font-bold uppercase tracking-widest mb-3">Reach Us</p>
-              <h1 className="text-4xl md:text-5xl font-extrabold text-foreground mb-4">Get In <span className="text-primary">Touch</span></h1>
+              <h1 className="font-core text-4xl md:text-5xl font-extrabold text-foreground mb-4">Get In <span className="text-primary">Touch</span></h1>
               <p className="text-muted-foreground max-w-lg mx-auto md:mx-0 text-base leading-relaxed">Have a question? Want to book a free trial? We're here to help — reach us online or visit any of our Pune centres.</p>
             </div>
             <div className="flex-1 flex justify-center w-full max-w-sm relative">

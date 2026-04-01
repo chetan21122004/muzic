@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Instagram, Facebook, Youtube, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 
 const courseLinks = [
   { name: "Bollywood / Hindi Film", slug: "popular-film-music-hindi" },
@@ -13,7 +14,7 @@ const courseLinks = [
 ];
 
 const quickLinks = [
-  { name: "About Muziclub", href: "/about" },
+  { name: "About muziclub", href: "/about" },
   { name: "Academies", href: "/center" },
   { name: "Performances", href: "/student-showcase" },
   { name: "Store", href: "/store" },
@@ -23,11 +24,14 @@ const quickLinks = [
 ];
 
 const centres = [
-  { name: "Baner (HQ)", address: "Office 11 & 12, Aditi Commerce, Baner Road, Pune 411069", phone: "+91 91563 03400" },
-  { name: "Pimple Saudagar (Flagship)", address: "2nd Floor, Radhika Avenue, Pune 411027", phone: "+91 77699 87599" },
-  { name: "Wakad Office (Flagship)", address: "Spirea, S.91/4, Bhumkar Das Gugre Rd, Wakad 411033", phone: "+91 80805 87033" },
-  { name: "Croydon, UK", address: "Croydon, London, United Kingdom", phone: "+44 7768 928 645" },
+  { name: "Baner (HQ)", address: "Office 11 & 12, Aditi Commerce, Baner Road, Pune 411069", phone: "+91 91563 03400", whatsapp: "919156303400" },
+  { name: "Pimple Saudagar (Flagship)", address: "2nd Floor, Radhika Avenue, Pune 411027", phone: "+91 77699 87599", whatsapp: "917769987599" },
+  { name: "Wakad Office (Flagship)", address: "Spirea, S.91/4, Bhumkar Das Gugre Rd, Wakad 411033", phone: "+91 80805 87033", whatsapp: "918080587033" },
+  { name: "Croydon, UK", address: "Croydon, London, United Kingdom", phone: "+44 7768 928 645", whatsapp: "447424233605" },
 ];
+
+const footerCentreWhatsAppHref = (num: string, centreName: string) =>
+  `https://wa.me/${num}?text=${encodeURIComponent(`Hi! I'm interested in ${centreName} — muziclub.`)}`;
 
 const Footer = () => {
   return (
@@ -77,9 +81,20 @@ const Footer = () => {
                     <MapPin className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
                     <p className="text-xs text-white/75 leading-relaxed">{c.address}</p>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <Phone className="w-3.5 h-3.5 text-primary shrink-0" />
-                    <a href={`tel:${c.phone.replace(/\s/g, "")}`} className="text-xs text-white/75 hover:text-primary transition-colors">{c.phone}</a>
+                  <div className="flex flex-col gap-2 mt-1">
+                    <div className="flex items-center gap-2">
+                      <Phone className="w-3.5 h-3.5 text-primary shrink-0" />
+                      <a href={`tel:${c.phone.replace(/\s/g, "")}`} className="text-xs text-white/75 hover:text-primary transition-colors">{c.phone}</a>
+                    </div>
+                    <a
+                      href={footerCentreWhatsAppHref(c.whatsapp, c.name)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-xs font-bold text-[#25D366] hover:text-[#4ade80] transition-colors w-fit"
+                    >
+                      <WhatsAppIcon className="w-3.5 h-3.5 fill-current shrink-0" />
+                      WhatsApp
+                    </a>
                   </div>
                 </div>
               ))}
@@ -135,11 +150,11 @@ const Footer = () => {
             <div className="flex flex-col gap-2.5 mb-8">
               <a href="https://www.youtube.com/@themuziclub" target="_blank" rel="noreferrer" className="flex items-center gap-3 text-xs font-semibold text-white/85 hover:text-white group transition-colors">
                 <div className="w-7 h-7 rounded-lg bg-[#ff0000]/10 border border-[#ff0000]/20 flex items-center justify-center group-hover:bg-[#ff0000] transition-colors"><Youtube className="w-3.5 h-3.5 text-[#ff0000] group-hover:text-white transition-colors" /></div>
-                The Muziclub Official
+                The <span className="font-core">muziclub</span> Official
               </a>
               <a href="https://www.youtube.com/@muziclubpimplesaudagar" target="_blank" rel="noreferrer" className="flex items-center gap-3 text-xs font-semibold text-white/85 hover:text-white group transition-colors">
                 <div className="w-7 h-7 rounded-lg bg-[#ff0000]/10 border border-[#ff0000]/20 flex items-center justify-center group-hover:bg-[#ff0000] transition-colors"><Youtube className="w-3.5 h-3.5 text-[#ff0000] group-hover:text-white transition-colors" /></div>
-                Muziclub Pimple Saudagar
+                <span className="font-core">muziclub</span> Pimple Saudagar
               </a>
             </div>
 
