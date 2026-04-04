@@ -164,7 +164,7 @@ const Blog = () => {
                         rel="noopener noreferrer"
                         className="inline-block bg-primary text-primary-foreground font-semibold px-6 py-2.5 rounded-lg hover:bg-primary/90 transition-colors text-sm"
                     >
-                        Book a Free Trial Class
+                        Book a Free Demo
                     </a>
                 </div>
             </div>

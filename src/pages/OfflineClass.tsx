@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
+import { branchHref } from "@/data/centres";
 import { useState } from "react";
 import { MapPin, Star, Users, Award, ChevronDown, Music, Guitar } from "lucide-react";
 import { motion } from "framer-motion";
@@ -14,8 +15,8 @@ const stats = [
 ];
 
 const centres = [
-  { name: "muziclub Kothrud Centre", address: "Near City Pride, Kothrud, Pune", mapLink: "#" },
-  { name: "muziclub Baner Centre", address: "Near Orchid School, Baner, Pune", mapLink: "#" },
+  { name: "muziclub Kothrud Centre", address: "Near City Pride, Kothrud, Pune", branchSlug: null as string | null },
+  { name: "muziclub Baner Centre", address: "Near Orchid School, Baner, Pune", branchSlug: "baner" },
 ];
 
 const galleryCategories = [
@@ -358,8 +359,16 @@ const OfflineClass = () => {
                     <span className="font-bold text-foreground text-sm">{c.name}</span>
                   </div>
                   <p className="text-xs text-muted-foreground mb-3">{c.address}</p>
-                  <div className="flex gap-3">
-                    <a href={c.mapLink} className="text-primary text-xs font-bold hover:underline">View on Map</a>
+                  <div className="flex flex-wrap gap-3">
+                    {c.branchSlug ? (
+                      <Link to={branchHref(c.branchSlug)} className="text-primary text-xs font-bold hover:underline">
+                        Academy page
+                      </Link>
+                    ) : (
+                      <Link to="/centres" className="text-primary text-xs font-bold hover:underline">
+                        All centres
+                      </Link>
+                    )}
                   </div>
                 </div>
               </div>

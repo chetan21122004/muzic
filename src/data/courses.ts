@@ -180,7 +180,7 @@ export const allCourses: Course[] = courseCategories
           { question: "What if I miss a class?", answer: "We understand that schedules can be unpredictable. You can easily reschedule your lessons at your convenience." },
           { question: `Do I need any prior experience to learn ${c.name}?`, answer: "Not at all! Our Beginner level is designed for absolute beginners with zero prior experience." },
           { question: "What is the fee structure?", answer: `Please contact us for more information about ${c.name} course fees and enrollment options.` },
-          { question: "Can I get a free trial before enrolling?", answer: "Absolutely! We encourage all students to book a FREE trial class before enrolling." },
+          { question: "Can I get a free demo before enrolling?", answer: "Absolutely! We encourage all students to book a free demo before enrolling." },
         ],
       };
     })

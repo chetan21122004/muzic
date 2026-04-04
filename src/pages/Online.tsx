@@ -21,7 +21,7 @@ const Online = () => (
             to="/enquire"
             className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:bg-primary/90 transition-colors shadow-lg"
           >
-            Book Your Free Trial Class
+            Book a Free Demo
           </Link>
          
         </div>

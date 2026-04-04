@@ -12,7 +12,7 @@ const slides = [
       "In-person classes at our award-winning academies"
     ],
     cta1: { label: "Explore courses", to: "/online" },
-    cta2: { label: "Walk-in Free Trial", to: "/contact" },
+    cta2: { label: "Walk-in Free Demo", to: "/contact" },
     bannerImg: "/banners_new/1.png",
     sideImg: "/illustrations/Compose music-bro.svg",
   },
@@ -24,7 +24,7 @@ const slides = [
       "In-person classes at our award-winning academies"
     ],
     cta1: { label: "Explore courses", to: "/online" },
-    cta2: { label: "Walk-in Free Trial", to: "/contact" },
+    cta2: { label: "Walk-in Free Demo", to: "/contact" },
     bannerImg: "/banners_new/3.png",
     sideImg: "/illustrations/jazz piano-amico.svg",
   },
@@ -35,7 +35,7 @@ const slides = [
       "Compete, perform, and rise to stardom"
     ],
     cta1: { label: "Watch performances", to: "/red-carpet" },
-    cta2: { label: "Walk-in Free Trial", to: "/contact" },
+    cta2: { label: "Walk-in Free Demo", to: "/contact" },
     bannerImg: "/banners_new/2.png",
     sideImg: "/illustrations/Mic drop-bro.svg",
   },
@@ -47,7 +47,7 @@ const slides = [
       "In-person classes at our award-winning academies"
     ],
     cta1: { label: "Explore activities", to: "/about" },
-    cta2: { label: "Walk-in Free Trial", to: "/contact" },
+    cta2: { label: "Walk-in Free Demo", to: "/contact" },
     bannerImg: "/banners_new/4.png",
     sideImg: "/illustrations/Playing Music-bro.svg",
   },

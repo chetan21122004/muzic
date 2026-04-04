@@ -1,14 +1,16 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Clock, Linkedin, Facebook, Youtube, Instagram, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { branchHref } from "@/data/centres";
 
 const centres = [
-  { name: "Baner (Head Office)", address: "Office 11 & 12, Aditi Commerce, Baner Road, Pune, 411069", landmark: "Above Bikaner Sweets", phone: "+91 9156303400", email: "enquiries@muziclub.com", hours: "Mon – Sat: 9 AM – 9 PM", mapUrl: "https://maps.google.com/?q=Aditi+Commerce+Baner+Road+Pune+411069", badge: "🏢 Head Office" },
-  { name: "Pimple Saudagar (Flagship)", address: "2nd Floor, Radhika Avenue, Near Jagtap Dairy, Pune, 411027", landmark: "Near Savitribai Phule Park", phone: "+91 77699 87599", altPhone: "+91 75070 02008", email: "mzps1319@gmail.com", hours: "Mon – Sat: 10 AM – 8 PM", mapUrl: "#", badge: "⭐ Flagship Academy" },
-  { name: "Wakad Office (Flagship)", address: "Spirea, S. 91/4, Bhumkar Das Gugre Rd, Wakad, Maharashtra 411033", landmark: "Near Wakad", phone: "+91 80805 87033", altPhone: "+91 75078 10055", email: "mzspirea@gmail.com", hours: "Mon – Sat: 9 AM – 9 PM", mapUrl: "#", badge: "⭐ Flagship Academy" },
-  { name: "Croydon, UK", address: "Croydon, London, United Kingdom", landmark: "UK Coordination Centre", phone: "+44 7768928645", email: "online@muziclub.com", hours: "Mon – Sat: 10 AM – 8 PM (IST Online)", mapUrl: "#", badge: "🇬🇧 UK Centre" },
+  { slug: "baner" as const, name: "Baner (Head Office)", address: "Office 11 & 12, Aditi Commerce, Baner Road, Pune, 411069", landmark: "Above Bikaner Sweets", phone: "+91 9156303400", email: "enquiries@muziclub.com", hours: "Mon – Sat: 9 AM – 9 PM", mapUrl: "https://maps.google.com/?q=Aditi+Commerce+Baner+Road+Pune+411069", badge: "🏢 Head Office" },
+  { slug: "pimple-saudagar" as const, name: "Pimple Saudagar (Flagship)", address: "2nd Floor, Radhika Avenue, Near Jagtap Dairy, Pune, 411027", landmark: "Near Savitribai Phule Park", phone: "+91 77699 87599", altPhone: "+91 75070 02008", email: "mzps1319@gmail.com", hours: "Mon – Sat: 10 AM – 8 PM", mapUrl: "https://maps.google.com/?q=Muziclub+Pimple+Saudagar+Radhika+Avenue+Pune", badge: "⭐ Flagship Academy" },
+  { slug: "wakad" as const, name: "Wakad Office (Flagship)", address: "Spirea, S. 91/4, Bhumkar Das Gugre Rd, Wakad, Maharashtra 411033", landmark: "Near Wakad", phone: "+91 80805 87033", altPhone: "+91 75078 10055", email: "mzspirea@gmail.com", hours: "Mon – Sat: 9 AM – 9 PM", mapUrl: "https://maps.google.com/?q=Muziclub+Wakad+Spirea+Bhumkar+Das+Gugre+Rd+Pune", badge: "⭐ Flagship Academy" },
+  { slug: null as null, name: "Croydon, UK", address: "Croydon, London, United Kingdom", landmark: "UK Coordination Centre", phone: "+44 7768928645", email: "online@muziclub.com", hours: "Mon – Sat: 10 AM – 8 PM (IST Online)", mapUrl: "https://maps.google.com/?q=Croydon+London+CR0+5RR+UK", badge: "🇬🇧 UK Centre" },
 ];
 
 const ContactUs = () => {
@@ -47,7 +49,7 @@ const ContactUs = () => {
             <div className="flex-1 text-center md:text-left">
               <p className="text-primary text-xs font-bold uppercase tracking-widest mb-3">Reach Us</p>
               <h1 className="font-core text-4xl md:text-5xl font-extrabold text-foreground mb-4">Get In <span className="text-primary">Touch</span></h1>
-              <p className="text-muted-foreground max-w-lg mx-auto md:mx-0 text-base leading-relaxed">Have a question? Want to book a free trial? We're here to help — reach us online or visit any of our Pune centres.</p>
+              <p className="text-muted-foreground max-w-lg mx-auto md:mx-0 text-base leading-relaxed">Have a question? Want to book a free demo? We're here to help — reach us online or visit any of our Pune centres.</p>
             </div>
             <div className="flex-1 flex justify-center w-full max-w-sm relative">
               <div className="absolute inset-0 bg-primary/10 rounded-full blur-3xl animate-pulse -z-10 w-64 h-64 m-auto"></div>
@@ -136,7 +138,15 @@ const ContactUs = () => {
               <div className="flex items-start justify-between gap-3">
                 <div>
                   <span className="text-[10px] font-bold bg-primary/10 text-primary px-2.5 py-1 rounded-full">{c.badge}</span>
-                  <h3 className="text-foreground font-extrabold text-lg mt-2">{c.name}</h3>
+                  <h3 className="text-foreground font-extrabold text-lg mt-2">
+                    {c.slug ? (
+                      <Link to={branchHref(c.slug)} className="hover:text-primary transition-colors">
+                        {c.name}
+                      </Link>
+                    ) : (
+                      c.name
+                    )}
+                  </h3>
                 </div>
               </div>
               <div className="grid sm:grid-cols-2 gap-3">
@@ -163,9 +173,16 @@ const ContactUs = () => {
                   <div className="flex items-center gap-3"><Clock className="w-4 h-4 text-primary shrink-0" /><span className="text-sm text-muted-foreground">{c.hours}</span></div>
                 </div>
               </div>
-              <a href={c.mapUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xs text-primary font-bold hover:underline">
-                <MapPin className="w-3.5 h-3.5" /> Open in Google Maps
-              </a>
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+                {c.slug && (
+                  <Link to={branchHref(c.slug)} className="inline-flex items-center gap-2 text-xs text-primary font-bold hover:underline">
+                    Academy page
+                  </Link>
+                )}
+                <a href={c.mapUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xs text-primary font-bold hover:underline">
+                  <MapPin className="w-3.5 h-3.5" /> Open in Google Maps
+                </a>
+              </div>
             </div>
           ))}
         </div>

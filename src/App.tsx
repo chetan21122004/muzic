@@ -19,6 +19,7 @@ const Pricing = lazy(() => import("./pages/Pricing"));
 const TeachWithUs = lazy(() => import("./pages/TeachWithUs"));
 const Store = lazy(() => import("./pages/Store"));
 const Center = lazy(() => import("./pages/Center"));
+const BranchPage = lazy(() => import("./pages/BranchPage"));
 const OfflineClass = lazy(() => import("./pages/OfflineClass"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Online = lazy(() => import("./pages/Online"));
@@ -82,10 +83,11 @@ const App = () => (
             <Route path="/flute-bansuri" element={<Navigate to="/courses/flute" replace />} />
             <Route path="/music-theory" element={<Navigate to="/courses/music-theory" replace />} />
 
-            {/* ── CENTRE ROUTES (matching live site individual branch pages) ── */}
-            <Route path="/muziclub-baner" element={<Center />} />
-            <Route path="/muziclub-wakad" element={<Center />} />
-            <Route path="/muziclub-pimple-saudagar" element={<Center />} />
+            {/* ── CENTRES + BRANCH LANDINGS ── */}
+            <Route path="/centres" element={<Center />} />
+            <Route path="/muziclub-baner" element={<BranchPage />} />
+            <Route path="/muziclub-wakad" element={<BranchPage />} />
+            <Route path="/muziclub-pimple-saudagar" element={<BranchPage />} />
 
             {/* Store (local-only page, no live equivalent) */}
             <Route path="/store" element={<Store />} />
@@ -99,7 +101,7 @@ const App = () => (
             <Route path="/student-showcase" element={<Navigate to="/red-carpet" replace />} />
             <Route path="/teach-with-us" element={<Navigate to="/careers" replace />} />
             <Route path="/online-programs" element={<Navigate to="/online-music-classes-in-croydon-and-uk" replace />} />
-            <Route path="/center" element={<Navigate to="/muziclub-baner" replace />} />
+            <Route path="/center" element={<Navigate to="/centres" replace />} />
 
             {/* Catch-all 404 */}
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

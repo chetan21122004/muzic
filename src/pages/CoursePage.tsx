@@ -47,7 +47,7 @@ const CoursePage = () => {
               to="/enquire"
               className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:bg-primary/90 transition-colors shadow-lg shadow-primary/30"
             >
-              Book Your Free Trial Class
+              Book a Free Demo
             </Link>
           </div>
           <div className="hidden lg:block lg:w-1/2 relative h-full">
@@ -152,7 +152,7 @@ const CoursePage = () => {
                   to="/enquire"
                   className="inline-flex items-center justify-center px-8 py-3 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:bg-primary/90 transition-colors"
                 >
-                  Book Your Free Trial Class
+                  Book a Free Demo
                 </Link>
                 <Link
                   to="/enquire"
@@ -233,8 +233,8 @@ const CoursePage = () => {
           </h2>
           <div className="flex flex-col md:flex-row gap-0">
             {[
-              { step: "Step 1", text: `The first step in your ${course.name} learning journey at muziclub begins when you register and Book A FREE trial class.` },
-              { step: "Step 2", text: "Our academic expert will gauge your skills and expertise in your FREE trial class and recommend an appropriate course level to ensure a smooth learning experience." },
+              { step: "Step 1", text: `The first step in your ${course.name} learning journey at muziclub begins when you register and book a free demo.` },
+              { step: "Step 2", text: "Our academic expert will gauge your skills and expertise in your free demo and recommend an appropriate course level to ensure a smooth learning experience." },
               { step: "Step 3", text: `The last step is to enroll in the course recommended by our academic expert and begin to learn ${course.name} under the guidance of our experienced teachers.` },
             ].map((s, i) => (
               <div key={i} className="flex flex-1">
@@ -260,13 +260,13 @@ const CoursePage = () => {
               <span className="text-white/70">Let us resolve those doubts!</span>
             </h2>
             <p className="text-white/50 text-sm mb-6">
-              Schedule a FREE trial session and let our teachers solve all your queries.
+              Schedule a free demo session and let our teachers solve all your queries.
             </p>
             <Link
               to="/enquire"
               className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:bg-primary/90 transition-colors shadow-lg shadow-primary/30"
             >
-              Book Your Free Trial Class
+              Book a Free Demo
             </Link>
           </div>
           {/* Phone mockup */}

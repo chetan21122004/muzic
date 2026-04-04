@@ -2,6 +2,7 @@ import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
+import { branchHref } from "@/data/centres";
 import { showcaseStudents, showcaseCategories, ShowcaseCategory } from "@/data/studentShowcase";
 import { X, Music, User, Calendar, Award, Play, Youtube } from "lucide-react";
 
@@ -89,7 +90,12 @@ const StudentShowcase = () => {
           </div>
           <div className="flex items-center gap-2 sm:gap-3 w-full md:w-auto overflow-x-auto pb-1 sm:pb-0 scrollbar-hide snap-x">
             <a href="https://www.youtube.com/@themuziclub" target="_blank" rel="noreferrer" className="shrink-0 snap-start flex items-center justify-center gap-2 bg-white text-primary px-4 py-2 rounded-full text-[11px] lg:text-xs font-bold hover:bg-gray-100 transition-colors shadow-lg">The <span className="font-core">muziclub</span> Official</a>
-            <a href="https://www.youtube.com/@muziclubpimplesaudagar" target="_blank" rel="noreferrer" className="shrink-0 snap-start flex items-center justify-center gap-2 bg-black/40 backdrop-blur-md text-white border border-white/10 px-4 py-2 rounded-full text-[11px] lg:text-xs font-bold hover:bg-black/60 transition-colors shadow-lg"><span className="font-core">muziclub</span> Pimple Saudagar</a>
+            <div className="shrink-0 snap-start flex items-center gap-2">
+              <a href="https://www.youtube.com/@muziclubpimplesaudagar" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 bg-black/40 backdrop-blur-md text-white border border-white/10 px-4 py-2 rounded-full text-[11px] lg:text-xs font-bold hover:bg-black/60 transition-colors shadow-lg"><span className="font-core">muziclub</span> Pimple Saudagar</a>
+              <Link to={branchHref("pimple-saudagar")} className="flex items-center justify-center px-3 py-2 rounded-full text-[11px] lg:text-xs font-bold border border-white/25 text-white hover:bg-white/10 transition-colors">
+                Academy
+              </Link>
+            </div>
           </div>
         </div>
       </section>

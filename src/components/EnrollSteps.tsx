@@ -7,8 +7,8 @@ import stepPayEnrol from "@/assets/step-pay-enrol.png";
 import stepPerform from "@/assets/step-perform.png";
 
 const steps = [
-  { icon: CalendarCheck, image: stepBookTrial, step: "01", label: "Book A Free Trial", title: "Select your favourite course and book a free trial class at your convenient time" },
-  { icon: Headphones, image: stepTryClass, step: "02", label: "Try Before You Buy", title: "Get personalised guidance from our Academic Expert in the free trial class" },
+  { icon: CalendarCheck, image: stepBookTrial, step: "01", label: "Book a Free Demo", title: "Select your favourite course and book a free demo at your convenient time" },
+  { icon: Headphones, image: stepTryClass, step: "02", label: "Try Before You Buy", title: "Get personalised guidance from our Academic Expert in the free demo" },
   { icon: CreditCard, image: stepPayEnrol, step: "03", label: "Pay and Enroll", title: "Begin your In-person and customised learning sessions with muziclub certified teachers" },
   { icon: Sparkles, image: stepPerform, step: "04", label: "Learn, Practice & Perform", title: "Get Exclusive Access to Live Masterclasses, Sunday Jams and Digital Learning Tools" },
 ];
@@ -74,7 +74,7 @@ const EnrollSteps = () => {
                       </button>
                     ) : (
                       <a href="/contact" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-bold text-sm hover:bg-[#c40812] transition-colors shadow-lg">
-                        Book Your Free Trial <ChevronRight className="w-4 h-4" />
+                        Book a Free Demo <ChevronRight className="w-4 h-4" />
                       </a>
                     )}
                   </div>
@@ -115,7 +115,7 @@ const EnrollSteps = () => {
                           </button>
                         ) : (
                           <a href="/contact" onClick={(e) => e.stopPropagation()} className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-primary text-primary-foreground font-bold text-sm shadow-lg hover:bg-[#c40812] transition-colors">
-                            Book Free Trial <ChevronRight className="w-4 h-4" />
+                            Book a Free Demo <ChevronRight className="w-4 h-4" />
                           </a>
                         )}
                       </div>

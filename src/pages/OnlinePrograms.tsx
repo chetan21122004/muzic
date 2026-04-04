@@ -67,8 +67,8 @@ const OnlinePrograms = () => {
       <section className="py-14 border-t border-border bg-secondary">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl font-extrabold text-foreground mb-3">Not sure which course is right for you?</h2>
-          <p className="text-muted-foreground text-sm mb-6">Book a free 1-on-1 trial class — our teachers will guide you.</p>
-          <Link to="/enquire" className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-bold px-8 py-3.5 rounded-full hover:bg-[#c40812] transition-colors shadow-lg shadow-primary/20">Book Free Trial Class</Link>
+          <p className="text-muted-foreground text-sm mb-6">Book a free 1-on-1 demo — our teachers will guide you.</p>
+          <Link to="/enquire" className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-bold px-8 py-3.5 rounded-full hover:bg-[#c40812] transition-colors shadow-lg shadow-primary/20">Book a Free Demo</Link>
         </div>
       </section>
 

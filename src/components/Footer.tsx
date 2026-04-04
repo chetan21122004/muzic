@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Instagram, Facebook, Youtube, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
+import { branchHref } from "@/data/centres";
 
 const courseLinks = [
   { name: "Bollywood / Hindi Film", slug: "popular-film-music-hindi" },
@@ -15,7 +16,7 @@ const courseLinks = [
 
 const quickLinks = [
   { name: "About muziclub", href: "/about" },
-  { name: "Academies", href: "/center" },
+  { name: "Academies", href: "/centres" },
   { name: "Performances", href: "/student-showcase" },
   { name: "Store", href: "/store" },
   { name: "Teach With Us", href: "/teach-with-us" },
@@ -24,10 +25,10 @@ const quickLinks = [
 ];
 
 const centres = [
-  { name: "Baner (HQ)", address: "Office 11 & 12, Aditi Commerce, Baner Road, Pune 411069", phone: "+91 91563 03400", whatsapp: "919156303400" },
-  { name: "Pimple Saudagar (Flagship)", address: "2nd Floor, Radhika Avenue, Pune 411027", phone: "+91 77699 87599", whatsapp: "917769987599" },
-  { name: "Wakad Office (Flagship)", address: "Spirea, S.91/4, Bhumkar Das Gugre Rd, Wakad 411033", phone: "+91 80805 87033", whatsapp: "918080587033" },
-  { name: "Croydon, UK", address: "Croydon, London, United Kingdom", phone: "+44 7768 928 645", whatsapp: "447424233605" },
+  { name: "Baner (HQ)", slug: "baner" as const, address: "Office 11 & 12, Aditi Commerce, Baner Road, Pune 411069", phone: "+91 91563 03400", whatsapp: "919156303400" },
+  { name: "Pimple Saudagar (Flagship)", slug: "pimple-saudagar" as const, address: "2nd Floor, Radhika Avenue, Pune 411027", phone: "+91 77699 87599", whatsapp: "917769987599" },
+  { name: "Wakad Office (Flagship)", slug: "wakad" as const, address: "Spirea, S.91/4, Bhumkar Das Gugre Rd, Wakad 411033", phone: "+91 80805 87033", whatsapp: "918080587033" },
+  { name: "Croydon, UK", slug: null as null, address: "Croydon, London, United Kingdom", phone: "+44 7768 928 645", whatsapp: "447424233605" },
 ];
 
 const footerCentreWhatsAppHref = (num: string, centreName: string) =>
@@ -76,7 +77,13 @@ const Footer = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {centres.map((c) => (
                 <div key={c.name} className="rounded-2xl border border-white/[0.07] bg-white/[0.02] p-4 hover:border-white/10 hover:bg-white/[0.04] transition-all">
-                  <p className="text-sm font-bold text-white mb-2">{c.name}</p>
+                  {c.slug ? (
+                    <Link to={branchHref(c.slug)} className="text-sm font-bold text-white mb-2 block hover:text-primary transition-colors">
+                      {c.name}
+                    </Link>
+                  ) : (
+                    <p className="text-sm font-bold text-white mb-2">{c.name}</p>
+                  )}
                   <div className="flex items-start gap-2 mb-2">
                     <MapPin className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
                     <p className="text-xs text-white/75 leading-relaxed">{c.address}</p>

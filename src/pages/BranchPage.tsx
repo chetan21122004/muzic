@@ -1,0 +1,354 @@
+import { MapPin, Phone, Clock, Mail, ArrowRight, Star, ExternalLink } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import { CountUp } from "@/components/CountUp";
+import { WhatsAppIcon } from "@/components/WhatsAppIcon";
+import NotFound from "./NotFound";
+import {
+  branchHref,
+  centreFacilities,
+  centreStats,
+  centreWhatsAppHref,
+  getCentreBySlug,
+  puneCentres,
+  type Centre,
+} from "@/data/centres";
+
+const BRANCH_PATHS = new Set(["/muziclub-baner", "/muziclub-wakad", "/muziclub-pimple-saudagar"]);
+
+const BranchPage = () => {
+  const { pathname } = useLocation();
+  const slug = pathname.replace(/^\/muziclub-/, "");
+  const centre = getCentreBySlug(slug);
+
+  if (!BRANCH_PATHS.has(pathname) || !centre) {
+    return <NotFound />;
+  }
+
+  const others = puneCentres.filter((c) => c.slug !== centre.slug);
+  const enquireTo = `/enquire?location=${encodeURIComponent(centre.slug)}`;
+
+  return (
+    <div className="min-h-screen bg-background font-secondary">
+      <Navbar />
+
+      <section className="py-6 border-b border-border bg-background">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 max-w-4xl mx-auto">
+            <div className="flex items-center gap-4">
+              <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-lg shrink-0">💻</div>
+              <div>
+                <p className="font-bold text-foreground text-sm">Can't visit in person? Learn Online!</p>
+                <p className="text-xs text-muted-foreground mt-0.5">All courses available as live 1-on-1 online classes — UK, USA & worldwide.</p>
+              </div>
+            </div>
+            <Link to="/online" className="shrink-0 inline-flex items-center gap-2 bg-primary text-primary-foreground text-xs font-bold px-5 py-2.5 rounded-full hover:bg-[#c40812] transition-colors shadow-lg shadow-primary/20">
+              Explore Online Classes <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Branch hero */}
+      <section className="relative overflow-hidden border-b border-border">
+        <div className="relative h-[min(52vh,420px)] md:h-[min(56vh,480px)]">
+          <img
+            src={centre.img}
+            alt={`Muziclub ${centre.name}`}
+            className="absolute inset-0 w-full h-full object-cover"
+            loading="eager"
+            decoding="async"
+            onError={(e) => {
+              e.currentTarget.onerror = null;
+              (e.currentTarget as HTMLImageElement).src =
+                "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Crect width='100%25' height='100%25' fill='%23111'/%3E%3C/svg%3E";
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-black/40" />
+          <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10 lg:p-14">
+            <div className="container mx-auto px-4 max-w-4xl">
+              <span className="inline-block bg-primary text-primary-foreground text-[9px] font-extrabold uppercase tracking-[0.18em] px-3 py-1.5 rounded-full shadow-lg mb-4">
+                {centre.badge}
+              </span>
+              <p className="text-primary text-[10px] font-bold uppercase tracking-widest mb-1">{centre.tagline}</p>
+              <h1 className="font-core text-3xl md:text-5xl font-extrabold text-foreground mb-3">
+                <span className="font-core">muziclub</span> — {centre.name}
+              </h1>
+              {centre.rating && (
+                <div className="flex items-center gap-2 text-foreground">
+                  <Star className="w-5 h-5 text-primary fill-primary shrink-0" />
+                  <span className="font-extrabold text-lg">{centre.rating}</span>
+                  <span className="text-muted-foreground text-sm">Google ({centre.reviews})</span>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Visit */}
+      <section className="py-12 md:py-14 bg-secondary/40">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <h2 className="font-core text-2xl md:text-3xl font-extrabold text-foreground mb-8">Visit this academy</h2>
+          <div className="rounded-3xl border border-border bg-background p-6 md:p-8 space-y-5">
+            <div className="flex items-start gap-3">
+              <MapPin className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+              <div>
+                <p className="text-muted-foreground leading-relaxed">{centre.address}</p>
+                {centre.landmark && <p className="text-sm text-primary/80 font-medium mt-1">{centre.landmark}</p>}
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <Phone className="w-5 h-5 text-primary shrink-0" />
+              <div className="flex flex-wrap gap-x-4 gap-y-1">
+                <a href={`tel:${centre.phone}`} className="text-foreground hover:text-primary transition-colors font-medium">
+                  {centre.phone}
+                </a>
+                {centre.altPhone && (
+                  <a href={`tel:${centre.altPhone}`} className="text-foreground hover:text-primary transition-colors font-medium">
+                    {centre.altPhone}
+                  </a>
+                )}
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <Mail className="w-5 h-5 text-primary shrink-0" />
+              <a href={`mailto:${centre.email}`} className="text-foreground hover:text-primary transition-colors">
+                {centre.email}
+              </a>
+            </div>
+            <div className="flex items-center gap-3">
+              <Clock className="w-5 h-5 text-primary shrink-0" />
+              <span className="text-muted-foreground">{centre.hours}</span>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-3 pt-2">
+              <a
+                href={centre.mapUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 border-2 border-border text-foreground font-bold px-8 py-3 rounded-full hover:border-primary/50 hover:text-primary transition-all"
+              >
+                <ExternalLink className="w-4 h-4" /> Open in Maps
+              </a>
+              <Link
+                to={enquireTo}
+                className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-bold px-8 py-3 rounded-full hover:bg-[#c40812] transition-colors shadow-lg shadow-primary/25"
+              >
+                Book a Free Demo
+              </Link>
+              <a
+                href={centreWhatsAppHref(centre.whatsapp, centre.name)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-[#25D366] text-white font-bold px-8 py-3 rounded-full hover:bg-[#20bd5a] transition-colors"
+              >
+                <WhatsAppIcon className="w-5 h-5 fill-white shrink-0" />
+                WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <StatsBlock />
+      <FacilitiesBlock />
+
+      {/* Other Pune locations */}
+      <section className="py-14 bg-background border-y border-border">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-10 max-w-2xl mx-auto">
+            <p className="text-primary text-[10px] font-extrabold uppercase tracking-[0.22em] mb-3">Also in Pune</p>
+            <h2 className="font-core text-2xl md:text-3xl font-extrabold text-foreground">Other academies</h2>
+            <p className="text-muted-foreground text-sm mt-2">Same world-class teaching — pick the location that suits you best.</p>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-5 max-w-4xl mx-auto">
+            {others.map((c) => (
+              <OtherBranchCard key={c.slug} centre={c} />
+            ))}
+          </div>
+          <div className="text-center mt-10">
+            <Link
+              to="/centres"
+              className="inline-flex items-center gap-2 text-primary font-bold text-sm hover:underline underline-offset-4"
+            >
+              View all locations including UK <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <CtaBlock />
+      <Footer />
+    </div>
+  );
+};
+
+function StatsBlock() {
+  return (
+    <section className="py-10 border-b border-border bg-background">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-14">
+          <p className="text-primary text-[10px] font-extrabold uppercase tracking-[0.22em] mb-3">Our Impact</p>
+          <h2 className="font-core text-3xl md:text-4xl font-extrabold text-foreground normal-case">
+            <span className="normal-case">muziclub</span> by the Numbers
+          </h2>
+          <p className="text-muted-foreground text-sm mt-2 max-w-2xl mx-auto">
+            Over a decade of spreading the joy of music through passionate teaching and a thriving community.
+          </p>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+          {centreStats.map((s) => (
+            <div
+              key={s.label}
+              className="group relative p-6 rounded-3xl bg-secondary/50 border border-border flex flex-col items-center justify-center text-center overflow-hidden hover:border-primary/30 hover:shadow-xl transition-all duration-500"
+            >
+              <div className="relative z-10 flex flex-col items-center">
+                <p className="text-4xl font-extrabold text-foreground mb-2 group-hover:scale-110 transition-transform duration-500">
+                  {s.num !== undefined ? (
+                    <CountUp end={s.num} suffix={s.suffix ?? ""} decimals={"decimals" in s ? (s.decimals ?? 0) : 0} />
+                  ) : (
+                    s.value
+                  )}
+                </p>
+                {"isRating" in s && s.isRating && (
+                  <div className="flex items-center gap-1 mb-2">
+                    <svg viewBox="0 0 24 24" className="w-5 h-5 mr-1 drop-shadow-sm" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                        fill="#4285F4"
+                      />
+                      <path
+                        d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                        fill="#34A853"
+                      />
+                      <path
+                        d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                        fill="#FBBC05"
+                      />
+                      <path
+                        d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                        fill="#EA4335"
+                      />
+                    </svg>
+                    <div className="relative inline-block text-[#E0E0E0] text-[18px] tracking-[0.02em]">
+                      <span className="opacity-30">★★★★★</span>
+                      <div className="absolute top-0 left-0 overflow-hidden text-[#FABB05] w-[95%] whitespace-nowrap">★★★★★</div>
+                    </div>
+                  </div>
+                )}
+                <p className="font-secondary text-[10px] sm:text-xs text-muted-foreground uppercase tracking-[0.2em] font-bold mt-1">{s.label}</p>
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FacilitiesBlock() {
+  return (
+    <section className="py-20 border-y border-border bg-secondary">
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center mb-14">
+          <p className="text-primary text-[10px] font-extrabold uppercase tracking-[0.22em] mb-3">What's Inside</p>
+          <h2 className="font-core text-3xl md:text-4xl font-extrabold text-foreground">World-Class Facilities</h2>
+          <p className="text-muted-foreground text-sm mt-2">Everything you need to learn, practise, and perform at the highest level</p>
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+          {centreFacilities.map((f, i) => (
+            <div
+              key={i}
+              className="group rounded-2xl p-5 border border-border text-center bg-background hover:border-primary/25 hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
+            >
+              <div className="text-3xl mb-3 group-hover:scale-110 transition-transform duration-300">{f.icon}</div>
+              <p className="text-sm font-bold text-foreground leading-snug mb-1.5">{f.title}</p>
+              <p className="text-[11px] text-muted-foreground leading-relaxed">{f.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function OtherBranchCard({ centre }: { centre: Centre & { slug: string } }) {
+  return (
+    <Link
+      to={branchHref(centre.slug)}
+      className="group rounded-2xl overflow-hidden border border-border bg-background hover:border-primary/30 hover:shadow-lg transition-all text-left flex flex-col"
+    >
+      <div className="relative h-36 overflow-hidden">
+        <img
+          src={centre.img}
+          alt={centre.name}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          loading="lazy"
+          decoding="async"
+          onError={(e) => {
+            e.currentTarget.onerror = null;
+            (e.currentTarget as HTMLImageElement).src =
+              "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Crect width='100%25' height='100%25' fill='%23111'/%3E%3C/svg%3E";
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+        <span className="absolute top-3 left-3 bg-primary text-primary-foreground text-[8px] font-extrabold uppercase tracking-wider px-2 py-1 rounded-full">
+          {centre.badge}
+        </span>
+      </div>
+      <div className="p-4 flex-1 flex flex-col">
+        <p className="text-[10px] text-primary font-bold uppercase tracking-wider mb-1">{centre.tagline}</p>
+        <p className="font-extrabold text-foreground">
+          <span className="font-core">muziclub</span> — {centre.name}
+        </p>
+        <p className="text-xs text-muted-foreground mt-2 line-clamp-2">{centre.address}</p>
+        <span className="mt-3 text-xs font-bold text-primary inline-flex items-center gap-1">
+          Academy page <ArrowRight className="w-3.5 h-3.5" />
+        </span>
+      </div>
+    </Link>
+  );
+}
+
+function CtaBlock() {
+  return (
+    <section className="py-4 bg-background overflow-hidden border-t border-border">
+      <div className="container mx-auto px-4 relative z-10 flex flex-col md:flex-row items-center justify-between gap-10">
+        <div className="flex-1 text-center md:text-left">
+          <p className="text-primary text-[10px] font-extrabold uppercase tracking-[0.22em] mb-4">Get Started</p>
+          <h2 className="font-core text-3xl md:text-4xl font-extrabold text-foreground mb-3">Ready to Walk In?</h2>
+          <p className="text-muted-foreground text-sm mb-8 max-w-md mx-auto md:mx-0 leading-relaxed">
+            Book a free demo and visit our nearest centre. Our doors are open — your music journey begins today.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
+            <Link
+              to="/enquire"
+              className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-bold px-8 py-3.5 rounded-full hover:bg-[#c40812] transition-all shadow-xl shadow-primary/25"
+            >
+              Walk-in Free Demo
+            </Link>
+            <Link
+              to="/online"
+              className="inline-flex items-center justify-center gap-2 border border-border text-muted-foreground font-semibold px-8 py-3.5 rounded-full hover:border-primary/50 hover:text-primary transition-colors bg-secondary"
+            >
+              Explore Online Courses <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+        <div className="flex-1 flex justify-center w-full max-w-md relative">
+          <img
+            src="/illustrations/Location tracking-amico.svg"
+            alt="Find Muziclub Centers"
+            loading="lazy"
+            decoding="async"
+            className="w-full h-auto object-contain drop-shadow-[0_10px_40px_rgba(0,0,0,0.05)] hover:scale-105 transition-transform duration-700"
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default BranchPage;

@@ -4,8 +4,8 @@ import Footer from "@/components/Footer";
 import { Check } from "lucide-react";
 
 const plans = [
-  { title: "Hobby Classes", emoji: "🎸", tagline: "Learn music for passion", highlight: false, points: ["Customized to your preferences & goals", "Play the songs and styles you love", "Bollywood / Rock / Jazz / Pop — your choice", "Flexible pace, no exam pressure", "Personalized in-person learning sessions", "Walk into any of our award-winning Pune academies"], cta: "Book Free Trial", note: "Contact us for pricing" },
-  { title: "Grade Classes", emoji: "⭐", tagline: "Structured & internationally certified", highlight: true, points: ["Syllabus from Trinity, ABRSM, RSL or GMV Mandal", "Clear level progression — Beginner to Advanced", "Exam prep & technique coaching", "Internationally recognised certificate on passing", "Small group classes capped at 3 students max", "In-person one-on-one option available on request"], cta: "Book Free Trial", note: "Contact us for pricing" },
+  { title: "Hobby Classes", emoji: "🎸", tagline: "Learn music for passion", highlight: false, points: ["Customized to your preferences & goals", "Play the songs and styles you love", "Bollywood / Rock / Jazz / Pop — your choice", "Flexible pace, no exam pressure", "Personalized in-person learning sessions", "Walk into any of our award-winning Pune academies"], cta: "Book a Free Demo", note: "Contact us for pricing" },
+  { title: "Grade Classes", emoji: "⭐", tagline: "Structured & internationally certified", highlight: true, points: ["Syllabus from Trinity, ABRSM, RSL or GMV Mandal", "Clear level progression — Beginner to Advanced", "Exam prep & technique coaching", "Internationally recognised certificate on passing", "Small group classes capped at 3 students max", "In-person one-on-one option available on request"], cta: "Book a Free Demo", note: "Contact us for pricing" },
 ];
 
 const certs = [
@@ -16,7 +16,7 @@ const certs = [
 ];
 
 const faqs = [
-  { q: "How does the free trial class work?", a: "Book a free in-person trial class with one of our expert teachers. No commitment — you see if we're a good fit before enrolling." },
+  { q: "How does the free demo work?", a: "Book a free in-person demo with one of our expert teachers. No commitment — you see if we're a good fit before enrolling." },
   { q: "Are classes online or in-person?", a: "We prioritize in-person learning for the best musical results. You can visit any of our 3 Pune academy centres, or inquire about our coordination for other locations." },
   { q: "How many students per class?", a: "Hobby classes are primarily one-on-one. Group classes are capped at a maximum of 3 students for focused attention." },
   { q: "Can I switch between Hobby and Grade classes?", a: "Yes — our teachers will advise you and you can switch based on your progress and goals." },
@@ -140,10 +140,10 @@ const Pricing = () => {
       <section className="relative bg-[#110103] py-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#e31837]/20 to-transparent pointer-events-none"></div>
         <div className="container mx-auto px-6 text-center space-y-8 relative z-10">
-          <h2 className="text-3xl lg:text-[2.5rem] font-core font-medium text-white leading-tight">Start with a Free Trial Class</h2>
+          <h2 className="text-3xl lg:text-[2.5rem] font-core font-medium text-white leading-tight">Start with a Free Demo</h2>
           <p className="text-white/70 max-w-lg mx-auto text-base lg:text-lg font-medium drop-shadow-md">No credit card needed. Just show up and experience the <span className="font-core">muziclub</span> difference.</p>
           <Link to="/enquire" className="inline-flex items-center justify-center px-10 py-4 rounded-md bg-[#e31837] text-white text-[15px] font-bold transition-transform hover:scale-105 shadow-[0_10px_20px_rgba(227,24,55,0.3)] mt-2">
-            Book My Free Trial
+            Book a Free Demo
           </Link>
         </div>
       </section>

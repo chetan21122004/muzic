@@ -5,7 +5,7 @@ import { courseCategories } from "@/data/courses";
 
 const navItems = [
   { label: "Courses", hasDropdown: true },
-  { label: "Academies", href: "/muziclub-baner" },
+  { label: "Academies", href: "/centres" },
   { label: "Online", href: "/online" },
   { label: "Gallery", href: "/gallery" },
   { label: "Store", href: "/store" },
@@ -144,7 +144,7 @@ const Navbar = () => {
             to="/enquire"
             className="hidden sm:inline-flex items-center justify-center bg-white text-black hover:bg-white/90 font-bold px-7 py-2.5 rounded-full text-[13px] transition-transform hover:scale-105 shadow-[0_0_20px_rgba(255,255,255,0.05)]"
           >
-            Walk-in Free Trial
+            Walk-in Free Demo
           </Link>
 
           <button
@@ -213,7 +213,7 @@ const Navbar = () => {
                 to="/enquire"
                 className="w-full text-center py-3.5 text-sm font-bold text-black bg-white rounded-2xl hover:bg-white/90 transition-colors"
               >
-                Walk-in Free Trial
+                Walk-in Free Demo
               </Link>
             </div>
           </div>

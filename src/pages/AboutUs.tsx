@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { CountUp } from "@/components/CountUp";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
+import { branchHref } from "@/data/centres";
 
 const aboutCentreWhatsAppHref = (num: string, centreName: string) =>
   `https://wa.me/${num}?text=${encodeURIComponent(`Hi! I'm interested in ${centreName} — muziclub.`)}`;
@@ -187,19 +188,25 @@ const AboutUs = () => {
           <div className="text-center mb-14">
             <p className="text-primary text-[10px] font-extrabold uppercase tracking-[0.22em] mb-3">Find Us</p>
             <h2 className="font-core text-3xl md:text-4xl font-extrabold text-foreground">Our Academies</h2>
-            <p className="text-muted-foreground text-sm mt-2">Walk in for a free trial class :- appointment needed</p>
+            <p className="text-muted-foreground text-sm mt-2">Walk in for a free demo :- appointment needed</p>
           </div>
           <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {[
-              { name: "Baner", tagline: "Head Office & Academy", badge: "HEAD OFFICE", address: "Office 11 & 12, Aditi Commerce, Baner Road, Opp. Hillview Residency, Pune – 411045", landmark: "Above Bikaner Sweets", phone: "+91 91563 03400", altPhone: null, email: "enquiries@muziclub.com", hours: "Daily: 10 AM – 8 PM", rating: "4.8", reviews: "360+", mapUrl: "https://maps.google.com/?q=Muziclub+Baner+Aditi+Commerce+Baner+Road+Pune", img: "/new_imgs/Copy of DSC00403.webp", whatsapp: "919156303400" },
-              { name: "Pimple Saudagar", tagline: "Flagship Academy", badge: "FLAGSHIP", address: "2nd Floor, Radhika Avenue, near Jagtap Dairy, beside Savitribai Phule Park, Pune – 411057", landmark: "Near Savitribai Phule Park", phone: "+91 77699 87599", altPhone: "+91 75070 02008", email: "mzps1319@gmail.com", hours: "Daily: 11 AM – 8 PM", rating: "4.9", reviews: "544+", mapUrl: "https://maps.google.com/?q=Muziclub+Pimple+Saudagar+Radhika+Avenue+Pune", img: "/new_imgs/Copy of DSC00590.webp", whatsapp: "917769987599" },
-              { name: "Wakad Office", tagline: "Flagship Academy", badge: "FLAGSHIP", address: "Spirea, S. 91/4, Bhumkar Das Gugre Rd, near Silver Spoon, Bhumkar Nagar, Wakad, Pune – 411033", landmark: "Near Silver Spoon, Bhumkar Nagar", phone: "+91 80805 87033", altPhone: "+91 75078 10055", email: "mzspirea@gmail.com", hours: "Daily: 11 AM – 8 PM", rating: "4.9", reviews: "430+", mapUrl: "https://maps.google.com/?q=Muziclub+Wakad+Spirea+Bhumkar+Das+Gugre+Rd+Pune", img: "/new_imgs/Copy of DSC00677 (1).webp", whatsapp: "918080587033" },
-              { name: "Croydon, UK", tagline: "UK Coordination Centre", badge: "UK CENTRE", address: "Croydon, London, United Kingdom – CR0 5RR", landmark: "South London — Online Coordination & UK Classes", phone: "+44 7424 233 605", altPhone: "+44 203 769 0013", email: "uk@muziclub.com", hours: "Mon – Sat: 10 AM – 8 PM (IST online)", rating: null, reviews: null, mapUrl: "https://maps.google.com/?q=Croydon+London+CR0+5RR+UK", img: "/new_imgs/Copy of DSC00711 (1).webp", whatsapp: "447424233605" },
+              { slug: "baner" as const, name: "Baner", tagline: "Head Office & Academy", badge: "HEAD OFFICE", address: "Office 11 & 12, Aditi Commerce, Baner Road, Opp. Hillview Residency, Pune – 411045", landmark: "Above Bikaner Sweets", phone: "+91 91563 03400", altPhone: null, email: "enquiries@muziclub.com", hours: "Daily: 10 AM – 8 PM", rating: "4.8", reviews: "360+", mapUrl: "https://maps.google.com/?q=Muziclub+Baner+Aditi+Commerce+Baner+Road+Pune", img: "/new_imgs/Copy of DSC00403.webp", whatsapp: "919156303400" },
+              { slug: "pimple-saudagar" as const, name: "Pimple Saudagar", tagline: "Flagship Academy", badge: "FLAGSHIP", address: "2nd Floor, Radhika Avenue, near Jagtap Dairy, beside Savitribai Phule Park, Pune – 411057", landmark: "Near Savitribai Phule Park", phone: "+91 77699 87599", altPhone: "+91 75070 02008", email: "mzps1319@gmail.com", hours: "Daily: 11 AM – 8 PM", rating: "4.9", reviews: "544+", mapUrl: "https://maps.google.com/?q=Muziclub+Pimple+Saudagar+Radhika+Avenue+Pune", img: "/new_imgs/Copy of DSC00590.webp", whatsapp: "917769987599" },
+              { slug: "wakad" as const, name: "Wakad Office", tagline: "Flagship Academy", badge: "FLAGSHIP", address: "Spirea, S. 91/4, Bhumkar Das Gugre Rd, near Silver Spoon, Bhumkar Nagar, Wakad, Pune – 411033", landmark: "Near Silver Spoon, Bhumkar Nagar", phone: "+91 80805 87033", altPhone: "+91 75078 10055", email: "mzspirea@gmail.com", hours: "Daily: 11 AM – 8 PM", rating: "4.9", reviews: "430+", mapUrl: "https://maps.google.com/?q=Muziclub+Wakad+Spirea+Bhumkar+Das+Gugre+Rd+Pune", img: "/new_imgs/Copy of DSC00677 (1).webp", whatsapp: "918080587033" },
+              { slug: null, name: "Croydon, UK", tagline: "UK Coordination Centre", badge: "UK CENTRE", address: "Croydon, London, United Kingdom – CR0 5RR", landmark: "South London — Online Coordination & UK Classes", phone: "+44 7424 233 605", altPhone: "+44 203 769 0013", email: "uk@muziclub.com", hours: "Mon – Sat: 10 AM – 8 PM (IST online)", rating: null, reviews: null, mapUrl: "https://maps.google.com/?q=Croydon+London+CR0+5RR+UK", img: "/new_imgs/Copy of DSC00711 (1).webp", whatsapp: "447424233605" },
             ].map((c) => (
               <div key={c.name} className="group relative rounded-3xl overflow-hidden border border-border hover:border-primary/25 hover:shadow-xl transition-all duration-500 bg-background">
                 <div className="relative h-52 overflow-hidden">
-                  <img src={c.img} alt={`Muziclub ${c.name}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onError={(e) => { e.currentTarget.onerror = null; (e.currentTarget as HTMLImageElement).src = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Crect width='100%25' height='100%25' fill='%23111'/%3E%3C/svg%3E"; }} />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                  {c.slug ? (
+                    <Link to={branchHref(c.slug)} className="block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-t-3xl" aria-label={`${c.name} academy page`}>
+                      <img src={c.img} alt={`Muziclub ${c.name}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onError={(e) => { e.currentTarget.onerror = null; (e.currentTarget as HTMLImageElement).src = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Crect width='100%25' height='100%25' fill='%23111'/%3E%3C/svg%3E"; }} />
+                    </Link>
+                  ) : (
+                    <img src={c.img} alt={`Muziclub ${c.name}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onError={(e) => { e.currentTarget.onerror = null; (e.currentTarget as HTMLImageElement).src = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Crect width='100%25' height='100%25' fill='%23111'/%3E%3C/svg%3E"; }} />
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none" />
                   <div className="absolute top-4 left-4 bg-primary text-primary-foreground text-[9px] font-extrabold uppercase tracking-[0.18em] px-3 py-1.5 rounded-full shadow-lg">{c.badge}</div>
                   {c.rating && (
                     <div className="absolute top-4 right-4 flex items-center gap-1.5 bg-white/90 backdrop-blur-sm border border-border rounded-xl px-3 py-1.5">
@@ -212,7 +219,17 @@ const AboutUs = () => {
                 <div className="p-6">
                   <div className="mb-4">
                     <p className="text-primary text-[10px] font-bold uppercase tracking-widest mb-1">{c.tagline}</p>
-                    <h3 className="text-xl font-extrabold text-foreground"><span className="font-core">muziclub</span> — {c.name}</h3>
+                    <h3 className="text-xl font-extrabold text-foreground">
+                      {c.slug ? (
+                        <Link to={branchHref(c.slug)} className="hover:text-primary transition-colors">
+                          <span className="font-core">muziclub</span> — {c.name}
+                        </Link>
+                      ) : (
+                        <>
+                          <span className="font-core">muziclub</span> — {c.name}
+                        </>
+                      )}
+                    </h3>
                   </div>
                   <div className="space-y-3 mb-6">
                     <div className="flex items-start gap-3">
@@ -243,7 +260,7 @@ const AboutUs = () => {
                       <ExternalLink className="w-3.5 h-3.5" /> Open in Maps
                     </a>
                     <Link to="/enquire" className="flex-1 flex items-center justify-center gap-2 bg-primary text-primary-foreground text-xs font-bold py-2.5 rounded-full hover:bg-[#c40812] transition-all shadow-lg shadow-primary/20">
-                      Walk-in Free Trial
+                      Walk-in Free Demo
                     </Link>
                     <a
                       href={aboutCentreWhatsAppHref(c.whatsapp, c.name)}
